@@ -1,0 +1,29 @@
+project:
+  type: book
+
+book:
+  title: "Foundations of Atomic and Molecular Physics"
+  author: "Amey Joshi"
+  date: "13/06/2026"
+  chapters:
+    - index.qmd
+    - exact.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    include-in-header: macros.js
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+    include-in-header:
+      - file: macros.tex
+      - text: |
+          \usepackage{amsfonts}
+          \usepackage{mathtools}
+          \usepackage{bm}
