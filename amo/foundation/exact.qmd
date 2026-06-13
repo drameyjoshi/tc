@@ -126,7 +126,8 @@ eigenvalues, eigenvectors = eigh(H)
 n_states = 4
 x = np.linspace(-a, a, N + 2)
 
-plt.figure(figsize=(8, 6))
+fig, axes = plt.subplots(2, 2, figsize=(7, 6), sharex=True)
+axes_flat = axes.flatten()
 
 for i in range(n_states):
     E = eigenvalues[i]
@@ -139,15 +140,50 @@ for i in range(n_states):
     E_a = (n**2 * np.pi**2 * hbar**2)/(2 * m * L**2)
 
     print(f"State: {n}, numerical E: {E:07.4f}, analytical E: {E_a:07.4f}")
-    plt.plot(x, psi, label=f"n={n}, E={E:.2f}")
+    ax = axes_flat[i]
+    ax.plot(x, psi)
+    ax.axhline(0, color='black', lw=0.5, ls='--')
+    ax.set_title(f"State n = {n}, E={E:07.4f}")
+    ax.grid(True, alpha=0.3)
 
-plt.axhline(0, color='black', lw=0.5, ls="--")
-plt.title("Particle in a 1-d box")
-plt.xlabel("Position (x)")
-plt.ylabel(r"$\psi_n(x) + E_n$")
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.show()
+    if i % 2 == 0:
+        ax.set_ylabel(r"$\psi(x)$")
+
+    if i >= 2:
+        ax.set_xlabel(r"$x$")
+
+
+plt.suptitle("Particle in a 1-d box: wavefunction")
+_ = plt.tight_layout()
+
+# Plot the probability density. 
+fig, axes = plt.subplots(2, 2, figsize=(7, 6), sharex=True)
+axes_flat = axes.flatten()
+
+
+for i in range(n_states):
+    E = eigenvalues[i]
+    psi = np.zeros(N + 2)
+    psi[1:-1] = eigenvectors[:, i]
+
+    psi /= np.sqrt(np.sum(psi**2) * dx)
+    n = i + 1
+    L = 2 * a # Width of the box
+
+    ax = axes_flat[i]
+    ax.plot(x, psi**2)
+    ax.axhline(0, color='black', lw=0.5, ls='--')
+    ax.set_title(f"State n = {n}, E={E:07.4f}")
+    ax.grid(True, alpha=0.3)
+
+    if i % 2 == 0:
+        ax.set_ylabel(r"$|\psi(x)|^2$")
+
+    if i >= 2:
+        ax.set_xlabel(r"$x$")
+
+plt.suptitle("Particle in a 1-d box: probability density")
+plt.tight_layout()
 ```
 
 
