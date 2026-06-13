@@ -1,10 +1,10 @@
 # Exact Solution
 
-Schr\"odinger equation can be solved exactly in some cases. I will solve these
-numerically as well although it is not necessary when an exact analytical 
+Schr&ouml;dinger equation can be solved exactly in some cases. I will solve 
+these numerically as well although it is not necessary when an exact analytical 
 solution is available. I do so to get used to numerical methods.
 
-## 1-d potential well
+## Particle in a box
 Consider a particle in an infinitely deep potential well described by the
 potential energy
 $$
@@ -14,7 +14,7 @@ V(x) = \begin{cases}
 \end{cases}
 $$ {#eq-es1}
 The particle cannot leave the region $[-a, a]$ because it will take an infinite
-energy to do so. Within that interval, Schr\"odinger equation is
+energy to do so. Within that interval, Schr&ouml;dinger equation is
 $$
 -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi
 $$ {#eq-es2}
@@ -186,5 +186,3 @@ plt.suptitle("Particle in a 1-d box: probability density")
 plt.tight_layout()
 ```
 
-
-See @knuth84 for additional discussion of literate programming.
