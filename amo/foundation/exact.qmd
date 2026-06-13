@@ -1,4 +1,4 @@
-# Exact Solution
+# Exact Solutions
 
 Schr&ouml;dinger equation can be solved exactly in some cases. I will solve 
 these numerically as well although it is not necessary when an exact analytical 
@@ -186,3 +186,173 @@ plt.suptitle("Particle in a 1-d box: probability density")
 plt.tight_layout()
 ```
 
+## Harmonic oscillator
+The Hamiltonian for a simple harmonic oscillator is
+$$
+\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + \frac{1}{2}kx^2
+$$ {#eq-es9}
+so that the time-independent Schr&ouml;dinger equation is
+$$
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}kx^2\psi = E\psi.
+$$ {#eq-es10}
+Let $\alpha$ be the typical length scale of the problem. If $x = \alpha\xi$,
+then $\xi$ becomes the non-dimensional space variable. Writing the 
+Schr&oulm;dinger equation in terms of $\xi$,
+$$
+-\frac{\hbar^2}{2m}\frac{1}{\alpha^2}\frac{d^2\psi}{d\xi^2} + 
+\frac{1}{2}k\alpha^2\xi^2\psi = E\psi,
+$$ {#eq-es11}
+where $\psi$ is now a function of $\xi$. Rearranging the terms, we get
+$$
+\frac{d^2\psi}{d\xi^2} - \frac{mk}{\hbar^2}\alpha^4X^2\psi = 
+-\frac{2mE}{\hbar^2}\alpha^2\psi.
+$$ {#eq-es12}
+Choose
+$$
+\alpha^4 = \frac{\hbar^2}{mk}.
+$$ {#eq-es13}
+The Hooke's constant $k$ has dimension $[MT^{-2}]$. Therefore, $[\alpha] = [L]$
+is indeed a length. For this choice of $\alpha$, the rhs of @eq-es12 becomes
+$$
+-\frac{2mE}{\hbar^2}\frac{\hbar}{\sqrt{mk}} = 
+-\frac{2E}{\hbar}\sqrt{\frac{m}{k}}.
+$$ {#eq-es14}
+If
+$$
+\omega = \sqrt{\frac{k}{m}}
+$$ {#eq-es15}
+is the characteristic frequency of the oscillator then @eq-es12 becomes
+$$
+\frac{d^2\psi}{d\xi^2} + (\lambda - \xi^2)\psi = 0
+$$ {#eq-es16}
+where
+$$
+\lambda = \frac{2E}{\hbar\omega}
+$$ {#eq-es17}
+We observe that $\lambda$ too is the dimensionless energy of the oscillator.
+That is, it is a measure of energy in the units of $\hbar\omega$.
+
+At large $\xi$, equation @eq-es16 can be written as $\psi^{\tp} \approx 
+\xi^2\psi$. If $\psi = e^{\pm\xi^2/2}$ then $\psi^{\tp} = (\xi^2 \pm \xi)
+e^{\pm\xi^2/2}$. At large $\xi$, $\psi^{\tp}$ is indeed approximately equal to
+$e^{\pm\xi^2/2}$. We want the wave function to decay to zero as $\xi \rightarrow
+\pm\infty$. Therefore, we want a solution to behave like $e^{-\xi^2/2}$
+asymptotically. To make that happen, we write
+$$
+\psi(\xi) = e^{-\xi^2/2}H(\xi).
+$$ {#eq-es18}
+For this choice of the solution, @eq-es16 becomes
+$$
+H^{\tp} - 2\xi H^\op + (\lambda - 1) H = 0.
+$$ {#eq-es19}
+We will find the solution of this equation using the series
+$$
+H(\xi) = \sum_{n \ge 0}a_n \xi^n.
+$$
+Upon substituting in @eq-es19 we get the relation
+$$
+(\lambda - 1)a_0+2a_2+\sum_{n \ge 1}[(n+2)(n+1) + (\lambda - 1 - 2n)a_n]\xi^n
+= 0
+$$
+from which we get the recurrence relation,
+$$
+\begin{eqnarray*}
+a_2 &=& \frac{\lambda - 1}{2} \\
+a_{n+2} &=& \frac{2n - \lambda + 1}{(n + 1)(n + 2)}
+\end{eqnarray*}
+$$ {#eq-es20}
+The series will terminate for $\lambda = 2n + 1$ or if energy is
+$$
+\frac{2E}{\hbar\omega} = 2n + 1 \Rightarrow E = \left(n + \frac{1}{2}\right)
+\hbar\omega
+$$ {#eq-es21}
+We indicate the dependence of energy on $n$ by putting the subscript $E_n$.
+These are the energy eigenvalues of the problem with the zero point energy
+being $\hbar\omega/2$. Unlike the case of the one dimensional potential box,
+the energy levels are evenly spread out.
+
+The code to solve the harmonic oscillator problem numerically is:
+```{python}
+# Constants of the problem in Hartree units.
+hbar = 1.0
+m = 1.0
+k = 1
+omega = np.sqrt(k/m)
+
+# Grid parameters
+N = 1000
+
+
+# Assemble the Hamiltonian matrix
+main_diag = -2.0 * np.ones(N)
+off_diag  = 1.0 * np.ones(N - 1)
+x = np.linspace(-5, 5, N)
+dx = x[1] - x[0]
+prefactor = -hbar**2/(2.0 * m * dx**2)
+
+T = prefactor * (
+    np.diag(main_diag) +
+    np.diag(off_diag, k=1) +
+    np.diag(off_diag, k=-1)
+)
+
+# Extract and plot the results
+n_states = 4
+V = k/2 * np.diag(x**2)
+H = T + V
+
+# Solve the eigen-value problem.
+eigenvalues, eigenvectors = eigh(H)
+
+fig, axes = plt.subplots(2, 2, figsize=(7, 6), sharex=True)
+axes_flat = axes.flatten()
+
+for i in range(n_states):
+    E = eigenvalues[i]
+    psi = eigenvectors[:, i]
+
+    psi /= np.sqrt(np.sum(psi**2) * dx)
+    E_a = (i + 1.0/2) * hbar * omega
+
+    print(f"State: {i}, numerical E: {E:07.4f}, analytical E: {E_a:07.4f}")
+    ax = axes_flat[i]
+    ax.plot(x, psi)
+    ax.axhline(0, color='black', lw=0.5, ls='--')
+    ax.set_title(f"State n = {n}, E={E:07.4f}")
+    ax.grid(True, alpha=0.3)
+
+    if i % 2 == 0:
+        ax.set_ylabel(r"$\psi(x)$")
+
+    if i >= 2:
+        ax.set_xlabel(r"$x$")
+
+
+plt.suptitle("Harmonic oscillator: wavefunction")
+_ = plt.tight_layout()
+
+# Plot the probability density. 
+fig, axes = plt.subplots(2, 2, figsize=(7, 6), sharex=True)
+axes_flat = axes.flatten()
+
+
+for i in range(n_states):
+    E = eigenvalues[i]
+    psi = eigenvectors[:, i]  
+
+    psi /= np.sqrt(np.sum(psi**2) * dx)
+    ax = axes_flat[i]
+    ax.plot(x, psi**2)
+    ax.axhline(0, color='black', lw=0.5, ls='--')
+    ax.set_title(f"State n = {i}, E={E:07.4f}")
+    ax.grid(True, alpha=0.3)
+
+    if i % 2 == 0:
+        ax.set_ylabel(r"$|\psi(x)|^2$")
+
+    if i >= 2:
+        ax.set_xlabel(r"$x$")
+
+plt.suptitle("Harmonic oscillator: probability density")
+plt.tight_layout()
+```
