@@ -8,6 +8,7 @@ book:
   chapters:
     - index.qmd
     - exact.qmd
+    - angmom.qmd
     - summary.qmd
     - references.qmd
 

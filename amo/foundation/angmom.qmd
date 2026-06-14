@@ -1,0 +1,167 @@
+# Angular Momentum
+
+We will review the theory of angular momentum in quantum mechanics, largely
+following the treatment in @sakurai1986modern.
+
+## Rotation in classical mechanics
+It is well-known that a body initially at a point $\bv{r}$ when first
+translated by $\bv{x}_1$ and then by $\bv{x}_2$ reaches the same position if
+we had first translated it by $\bv{x}_2$ and then by $\bv{x}_1$. This is
+because the result of two translation is an addition of vectors, a commutative
+operation.
+
+Rotations cannot be described by vectors. If a vector $\bv{x} =
+[x_1, x_2, x_3]^T$ is rotated then its components after rotation $[x_1^\op,
+x_2^\op, x_3^\op]^T$ are related to its original components by
+$$
+\begin{bmatrix}x_1^\op \\ x_2^\op \\ x_3^\op\end{bmatrix} =
+R\begin{bmatrix}x_1 \\ x_2 \\ x_3\end{bmatrix}
+$$ {#eq-am1}
+If $R_1$ and $R_2$ are the matrices representing two rotations and if they
+happen one after the other then their combined effect is represented by either
+$R_2R_1$ or $R_1R_2$. Unlike addition of vectors, the multiplication of
+matrices is \emph{not} commutative.
+
+We shall follow the convention of interpreting a rotation as the act of moving
+a vector keeping the coordinate systems untouched. With this convention, a
+rotation of a vector by and angle $\phi$ about the three axes is represented
+by
+$$
+\begin{eqnarray}
+R_x(\phi) &=& \begin{bmatrix}1 & 0 & 0 \\
+0 & \cos\phi & -\sin\phi \\
+0 & \sin\phi & \cos\phi
+\end{bmatrix}  \\
+R_y(\phi) &=& \begin{bmatrix}\cos\phi & 0 & \sin\phi \\
+0 & 1 & 0 \\
+-\sin\phi & 0 & \cos\phi
+\end{bmatrix}  \\
+R_z(\phi) &=& \begin{bmatrix}\cos\phi & -\sin\phi & 0 \\
+\sin\phi & \cos\phi & 0 \\
+0 & 0 & 1
+\end{bmatrix} 
+\end{eqnarray}
+$$ {#eq-am2}
+Note that the negative sign of $\sin\phi$ appears in the "$y$ row" for $R_x$,
+"$z$ row" for $R_y$ and "$x$ row" for $R_z$.
+
+If $\phi$ is infinitesimally small then we can write the above equations as
+$$
+\begin{eqnarray}
+R_x(\phi) &=& \begin{bmatrix}1 & 0 & 0 \\
+0 & 1 - \phi^2/2 & -\phi \\
+0 & \phi & 1 - \phi^2/2
+\end{bmatrix}  \\
+R_y(\phi) &=& \begin{bmatrix}1 - \phi^2/2 & 0 & \phi \\
+0 & 1 & 0 \\
+-\phi & 0 & 1 - \phi^2/2
+\end{bmatrix}  \\
+R_z(\phi) &=& \begin{bmatrix}1 - \phi^2/2 & -\phi & 0 \\
+\phi & 1 - \phi^2/2 & 0 \\
+0 & 0 & 1
+\end{bmatrix} 
+\end{eqnarray}
+$$ {#eq-am3}
+so that
+$$
+R_xR_y - R_yR_x = \begin{bmatrix}0 & -\phi^2 & 0 \\
+\phi^2 & 0 & 0 \\
+0 & 0 & 0 \end{bmatrix} = R_z(\phi^2) - I,
+$$ {#eq-am4}
+where we ignored terms of $O(\phi^3)$ and above. In fact, if we ignore terms
+of $O(\phi^2)$ and above then
+$$
+R_xR_y - R_yR_x = 0 \text{ up to } O(\phi).
+$$ {#eq-am5}
+Thus, even if finite rotations do not commute, infinitesimal ones do. Can we
+express infinitesimal rotations as vectors?
+
+## Infinitesimal rotations as vectors
+We notice that the matrix $R_z(\phi^2)$ is anti-symmetric. We will now argue
+that every infinitisemal rotation is represented by an anti-symmetric matrix.
+If $R$ is one such then we can write its effect on a vector $\bv{x}$ as
+$$
+\bv{x}^\prime = (1 + R)\bv{x}.
+$$ {#eq-am6}
+It is clear that, up to first order, the inverse of the transformation $1 + R$
+is $1 - R$. We also know that rotation matrices are always orthogonal, that is
+their transpose is their inverse. Therefore, for infinitesimal rotations, we
+have \cite{wolfram1}
+$$
+(1 + R)^T = (1 - R) \Rightarrow R^T = -R,
+$$ {#eq-am7}
+that is, $R$ is anti-symmetric. An anti-symmetric matrix has only three
+independent entries and is therefore isomorphic to a vector. One can represent
+a general infinitesimal rotation as
+$$
+R = \begin{bmatrix}0 & d\Omega_3 & -d\Omega_2 \\
+-d\Omega_3 & 0 & d\Omega_1 \\
+d\Omega_2 & -d\Omega_1 & 0
+\end{bmatrix}
+$$ {#eq-am8}
+so that
+$$
+\begin{bmatrix}x_1^\prime \\ x_2^\prime \\ x_3^\prime \end{bmatrix} =
+\begin{bmatrix}0 & d\Omega_3 & -d\Omega_2 \\
+-d\Omega_3 & 0 & d\Omega_1 \\
+d\Omega_2 & -d\Omega_1 & 0
+\end{bmatrix}\begin{bmatrix}x_1 \\ x_2 \\ x_3 \end{bmatrix}
+= \begin{bmatrix}
+x_2d\Omega_3 - x_3d\Omega_2 \\
+x_3d\Omega_1 - x_1d\Omega_3 \\
+x_2d\Omega_2 - x_2d\Omega_1
+\end{bmatrix}.
+$$ {#eq-am9}
+We can write this equation succintly as
+$$
+x_i^\prime = \epsilon_{ijk}x_jd\Omega_k
+$$ {#eq-am10}
+which allows us to consider $[d\Omega_1, d\Omega_2, d\Omega_3]^T$ as a vector.
+We can write equation @eq-am10 as
+$$
+\bv{x}^\prime = \bv{x} \times d\bv{\Omega}.
+$$ {#eq-am11}
+
+## Rotation in quantum mechanics
+We know from classical mechanics that the momentum is a generator of 
+infinitesimal translations, the hamiltonian is a generator of infinitesimal
+time evolution and the angular momentum is a generator of infinitesimal 
+rotation. Furthermore, the products of momentum and translation, energy and
+time interval and angular momentum and angular displacement all have the 
+dimension of action. Therefore, an operator representing an infinitesimal change
+can be written as 
+$$
+U_\epsilon = 1 - iG\epsilon
+$$ {#eq-am12}
+where $G$ is an operator of such dimensions that $G\epsilon$ is dimensionless.
+In the case of infinitesimal translation $\delta x$ along the $x$ axis, we have
+$$
+U_{\delta x} = 1 - i\frac{p_x}{\hbar}\delta x
+$$ {#eq-am13}
+while in the case of a time evolution by $\delta t$, we have
+$$
+U_{\delta t} = 1 - i\frac{H}{\hbar}\delta t.
+$$ {#eq-am14}
+Carrying this analogy, we write the operator for an infinitesimal rotation
+about the $k$ axis as 
+$$
+U_{\delta\phi} = 1 - i\frac{J_k}{\hbar}\delta\phi,
+$$ {#eq-am15}
+where $J_k$ is the angular momentum operator. In general, for a rotation about
+a unit vector $\un$ by an angle $\delta\phi$, we can write
+$$
+D(\hat{\bv{n}}, \delta\phi) = 1 - i\frac{\bv{J}\cdot\un}{\hbar}\delta\phi.
+$$ {#eq-am16}
+A finite rotation by angle $\phi$ can be considered to be made up of $n$
+infinitesimal rotations in steps of $\phi/n$ as $n \rightarrow \infty$. Thus,
+$$
+\begin{eqnarray*}
+D(\un,\phi) &=& 
+\lim_{n \rightarrow \infty}\prod D\left(\un, \frac{\phi}{n}\right) \\
+ &=&
+\lim_{n \rightarrow \infty}\left(1 - i\frac{\bv{J}\cdot\un}{\hbar}\frac{\phi}
+{n}\right)^n \\
+ &=& \exp\left(-i\frac{\bv{J}\cdot\un}{\hbar}\phi\right).
+\end{eqnarray*}
+$$ {#eq-am17}
+
