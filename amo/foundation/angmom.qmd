@@ -164,4 +164,89 @@ D(\un,\phi) &=&
  &=& \exp\left(-i\frac{\bv{J}\cdot\un}{\hbar}\phi\right).
 \end{eqnarray*}
 $$ {#eq-am17}
+Using @eq-am16, we have
+$$
+\begin{eqnarray*}
+D(\bv{e}_x,\delta\phi) &=& 1 - i\frac{J_x}{\hbar}\delta\phi \\
+D(\bv{e}_y,\delta\phi) &=& 1 - i\frac{J_y}{\hbar}\delta\phi \\ 
+D(\bv{e}_z,\delta\phi^2) &=& 1 - i\frac{J_z}{\hbar}\delta\phi^2 
+\end{eqnarray*}
+$$ {#eq-am18}
+so that
+$$
+D(\bv{e}_x,\delta\phi)D(\bv{e}_y,\delta\phi) - 
+D(\bv{e}_y,\delta\phi)D(\bv{e}_x,\delta\phi) = 
+1 - \frac{J_xJ_y - J_yJ_x}{\hbar^2}\delta\phi^2 + O(\delta\phi^4)
+$$ {#eq-am19}
+Using equation @eq-am4 as an analogy, we can propose that the operators 
+representing rotations should obey a similar equation. That is, 
+$$
+D(\bv{e}_x,\delta\phi)D(\bv{e}_y,\delta\phi) - 
+D(\bv{e}_y,\delta\phi)D(\bv{e}_x,\delta\phi) = 
+D(\bv{e}_z,\delta\phi^2) - 1 
+$$
+Using equations @eq-am18 and @eq-am19 we get
+$$
+1-i\frac{[J_x, J_y]}{\hbar^2}\delta\phi^2 =1 - i\frac{J_z}{\hbar}\delta\phi^2,
+$$
+that is,
+$$
+[J_x, J_y] = i\hbar J_z.
+$$ {#eq-am20}
+Similarly, we can also conclude 
+$$
+\begin{eqnarray*}
+[J_y, J_z] &=& i\hbar J_x \\
+[J_z, J_x] &=& i\hbar J_y
+\end{eqnarray*}
+$$ {#eq-am21}
+Equations @eq-am20 and @eq-am21 are the familiar commutation relations between
+the components of angular momentum. They are derived solely from the observation
+that angular momentum is the generator of infinitesimal rotations and the 
+matrices which rotate vectors by infinitesimal degrees follow relations similar
+to @eq-am4. In particular, we did not use the classical relation $\bv{L} = 
+\bv{x} \times \bv{p}$ to derive the operator for angular momentum and the latter
+to infer the commutation relations. As a result, equations @eq-am20 and @eq-am21
+are valid even in situations where the angular momentum has no classical 
+analogue, that is, the spin.
+
+## An overview of spin-$1/2$ systems
+Goudsmit and Uhlenbeck explained the Zeeman splitting by proposing that 
+electrons have an intrinsic magnentic moment. This idea also explained the 
+results of the Stern and Gerlach experiment. Magnetic moments are related to
+current loops in classical physics and charges moving in loops possess angular
+momentum. Thus, an intrinsic magnetic moment is associated with an intrinsic
+angular momentum, which was given the name "spin". Experiments also indicated
+that for an electron, there are only two possible values of the spin along a
+fixed direction.
+
+The two spin states $\ket{u}$ and $\ket{d}$ are defined in such a way that
+$$
+S_z\ket{u} = \frac{\hbar}{2}\ket{u},\;S_z\ket{d} = -\frac{\hbar}{2}\ket{d}
+$$ {#eq-am22}
+where $S_z$ is the $z$-component of the spin angular momentum $\bv{S}$. In the
+basis $\{\ket{u}, \ket{d}\}$, the three spin operators are defined as
+$$
+\begin{eqnarray*}
+S_x &=& = \frac{\hbar}{2}(\ket{u}\bra{d} + \ket{d}\bra{u}) \\
+S_y &=& = -i\frac{\hbar}{2}(\ket{u}\bra{d} - \ket{d}\bra{u}) \\
+S_z &=& = \frac{\hbar}{2}(\ket{u}\bra{u} - \ket{d}\bra{d}) 
+\end{eqnarray*}
+$$ {#eq-am23}
+From these equations, one can readily confirm that
+$$
+\begin{eqnarray*}
+S_z\ket{u} &=& \frac{\hbar}{2}(\ket{u}\braket{u}{u} - \ket{d}\braket{d}{u}) \\
+ &=& \frac{\hbar}{2}(\ket{u} \cdot 1 - \ket{d} \cdot 0) \\
+ &=& \frac{\hbar}{2}\ket{u}
+\end{eqnarray*}
+$$
+and
+$$
+\begin{eqnarray*}
+S_z\ket{d} &=& \frac{\hbar}{2}(\ket{u}\braket{u}{d} - \ket{d}\braket{d}{d}) \\
+ &=& \frac{\hbar}{2}(\ket{u} \cdot 0 - \ket{d} \cdot 1) \\
+ &=& -\frac{\hbar}{2}\ket{d}
+\end{eqnarray*}
+$$
 

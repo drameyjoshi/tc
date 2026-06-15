@@ -26,5 +26,5 @@ format:
       - file: macros.tex
       - text: |
           \usepackage{amsfonts}
-          \usepackage{mathtools}
+          \usepackage{physics}
           \usepackage{bm}
