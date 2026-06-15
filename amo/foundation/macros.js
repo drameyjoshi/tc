@@ -1,7 +1,7 @@
 <script>
 window.MathJax = {
   tex: {
-    packages: { '[+]': ['amsfonts', 'bm', 'physics'] },
+    packages: { '[+]': ['amsfonts', 'bm', 'braket'] },
     macros: {
       bv: ["{\\mathbf{#1}}", 1],
       pdt: ["{\\frac{\\partial{#1}}{\\partial{#2}}}", 2],

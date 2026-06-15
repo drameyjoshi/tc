@@ -250,3 +250,6 @@ S_z\ket{d} &=& \frac{\hbar}{2}(\ket{u}\braket{u}{d} - \ket{d}\braket{d}{d}) \\
 \end{eqnarray*}
 $$
 
+Now assume that a spin-$1/2$ system is in an arbitrary state $\ket{x}$ and is
+rotated about the $z$-axis by and angle $\phi$. Let $\ket{y}=D_z(\phi)\ket{x}$.
+We want to compute $\langle S_x \rangle$.
