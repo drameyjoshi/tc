@@ -236,20 +236,93 @@ $$ {#eq-am23}
 From these equations, one can readily confirm that
 $$
 \begin{eqnarray*}
-S_z\ket{u} &=& \frac{\hbar}{2}(\ket{u}\braket{u}{u} - \ket{d}\braket{d}{u}) \\
+S_z\ket{u} &=& \frac{\hbar}{2}(\ket{u}\braket{u|u} - \ket{d}\braket{d|u}) \\
  &=& \frac{\hbar}{2}(\ket{u} \cdot 1 - \ket{d} \cdot 0) \\
  &=& \frac{\hbar}{2}\ket{u}
 \end{eqnarray*}
-$$
+$$ {#eq-am24}
 and
 $$
 \begin{eqnarray*}
-S_z\ket{d} &=& \frac{\hbar}{2}(\ket{u}\braket{u}{d} - \ket{d}\braket{d}{d}) \\
+S_z\ket{d} &=& \frac{\hbar}{2}(\ket{u}\braket{u|d} - \ket{d}\braket{d|d}) \\
  &=& \frac{\hbar}{2}(\ket{u} \cdot 0 - \ket{d} \cdot 1) \\
  &=& -\frac{\hbar}{2}\ket{d}
 \end{eqnarray*}
-$$
+$$ {#eq-am25}
 
-Now assume that a spin-$1/2$ system is in an arbitrary state $\ket{x}$ and is
-rotated about the $z$-axis by and angle $\phi$. Let $\ket{y}=D_z(\phi)\ket{x}$.
-We want to compute $\langle S_x \rangle$.
+Now assume that a spin-$1/2$ system is in an arbitrary state $\ket{i}$ and is
+rotated about the $z$-axis by and angle $\phi$. Let $\ket{f}=D_z(\phi)\ket{i}$.
+We want to compute $\langle S_x \rangle$ in the initial state $\ket{i}$ and the
+final state $\ket{f}$.
+Now,
+$$
+\braket{S_x}_f = \bra{f}S_x\ket{f} = \bra{i}D_z^\dagger S_x D_z\ket{i}.
+$$ {#eq-am26}
+Using @eq-am17 and @eq-am23,
+$$
+D_z^\dagger S_x D_z=\exp\left(\frac{iS_z\phi}{\hbar}\right)\frac{\hbar}{2}
+(\ket{u} \bra{d} + \ket{d}\bra{u}) 
+\exp\left(\frac{-iS_z\phi}{\hbar}\right)
+$$ {#eq-am27}
+As
+$$
+\exp\left(\frac{iS_z\phi}{\hbar}\right) = 
+\sum_{n \ge 0}\frac{(iS_z\phi)^n}{\hbar^n},
+$$
+using @eq-am24, we get
+$$
+\exp\left(\frac{iS_z\phi}{\hbar}\right)\ket{u} =
+\sum_{n \ge 0}\frac{i^n\phi^n}{2^n}\ket{u} = e^{i\phi/2}\ket{u}
+$$ {#eq-am28}
+and using @eq-am25, we get
+$$
+\exp\left(\frac{iS_z\phi}{\hbar}\right)\ket{d} =
+\sum_{n\ge 0}\frac{(-i)^n\phi^n}{2^n}\ket{d} = e^{-i\phi/2}\ket{d}
+$$ {#eq-am29}
+Using equations @eq-am28 and @eq-am29 and their respective adjoints in equation
+@eq-am27, we get
+$$
+D_z^\dagger S_x D_z = \frac{\hbar}{2}\left((\ket{u}\bra{d} + \ket{d}\bra{u})
+\cos\phi + i(\ket{u}\bra{d} - \ket{d}\bra{u})\sin\phi\right)
+$$ {#eq-am30}
+Using equations @eq-am23, 
+$$
+D_z^\dagger S_x D_z = S_x\cos\phi - S_y\sin\phi.
+$$ {#eq-am31}
+and therefore, from @eq-am26,
+$$
+\bra{f}S_x\ket{f} = \bra{i}S_x\ket{i}\cos\phi - \bra{i}S_y\ket{i}\sin\phi.
+$$
+that is
+$$
+\braket{S_x}_f = \braket{S_x}_i\cos\phi - \braket{S_y}_i\sin\phi.
+$$ {#eq-am32}
+We can similarly show that
+$$
+\braket{S_y}_f = \braket{S_x}_i\cos\phi + \braket{S_y}_i\sin\phi.
+$$ {#eq-am33}
+and
+$$
+\braket{S_z}_f = \braket{S_z}_i.
+$$ {#eq-am34}
+We can combine equations @eq-am32, @eq-am33 and @eq-am34 as
+$$
+\begin{bmatrix} 
+\braket{S_x}_f \\ \braket{S_y}_f \\ \braket{S_z}_f
+\end{bmatrix} = 
+\begin{bmatrix}
+\cos\phi & -\sin\phi & 0 \\ \sin\phi & \cos\phi & 0 \\ 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix} 
+\braket{S_x}_i \\ \braket{S_y}_i \\ \braket{S_z}_i
+\end{bmatrix} = R_z(\phi)
+\begin{bmatrix} 
+\braket{S_x}_i \\ \braket{S_y}_i \\ \braket{S_z}_i
+\end{bmatrix}. 
+$$ {#eq-am35}
+Recall that $\ket{f} = D_z(\phi)\ket{i}$. If we interpret the column vectors
+as $\bra{i}\bv{S}\ket{i}$ and $\bra{f}\bv{S}\ket{f}$ then equation @eq-am35
+suggests that expectation of value of $\bv{S}$ behaves like a classical vector.
+The way a classical vector is transformed by $R_z(\phi)$, so is the expectation
+of $\bv{S}$ as the rotation operator $D_z(\phi)$ transforms $\ket{i}$ to 
+$\ket{f}$.
