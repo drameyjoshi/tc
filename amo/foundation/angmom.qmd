@@ -250,6 +250,8 @@ S_z\ket{d} &=& \frac{\hbar}{2}(\ket{u}\braket{u|d} - \ket{d}\braket{d|d}) \\
 \end{eqnarray*}
 $$ {#eq-am25}
 
+### Effect of rotation on spin - I
+
 Now assume that a spin-$1/2$ system is in an arbitrary state $\ket{i}$ and is
 rotated about the $z$-axis by and angle $\phi$. Let $\ket{f}=D_z(\phi)\ket{i}$.
 We want to compute $\langle S_x \rangle$ in the initial state $\ket{i}$ and the
@@ -325,4 +327,92 @@ as $\bra{i}\bv{S}\ket{i}$ and $\bra{f}\bv{S}\ket{f}$ then equation @eq-am35
 suggests that expectation of value of $\bv{S}$ behaves like a classical vector.
 The way a classical vector is transformed by $R_z(\phi)$, so is the expectation
 of $\bv{S}$ as the rotation operator $D_z(\phi)$ transforms $\ket{i}$ to 
-$\ket{f}$.
+$\ket{f}$. The rotation operator $D_z(\phi)$ when applied to a spin state 
+$\ket{i}$ rotates the expectation value of $\bv{S}$ around the $z$-axis.
+
+### Effect of rotation on spin - II
+In the previous section we used the form of $S_x$ operator given by @eq-am23.
+We will now show that it is possible to derive an analogue of @eq-am35 using 
+the commutation relations @eq-am20 and @eq-am21. That is, we will show that
+$$
+\braket{\bv{J}}_f = R_z(\phi)\braket{\bv{J}}_i.
+$$ {#eq-am36}
+We will use the Baker-Campbell-Hausdorff formula
+$$
+e^{-iG\lambda}Ae^{iG\lambda}=\sum_{k \ge 0}\left(\frac{ik}{\lambda}\right)^k
+[G,A]_k,
+$$ {#eq-am37}
+where
+$$
+[G, A]_k = \begin{cases} A & \text{ if } k = 0 \\ [G, [G, A]_{k-1}] &  
+\text{ if } k > 0.
+\end{cases}
+$$ {#eq-am38}
+
+If $G = J_z$ and $A = J_x$ then
+$$
+\begin{eqnarray}
+[J_z, J_x]_0 &=& J_x \\
+[J_z, J_x]_1 &=& i\hbar J_y \\
+[J_z, J_x]_2 &=& (i\hbar)^2 J_x = -\hbar^2 J_x \\
+[J_z, J_x]_3 &=& -i\hbar^3 J_y \\
+\vdots &=& \vdots
+\end{eqnarray}
+$$ {#eq-am39}
+so that
+$$
+e^{-iJ_z\phi}J_xe^{iJ_z\phi} = J_x + \frac{i\phi}{\hbar}
+(i\hbar J_y) + \left(\frac{i\phi}{\hbar}\right)^2(-i\hbar)^2(-J_x)
++ \left(\frac{i\phi}{\hbar}\right)^3(i\hbar)^3(-J_y) + \ldots.
+$$
+Getting together the real and the imaginary parts together, we get
+$$
+e^{iJ_z\phi/\hbar}J_xe^{-iJ_z\phi/\hbar} = J_x\left(1 - \frac{\phi^2}{2!}
++ \cdots\right) - J_y\left(\phi - \frac{\phi^3}{3!} + \cdots\right)
+$$
+or
+$$
+e^{iJ_z\phi/\hbar}J_xe^{-iJ_z\phi/\hbar} = J_x\cos\phi - J_y\sin\phi.
+$$ {#eq-am40}
+We can similarly show that
+$$
+\begin{eqnarray}
+e^{iJ_z\phi/\hbar}J_ye^{-iJ_z\phi/\hbar} &=& J_x\sin\phi + J_y\cos\phi \\
+e^{iJ_z\phi/\hbar}J_ze^{-iJ_z\phi/\hbar} &=& J_z 
+\end{eqnarray}
+$$ {#eq-am41}
+Equations @eq-am40 and @eq-am41 are just the components of @eq-am36.
+
+### Effect of rotation on spin - III
+Consider an arbitrary state $\ket{\alpha}$ of a spin-$1/2$ system. We can
+write it terms of the basis states $\{\ket{u}, \ket{d}\}$ as
+$$
+\ket{\alpha} = \braket{u|\alpha}\ket{u} + \braket{d|\alpha}\ket{d}
+$$ {#eq-am42}
+Let us rotate this state about the $z$-axis by an angle $\phi$. We can describe
+the operation by applying the $D_z(\phi)$ operator on $\ket{\alpha}$. From
+equation @eq-am17, we know that $D_z(\phi) = \exp(-iS_z\phi/\hbar)$ so that
+$$
+D_z(\phi)\ket{\alpha} = \braket{u|\alpha}e^{-iS_z\phi/\hbar}\ket{u} +
+\braket{d|\alpha}e^{-iS_z\phi/\hbar}\ket{d}
+$$ {#eq-am43}
+
+Now,
+$$
+e^{-iS_z\phi/\hbar}\ket{u} = \sum_{k \ge 0}\left(\frac{-iS_z}{\hbar}\right)^k
+\ket{u} = \sum_{k \ge 0}\left(\frac{-i}{\hbar}\right)^k
+\left(\frac{\hbar}{2}\right)^k\ket{u} = e^{-i\phi/2}\ket{u},
+$$ {#eq-am44}
+where we used @eq-am24
+Similarly,
+$$
+e^{-iS_z\phi/\hbar}\ket{d} = e^{i\phi/2}\ket{d}
+$$ {#eq-am45}
+so that @eq-am43 becomes
+$$
+D_z(\phi)\ket{\alpha} = \braket{u|\alpha}e^{-i\phi/2}\ket{u} + 
+\braket{d|\alpha}e^{i\phi/2} \ket{d}.
+$$ {#eq-am46}
+In particular, $D_z(2\pi)\ket{\alpha} = -\ket{\alpha}$ and $D_z(4\pi)
+\ket{\alpha} = \ket{\alpha}$. This, if we rotate a spin-$1/2$ system by $2\pi$,
+we get its negative and that we have to rotate it twice over to get it back.
