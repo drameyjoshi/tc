@@ -416,3 +416,99 @@ $$ {#eq-am46}
 In particular, $D_z(2\pi)\ket{\alpha} = -\ket{\alpha}$ and $D_z(4\pi)
 \ket{\alpha} = \ket{\alpha}$. This, if we rotate a spin-$1/2$ system by $2\pi$,
 we get its negative and that we have to rotate it twice over to get it back.
+
+## Spinors and Pauli matrices
+We will now compute the matrix representation of the operators defined in
+@eq-am23 in the $\{\ket{u}, \ket{d}\}$ basis.
+$$
+S_z = \begin{bmatrix}\bra{u}S_z\ket{u} & \bra{u}S_z\ket{d} \\
+\bra{d}S_z\ket{u} & \bra{d}S_z\ket{d}\end{bmatrix} = 
+\frac{\hbar}{2}\begin{bmatrix} 1 & 0 \\
+0 & -1 \end{bmatrix}
+$$ {#eq-am47}
+Similarly, one can show that
+$$
+S_x = \frac{\hbar}{2}\begin{bmatrix}0 & 1 \\ 1 & 0 \end{bmatrix};
+S_y = \frac{\hbar}{2}\begin{bmatrix}0 & -1 \\ i & 0 \end{bmatrix}
+$$ {#eq-am48}
+
+The three matrices
+$$
+\begin{eqnarray*}
+\sigma_x &=& \begin{bmatrix}0 & 1 \\ 1 & 0 \end{bmatrix} \\
+\sigma_y &=& \begin{bmatrix}0 & -i \\ i & 0 \end{bmatrix} \\
+\sigma_x &=& \begin{bmatrix}1 & 0 \\ 0 & -1 \end{bmatrix} \\
+\end{eqnarray*}
+$$ {#eq-am49}
+are called Pauli matrices. Their properties can be inferred immediately,
+$$
+\begin{eqnarray*}
+\tr\sigma_i &=& 0 \\
+\det\sigma_1 &=& -1 \\
+\sigma_i^2 &=& I_2 \\
+\sigma_i^\dagger &=& \sigma_i \\
+\{\sigma_i, \sigma_j\} &=& 2\delta_{ij} \\
+[\sigma_i, \sigma_j] &=& 2i\epsilon_{ijk}\sigma_k
+\end{eqnarray*}
+$$ {#eq-am50}
+The base states, themselves are represented by
+$$
+\begin{eqnarray*}
+\ket{u} &=& \begin{bmatrix}1 \\ 0\end{bmatrix} \\
+\ket{d} &=& \begin{bmatrix}0 \\ 1\end{bmatrix}
+\end{eqnarray*}
+$$ {#eq-am51}
+The three spin operators $S_x, S_y, S_z$ are considered to be components of the
+vector operator $\bv{S}$. Likewise, the three Pauli matrices can be considered
+to be components of a vector operator $\bv{\sigma}$. It is easy to check that
+$$
+\bv{\sigma}\cdot\bv{a} = 
+\begin{bmatrix}a_z & a_x + ia_y \\ a_x - ia_y & -a_z \end{bmatrix}
+$$ {#eq-am52}
+and
+$$
+(\bv{\sigma}\cdot\bv{a})^2 = a^2I_2.
+$$ {#eq-am53}
+Since
+$$
+\sigma_i\sigma_j = \frac{\{\sigma_i, \sigma_j\} + [\sigma_i, \sigma_j]}{2},
+$$ {#eq-am53}
+it follows that
+$$
+\begin{eqnarray*}
+(\bv{\sigma}\cdot\bv{a})(\bv{\sigma}\cdot\bv{b}) &=& \sigma_ja_j\sigma_kb_k \\
+ &=& \frac{\{\sigma_j, \sigma_k\} + [\sigma_j, \sigma_k]}{2} a_jbk \\
+ &=& (\delta_{jk} + i\epsilon_{jkl}\sigma_l)a_jb_k \\
+ &=& \bv{a}\cdot\bv{b} + i\bv{\sigma}\cdot(\bv{a} \times \bv{b}).
+\end{eqnarray*}
+$$ {#eq-am54}
+
+The general rotation operator for spin-$1/2$ systems is
+$$
+D(\phi) = \exp\left(-i\frac{\bv{S}\cdot\un}{\hbar}\right) = 
+\exp\left(-i\frac{\sigma\cdot\un}{2}\phi\right).
+$$ {#eq-am55}
+From @eq-am53, $(\bv{\sigma}\cdot\un)^2 = I_2$ so that
+$$
+(\bv{\sigma}\cdot\un)^n = \begin{cases} 1 & \text{ if } n \text{ is even}. \\
+\bv{\sigma}\cdot\un & \text{ if } n \text{ is odd}.
+\end{cases}
+$$ {#eq-am56}
+and hence
+$$
+D(\phi) = \cos\left(\frac{\phi}{2}\right) - i\bv{\sigma}\cdot\un\sin\left(
+\frac{\phi}{2}\right).
+$$ {#eq-am57}
+We can express this result in matrix form as
+$$
+D(\phi) = \begin{bmatrix}
+\cos\left(\frac{\phi}{2}\right) -in_z\sin\left(\frac{\phi}{2}\right) &
+(-in_x -n_y)\sin\left(\frac{\phi}{2}\right) \\
+(-in_x + n_y)\sin\left(\frac{\phi}{2}\right) &
+\cos\left(\frac{\phi}{2}\right) + in_z\sin\left(\frac{\phi}{2}\right)
+\end{bmatrix}
+$$ {#eq-am58}
+We notice, once again, that
+$$
+D(2\pi) = -I_2, \text{ and } D(4\pi) = I_2.
+$$
