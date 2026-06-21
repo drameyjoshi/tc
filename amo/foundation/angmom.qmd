@@ -511,4 +511,297 @@ $$ {#eq-am58}
 We notice, once again, that
 $$
 D(2\pi) = -I_2, \text{ and } D(4\pi) = I_2.
+$$ {#eq-am59}
+
+## Spherical harmonics
+We first show that if $[J_k, J_l] = i\hbar\epsilon_{klm}J_m$ then $[J^2, J_l]
+= 0$. In particular, we will show that $[J^2, J_z] = 0$. Now, 
 $$
+[J^2, J_z] = [J_x^2, J_z] + [J_y^2, J_z]$. 
+$$ {#eq-am60}
+We will evaluate each term on the right hand side separately.
+$$
+\begin{eqnarray*}
+[J_x^2, J_z] &=& J_xJ_xJ_z - J_zJ_xJ_x \\
+ &=& J_x(J_zJ_x - i\hbar J_y) - J_zJ_xJ_x \\
+ &=& (J_zJ_x - i\hbar J_y)J_x - i\hbar J_xJ_y - J_zJ_xJ_x \\
+ &=& -i\hbar(J_xJ_y + J_yJ_x)
+\end{eqnarray*}
+$$ {#eq-am61}
+Likewise,
+$$
+\begin{eqnarray*}
+[J_y^2, J_z] &=& J_yJ_yJ_z - J_zJ_yJ_y \\
+ &=& J_y(J_zJ_y + i\hbar J_x) - J_zJ_yJ_y \\
+ &=& J_zJ_yJ_y + i\hbar J_xJ_y + i\hbar J_yJ_x - J_zJ_yJ_y \\
+ &=& i\hbar(J_xJ_y + J_yJ_x)
+\end{eqnarray*}
+$$ {#eq-am62}
+From equations @eq-am60, @eq-am61 and @eq-am62 it follows that
+$$
+[J^2, J_z] = 0.
+$$ {#eq-am63}
+
+Thus, $J^2$ and $J_z$ have a common eigenfunction.
+
+The orbital angular momentum is $\bv{L} = \bv{x} \times \bv{p}$ and its
+components satisfy $[L_k, L_l] = i\hbar\epsilon_{klm}L_m$ so that $[L^2, L_z]
+= 0$. The eigenfunctions of $L^2$ are called spherical harmonics. Their
+eigenvalue equation is
+$$
+\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta
+\frac{\partial Y}{\partial\theta}\right) + \frac{1}{\sin^2\theta}
+\frac{\partial^2 Y}{\partial\theta^2} = -l(l + 1)Y.
+$$ {#eq-am64}
+
+The solution can be evaluated numerically and plotted using:
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from scipy.linalg import eig
+
+# 1. Setup 2D Grid
+N_theta = 32
+N_phi = 50
+
+theta = np.linspace(0.05, np.pi - 0.05, N_theta)
+phi = np.linspace(0, 2 * np.pi, N_phi, endpoint=False)
+
+dtheta = theta[1] - theta[0]
+dphi = phi[1] - phi[0]
+N_points = N_theta * N_phi
+
+
+def get_index(i_th: int, i_ph: int) -> int:
+    return i_th * N_phi + (i_ph % N_phi)
+
+
+# 2. Construct the Stable 2D Matrix (Flux Form)
+L2 = np.zeros((N_points, N_points))
+
+for i_th in range(N_theta):
+    th = theta[i_th]
+    sin_th = np.sin(th)
+
+    # Pre-calculate halfway angles for the flux method
+    th_plus = th + 0.5 * dtheta
+    th_minus = th - 0.5 * dtheta
+
+    for i_ph in range(N_phi):
+        idx = get_index(i_th, i_ph)
+
+        # --- A. Phi derivative: (1 / sin^2(th)) * d^2/dphi^2 ---
+        phi_prefactor = 1.0 / (sin_th**2 * dphi**2)
+        L2[idx, idx] += -2.0 * phi_prefactor
+        L2[idx, get_index(i_th, i_ph + 1)] += 1.0 * phi_prefactor
+        L2[idx, get_index(i_th, i_ph - 1)] += 1.0 * phi_prefactor
+
+        # --- B. Theta derivative: Stable Flux Form (No tan(theta) blowup!) ---
+        theta_prefactor = 1.0 / (sin_th * dtheta**2)
+
+        # Main diagonal component
+        L2[idx, idx] += theta_prefactor * (-np.sin(th_plus) - np.sin(th_minus))
+
+        # Off-diagonal neighbors
+        if i_th > 0:
+            L2[idx, get_index(i_th - 1, i_ph)
+               ] += theta_prefactor * np.sin(th_minus)
+        if i_th < N_theta - 1:
+            L2[idx, get_index(i_th + 1, i_ph)
+               ] += theta_prefactor * np.sin(th_plus)
+
+H = -L2
+
+# 3. Solve and Sort
+print("Computing stable 2D eigenvalues...")
+eigenvalues_complex, eigenvectors_complex = eig(H)
+
+eigenvalues_real = np.real(eigenvalues_complex)
+sort_idx = np.argsort(eigenvalues_real)
+
+eigenvalues = eigenvalues_real[sort_idx]
+eigenvectors = np.real(eigenvectors_complex[:, sort_idx])
+
+# --- 4. Verify the physical spectrum ---
+print("\n--- FIRST 10 STABLE EIGENVALUES ---")
+for idx in range(10):
+    print(rf"State index {idx}: $\lambda$ = {eigenvalues[idx]:.4f}")
+
+
+# --- 5. Plot a few solutions ---
+states_to_plot = [1, 2, 4, 5]
+nrows, ncols = 2, 2
+
+fig, axes = plt.subplots(nrows, ncols, 
+    figsize=(10, 10), 
+    subplot_kw={'projection': '3d'})
+axes_flat = axes.flatten()
+
+for i, state_idx in enumerate(states_to_plot):
+    val = eigenvalues[state_idx]
+
+    # Extract and unflatten to structural grid orientation: rows = theta, cols = phi
+    psi_grid = eigenvectors[:, state_idx].reshape(N_theta, N_phi)
+
+    # Close the azimuthal loop seamlessly: append the first column (phi=0) to the end
+    # This alters the column count from N_phi -> N_phi + 1
+    psi_closed = np.hstack((psi_grid, psi_grid[:, :1]))
+
+    # Extend the coordinate arrays to match the appended data column
+    phi_extended = np.append(phi, 2 * np.pi)
+
+    # FIX: Use indexing='ij' so row/column dimensions match psi_closed perfectly!
+    THETA_ext, PHI_ext = np.meshgrid(theta, phi_extended, indexing='ij')
+
+    # Map numerical amplitude to 3D radius (r = |psi|).
+    r = np.abs(psi_closed) if val > 0.5 else np.ones_like(psi_closed) * 0.5
+
+    # Calculate cartesian coordinates
+    X = r * np.sin(THETA_ext) * np.cos(PHI_ext)
+    Y = r * np.sin(THETA_ext) * np.sin(PHI_ext)
+    Z = r * np.cos(THETA_ext)
+
+    ax = axes_flat[i]
+
+    # Render the 3D surface using the calculated numerical values
+    yc = (psi_closed - psi_closed.min()) / \
+        (psi_closed.max() - psi_closed.min() + 1e-9)
+    surf = ax.plot_surface(X, Y, Z, facecolors=plt.cm.RdBu(yc),
+                           antialiased=True, rstride=1, cstride=1)
+
+    # Setup clean internal legends using raw strings to prevent escape warnings
+    dummy_proxy = plt.Rectangle((0, 0), 1, 1, fc="navy", alpha=0.8)
+    label_text = rf"State {state_idx} ($\lambda$ = {val:.3f})"
+    ax.legend([dummy_proxy], [label_text], loc="upper left", frameon=True,
+              facecolor="whitesmoke", edgecolor="lightgray", fontsize=10)
+
+    # Clear out axis lines and force aspect ratio bounds
+    ax.set_axis_off()
+    ax.grid(False)
+
+    max_val = np.max([np.abs(X), np.abs(Y), np.abs(Z)])
+    ax.set_xlim(-max_val, max_val)
+    ax.set_ylim(-max_val, max_val)
+    ax.set_zlim(-max_val, max_val)
+    ax.set_box_aspect((1, 1, 1))
+
+# Clean up layout margins before applying rectangular border frames
+plt.subplots_adjust(wspace=0.1, hspace=0.1)
+fig.suptitle(rf"Numerical Solutions to Laplace's Equation on a Sphere",
+             fontsize=15, fontweight='bold', y=0.96)
+
+for i in range(len(states_to_plot)):
+    ax = axes_flat[i]
+    bbox = ax.get_position()
+
+    border = patches.Rectangle(
+        (bbox.x0 - 0.01, bbox.y0 - 0.01),
+        bbox.width + 0.02, bbox.height + 0.02,
+        transform=fig.transFigure,
+        fill=False,
+        color="#c0c0c0",
+        linewidth=1.2,
+        linestyle="-"
+    )
+    fig.patches.append(border)
+
+plt.show()
+```
+
+Spherical harmonics have been studied extensively for more than a century now.
+One can even use their implementation in `scipy` to plot the solutions.
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from scipy.special import sph_harm_y
+
+# Explicitly choose the exact quantum numbers you want
+l = 2
+ms = [i for i in range(-l, l + 1)]
+n_states = 2 * l + 1
+nrows = l + 1
+
+# Create a clean, un-shifted 2D plotting grid
+theta, phi = np.meshgrid(np.linspace(0, np.pi, 100),
+                         np.linspace(0, 2*np.pi, 100))
+
+# Initialize layout
+fig, axes = plt.subplots(nrows, 2, figsize=(
+    10, 11), subplot_kw={'projection': '3d'})
+axes_flat = axes.flatten()
+
+for i in range(n_states):
+    m = ms[i]
+
+    # Compute the exact mathematical harmonic
+    Y_real = np.real(sph_harm_y(l, m, theta, phi))
+
+    # Map to 3D surface
+    r = np.abs(Y_real) if l > 0 else np.ones_like(Y_real) * 0.5
+    X = r * np.sin(theta) * np.cos(phi)
+    Y = r * np.sin(theta) * np.sin(phi)
+    Z = r * np.cos(theta)
+
+    ax = axes_flat[i]
+
+    surf = ax.plot_surface(X, Y, Z, facecolors=plt.cm.RdBu(
+        (Y_real - Y_real.min())/(Y_real.max() - Y_real.min() + 1e-9)),
+        antialiased=True, rstride=2, cstride=2)
+
+    # Use a clean legend instead of an overlapping title
+    # We create a dummy handle with the same color scheme to generate the label
+    dummy_proxy = plt.Rectangle((0, 0), 1, 1, fc="navy", alpha=0.8)
+    label_text = rf"$Y_{{{l}}}^{{{m}}}$ ($\lambda$ = {l*(l+1)})"
+    ax.legend([dummy_proxy], [label_text], loc="upper left", frameon=True,
+              facecolor="whitesmoke", edgecolor="whitesmoke", fontsize=10)
+
+    # Complete elimination of internal 3D gridlines and panes
+    ax.set_axis_off()
+    ax.grid(False)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.set_zticks([])
+
+    # FIX 2: Standardize limits and force equal 1:1:1 aspect ratio to enlarge 
+    # the orbitals
+    max_val = np.max([np.abs(X), np.abs(Y), np.abs(Z)])
+    ax.set_xlim(-max_val, max_val)
+    ax.set_ylim(-max_val, max_val)
+    ax.set_zlim(-max_val, max_val)
+    # Forces shapes to zoom in and fill the axis cube space
+    ax.set_box_aspect((1, 1, 1))
+
+# Hide the final, leftover empty subplot on the grid completely
+if len(axes_flat) > n_states:
+    for remaining_idx in range(n_states, len(axes_flat)):
+        axes_flat[remaining_idx].axis('off')
+
+# Establish tight global geometry margins
+plt.subplots_adjust(wspace=0.15, hspace=0.25)
+
+# Add global title safely positioned above everything
+fig.suptitle(rf"Angular Momentum States for $\ell = {l}$", 
+            fontsize=16, fontweight='bold', y=0.98)
+
+# Draw frames after the layout has settled
+for i in range(n_states):
+    ax = axes_flat[i]
+    bbox = ax.get_position()
+
+    border = patches.Rectangle(
+        (bbox.x0 - 0.01, bbox.y0 - 0.01),
+        bbox.width + 0.02, bbox.height + 0.02,
+        transform=fig.transFigure,
+        fill=False,
+        color="#c0c0c0",
+        linewidth=1.2,
+        linestyle="-"
+    )
+    fig.patches.append(border)
+
+plt.show()
+```
+
