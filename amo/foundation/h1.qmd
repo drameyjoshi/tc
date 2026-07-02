@@ -1,0 +1,162 @@
+# Spherically Symmetric Potentials
+
+We will consider the motion of a particle in a central force field. We will
+consider the Coulomb field experienced by an electron in a hydrogenic atom and
+a three dimensional harmonic oscillator.
+
+## The general solution
+For a potential function of the form
+$$
+V(\bv{r}) = V(r),
+$$ {#eq-spp1}
+and the hamiltonian is
+$$
+-\frac{\hbar^2}{2m}\left[\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2
+\frac{\partial}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}
+{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) +
+\frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]+ V(r).
+$$ {#eq-spp2}
+The Schr&ouml;odinger equation can be solved using the standard separation of
+variables method by writing
+$$
+\psi(r, \theta, \phi) = R(r)\Theta(\theta)\Phi(\phi)
+$$ {#eq-spp3}
+so that 
+$$
+\begin{split}
+\frac{\Theta\Phi}{r^2}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) +
+\frac{R\Phi}{r^2\sin\theta}\frac{d}{d\theta}\left(\sin\theta\frac{d\Theta}
+{d\theta}\right) + \\
+\frac{R\Theta}{r^2\sin^2\theta}\frac{d^2\Phi}{d\phi^2} +
+\frac{2m}{\hbar^2}(E - V(r))\psi = 0.
+\end{split}
+$$ {#eq-spp4}
+Multiplying both sides by $r^2\sin^2\theta/\psi$,
+$$
+\begin{split}
+\frac{\sin^2\theta}{R}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) +
+\frac{\sin\theta}{\Phi}\frac{d}{d\theta}\left(\sin\theta\frac{d\Theta}
+{d\theta}\right) + \\
+\frac{2mr^2\sin^2\theta}{\hbar^2}(E - V(r)) = 
+- \frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2}.
+\end{split}
+$$ {#eq-spp5}
+Since the lhs depends only on $r$ and $\theta$ while the rhs only on $\phi$, 
+the above equation can be true only if each side is a constant. We call it
+$m_l^2$. The rhs, therefore, gives
+$$
+\frac{d^2\Phi}{d\phi^2} = -m_l^2\Phi,
+$$ {#eq-spp6}
+whose solution is
+$$
+\Phi(\phi) = \alpha_1 e^{im_l\phi} + \alpha_2 e^{-im_l\phi},
+$$ {#eq-spp7}
+where $\alpha_1$ and $\alpha_2$ are constants of integration. Since $\Phi(\phi
+ + 2\pi)$ must be equal to $\Phi(\phi)$, the constant $m_l$ must be an integer.
+Additionally, we also require that $\Phi(\phi) = \Phi(-\phi)$ so that the
+two constants of integrations must be equal. That is, $\Phi(\phi) = \alpha_1
+(e^{im_l\phi} + e^{-im_l\phi})$. Since $m_l$ can be any integer, positive or 
+negative, we can as well write $\Phi(\phi) = 2\alpha_1 e^{im_l\phi}$. The 
+normalisation condition
+$$
+\int_0^{2\pi}|\Phi|^2d\phi = 1
+$$
+gives
+$$
+\Phi(\phi) = \frac{1}{\sqrt{2\pi}}e^{im_l\phi}.
+$$ {#eq-spp8}
+The lhs of @eq-spp4 too can be separated into
+$$
+\begin{eqnarray*}
+-\frac{1}{\sin\theta}\frac{d}{d\theta}\left(\sin\theta\frac{d\Theta}{d\theta}
+\right) + \frac{m_l^2}{\sin^2\theta} = \beta \\
+\frac{1}{R}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) + \frac{2mr^2}{\hbar^2}
+\left(E - V(r)\right) = \beta,
+\end{eqnarray*}
+$$ {#eq-spp9}
+where $\beta$ is a constant of separation. We now consider the $\theta$ 
+equation. To solve it, we use the transformation $x = \cos\theta$ to get
+$$
+(1 - x^2)\Theta^\tp - 2x\Theta^\op + \left(\beta - \frac{m_l^2}{1-x^2}\right)
+\Theta = 0.
+$$ {#eq-spp10}
+The coefficient of the terms of this equation blow up at $x = \pm 1$. Therefore,
+applying the Frobenius method needs precautions. At a singularity like $x = 1$,
+$1 - x^2 \approx 2(1 - x)$ and $2x \approx 2$. The term $-m_l^2/(1 - x^2)$ 
+dominates over $\beta$ to a great extent so that we can as well ignore $\beta$.
+Therefore, @eq-spp10 becomes
+$$
+2(1-x)\Theta^\tp - 2\Theta^\op  - \frac{m_l^2}{2(1-x)}\Theta = 0.
+$$ {#eq-spp11}
+We consider a trial solution of the form $\Theta(x) = (1 - x)^a$ so that the
+above equation gives $a = \pm m_l/2$. To prevent the function from blowing up
+near $x = 1$, we choose $a = |m_l|/2$. A similar analysis at the pole $x = -1$ 
+gives $\Theta(x) \approx (1 + x)^{|m_l|/2}$ so that we can write the general 
+$\Theta(x)$ as
+$$
+\Theta(x) = (1 - x^2)^{|m_l|/2}P(x).
+$$ {#eq-spp12}
+We compute its first two derivaties as
+$$
+\begin{eqnarray*}
+\Theta^\op(x) &=& (1 - x^2)^{|m_l|/2 - 1}\left(-|m_l|xP+(1-x^2)P^\op\right) \\
+\Theta^\tp(x) &=& (1 - x^2)^{|m_l|/2 - 2}
+\left[(1-x^2)^2P^\tp - 2|m_l|x(1-x^2)P^\op \right.\\
+ & & \left.- |m_l|(1-x^2)P + |m_l|(|m_l|-2) x^2P(x)\right]
+\end{eqnarray*}
+$$ {#eq-spp13}
+Substituting these expressions in @eq-spp10} gives
+$$
+(1 - x^2)P^\tp - 2(|m_l| + 1)xP^\op + (\beta - |m_l|(|m_l| + 1))P = 0.
+$$ {#eq-spp14}
+We now use the series solution
+$$
+P(x) = \sum_{k = 0}^\infty c_k x^k
+$$ {#eq-spp15}
+to get the recurrence relation
+$$
+c_{k+2} = \frac{k^2 + 2|m_l|k + |m_l|^2 + |m_l| + k - \beta}{(k+1)(k+2)}.
+$$ {#eq-spp16}
+It will terminate only if
+$$ 
+\beta = (k + |m_l|)^2 + (k + |m_l|) = (k + |m_l| + 1)(k + |m_l|)
+$$ {#eq-spp17}
+Since $k$ and $m_l$ are both integers, $\beta$ is of the form
+$$
+\beta = l(l + 1), l \in \mathbb{Z}.
+$$ {#eq-spp18}
+Equation @eq-spp14 now becomes
+$$
+(1 - x^2)P^\tp - 2(|m_l| + 1)xP^\op + (l(l+1) - |m_l|(|m_l| + 1))P = 0.
+$$ {#eq-spp19}
+This equation is closely related to the Legendre equation
+$$
+(1 - x^2)P_l^\tp - 2(|m_l| + 1)xP_l^\op + l(l+1)P_l = 0
+$$ {#eq-spp20}
+where $P_l$ is the Legendre polynomial of order $l$. If we differentiate this
+equation $|m_l$ times, we get
+$$
+(1 - x^2)P^{(|m_l| + 2)} - 2(|m_l| + 1)xP^{(|m_l| + 1)} + 
+(l(l+1) - |m_l|(|m_l| + 1))P^{(|m_l|)} = 0.
+$$ {#eq-spp21}
+Comparing this with equation @eq-spp19 we see that its solution can be 
+written as 
+$$
+P_l^{|m_l|}(x) = \frac{d^{|m_l|}}{dx^{|m_l|}} P_l(x).
+$$ {#eq-spp22}
+It is called the associated Legendre polynomial. It satisfies the relation
+$$
+\int_{-1}^1 P_l^{|m_l|}(x)P_k^{|m_l|}(x) = \frac{2}{2l+1}
+\frac{(l + |m_l|)!}{(l - |m_l|)!}\delta_{lk}
+$$ {#eq-spp23}
+so that the normalised solution to the $\theta$ equation is
+$$
+\Theta(\theta) = \sqrt{\frac{2l+1}{2}\frac{(l-|m_l|)!}{(l+|m_l|)!}}
+\sin^{|m_l|}(\theta)P_l^{|m_l|}(\cos\theta).
+$$ {#eq-spp24}
+The combination,
+$$
+\Theta(\theta)\Phi(\phi) = \sqrt{\frac{2l+1}{2}\frac{(l-|m_l|)!}{(l+|m_l|)!}}
+\frac{\sin^{|m_l|}(\theta)}{\sqrt{2\pi}}P_l^{|m_l|}(\cos\theta) e^{i|m_l|\phi}
+$$ {#eq-spp25}
+is called a spherical harmonic and is denoted by $Y_{l, m_l}(\theta, \phi)$.

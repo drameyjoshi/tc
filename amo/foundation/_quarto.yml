@@ -9,6 +9,7 @@ book:
     - index.qmd
     - exact.qmd
     - angmom.qmd
+    - h1.qmd
     - summary.qmd
     - references.qmd
 
