@@ -233,7 +233,7 @@ We observe that $\lambda$ too is the dimensionless energy of the oscillator.
 That is, it is a measure of energy in the units of $\hbar\omega$.
 
 At large $\xi$, equation @eq-es16 can be written as $\psi^{\tp} \approx 
-\xi^2\psi$. If $\psi = e^{\pm\xi^2/2}$ then $\psi^{\tp} = (\xi^2 \pm \xi)
+\xi^2\psi$. If $\psi = e^{\pm\xi^2/2}$ then $\psi^{\tp} = (\xi^2 \pm 1)
 e^{\pm\xi^2/2}$. At large $\xi$, $\psi^{\tp}$ is indeed approximately equal to
 $e^{\pm\xi^2/2}$. We want the wave function to decay to zero as $\xi \rightarrow
 \pm\infty$. Therefore, we want a solution to behave like $e^{-\xi^2/2}$

@@ -43,7 +43,10 @@ $$
 $$ {#eq-spp5}
 Since the lhs depends only on $r$ and $\theta$ while the rhs only on $\phi$, 
 the above equation can be true only if each side is a constant. We call it
-$m_l^2$. The rhs, therefore, gives
+$m_l^2$.
+
+### The $\phi$ equation
+The rhs, therefore, gives
 $$
 \frac{d^2\Phi}{d\phi^2} = -m_l^2\Phi,
 $$ {#eq-spp6}
@@ -74,7 +77,10 @@ $$
 \left(E - V(r)\right) = \beta,
 \end{eqnarray*}
 $$ {#eq-spp9}
-where $\beta$ is a constant of separation. We now consider the $\theta$ 
+where $\beta$ is a constant of separation. 
+
+### The $\theta$ equation
+We now consider the $\theta$ 
 equation. To solve it, we use the transformation $x = \cos\theta$ to get
 $$
 (1 - x^2)\Theta^\tp - 2x\Theta^\op + \left(\beta - \frac{m_l^2}{1-x^2}\right)
@@ -136,8 +142,10 @@ $$ {#eq-spp20}
 where $P_l$ is the Legendre polynomial of order $l$. If we differentiate this
 equation $|m_l$ times, we get
 $$
-(1 - x^2)P^{(|m_l| + 2)} - 2(|m_l| + 1)xP^{(|m_l| + 1)} + 
+\begin{split}
+(1 - x^2)P^{(|m_l| + 2)} - 2(|m_l| + 1)xP^{(|m_l| + 1)} + \\
 (l(l+1) - |m_l|(|m_l| + 1))P^{(|m_l|)} = 0.
+\end{split}
 $$ {#eq-spp21}
 Comparing this with equation @eq-spp19 we see that its solution can be 
 written as 
@@ -160,3 +168,103 @@ $$
 \frac{\sin^{|m_l|}(\theta)}{\sqrt{2\pi}}P_l^{|m_l|}(\cos\theta) e^{i|m_l|\phi}
 $$ {#eq-spp25}
 is called a spherical harmonic and is denoted by $Y_{l, m_l}(\theta, \phi)$.
+
+### The $r$ equation
+The equation for $r$ is
+$$
+\frac{1}{R}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) + \frac{2mr^2}{\hbar^2}
+\left(E - V(r)\right) = l(l + 1).
+$$ {#eq-spp26}
+If $R = u(r)/r$ then the above equation transforms to
+$$
+\frac{d^2u}{dr^2} = \frac{2m}{\hbar^2}\left(V(r) - E + \frac{\hbar^2}{2m}
+\frac{l(l + 1)}{r^2}\right),
+$$ {#eq-spp27}
+where the term
+$$
+\frac{l(l + 1)}{r^2}
+$$
+is called the centrifugal barrier.
+
+The solution of @eq-spp27 depends on the form of $V$. We will consider two 
+important examples of $V$ - the 3d isotropic simple harmonic oscillator and
+the Coulumb field of the nucleus of a hydrogenic atom.
+
+## The 3d simple harmonic oscillator
+The potential functions is
+$$
+V(r) = \frac{1}{2}m\omega^2 r^2
+$$ {#eq-spp28}
+so that @eq-spp27 becomes
+$$ \frac{d^2u}{dr^2} + \left[ \frac{2mE}{\hbar^2} - \frac{m^2\omega^2}{\hbar^2}r^2 - \frac{l(l + 1)}{r^2} \right] u(r) = 0 
+$$ {#eq-spp29}
+Dimensions of each term of this equation as $[L^{-2}]$ so that the quantity
+$$
+\frac{m^2\omega^2}{\hbar^2}r^4
+$$
+is dimensionless. Denote it by $\xi^4$ so that
+$$
+\xi = \sqrt{\frac{m\omega}{\hbar}}r.
+$$ {#eq-spp30}
+In terms of $\xi$ @eq-spp29 becomes
+$$
+u^{\tp}(\xi) + 
+\left[\frac{2E}{\hbar\omega} - \xi^2 - \frac{l(l + 1)}{\xi^2}\right]u(\xi) = 0.
+$$ {#eq-spp31}
+In the limit of very large $\xi$, the equation becomes 
+$$
+u^{\tp}(\xi) - \xi^2u = 0,
+$$
+whose solution is $u(\xi) \approx \exp(\pm \xi^2/2)$. Since we do not want the 
+solution to blow up as $\xi\rightarrow\infty$, we choose $u(\xi)=\exp(-\xi^2/2)$. 
+Likewise, in the limit of very small $\xi$, the centrifugal term dominates and 
+@eq-spp31 becomes
+$$
+u^{\tp}(\xi) -\frac{l(l + 1)}{\xi^2}u(\xi) = 0.
+$$
+A trial solution of the form $u(\xi) = \xi^p$ gives $p = l + 1$. Therefore we
+seek the solution of @eq-spp31 of the form
+$$
+u(\xi) = \xi^{l + 1}e^{-\xi^2/2}v(\xi).
+$$ {#eq-spp32}
+The equation for $v(\xi)$ is
+$$
+\frac{d^2v}{d\xi^2} + 2\left[ \frac{l+1}{\xi} - \xi \right] \frac{dv}{d\xi} + 
+\left[ \frac{2mE}{\hbar^2} \cdot \frac{\hbar}{m\omega} - 2l - 3 \right] v = 0.
+$$ {#eq-spp33}
+Making yet another change of variable $z = \xi^2$, we get
+$$
+z\frac{d^2v}{dz^2} + \left[\left(l + \frac{3}{2}\right) - z\right]\frac{dv}{dz}
++\left[\frac{E}{2\hbar\omega}-\frac{1}{2}\left(l+\frac{3}{2}\right)\right]v=0,
+$$ {#eq-spp34}
+which is Kummer's confluent hypergeometric equation. We try a series solution
+$v(z) = \sum_{n \ge 0}c_n z^n$ to get the recurrence relation,
+$$
+c_{n+1} = \frac{E/(2\hbar\omega) - (l/2 + 3/4) - n}{(n+1)(n + k + 3/2)}c_n.
+$$ {#eq-spp35}
+In order for $v$ to decay at large $z$ the series must terminate, which can 
+happen only if 
+$$
+E = \hbar\omega\left(2n + l + \frac{3}{2}\right).
+$$ {#eq-spp36}
+Note that the energy eigen-value is a function of $n$ as well as $l$. This is 
+true in general. The only exception is the Coulomb potential, which we will
+analyse in the next section, for which $E$ depends only on $n$. For a fixed $n$
+all $l$ states are degenerate. This is called accidental Coulomb degeneracy.
+
+Let $N = 2n + l$ so that we can write @eq-spp37 as 
+$$
+E = \hbar\omega\left(N + \frac{3}{2}\right).
+$$ {#eq-spp37}
+In this form, it is quite transparent that when $N=0$, the oscillator still has
+an energy $\hbar\omega/2$ for each degree of freedom. Since $n \ge 0$ and $l$
+is an integer, for a given value of $N$, the allowed values of $n$ and $l$ are:
+
+|$N$ | $n$ | $l$ |
+|-----|-----|-----|
+|0 | 0 | 0|
+|1 | 0 | 1|
+|2 | 0 | 2|
+|  | 1 | 0|
+|3 | 0 | 3|
+|  | 1 | 1|
