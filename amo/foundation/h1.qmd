@@ -327,3 +327,76 @@ is independent of the azimuthal quantum number. For a given $n$, $l$ can take
 values from $0$ to $n-1$. All these states have the same energy $E_n$. This 
 situation is peculiar to Coulomb potentials and is called accidental Coulomb
 degeneracy.
+
+The solution to the equation @eq-spp44 is in terms of the associated Laguerre
+polynomials, $L^\alpha_\beta$. They satisfy the differential equation
+$$
+xy^\tp + (\alpha + 1 - x)y^\op + \beta y = 0.
+$$ {#eq-spp47}
+Comparing this to @eq-spp44, we see that $\alpha = 2l + 1$ and $\beta = \lambda
+- l + 1 = n - l - 1$. (Recall that the series terminated for the integer 
+$\lambda$, which we called $n$, the principal quantum number.
+Thus,
+$$
+f(\rho) = c_rL^{(2n+1)}_{n-l-1}(\rho),
+$$ {#eq-spp48}
+where $c_r$ is a constant.
+and using @eq-spp43, we get
+$$
+u(\rho) = c_r e^{-\rho/2}\rho^{l+1}L^{(2n+1)}_{n-l-1}(\rho).
+$$ {#eq-spp49}
+The normalisation condition over the $r$ coordinate is
+$$
+\int_0^\infty |R(r)|^2 r^2dr = 1,
+$$
+which, in terms of $u$ is
+$$
+\int_0^\infty |u(r)|^2dr = 1.
+$$ {#eq-spp50}
+The first Bohr radius is 
+$$
+a_0 = \frac{\epsilon_0 h}{\pi me^2}
+$$
+so that we can write @eq-spp40 as 
+$$
+\rho = \sqrt{-\frac{8mE}{\hbar^2}}r = \sqrt{\frac{8m}{\hbar^2}\frac{me^4Z^2}
+{8n^2h^2\epsilon_0^2}}r = \frac{2\pi m e^2Z}{h^2n\epsilon_0}r = 
+\frac{2Z}{na_0}r.
+$$ {#eq-spp51}
+The normalisation equation @eq-spp50 becomes
+$$
+\frac{na_0}{2Z}\int_0^\infty |u(\rho)|^2 d\rho = 1.
+$$ {#eq-spp52}
+Using @eq-spp49, we get
+$$
+\frac{na_0}{2Z}|c_r|^2\int_0^\infty e^{-\rho}\rho^{2l+2}(L^{2l+1}_{n-l-1}(\rho)
+)^2 d\rho = 1.
+$$
+We now use the property of associated Laguerre polynomials,
+$$
+\int_0^\infty e^{-\rho} \rho^{\alpha+1} 
+\left[ L_k^\alpha(\rho) \right]^2 \, d\rho = 
+\frac{(k+\alpha)!}{k!} (2k + \alpha + 1)
+$$
+and note the correspondence $\alpha = 2l+1, k = n - l - 1$ to get
+$$
+\begin{eqnarray*}
+\int_0^\infty e^{-\rho} \rho^{2l+2} 
+\left[ L_{n-l-1}^{2l+1}(\rho) \right]^2 \, d\rho &=& 
+\frac{(n+l)!}{(n-l-1)!} \cdot \left[ 2(n-l-1) + (2l+1) + 1 \right] \\
+ &=& 2n \frac{(n+l)!}{(n-l-1)!}
+\end{eqnarray*}
+$$
+so that the normalisation constant can be chosen to be
+$$
+c_r = \sqrt{\frac{2Z}{na_0}}\sqrt{\frac{(n-l-1)!}{2n(n+l)!}}
+$$ {#eq-spp53}
+The complete radial solution is
+$$
+R(r) = \sqrt{\frac{2Z}{na_0}}\sqrt{\frac{(n-l-1)!}{2n(n+l)!}}\left(\frac{2Z}
+{na_0}\right)^{l+1} r^{l+2}\exp\left(-\frac{Z}{na_0}r\right)
+L^{2l+1}_{n-l-1}\left(\frac{2Z}{na_0}r\right).
+$$ {#eq-spp54}
+
+The product of equations @eq-spp25 and @eq-spp54 give the eigenfunction and
+@eq-spp46 gives the eigenvalues for the hydrogenic atoms.
