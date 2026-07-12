@@ -1,0 +1,65 @@
+# Approximation Methods - 1
+
+In this chapter we shall consider the time-independent perturbation theory.
+That is, the Hamiltonian of the system is written as 
+$$
+H = H_0 + \lambda H^\op,
+$$ {#eq-app1}
+where $H_0$ is a Hamiltonian simple enough to be solved exactly and $H^\op$
+is a perturbation to it. The parameter $\lambda$ varies from $0$ to $1$ and
+determines the "strength" of the perturbation.
+
+Since the system with $\lambda = 0$ is solvable exactly, we know the eigenvalues
+and eigenstates of
+$$
+H_0\ket{n^0} = E_n^0\ket{n^0}.
+$$ {#eq-app2}
+Our aim is solve
+$$
+H\ket{n} = E_n\ket{n},
+$$ {#eq-app3}
+using the solution of @eq-app2. The portion $\lambda H^\op$ is a perturbation,
+that is, its impact on the system is small as compared to that of $H_0$. We,
+therefore, expect that the eigenvalues and eigenstates of $H$ will not be 
+drastically different from those of $H_0$. The procedure to build them depends
+on whether the spectrum of $H_0$ is degenerate or not. We will first consider
+the simpler case of the non-degenerate spectrum.
+
+## Non-degenerate spectrum
+We assume that we can express $\ket{n}$ and $E_n$ as power series of the form
+$$
+\begin{eqnarray}
+E_n &=& E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2 + \cdots \\
+\ket{n} &=& \ket{n^0} + \lambda\ket{n^1} + \lambda^2\ket{n^2} + \cdots
+\end{eqnarray}
+$$
+Substituting these forms in @eq-app3, taking into account @eq-app1 and
+@eq-app3 and equating the powers of $\lambda$ on either sides of the equation
+we get 
+$$
+\begin{eqnarray}
+H_0\ket{n^0} &=& E_n^0\ket{n^0} \\
+H_0\ket{n^1} + H^\op\ket{n^0} &=& E_n^0\ket{n^1} + E_n^1\ket{n^0} \\
+H_0\ket{n^2} + H^\op\ket{n^1} &=& E_n^2\ket{n^0} + E_n^1\ket{n^1} + 
+E_n^0\ket{n^2} \\
+H_0\ket{n^3} + H^\op\ket{n^2} &=& E_n^3\ket{n^0} + E_n^2\ket{n^1} + 
+E_n^1\ket{n^2} + E_n^0\ket{n^3} \\
+\vdots &=& \vdots
+\end{eqnarray}
+$$
+Since $H_0$ is hermitian, multiplying the second of the above equation by 
+$\bra{n^0}$ gives,
+$$
+E_n^1 = \braket{n^0|H^\op|n^0}.
+$$ {#eq-app5}
+This is the first order correction to the energy eigenvalue $E_n^0$. Likewise,
+the second order correction is
+$$
+E_n^2 = \braket{n^0|H^\op - E_n^1|n^1}
+$$ {#eq-app6}
+and the third order correction is
+$$
+E_n^3 = \braket{n^0|H^\op - E_n^1|n^2} - E_n^2\braket{n^0|n^1}.
+$$ {#eq-app7}
+
+

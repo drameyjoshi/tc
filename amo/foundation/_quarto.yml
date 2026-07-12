@@ -10,6 +10,7 @@ book:
     - exact.qmd
     - angmom.qmd
     - h1.qmd
+    - approx1.qmd
     - summary.qmd
     - references.qmd
 
