@@ -32,7 +32,7 @@ $$
 E_n &=& E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2 + \cdots \\
 \ket{n} &=& \ket{n^0} + \lambda\ket{n^1} + \lambda^2\ket{n^2} + \cdots
 \end{eqnarray}
-$$
+$$ {#eq-app4}
 Substituting these forms in @eq-app3, taking into account @eq-app1 and
 @eq-app3 and equating the powers of $\lambda$ on either sides of the equation
 we get 
@@ -46,20 +46,43 @@ H_0\ket{n^3} + H^\op\ket{n^2} &=& E_n^3\ket{n^0} + E_n^2\ket{n^1} +
 E_n^1\ket{n^2} + E_n^0\ket{n^3} \\
 \vdots &=& \vdots
 \end{eqnarray}
-$$
+$$ {#eq-app5}
 Since $H_0$ is hermitian, multiplying the second of the above equation by 
 $\bra{n^0}$ gives,
 $$
 E_n^1 = \braket{n^0|H^\op|n^0}.
-$$ {#eq-app5}
+$$ {#eq-app6}
 This is the first order correction to the energy eigenvalue $E_n^0$. Likewise,
 the second order correction is
 $$
 E_n^2 = \braket{n^0|H^\op - E_n^1|n^1}
-$$ {#eq-app6}
+$$ {#eq-app7}
 and the third order correction is
 $$
-E_n^3 = \braket{n^0|H^\op - E_n^1|n^2} - E_n^2\braket{n^0|n^1}.
-$$ {#eq-app7}
+E_n^3 = \braket{n^0|H^\op - E_n^1|n^2} - 2E_n^2\braket{n^0|n^1}.
+$$ {#eq-app8}
 
+We now proceed to find the eigenstates. The first order correction in @eq-app6
+depends on the unperturbed eigenstates and the pertubation. However, the second
+order correction needs perturbed eigenstates. We assume that the problem for
+$H_0$ is completely solved, that is, we know its eigenvalues and eigenstates. 
+We assume that $\ket{n^1}$ belongs to linear space spanned by the eigenstates of
+the unperturbed operator. Therefore, we express it as
+$$
+\ket{n^1} = \sum_{m \ge 1}a_m^1\ket{m^0}.
+$$ {#eq-app9}
+Substituting this in the second of equations @eq-app5 we get
+$$
+a_k^1 = \frac{\braket{k^0|H^\op|n^0}}{E_k^0 - E_n^0}, \text{ if } k \ne n
+$$ {#eq-app10}
+and $E_n^1 = \braket{n^0|H^\op|n^0}$ if $k = n$. The second equation is
+identical to @eq-app6. The coefficient $a_n^1$ is undertermined and is set to 
+zero. Thus, from @eq-app9,
+$$
+\ket{n^1} = \sum_{m \ne n}\frac{\braket{k^0|H^\op|n^0}}{E_k^0 - E_n^0}\ket{m^0}
+$$
+so that from @eq-app7,
+$$
+E_n^2 = \sum_{m \ne n}\frac{|\braket{m^0|H^\op|n^0}|^2}{E_n^0 - E_m^0}.
+$$ {#eq-app11}
 
