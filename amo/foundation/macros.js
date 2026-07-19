@@ -8,7 +8,8 @@ window.MathJax = {
       op: "\\prime",
       tp: "{\\prime\\prime}",
       un: "\\hat{\\bv{n}}",
-      tr: "{\\operatorname{Tr}}\\;"
+      tr: "{\\operatorname{Tr}}\\;",
+      td: ["\\frac{d{#1}}{d{#2}}", 2]
     }
   }
 };

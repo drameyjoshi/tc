@@ -1,0 +1,79 @@
+# Approximation Methods - 2
+
+In this chapter we shall consider time-dependent perturbations to a time-
+independent Hamiltonian. That is, the Hamiltonian of the system is written as 
+$$
+H = H_0 + \lambda H^\op(t),
+$$ {#eq-tdp1}
+where $H_0$ is a Hamiltonian simple enough to be solved exactly and $H^\op(t)$
+is a perturbation to it. The parameter $\lambda$ varies from $0$ to $1$ and
+determines the "strength" of the perturbation.
+
+Let
+$$
+H_0\psi_k^0 = E_k^0\psi_k^0
+$$ {#eq-tdp2}
+so that the general solution to the time-dependent Schr&ouml;dinger equation 
+$$
+i\hbar\pdt{\Psi_0}{t} = H_0\Psi_0,
+$$ {#eq-tdp3}
+is
+$$
+\Psi_0 = \sum_k c_k^0\psi_k^0\exp\left(-\frac{iE_k^0t}{\hbar}\right).
+$$ {#eq-tdp4}
+Here $c_k^0$ are constants and the sum is over all eigenstates of $H_0$. Since
+$\{\psi_k^0\}$ form a complete set, we propose that the solutions of
+$$
+i\hbar\pdt{\Psi}{t} = H\Psi,
+$$ {#eq-tdp5}
+can be written as
+$$
+\Psi = \sum_k c_k(t)\psi_k^0\exp\left(-\frac{iE_k^0t}{\hbar}\right).
+$$ {#eq-tdp6}
+The only difference between this and the expansion of @eq-tdp4 is that the
+coefficients of the terms are functions of time. From @eq-tdp4, we observe that
+$|\Psi_0|^2$ is independent of time and $|c_k^0|^2$ is the probability of
+finding the system in the state $\psi_k^0$. $|\Psi|^2$ too is independent of
+time. However the probability of finding the system in $\psi_k^0$ is now a 
+function of time.
+
+Since $H$ is a function of time, energy is not a constant of motion and it does 
+not have energy eigenstates. As a result, we express solution of @eq-tdp5 in
+terms of the complete set $\{\psi_k^0\}$. Substituting @eq-tdp6 into @eq-tdp5
+we get
+$$
+i\hbar\sum_k\td{c_k}{t}\psi_k^0\exp\left(-\frac{iE_k^0t}{\hbar}\right) = 
+\lambda\sum_k c_k(t)H^\op(t)\psi_k^0\exp\left(-\frac{iE_k^0t}{\hbar}\right). 
+$$ {#eq-tdp7}
+We now take an inner product of this equation with $\psi_b^0$ to get
+$$
+\td{c_b}{t} = -\frac{i}{\hbar\lambda}\sum_k H^\op_{bk}c_k(t)e^{i\omega_{bk}t},
+$$ {#eq-tdp8}
+where
+$$
+\omega_{bk} = \frac{E_b^0 - E_k^0}{\hbar}
+$$ {#eq-tdp9}
+and
+$$
+H^\op_{bk} = \braket{\psi_b^0|H^\op|\psi_k^0}.
+$$ {#eq-tdp10}
+Equations @eq-tdp8, @eq-tdp9 and @eq-tdp10 are exact. When $H^\op$ is a small
+perturbation, we propose that $c_k$'s can be written as a power series in
+$\lambda$. That is,
+$$
+c_k(t) = c_k^0(t) + \lambda c_k^1(t) + \lambda^2 c_k^2(t) + \cdots
+$$ {#eq-tdp11}
+so that upon substitution in @eq-tdp8 we get the coupled equations
+$$
+\td{c_b^{s+1}}{t}=-\frac{i}{\hbar}\sum_k H^\op_{bk}e^{i\omega_{bk}t}c_k^s(t),
+$$ {#eq-tdp12}
+where $s = 0, 1, 2, \ldots$. If the system was initially in the state $\psi_a^0$
+with energy $E_a^0$ then $c_k^0 = \delta_{ka}$ and
+$$
+\td{c_b^1}{t} = -\frac{i}{\hbar}\sum_k H^\op_{ba}e^{i\omega_{ba}t}.
+$$ {#eq-tdp13}
+If the perturbation is switched on at $t = t_0$,
+$$
+c_b^1(t) = -\frac{i}{\hbar}\sum_k
+\int_{t_0}^t H^\op_{ba}(\tau)e^{i\omega_{ba}\tau}d\tau.
+$$ {#eq-tdp14}
