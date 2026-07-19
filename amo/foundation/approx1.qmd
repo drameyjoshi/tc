@@ -86,3 +86,92 @@ $$
 E_n^2 = \sum_{m \ne n}\frac{|\braket{m^0|H^\op|n^0}|^2}{E_n^0 - E_m^0}.
 $$ {#eq-app11}
 
+## Degenerate spectrum
+We now consider the situation in which the unperturbed state with eigenvalue 
+$E_k^0$ is degenerate and has multiple eigenstates $\ket{\psi_{k, 1}^0}, \ldots,
+\ket{\psi_{k, r}^0}$. We continue with the perturbed Hamiltonian of the form 
+$H = H_0 + \lambda H^\op$, with $\lambda \in [0, 1]$. If $H\ket{\psi} = 
+E\ket{\psi}$ is such that $E \rightarrow E_k^0$ when $\lambda \rightarrow 0$ 
+then we cannot infer to which $\ket{\psi_{k, i}^0}$ does $\ket{\psi}$ tend to 
+because there are multiple options. The set $\{\ket{\psi_{k,i}^0} : i = 1, 
+\ldots, r\}$ is a subspace of the Hilbert space of the eigenstates of $H_0$ and 
+we can always assume it to be orthonormal. Thus,
+$$
+\braket{\psi_{kr}^0|\psi_{ks}^0} = \delta_{rs}.
+$$ {#eq-app12}
+When $\lambda \ne 0$, it is quite possible that the degeneracy is lost and we 
+have
+$$
+H\ket{\psi_{kr}} = E_{kr}\ket{\psi_{kr}}
+$$ {#eq-app13}
+where $E_{kr} \rightarrow E_k^0$ as $\lambda \rightarrow 0$. We now express
+$$
+\ket{\psi_{kr}} = \ket{\chi^0_{kr}} + \lambda\ket{\psi^1_{kr}} + \lambda^2
+\ket{\psi^2_{kr}} + \ldots
+$$ {#eq-app14}
+where $\ket{\chi^0_{kr}}$ is the eigenstate to which $\ket{\psi_{kr}}$ tends to
+as the perturbation is turned off. It is labelled differently because we do not
+know to which of the unpertubed eigenstates $\ket{\psi_{kr}}$ will tend to as
+$\lambda \rightarrow 0$. However, we do know that $\ket{\chi^0_{kr}}$ must have
+eigenvalue $E_k^0$. Therefore, it must belong to the subspace spanned by the
+eigenstates belonging to $E_k^0$ so that
+$$
+\ket{\chi_{kr}^0} = \sum_{s=1}^Nc_{rs}\ket{\psi_{ks}^0},
+$$ {#eq-app15}
+where we assumed that $E_k^0$ is $N$-fold degenerate. As in the degenerate case,
+assume that 
+$$
+E_{kr} = \sum_{n \ge 0}\lambda^n E_{kr}^n,
+$$ {#eq-app16}
+where $E_{kr}^0 = E_k^0$ because of degeneracy. Substuting @eq-app14 and 
+@eq-app16 in @eq-app13 we get for $\lambda = 0$, the expected equation
+$$
+H_0\ket{\chi^0_{kr}} = E_k^0\ket{\chi^0_{kr}}
+$$ {#eq-app17}
+and
+$$
+H_0\ket{\psi^1_{kr}} + H^\op\ket{\chi^0_{kr}} = E^0_k\ket{\psi^1_{kr}} +
+E^1_k\ket{\chi^0_{kr}}
+$$ {#eq-app18}
+as the correction first order in $\lambda$. We now use, @eq-app15 in it to get
+$$
+H_0\ket{\psi^1_{kr}} + \sum_{s=1}^Nc_{rs}H^\op\ket{\psi_{kr}^0} = 
+E^0_k\ket{\psi^1_{kr}} + E^1_k\sum_{s=1}^Nc_{rs}\ket{\psi_{ks}^0}.
+$$ {#eq-app19}
+As we did in the non-degenerate case in @eq-app9, we write
+$$
+\ket{\psi^1_{kr}} = \sum_{ms}a^1_{kr,ms}\ket{\psi^0_{ms}},
+$$ {#eq-app20}
+where $\{\ket{\psi^0_{ms}}\}$ is the complete set of eigenstates of $H_0$, so 
+that @eq-app19 becomes
+$$
+\sum_{ms}a^1_{kr,ms}H_0\ket{\psi^0_{ms}} + 
+\sum_{s=1}^Nc_{rs}H^\op\ket{\psi_{kr}^0} = 
+E^0_k\sum_{ms}a^1_{kr,ms}\ket{\psi^0_{ms}} + 
+E^1_k\sum_{s=1}^Nc_{rs}\ket{\psi_{ks}^0}.
+$$ {#eq-app21}
+Since $H_0\ket{\psi_{ms}^0}=E_m^0\ket{\psi_{ms}^0}$, we have, after rearranging 
+terms,
+$$
+\sum_{ms}a^1_{kr,ms}\left(E^0_{m} - E_k^0\right)\ket{\psi^0_{ms}} + 
+(H^\op - E^1_k )\sum_{s=1}^Nc_{rs}\ket{\psi_{ks}^0}.
+$$ {#eq-app22}
+Taking an inner product with $\ket{\psi_{ku}^0}$, the first term vanishes and the
+second one gives
+$$
+\sum_{s=1}^N c_{rs}\left(\braket{\psi_{ku}^0|H^\op|\psi_{ks}^0} - E_k^1 
+\delta_{us}\right) = 0.
+$$ {#eq-app23}
+These are $N$ linear equations in $c_{rs}$. They have unique, non-trivial 
+solutions only if
+$$
+\det{\braket{\psi_{ku}^0|H^\op|\psi_{ks}^0} - E_k^1\delta_{us}} = 0.
+$$ {#eq-app24}
+The roots of this equation give the first order corrections $E_{k1}^1, \ldots
+E_{kN}^1$ to the eigenvalues. If they are all different, the perturbation has
+split the originally degenerate state into $N$ non-degenerate ones. If some
+roots are equal then we look at the second order corrections to remove 
+additional degeneracy. We continue this way until the degeneracy is completely
+removed. The degeneracy may never be removed if $H_0$ and $H$ have similar
+symmetry.
+
