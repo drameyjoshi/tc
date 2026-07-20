@@ -2,40 +2,40 @@
 \section{Fermi-Dirac distribution}\label{c1s1}
 The Fermi-Dirac distribution function is
 \begin{equation}\label{c1e1}
-f(E) = \frac{1}{1 + \exp(\frac{E - \mu}{k_BT})},
+f(E) = \frac{1}{1 + e^{\beta(E-\mu)}},\; \beta = \frac{1}{k_BT}
 \end{equation}
 where $\mu$ is the chemical potential at $0$ K. If the temperature is slightly
 greater than $0$ K, some electrons in the valence band will be excited to the
-conduction band, leaving an equal number of holes in the valance band. If $N_v$
-and $N_c$ are the density of states in the valence and conduction bands 
+conduction band, leaving an equal number of holes in the valance band. If $N_V$
+and $N_C$ are the density of states in the valence and conduction bands 
 respectively then the number density of electrons is
 \begin{equation}\label{c1e2}
-n = N_c f(E_c)
+n = N_C f(E_c)
 \end{equation}
 At temperature slightly greater than zero, the argument of the exponential is
 a very large number and we can as well ignore the $1$ in the denominator of
 $f(E_c)$ and write \eqref{c1e2} as
 \begin{equation}\label{c1e3}
-n = N_c\exp\left(-\frac{E_c - \mu}{k_BT}\right).
+n = N_C e^{-\beta(E_c - \mu)}
 \end{equation}
 Holes are an absence of electrons. Therefore, the probability distribution of
 holes is $f_h(E) = 1 - f(E)$ so that at the top of the valence band
 \begin{equation}\label{c1e4}
-f_h(E_v) = 1 - f(E_v) = \frac{e^{(E_v - \mu)/k_BT}}{1 + e^{(E_v - \mu)/k_BT}}.
+f_h(E_v) = 1 - f(E_v) = \frac{e^{\beta(E_v - \mu)}}{1 + e^{\beta(E_v - \mu)}}.
 \end{equation}
 At temperature slightly greater than zero, the argument of the exponentials is
 a large negative number and therefore the denominator almost equal to $1$. The
 density of holes is
 \begin{equation}\label{c1e5}
-p = N_vf_h(E_v) = N_v e^{(E_v - \mu)/k_BT}.
+p = N_Vf_h(E_v) = N_V e^{\beta(E_v - \mu)}.
 \end{equation}
 Since the crystal is electrically neutral, we must have $n = p$ and hence
 \[
-N_ce^{-(E_c - \mu)/k_BT}  = N_v e^{(E_v - \mu)/k_BT}
+N_Ce^{-\beta(E_c - \mu)}  = N_V e^{\beta(E_v - \mu)}
 \]
 from which we have
 \begin{equation}\label{c1e6}
-\mu = \frac{E_v + E_c}{2} + k_BT\ln\left(\frac{N_v}{N_c}\right).
+\mu = \frac{E_v + E_c}{2} + \frac{k_BT}{2}\ln\left(\frac{N_V}{N_C}\right).
 \end{equation}
 At $T = 0$, the chemical potential is the mean of $E_v$ and $E_c$. For a metal
 at $0$ K, $\mu = E_F$ the fermi energy. The quantum theory of metals was 
@@ -45,8 +45,7 @@ even though there is no fermi surface in a semiconductor. From now one, we will
 call $\mu$ the fermi energy $E_F$ and write the distribution function of 
 \eqref{c1e1} as
 \begin{equation}\label{c1e7}
-f(E) = \frac{1}{1 + e^{(E - E_F)/k_BT}} = 
-\left[1 + \exp\left(\frac{E-E_F}{k_BT}\right)\right]^{-1}.
+f(E) = \frac{1}{1 + e^{\beta(E - E_F)}}
 \end{equation}
 
 \section{Ge and Si at room temperature}\label{c1s2}
@@ -68,17 +67,18 @@ that $E_F = E_c/2 = E_g/2$. We will follow this convention.
 
 If $E_v = 0$, then the probability of an electron to have energy $E_c$ is
 \[
-f(E_c) = \frac{1}{1 + e^{E_c/(2K_BT)}} = \frac{1}{1 + e^{E_g/(2k_BT)}}.
+f(E_c) = \frac{1}{1 + e^{\beta E_c/2}} = \frac{1}{1 + e^{\beta E_g/2}}.
 \]
-At room temperature, the band gap for Ge is $0.72$ eV while $k_BT\approx 0.025$
-eV so that the argument of the exponential is approximately $14.4$, allowing us
-to write $f(E_c) \approx e^{-E_g/k_BT} \approx 10^{-7}$. With a density of 
-states of the order of $10^{19}$ the density of electrons in the conduction band
-is approximately $10^{12}$ per cm$^3$. Although this number is small as compared 
-to the density of free electrons in a Cu crystal ($\approx 10^{23}$), it is 
-enough for Ge to cease to be an insulator and be a semiconductor instead.
+At room temperature, the band gap for Ge is $0.72$ eV while $\beta \approx 40$
+eV$^{-1}$ so that the argument of the exponential is approximately $14.4$, 
+allowing us to write $f(E_c) \approx e^{-\beta E_g} \approx 10^{-7}$. With a 
+density of states of the order of $10^{19}$ the density of electrons in the 
+conduction band is approximately $10^{12}$ per cm$^3$. Although this number is 
+small as compared to the density of free electrons in a Cu crystal 
+($\approx 10^{23}$), it is enough for Ge to cease to be an insulator and be a 
+semiconductor instead.
 
-For Si crystal at room temperature, $E_g = 1.1$ eV, $E_g/(2k_BT) \approx 22$
+For Si crystal at room temperature, $E_g = 1.1$ eV, $\beta E_g/2 \approx 22$
 and $f(E_c) \approx 10^{-10}$. The density of state is $\approx 10^{19}$ so that
 the density of electrons in the conduction band is $\approx 10^9$ per cm$^3$.
 
@@ -168,7 +168,7 @@ where
 \gamma = \frac{4\pi}{h^3}(2m_n)^{3/2}.
 \end{equation}
 Note that $N(E)$ is the density of states. Not all of them will be occupied.
-Therefore, the number of charge carries with energy between $E$ and $E + dE$ is
+Therefore, the number of electrons with energy between $E$ and $E + dE$ is
 \begin{equation}\label{c1e18}
 dn = N(E)f(E)dE
 \end{equation}
@@ -177,12 +177,12 @@ and the concentration of electrons in the conduction band is
 n = \int_{E_c}^\infty N(E)f(E)dE.
 \end{equation}
 The energies in the conduction band are much greater than the fermi level so
-that $(E-E_F) \gg k_BT$ and we can approximate $f(E)$ as $e^{-(E-E_F)/k_BT}$
+that $\beta(E-E_F) > 0$ and we can approximate $f(E)$ as $e^{-\beta(E-E_F)}$
 so that
 \begin{eqnarray*}
-n &=& \gamma\int_{E_c}^\infty (E - E_c)^{1/2}e^{-(E - E_F)/k_BT}dE \\
- &=& \gamma e^{-(E_c - E_F)/k_BT} 
-\int_{E_c}^\infty (E-E_c)^{1/2}e^{-(E - E_F)/k_BT}dE
+n &=& \gamma\int_{E_c}^\infty (E - E_c)^{1/2}e^{-\beta(E - E_F)}dE \\
+ &=& \gamma e^{-\beta(E_c - E_F)} 
+\int_{E_c}^\infty (E-E_c)^{1/2}e^{-\beta(E - E_F)}dE
 \end{eqnarray*}
 Since
 \begin{equation}\label{c1e20}
@@ -190,11 +190,180 @@ Since
 \end{equation}
 we get
 \begin{equation}\label{c1e21}
-n =\gamma e^{-(E_c - E_F)/k_BT} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2}
-= N_Ce^{-(E_c - E_F)/k_BT},
+n =\gamma e^{-\beta(E_c - E_F)} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2}
+= N_Ce^{-\beta(E_c - E_F)},
 \end{equation}
-where
+where we wrote $k_BT$ for $1/\beta$ and
 \begin{equation}\label{c1e22}
 N_C = \frac{4\pi}{h^3}(2m_n)^{3/2} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2} = 
 2\left(\frac{2\pi m_nk_BT}{h^2}\right)^{3/2}.
 \end{equation}
+
+A hole is an absence of electrons. Therefore, the number of holes between
+energies $E$ and $E + dE$ is, analogous to \eqref{c1e18}
+\begin{equation}\label{c1e23}
+dp = N(E)(1 - f(E))dE.
+\end{equation}
+Holes are in the valence band whose highest energy is $E_v$. Therefore, the
+density of state for holes is $N(E) = \gamma(E_v - E)^{1/2}$ and the analogue
+of \eqref{c1e19} is
+\begin{equation}\label{c1e24}
+p = \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}(1 - f(E))dE.
+\end{equation}
+Now,
+\begin{eqnarray*}
+1 - f(E) &=& \frac{e^{\beta(E - E_F)}}{1 + e^{\beta(E - E_F)}} \\
+&\approx& e^{-\beta(E_F - E)}
+\end{eqnarray*}
+This approximation works because for the holes, $E \le E_v < E_F$. The 
+difference between hole energies and the fermi level is at least half the band
+gap, which is significantly greated than $k_BT$ at room temperature. 
+Substituting this in equation \eqref{c1e19} we get
+\begin{eqnarray*}
+p &=& \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}e^{-\beta(E_F - E)}dE \\
+&=& \gamma e^{-\beta(E_F - E_v)}
+\int_{-\infty}^{E_v} (E_v - E)^{1/2}e^{-\beta(E_v-E)}dE.
+\end{eqnarray*}
+If $x = E_v - E$ then $dx = -dE$ and the limits of integration go from $\infty$
+to $0$. The integral turns out to be the same as \eqref{c1e20} and we have
+\begin{equation}\label{c1e25}
+p = N_V e^{-\beta(E_F - E_v)},
+\end{equation}
+where
+\begin{equation}\label{c1e26}
+N_V = \frac{4\pi}{h^3}(2m_n)^{3/2} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2} = 
+2\left(\frac{2\pi m_pk_BT}{h^2}\right)^{3/2},
+\end{equation}
+where $m_p$ is the mass of the hole.
+
+At this point it is important to note that the mass $m_n$ of electron in 
+\eqref{c1e17} and \eqref{c1e22} is not the same as mass of the electron in
+vacuum. In a crystal, the electron has an ``effective mass" that depends on the
+band structure and is defined as
+\begin{equation}\label{c1e27}
+\frac{1}{m^\ast_{ij}} = 
+\frac{1}{\hbar^2}\frac{\partial^2 E}{\partial k_i\partial k_j}.
+\end{equation}
+It is a tensor of rank $2$. In our simplified model, we approximate it to
+\begin{equation}\label{c1e28}
+\frac{1}{m_n} = \frac{1}{\hbar^2}\std{E}{k},
+\end{equation}
+where $E$ is the energy in the conduction band. Likewise, the mass of the hole
+is also
+\begin{equation}\label{c1e29}
+\frac{1}{m_p} = \frac{1}{\hbar^2}\std{E}{k},
+\end{equation}
+where $E$ is the energy in the valence band. The two energy functions in the
+previous two equations are not identical. As a result, the effective mass of
+an electron is not the same as that of the hole. The eletrons in the valence 
+bond reside in bonding orbitals while those in the conduction band reside in the
+anti-bonding orbitals. The curvature of the former in $\vec{k}$ space is much
+smaller than that of the former. As a result, $m_n$ is usually smaller than
+$m_p$. Mobility of charge carriers is inversely proportional to their effective
+mass. As a result, the electrons are more mobile than the holes. This fact has
+a significant influence on device designs. We also note that the band structure
+of semiconductors is quite complex and the approximations of \eqref{c1e28} and
+\eqref{c1e29} have limitations.
+
+From equations \eqref{c1e21} and \eqref{c1e25} we get
+\begin{equation}\label{c1e30}
+np = N_CN_V e^{\beta(E_c - E_v)} = N_CN_V e^{\beta E_g},
+\end{equation}
+where $E_g = E_c - E_v$ is the band gap. In an intrinsic semiconductor, $n = p$
+and we call the common quantity $n_i$. It is always true that
+\begin{equation}\label{c1e31}
+np = n_i^2.
+\end{equation}
+This is because the right hand side of \eqref{c1e30} depends only on the 
+characteristic of the crystal and not the quantity of dopant.
+
+\section{Doped semiconductors}\label{c1s4}
+Introduction of pentavalent atoms in a crystal of pure Si or Ge results in
+positive ions of those atoms occupying the lattice and an extra unbounded 
+electron. Impurities of these kind create energy levels in the band gap, just
+below the conduction band. The unbounded electrons occupy these levels. Being
+very close to the conduction band, they are easily excited and contribute to
+the free electrons in conduction band. Pentavalent impurities are therefore
+called donor impurities and the resulting crystal is called an n-type crystal.
+
+Likewise, addition of trivalent atoms in an Si or Ge crystal result in negative
+ions of those atoms occupying the latice and an extra hole. Impurities of these
+kind create energy level just above the valence band. Electrons normally in the
+valence band find them easily accessible. Almost all of them are filled at room
+temperature, leaving an equal number of holes in the valence band. Trivalent
+impurities are called acceptor impurities and the resulting crystal is called
+a p-type crystal.
+
+Let $N_D$ be the concentration of donor atoms in a crystal. They result in an
+equal number of positive ions. Since the crystal is electrically neutral,
+\begin{equation}\label{c1e32}
+N_D + p = n.
+\end{equation}
+Likewise, if $N_A$ is the concentration of acceptor atoms then they result in
+an equal number of negative ions and to preserve electrical neutrality of the
+crystal we must have
+\begin{equation}\label{c1e33}
+N_A + n = p.
+\end{equation}
+If a crystal has both types of impurities then we must have
+\begin{equation}\label{c1e34}
+N_D + p = N_A + n.
+\end{equation}
+
+In an n-type semiconductor, the number of electrons greatly exceeds the number
+of holes. As a result, we can approximate \eqref{c1e32} to
+\begin{equation}\label{c1e35}
+N_D \approx n.
+\end{equation}
+The analogous approximation for a p-type semiconductor is
+\begin{equation}\label{c1e36}
+N_A \approx p.
+\end{equation}
+Both these equations approximate carrier concentration with impurity 
+concentration.
+
+We introduced the symbol $n_i$ ($= p_i$) for the concentration of electrons (
+and holes) in an intrinsic semiconductor. To completely describe carrier 
+concentration in doped semiconductors, we introduce:
+\begin{enumerate}
+\item $p_n$: concentration of holes in n-type semiconductor.
+\item $n_n$: concentration of electrons in n-type semiconductor.
+\item $p_p$: concentration of holes in p-type semiconductor.
+\item $n_p$: concentration of electrons in p-type semiconductor.
+\end{enumerate}
+In terms of these symbols, we can write \eqref{c1e35} as
+\begin{equation}\label{c1e37}
+n_n \approx N_D
+\end{equation}
+and \eqref{c1e36} as
+\begin{equation}\label{c1e38}
+p_p \approx N_A.
+\end{equation}
+Since $n_pp_p = n_i^2$ and $n_np_n = n_i^2$, we also have
+\begin{eqnarray}
+n_p &=& \frac{n_i^2}{p_p} \approx \frac{n_i^2}{N_A}  \label{c1e39} \\
+p_n &=& \frac{n_i^2}{n_n} \approx \frac{n_i^2}{N_D}. \label{c1e40}
+\end{eqnarray}
+
+In terms of these symbols, we can write equations \eqref{c1e21} and 
+\eqref{c1e24} as
+\begin{eqnarray}
+n_n \approx N_D &=& N_C e^{-\beta(E_c - E_F)} \label{c1e41} \\
+p_p \approx N_A &=& N_V e^{-\beta(E_F - E_v)} \label{c1e42}
+\end{eqnarray}
+From equation \eqref{c1e41} we get the expression for the fermi level in an
+n-type semiconductor as
+\begin{equation}\label{c1e43}
+E_F = E_c - k_BT\ln\frac{N_C}{N_D}.
+\end{equation}
+As the concentration of donors $N_D$ increases, $\ln(N_C/N_D)$ decreases,
+taking $E_F$ closer to $E_c$. Thus, in an n-type semiconductor, the fermi level 
+rises to be close to the conduction band.
+
+Similarly, from \eqref{c1e42}, we get
+\begin{equation}\label{c1e44}
+E_F = E_v + k_BT\ln\frac{N_V}{N_A}
+\end{equation}
+As the concentration of donors $N_A$ increases, $\ln(N_V/N_A)$ decreases,
+taking $E_F$ closer to $E_v$. Thus, in an p-type semiconductor, the fermi level 
+drops to be close to the valence band.
