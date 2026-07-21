@@ -367,3 +367,114 @@ E_F = E_v + k_BT\ln\frac{N_V}{N_A}
 As the concentration of donors $N_A$ increases, $\ln(N_V/N_A)$ decreases,
 taking $E_F$ closer to $E_v$. Thus, in an p-type semiconductor, the fermi level 
 drops to be close to the valence band.
+
+\section{Continuity equation}\label{c1s5}
+Charge carriers move in a crystal due to diffusion as well as electric field.
+The diffusion current density is given by Fick's law,
+\begin{equation}\label{c1e45}
+\vec{J}_p = -eD_p\grad p,
+\end{equation}
+where $D_p$ is the diffusion coefficient. It is related to the carrier's 
+mobility through the Einstein-Smoluchowski relation
+\begin{equation}\label{c1e46}
+D_p = \frac{k_BT}{\mu_p}.
+\end{equation}
+
+The concentration of charge carriers in a semiconductor increases due to
+creation of electron-hole pairs and decreases due to their recombination. If
+$p_{n0}$ is the equilibrium density of holes then an excess concentration $p_n$
+decays to $p_{n0}$ at a rate proportional to the excess. That is,
+\begin{equation}\label{c1e47}
+\td{p_n}{t} = -\frac{p_n - p_{n0}}{\tau},
+\end{equation}
+where $1/\tau$ is the constant of proportionality. $\tau$ is the time it takes
+for the excess to drop by a factor of $1/e$. At room temperature, there is 
+always some concentration of electrons and holes. That is why, $p_{n0} \ne 0$.
+
+Consider a volume element of a semiconductor crystal of length $dx$ and area of
+cross section $A$. If $p$ is the concentration of holes and if $\tau$ is their
+lifetime then it decreases in a unit time by an amount
+\begin{equation}\label{c1e48}
+\delta{p}_1= eAdx\frac{p}{\tau}
+\end{equation}
+However, in the same duration, new holes are created due to generation of 
+electron-hole pairs. This increases the charge in a unit time by an amount,
+\begin{equation}\label{c1e49}
+\delta{p}_2 = eAdxg,
+\end{equation}
+where $g$ is the rate of generation.
+There is also a flow of current through the volume element. In general, it 
+depends on both position and time. If a current $I$ flows through one end of the
+volume element and a current $I + dI$ flows through the other end, there is a
+decrease of hole concentration of by an amount,
+\begin{equation}\label{c1e50}
+\delta{p}_3 = dI
+\end{equation}
+per unit time. These three effects result in a change in concentration of holes.
+Thus, we must have,
+\begin{equation}\label{c1e51}
+eAdx\td{p}{t} = -eAdx\frac{p}{\tau} + eAdxg - dI.
+\end{equation}
+
+The hole current $I$ is a combination of drift current due to electric field
+$\mathcal{E}$ and diffusion current. Thus,
+\begin{equation}\label{c1e52}
+I = Ae\mu_p p\mathcal{E} - AeD_p\td{p}{x}.
+\end{equation}
+From equations \eqref{c1e51} and \eqref{c1e52}, we get the equation of 
+continuity
+\begin{equation}\label{c1e53}
+\pdt{p}{t} = -\frac{p}{\tau} + g -\mu_p\frac{\partial}{\partial x}(pE) +
+D_p\frac{\partial^2p}{\partial x^2}
+\end{equation}
+If there is no electric field and if the crystal is also in thermal equilibrium
+with its surroundings, a steady state prevails. That is, $p$ has an equilibrium
+value $p_0$ and $\mathcal{E} = 0$. Under these conditions, equation 
+\eqref{c1e53} gives
+\begin{equation}\label{c1e54}
+g = -\frac{p_0}{\tau}.
+\end{equation}
+This allows us to write \eqref{c1e53} as
+\begin{equation}\label{c1e55}
+\pdt{p}{t} = -\frac{p - p_0}{\tau} -\mu_p\frac{\partial}{\partial x}(pE) +
+D_p\frac{\partial^2p}{\partial x^2}
+\end{equation}
+
+We will consider two special cases of this equation.
+\begin{enumerate}
+\item If $p$ is a function of $t$ alone and $\mathcal{E} = 0$ then \eqref{c1e55}
+becomes
+\[
+\td{p}{t} = -\frac{p - p_0}{\tau}
+\]
+whose solution is
+\begin{equation}\label{c1e56}
+p(t) - p_0 = (p(0) - p_0)e^{-t/\tau}.
+\end{equation}
+This situation can arise when a semiconductor crystal is irradiated for some
+and the radiation is turned off at $t = 0$.
+
+\item If $p$ is a function of $x$ alone and $\mathcal{E} = 0$, then 
+\eqref{c1e55} becomes
+\[
+\frac{d^2p}{dx^2} = \frac{p - p_0}{\tau D_p}
+\]
+whose solution is 
+\[
+p(x) = p_0 + K_1 e^{-x/L_p} + K_2 e^{x/L_p},
+\]
+where $K_1$ and $K_2$ are constants of integration and
+\begin{equation}\label{c1e57}
+L_p = \frac{1}{\sqrt{\tau D_p}}
+\end{equation}
+is called the diffusion length. If the origin is taken at one end of the crystal
+and the rest of it is along the positive $x$ axis then $K_2$ must be zero and
+$K_1 = p(x=0) - p(0)$. Therefore, the solution of the equation is
+\begin{equation}\label{c1e58}
+p(x) - p_0 = [p(0) - p_0]e^{-x/L_p}.
+\end{equation}
+Note that $p_0$ is the steady state, equilibrium hole concentration and $p(0)$
+is the concentration at $x = 0$. This situation can arise at the junction 
+between an $n$ and a $p$ type crystal, the junction itself being at $x=0$ and
+the $p$-type crystal along the positive $x$-axis.
+\end{enumerate}
