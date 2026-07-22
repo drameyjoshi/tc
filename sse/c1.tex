@@ -2,7 +2,7 @@
 \section{Fermi-Dirac distribution}\label{c1s1}
 The Fermi-Dirac distribution function is
 \begin{equation}\label{c1e1}
-f(E) = \frac{1}{1 + e^{\beta(E-\mu)}},\; \beta = \frac{1}{k_BT}
+f(E) = \frac{1}{1 + e^{\beta(E-\mu(\beta))}},\; \beta = \frac{1}{k_BT}
 \end{equation}
 where $\mu$ is the chemical potential at $0$ K. If the temperature is slightly
 greater than $0$ K, some electrons in the valence band will be excited to the
@@ -37,16 +37,31 @@ from which we have
 \begin{equation}\label{c1e6}
 \mu = \frac{E_v + E_c}{2} + \frac{k_BT}{2}\ln\left(\frac{N_V}{N_C}\right).
 \end{equation}
-At $T = 0$, the chemical potential is the mean of $E_v$ and $E_c$. For a metal
-at $0$ K, $\mu = E_F$ the fermi energy. The quantum theory of metals was 
-developed before that of semiconductors and prior to  maturing of quantum
-statistical mechanics. As a result, the term fermi energy continued to be used
-even though there is no fermi surface in a semiconductor. From now one, we will
-call $\mu$ the fermi energy $E_F$ and write the distribution function of 
-\eqref{c1e1} as
+At $T = 0$, the chemical potential is the mean of $E_v$ and $E_c$ and we can
+write \eqref{c1e1} as
 \begin{equation}\label{c1e7}
-f(E) = \frac{1}{1 + e^{\beta(E - E_F)}}
+f(E) = \frac{1}{1 + e^{\beta(E - E_F)}}.
 \end{equation}
+At any other temperature, \eqref{c1e1} is the accurate expression.
+
+Chemical potential is defined by the equation $f(\mu) = 1/2$. At $0$ K it is 
+called the Fermi level. For metals, the chemical potential varies with $T$ as
+\cite{ashcroft1976solid}
+\[
+\mu(T) = E_F\left[1 - \frac{\pi^2}{12}\left(\frac{1}{\beta E_F}\right)^2 + 
+\cdots \right]
+\]
+and it remains very close to $E_F$ at room temperature. Furthermore, $\mu(0) = 
+E_F$. Therefore, in the physics of metals it is common to treat $\mu$ and $E_F$ 
+as identical. $E_F$ for metals in the free electron model is
+\[
+E_F = \frac{\hbar^2}{2m}(3\pi^2n)^{2/3},
+\]
+where $n$ is the number density of electrons. It is clearly independent of $T$.
+Unlike the semiconductors, $n$ is independent of $T$. The free electron model is
+not applicable to semiconductors and the above formula for $E_F$ is not 
+applicable to them. We, therefore, define $E_F$ as the value of the chemical
+potential at $0$ K.
 
 \section{Ge and Si at room temperature}\label{c1s2}
 Crystals of pure Si or Ge have a band gap of the $1.21$ eV and $0.785$ eV at
@@ -54,15 +69,15 @@ absolute zero. The gap narrows as temperature rises. At $300$ K, it is $1.1$ eV
 in Si crystal and $0.72$ eV in Ge. Typical energy at this temperature is $k_BT
 \approx 0.025$ eV. It is quite small as compared to the band gap and the 
 probability of an electron having enough energy to overcome the band gap is
-miniscule. To compute the probability, we need the value of $E_F$ for the two
+miniscule. To compute the probability, we need the value of $mu$ for the two
 crystals. There are two ways to compute it:
 \begin{itemize}
 \item If the energy of an electron just outside the crystal is set to zero 
 then all the energies inside the crystal are negative. For an Si crystal,
 $E_c = -4.05$ eV, $E_v = -5.17$ eV so that $E_g = -4.16$ eV at absolute zero.
-For a Ge crystal, $E_c = -4.00$ eV, $E_v = -4.785$ eV, $E_F = -4.3925$ eV.
+For a Ge crystal, $E_c = -4.00$ eV, $E_v = -4.785$ eV, $mu = -4.3925$ eV.
 \item While working with a single crystal, it is common to let $E_v = 0$ so
-that $E_F = E_c/2 = E_g/2$. We will follow this convention.
+that $mu = E_c/2 = E_g/2$. We will follow this convention.
 \end{itemize}
 
 If $E_v = 0$, then the probability of an electron to have energy $E_c$ is
@@ -87,16 +102,18 @@ The steady-state velocity of a charge carrier in a crystal is proportional to
 the driving field. The constant of proportionality is called the carrier's
 mobility. Thus, the drift velocity is
 \begin{equation}\label{c1e8}
-\vec{v} = \mu\vec{\mathcal{E}},
+\vec{v}_c = \mu_c\vec{\mathcal{E}},
 \end{equation}
-where $\vec{\mathcal{E}}$ is the applied electric field. If $n$ is the number density
-of the charge carriers then the current density is
+where $\vec{\mathcal{E}}$ is the applied electric field and the subscript $c$
+indicated the charge carrier. It will be $n$ for electrons and $p$ for holes.
+If $n_c$ is the number density of the charge carriers then the current density 
+is
 \begin{equation}\label{c1e9}
-\vec{J} = ne\vec{v} = ne\mu\vec{\mathcal{E}},
+\vec{J} = n_ce\vec{v} = n_ce\mu_c\vec{\mathcal{E}},
 \end{equation}
 so that from Ohm's law we get an expression for the crystal's conductivity
 \begin{equation}\label{c1e10}
-\sigma = ne\mu.
+\sigma = n_ce\mu_c.
 \end{equation}
 
 In a semiconductor, there are two types of charge carriers of opposite charges.
@@ -177,12 +194,12 @@ and the concentration of electrons in the conduction band is
 n = \int_{E_c}^\infty N(E)f(E)dE.
 \end{equation}
 The energies in the conduction band are much greater than the fermi level so
-that $\beta(E-E_F) > 0$ and we can approximate $f(E)$ as $e^{-\beta(E-E_F)}$
+that $\beta(E-mu) > 0$ and we can approximate $f(E)$ as $e^{-\beta(E-mu)}$
 so that
 \begin{eqnarray*}
-n &=& \gamma\int_{E_c}^\infty (E - E_c)^{1/2}e^{-\beta(E - E_F)}dE \\
- &=& \gamma e^{-\beta(E_c - E_F)} 
-\int_{E_c}^\infty (E-E_c)^{1/2}e^{-\beta(E - E_F)}dE
+n &=& \gamma\int_{E_c}^\infty (E - E_c)^{1/2}e^{-\beta(E - mu)}dE \\
+ &=& \gamma e^{-\beta(E_c - mu)} 
+\int_{E_c}^\infty (E-E_c)^{1/2}e^{-\beta(E - mu)}dE
 \end{eqnarray*}
 Since
 \begin{equation}\label{c1e20}
@@ -190,8 +207,8 @@ Since
 \end{equation}
 we get
 \begin{equation}\label{c1e21}
-n =\gamma e^{-\beta(E_c - E_F)} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2}
-= N_Ce^{-\beta(E_c - E_F)},
+n =\gamma e^{-\beta(E_c - mu)} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2}
+= N_Ce^{-\beta(E_c - mu)},
 \end{equation}
 where we wrote $k_BT$ for $1/\beta$ and
 \begin{equation}\label{c1e22}
@@ -212,22 +229,22 @@ p = \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}(1 - f(E))dE.
 \end{equation}
 Now,
 \begin{eqnarray*}
-1 - f(E) &=& \frac{e^{\beta(E - E_F)}}{1 + e^{\beta(E - E_F)}} \\
-&\approx& e^{-\beta(E_F - E)}
+1 - f(E) &=& \frac{e^{\beta(E - mu)}}{1 + e^{\beta(E - mu)}} \\
+&\approx& e^{-\beta(mu - E)}
 \end{eqnarray*}
-This approximation works because for the holes, $E \le E_v < E_F$. The 
+This approximation works because for the holes, $E \le E_v < mu$. The 
 difference between hole energies and the fermi level is at least half the band
 gap, which is significantly greated than $k_BT$ at room temperature. 
 Substituting this in equation \eqref{c1e19} we get
 \begin{eqnarray*}
-p &=& \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}e^{-\beta(E_F - E)}dE \\
-&=& \gamma e^{-\beta(E_F - E_v)}
+p &=& \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}e^{-\beta(mu - E)}dE \\
+&=& \gamma e^{-\beta(mu - E_v)}
 \int_{-\infty}^{E_v} (E_v - E)^{1/2}e^{-\beta(E_v-E)}dE.
 \end{eqnarray*}
 If $x = E_v - E$ then $dx = -dE$ and the limits of integration go from $\infty$
 to $0$. The integral turns out to be the same as \eqref{c1e20} and we have
 \begin{equation}\label{c1e25}
-p = N_V e^{-\beta(E_F - E_v)},
+p = N_V e^{-\beta(mu - E_v)},
 \end{equation}
 where
 \begin{equation}\label{c1e26}
@@ -348,24 +365,24 @@ p_n &=& \frac{n_i^2}{n_n} \approx \frac{n_i^2}{N_D}. \label{c1e40}
 In terms of these symbols, we can write equations \eqref{c1e21} and 
 \eqref{c1e24} as
 \begin{eqnarray}
-n_n \approx N_D &=& N_C e^{-\beta(E_c - E_F)} \label{c1e41} \\
-p_p \approx N_A &=& N_V e^{-\beta(E_F - E_v)} \label{c1e42}
+n_n \approx N_D &=& N_C e^{-\beta(E_c - mu)} \label{c1e41} \\
+p_p \approx N_A &=& N_V e^{-\beta(mu - E_v)} \label{c1e42}
 \end{eqnarray}
 From equation \eqref{c1e41} we get the expression for the fermi level in an
 n-type semiconductor as
 \begin{equation}\label{c1e43}
-E_F = E_c - k_BT\ln\frac{N_C}{N_D}.
+mu = E_c - k_BT\ln\frac{N_C}{N_D}.
 \end{equation}
 As the concentration of donors $N_D$ increases, $\ln(N_C/N_D)$ decreases,
-taking $E_F$ closer to $E_c$. Thus, in an n-type semiconductor, the fermi level 
+taking $mu$ closer to $E_c$. Thus, in an n-type semiconductor, the fermi level 
 rises to be close to the conduction band.
 
 Similarly, from \eqref{c1e42}, we get
 \begin{equation}\label{c1e44}
-E_F = E_v + k_BT\ln\frac{N_V}{N_A}
+mu = E_v + k_BT\ln\frac{N_V}{N_A}
 \end{equation}
 As the concentration of donors $N_A$ increases, $\ln(N_V/N_A)$ decreases,
-taking $E_F$ closer to $E_v$. Thus, in an p-type semiconductor, the fermi level 
+taking $mu$ closer to $E_v$. Thus, in an p-type semiconductor, the fermi level 
 drops to be close to the valence band.
 
 \section{Continuity equation}\label{c1s5}
