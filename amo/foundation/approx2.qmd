@@ -70,10 +70,25 @@ $$ {#eq-tdp12}
 where $s = 0, 1, 2, \ldots$. If the system was initially in the state $\psi_a^0$
 with energy $E_a^0$ then $c_k^0 = \delta_{ka}$ and
 $$
-\td{c_b^1}{t} = -\frac{i}{\hbar}\sum_k H^\op_{ba}e^{i\omega_{ba}t}.
+\td{c_b^1}{t} = -\frac{i}{\hbar}H^\op_{ba}e^{i\omega_{ba}t}.
 $$ {#eq-tdp13}
 If the perturbation is switched on at $t = t_0$,
 $$
-c_b^1(t) = -\frac{i}{\hbar}\sum_k
+c_b^1(t) = -\frac{i}{\hbar}
 \int_{t_0}^t H^\op_{ba}(\tau)e^{i\omega_{ba}\tau}d\tau.
 $$ {#eq-tdp14}
+Since the system was initially in state $\psi_a^0$, the probability of finding
+it in state $\psi_b^0$ is $|c_b^1(t)|^2$. When $t$ is only slightly more than
+$t_0$, we can approximate the exponential by $1$ and get
+$$
+c_b^1(t) \approx -\frac{i}{\hbar}\int_{t_0}^t H^\op_{ba}(\tau)d\tau.
+$$ {#eq-tdp15}
+Equation @eq-tdp11 can be approximated, for $b = a$, as 
+$$
+c_a(t) \approx 1 - \frac{i\lambda}{\hbar}\int_{t_0}^t H_{ba}^\op(\tau)d\tau
+\approx 
+\exp\left(-\frac{i\lambda}{\hbar}\int_{t_0}^t H_{ba}^\op(\tau)d\tau\right).
+$$ {#eq-tdp16}
+Here we have used the fact that $c_k^0 = \delta_{ka}$ because the system is
+initially in the state $\psi_a^0$. Thus, the immediate impact of the 
+perturbation is to alter the phase of the initial state.
