@@ -231,4 +231,65 @@ P_{ab}(t) \approx \frac{|H^\op_{ab}|^2}{\hbar^2}t^2.
 $$ {#eq-tdp24}
 That is, the transition probability increases quadratically with time.
 
+## Fermi's golden rule
+Consider a system with many states with energy in the range $[E_a^0 - \eta,
+E_a^0 + \eta]$. Let $\rho$ be the density of states, that is, the number of
+states in an interval $dE_n$ around $E_n$ is $\rho(E_n)dE_n$. Then the 
+probability of transition to any state in the range $[E_a^0 - \eta, E_a^0 +
+\eta]$ is
+$$
+P_{ab}(t) = \frac{4}{\hbar^2}\int_{E_a^0 - \eta}^{E_a^0 + \eta}|H^\op_{an}|^2
+F(t, \omega_{an})\rho(E_n)dE_n.
+$$ {#eq-tdp25}
+If $\eta$ is small, we can assume that $H^\op_{an} = H^\op_{ab}$ where $E_b^0$ 
+is one of the limits of the range is constant. We can also approximate 
+$\rho(E_n)$ to be same as $\rho(E_a^0)$ and approximate the integral in
+@eq-tdp25 as
+$$
+\begin{eqnarray*}
+P_{ab}(t) &=& \frac{4}{\hbar^2}|H_{ab}^\op|^2\rho(E_a^0)
+\int_{E_a^0 - \eta}^{E_a^0 + \eta}F(t, \omega_{an})dE_n \\
+ &=& \frac{4}{\hbar}|H_{ab}^\op|^2\rho(E_a^0) 
+\int_{E_a^0 - \eta}^{E_a^0 + \eta}F(t, \omega_{an})d\omega_{an}.
+\end{eqnarray*}
+$$ {#eq-tdp26}
+We approximate further by assuming that $t$ is so large that $\eta \gg 2\pi
+\hbar/t$. From the plot of $F(\omega)$ versus $\omega$, it is clear that the
+area under the curve beyond $\pm 2\pi/t$ is very small. We can, therefore,
+extend $\eta \gg 2\pi/t$ to $\eta \rightarrow \infty$. Therefore,
+$$
+P_{ab}(t) = \frac{4}{\hbar}|H_{ab}^\op|^2\rho(E_a^0)\int_{-\infty}^\infty
+F(t, \omega_{an})d\omega_{an}.
+$$ {#eq-tdp27}
+so that in the limit of large $t$, we use the identity
+$$
+\lim_{t \to \infty}F(t, \omega) = 
+\lim_{t \to \infty} \frac{\sin^2(\omega t/2)}{\omega^2} = 
+\frac{\pi t}{2} \delta(\omega)
+$$ {#eq-tdp28}
+in @eq-tdp27 to get
+$$
+P_{ab}(t) = \frac{2\pi}{\hbar}|H_{ab}^\op|^2\rho(E_a^0)t.
+$$ {#eq-tdp29}
+If $W_{ab}$ is the transition probability per unit time, we get, from the
+above equation
+$$
+W_{ab}(t) = \frac{2\pi}{\hbar}|H_{ab}^\op|^2\rho(E_a^0).
+$$ {#eq-tdp30}
+This formula is called _Fermi's golden rule_. It depends on four assumptions:
 
+- Weak perturbation. This assumption is valid for usual interaction between
+electromagnetic fields and electrons. The nuclear electric field is usually 
+very strong as compared to the incident radiation field. It is not valid when
+electrons are subjected to intense laser fields.
+
+- We chose $t$ to be large enough for $F$ to be like a Dirac $\delta$ function.
+However, it is also necessary that the initial state is not depleted. Atomic
+transitions happen within $10^{-15}$ s while decay rates change in $10^{-8}$s.
+We did not explicitly state this assumption but we need it to pull out the
+density of states outside the integral. That is, we assume $\rho(E_a^0)$ is
+constant.
+
+- The final states are not discrete but continuous. 
+
+- $H^\op_{ab}$ is almost constant across all states.
