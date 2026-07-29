@@ -92,3 +92,143 @@ $$ {#eq-tdp16}
 Here we have used the fact that $c_k^0 = \delta_{ka}$ because the system is
 initially in the state $\psi_a^0$. Thus, the immediate impact of the 
 perturbation is to alter the phase of the initial state.
+
+## Step function as perturbation
+If $H^\op(t) = H^\op\Theta(t)$ then @eq-tdp14 becomes
+$$
+c_b^1(t) = -\frac{H^\op_{ba}}{\hbar\omega_{ba}}(1 - e^{i\omega_{ba}t}), b \ne a
+$$ {#eq-tdp17}
+and 
+$$
+c_a^1(t) = -\frac{iH^\op_{aa}}{\hbar}t.
+$$ {#eq-tdp18}
+Here $\Theta(t)$ is the standard step function. It is zero for negative 
+arguments and one for the rest. The transition probability is
+$$
+P_{ab}(t) = |c_b^1(t)|^2 = 4\left|\frac{H^\op_{ba}}{\hbar}\right|^2
+F(t, \omega_{ba}),
+$$ {#eq-tdp19}
+where the function $F$ is
+$$
+F(t, \omega) = \frac{\sin^2(\omega t/2)}{\omega^2}.
+$$ {#eq-tdp20}
+For a fixed time, sat $t = 1$, the function looks like
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+def F(t, omega):
+    """
+    Computes F(t, omega) = sin^2(omega * t) / omega^2.
+    Uses np.sinc to cleanly handle omega = 0.
+    """
+    return (t * np.sinc(omega * t / np.pi))**2
+
+fig = plt.figure(figsize=(6, 18))
+
+# -------------------------------------------------------------------
+# 1. 3D Surface Plot: F(t, omega)
+# -------------------------------------------------------------------
+t_vals = np.linspace(0, 5, 200)
+omega_vals = np.linspace(-10, 10, 200)
+T, W = np.meshgrid(t_vals, omega_vals)
+Z = F(T, W)
+
+ax3d = fig.add_subplot(3, 1, 1, projection='3d')
+surf = ax3d.plot_surface(T, W, Z, cmap='viridis', edgecolor='none', alpha=0.9)
+ax3d.set_title(r'3D Surface Plot of $F(t, \omega) = \frac{2\sin^2(\omega t)}{\omega^2}$', fontsize=12)
+ax3d.set_xlabel(r'$t$', fontsize=11)
+ax3d.set_ylabel(r'$\omega$', fontsize=11)
+ax3d.set_zlabel(r'$F(t, \omega)$', fontsize=11)
+fig.colorbar(surf, ax=ax3d, shrink=0.5, aspect=10, label=r'$F(t, \omega)$', pad=0.1)
+
+# -------------------------------------------------------------------
+# 2. 2D Slice: F vs omega for a fixed t (ticks in multiples of 2*pi/t)
+# -------------------------------------------------------------------
+ax2d_omega = fig.add_subplot(3, 1, 2)
+
+t_fixed = 2.0  # Set fixed t value
+step_unit = 2 * np.pi / t_fixed  # Step size = 2*pi/t
+k_multiples = np.arange(-4, 5)   # Multiples from -4 to +4
+
+# Dense omega range covering the ticks
+omega_dense = np.linspace(-4.5 * step_unit, 4.5 * step_unit, 1000)
+ax2d_omega.plot(omega_dense, F(t_fixed, omega_dense), color='C0', label=f'$t = {t_fixed}$')
+
+# Set tick positions and LaTeX labels
+ticks = k_multiples * step_unit
+tick_labels = []
+
+for k in k_multiples:
+    if k == 0:
+        tick_labels.append("$0$")
+    elif k == 1:
+        tick_labels.append(r"$\frac{2\pi}{t}$")
+    elif k == -1:
+        tick_labels.append(r"$-\frac{2\pi}{t}$")
+    else:
+        coeff = k * 2
+        tick_labels.append(fr"$\frac{{{coeff}\pi}}{{t}}$")
+
+ax2d_omega.set_xticks(ticks)
+ax2d_omega.set_xticklabels(tick_labels)
+ax2d_omega.set_xlim(-4.2 * step_unit, 4.2 * step_unit)
+
+ax2d_omega.set_title(rf'$F(\omega)$ for Fixed $t = {t_fixed}$ (Ticks in Multiples of $2\pi/t$)', fontsize=12)
+ax2d_omega.set_xlabel(r'$\omega$', fontsize=11)
+ax2d_omega.set_ylabel(r'$F(t, \omega)$', fontsize=11)
+ax2d_omega.grid(True, linestyle='--', alpha=0.6)
+ax2d_omega.legend()
+
+# -------------------------------------------------------------------
+# 3. 2D Slice: F vs t for fixed omega values
+# -------------------------------------------------------------------
+ax2d_t = fig.add_subplot(3, 1, 3)
+t_dense = np.linspace(0, 5, 1000)
+omega_fixed_list = [0.0, 1.0, 2.0, 4.0]
+
+for omega_fixed in omega_fixed_list:
+    ax2d_t.plot(t_dense, F(t_dense, omega_fixed), label=rf'$\omega = {omega_fixed}$')
+
+ax2d_t.set_title(r'$F(t)$ for Fixed $\omega$', fontsize=12)
+ax2d_t.set_xlabel(r'$t$', fontsize=11)
+ax2d_t.set_ylabel(r'$F(t, \omega)$', fontsize=11)
+ax2d_t.grid(True, linestyle='--', alpha=0.6)
+ax2d_t.legend()
+
+plt.tight_layout()
+plt.show()
+```
+The plot of $F(\omega)$ versus $\omega$ for a fixed $t$ shows that the function
+has a large peak of width $2\pi/t$ about the origin. Therefore, the probability
+of transition to a stage $E_b^0$ will be quite high if $-\pi/t \le \omega_{ba}
+\le +\pi/t$. Equivalently, the system will transition to any energy in the 
+range $E_a - \hbar\pi/t \le E_b \le E_a + \hbar\pi/t$.
+
+From @eq-tdp20, in the limit $\omega_{ba} \rightarrow 0$,
+$$
+F(t, \omega_{ba}) \rightarrow t^2
+$$ {#eq-tdp21}
+so that if $E_a^0 = E_b^0$, that is, if $\ket{\psi_a^0}, \ket{\psi_b^0}$ are
+degenerate then,
+$$
+P_{ab}(t) = 4\frac{|H^\op_{ab}|^2}{\hbar^2}t^2
+$$ {#eq-tdp22}
+This expression is problematic because the probability increases as $t^2$ and
+will soon have a value greater than $1$. Therefore, we cannot apply this theory
+to degenerate transitions.
+
+On the other hand, if $\omega_{ba} \ne 0$ then from @eq-tdp19,
+$$
+P_{ab}(t) \le 4\frac{|H^\op_{ab}|^2}{\hbar^2\omega_{ab}^2}
+$$ {#eq-tdp23}
+and for a sufficiently weak perturbation, $P_{ab}(t)$ might as well remain
+below $1$. Furthermore, for small times $t$, $\sin(\omega_{ab}t) \approx
+\omega_{ab}t$ and
+$$
+P_{ab}(t) \approx \frac{|H^\op_{ab}|^2}{\hbar^2}t^2.
+$$ {#eq-tdp24}
+That is, the transition probability increases quadratically with time.
+
+
