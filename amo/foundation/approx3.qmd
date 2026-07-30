@@ -1,0 +1,111 @@
+# Variational method
+
+We will consider the variational method in this chapter. For a hamiltonian $H$,
+we define an energy functional
+$$
+E[\phi] = \frac{\braket{\phi|H|\phi}}{\braket{\phi|\phi}}.
+$$ {#eq-vm1}
+and find a $\phi$ that minimises it. That is, we find $\ket{\phi}$ for which
+$$
+\delta E = 0.
+$$ {#eq-vm2}
+It is convenient to write @eq-vm1 as $E[\phi]\braket{\phi|\phi} = \braket{\phi|
+H|\phi}$ and find its first variation as
+$$
+\delta E \braket{\phi|\phi} + E\braket{\delta\phi|\phi} + 
+E\braket{\phi|\delta\phi} = \braket{\delta\phi|H|\phi} + 
+\braket{\phi|H|\delta\phi}.
+$$
+Using the condition @eq-vm2 for extermum we get
+$$
+\braket{\delta\phi|H - E|\phi} + \braket{\phi|H - E|\delta\phi} = 0.
+$$ {#eq-vm3}
+Since $H$ is hermitian and $E$ is real, $\braket{\phi|H - E|\delta\phi} = 
+\braket{\delta\phi|H - E|\phi}^\ast$. Therefore, @eq-vm3 gives
+$$
+\Re\braket{\delta\phi|H - E|\phi} = 0.
+$$ {#eq-vm4}
+If this is true for every variation $\delta\phi$, we must have
+$$
+(H - E[\phi])\ket{\phi} = 0.
+$$ {#eq-vm5}
+Thus a ket that extremises the energy function is an eigenket of $H$. 
+Conversely, if $\phi$ is an eigenket of $H$ then @eq-vm3 is satisfied for some
+number $E = E[\phi]$ and hence $\delta E = 0$. This might make us feel that the
+solution of the variational problem will gives us the exact eigenket. That is
+not a correct interpretation. $\ket{\phi}$ is an approximation to the true
+eigenstate such that the eigenvalue correspondint to $\ket{\phi}$ differs from
+the true eigenvalue by a quantity that is second order in $\ket{\delta\phi}$.
+
+We will now show that $E[\phi]$ is an upper bound to the true ground state
+eigenvalue of $H$. If $\{\ket{\psi_n}\}$ is an orthonormal set of eigenstates 
+of $H$ then we can express
+$$
+\ket{\phi} = \sum_n a_n\ket{\psi_n}
+$$
+so that
+$$
+\braket{\phi|H|\phi} = \sum_{mn}a_m^\ast a_n E_n\delta_{mn} = 
+\sum_n |a_n|^2 E_n
+$$
+and
+$$
+\braket{\phi|\phi} = \sum_n |a_n|^2.
+$$
+We, therefore, have
+$$
+E[\phi] - E_0 = \frac{\sum_n (E_n - E_0) |a_n|^2}{\sum_n|a_n|^2}.
+$$
+Since $E_n \ge E_0$ for all $n$, the right hand side is a non-negative number.
+Therefore,
+$$
+E[\phi] \ge E_0.
+$$ {#eq-vm6}
+
+## Excited states
+We usually work with a set of states $\{\ket{\chi_n}\}$ that are tractable 
+enough to compute $\braket{\chi_m|H|\chi_n}$ and express $\ket{\phi}$ in terms
+of them. Let
+$$
+\ket{\phi} = \sum_{n=1}^N a_n\ket{\chi_n}
+$$ {#eq-vm7}
+so that the energy functional of @eq-vm1 becomes
+$$
+E[\phi] = 
+\frac{\sum_{mn}c_m^\ast c_n H_{mn}}{\sum_{mn}{c_m^\ast c_n\Delta_{mn}}},
+$$ {#eq-vm8}
+where 
+$$
+\begin{eqnarray*}
+H_{mn} &=& \braket{\chi_m|H|\chi_n} \\
+\Delta_{mn} &=& \braket{\chi_m|\chi_n}
+\end{eqnarray*}
+$$ {#eq-vm9}
+The minimisation problem is now about finding $c_n$ for which $E[\phi]$ is an
+extremum. Unlike the previous case where we calculated the functional 
+derivative, in this case we calculate the partial derivative of $E$ with respect
+to $c_n$ and its complex conjugate. Once again, it helps to cast @eq-vm8 as
+$$
+E[\phi]\sum_{mn}c_m^\ast c_n\Delta_{mn} - \sum_{mn}c_m^\ast c_n H_{mn} = 0.
+$$ {#eq-vm10}
+Differentiating with respect to $c_k^\ast$ gives,
+$$
+\sum_{n}c_n\left(E\Delta_{kn} - H_{kn}\right) = 0, k = 1, \ldots, N.
+$$ {#eq-vm11}
+and differentiating with respect to $c_k$ gives,
+$$
+\sum_{m}c_m^\ast\left(E\Delta_{mk} - H_{nk}\right) = 0, k = 1, \ldots, N.
+$$ {#eq-vm12}
+Equation @eq-vm12 is clearly the complex conjugate of @eq-vm11. Equations 
+@eq-vm11 are a set of $N$ equations in $N$ unknowns. In these equations, $E$
+is no longer the functional $E[\phi]$ but an as yet unknown constant $E$ that
+depends on the coefficients $c_n$. Equations @eq-vm11 will have unique solutions
+if and only if the
+$$
+\det(H_{nk} - E\Delta_{nk}) = 0.
+$$ {#eq-vm13}
+The hermiticity of $H$ and the symmetry of $\Delta_{nk}$ guarantee that the 
+roots of this equation are real. They can be written in a sequence $E_0 \le 
+\ldots E_{N-1}$ and are the upper bounds of the ground state and the $N-1$ 
+excited states. For each $E_k$, we substitute it in @eq-vm11 to get $c_n$,
+which allows us to construct $\ket{\phi}$.

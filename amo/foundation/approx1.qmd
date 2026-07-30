@@ -1,4 +1,4 @@
-# Approximation Methods - 1
+# Time-indepdendent Perturbation Theory
 
 In this chapter we shall consider the time-independent perturbation theory.
 That is, the Hamiltonian of the system is written as 

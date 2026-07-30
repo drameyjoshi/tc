@@ -1,4 +1,4 @@
-# Approximation Methods - 2
+# Time-dependent Perturbation Theory
 
 In this chapter we shall consider time-dependent perturbations to a time-
 independent Hamiltonian. That is, the Hamiltonian of the system is written as 
