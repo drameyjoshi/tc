@@ -6,7 +6,7 @@ f(E) = \frac{1}{1 + e^{\beta(E-\mu(\beta))}},\; \beta = \frac{1}{k_BT}
 \end{equation}
 where $\mu$ is the chemical potential at $0$ K. If the temperature is slightly
 greater than $0$ K, some electrons in the valence band will be excited to the
-conduction band, leaving an equal number of holes in the valance band. If $N_V$
+conduction band, leaving an equal number of holes in the valence band. If $N_V$
 and $N_C$ are the density of states in the valence and conduction bands 
 respectively then the number density of electrons is
 \begin{equation}\label{c1e2}
@@ -37,7 +37,8 @@ from which we have
 \begin{equation}\label{c1e6}
 \mu = \frac{E_v + E_c}{2} + \frac{k_BT}{2}\ln\left(\frac{N_V}{N_C}\right).
 \end{equation}
-At $T = 0$, the chemical potential is the mean of $E_v$ and $E_c$ and we can
+At $T = 0$, the chemical potential is the mean of $E_v$ and $E_c$. It is called
+the Fermi level $E_F$ and we can
 write \eqref{c1e1} as
 \begin{equation}\label{c1e7}
 f(E) = \frac{1}{1 + e^{\beta(E - E_F)}}.
@@ -69,15 +70,15 @@ absolute zero. The gap narrows as temperature rises. At $300$ K, it is $1.1$ eV
 in Si crystal and $0.72$ eV in Ge. Typical energy at this temperature is $k_BT
 \approx 0.025$ eV. It is quite small as compared to the band gap and the 
 probability of an electron having enough energy to overcome the band gap is
-miniscule. To compute the probability, we need the value of $mu$ for the two
+miniscule. To compute the probability, we need the value of $\mu$ for the two
 crystals. There are two ways to compute it:
 \begin{itemize}
 \item If the energy of an electron just outside the crystal is set to zero 
 then all the energies inside the crystal are negative. For an Si crystal,
-$E_c = -4.05$ eV, $E_v = -5.17$ eV so that $E_g = -4.16$ eV at absolute zero.
-For a Ge crystal, $E_c = -4.00$ eV, $E_v = -4.785$ eV, $mu = -4.3925$ eV.
+$E_c = -4.05$ eV, $E_v = -5.17$ eV so that $\mu = -4.16$ eV at absolute zero.
+For a Ge crystal, $E_c = -4.00$ eV, $E_v = -4.785$ eV, $\mu = -4.3925$ eV.
 \item While working with a single crystal, it is common to let $E_v = 0$ so
-that $mu = E_c/2 = E_g/2$. We will follow this convention.
+that $\mu = E_c/2 = E_g/2$. We will follow this convention.
 \end{itemize}
 
 If $E_v = 0$, then the probability of an electron to have energy $E_c$ is
@@ -86,7 +87,7 @@ f(E_c) = \frac{1}{1 + e^{\beta E_c/2}} = \frac{1}{1 + e^{\beta E_g/2}}.
 \]
 At room temperature, the band gap for Ge is $0.72$ eV while $\beta \approx 40$
 eV$^{-1}$ so that the argument of the exponential is approximately $14.4$, 
-allowing us to write $f(E_c) \approx e^{-\beta E_g} \approx 10^{-7}$. With a 
+allowing us to write $f(E_c) \approx e^{-\beta E_g/2} \approx 10^{-7}$. With a 
 density of states of the order of $10^{19}$ the density of electrons in the 
 conduction band is approximately $10^{12}$ per cm$^3$. Although this number is 
 small as compared to the density of free electrons in a Cu crystal 
@@ -194,12 +195,12 @@ and the concentration of electrons in the conduction band is
 n = \int_{E_c}^\infty N(E)f(E)dE.
 \end{equation}
 The energies in the conduction band are much greater than the fermi level so
-that $\beta(E-mu) > 0$ and we can approximate $f(E)$ as $e^{-\beta(E-mu)}$
+that $\beta(E-\mu) > 0$ and we can approximate $f(E)$ as $e^{-\beta(E-\mu)}$
 so that
 \begin{eqnarray*}
-n &=& \gamma\int_{E_c}^\infty (E - E_c)^{1/2}e^{-\beta(E - mu)}dE \\
+n &=& \gamma\int_{E_c}^\infty (E - E_c)^{1/2}e^{-\beta(E - \mu)}dE \\
  &=& \gamma e^{-\beta(E_c - mu)} 
-\int_{E_c}^\infty (E-E_c)^{1/2}e^{-\beta(E - mu)}dE
+\int_{E_c}^\infty (E-E_c)^{1/2}e^{-\beta(E - \mu)}dE
 \end{eqnarray*}
 Since
 \begin{equation}\label{c1e20}
@@ -207,8 +208,8 @@ Since
 \end{equation}
 we get
 \begin{equation}\label{c1e21}
-n =\gamma e^{-\beta(E_c - mu)} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2}
-= N_Ce^{-\beta(E_c - mu)},
+n =\gamma e^{-\beta(E_c - \mu)} \frac{\sqrt{\pi}}{2}(k_BT)^{3/2}
+= N_Ce^{-\beta(E_c - \mu)},
 \end{equation}
 where we wrote $k_BT$ for $1/\beta$ and
 \begin{equation}\label{c1e22}
@@ -229,22 +230,22 @@ p = \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}(1 - f(E))dE.
 \end{equation}
 Now,
 \begin{eqnarray*}
-1 - f(E) &=& \frac{e^{\beta(E - mu)}}{1 + e^{\beta(E - mu)}} \\
-&\approx& e^{-\beta(mu - E)}
+1 - f(E) &=& \frac{e^{\beta(E - \mu)}}{1 + e^{\beta(E - \mu)}} \\
+&\approx& e^{-\beta(\mu - E)}
 \end{eqnarray*}
-This approximation works because for the holes, $E \le E_v < mu$. The 
+This approximation works because for the holes, $E \le E_v < \mu$. The 
 difference between hole energies and the fermi level is at least half the band
 gap, which is significantly greated than $k_BT$ at room temperature. 
 Substituting this in equation \eqref{c1e19} we get
 \begin{eqnarray*}
-p &=& \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}e^{-\beta(mu - E)}dE \\
-&=& \gamma e^{-\beta(mu - E_v)}
+p &=& \gamma\int_{-\infty}^{E_v}(E_v - E)^{1/2}e^{-\beta(\mu - E)}dE \\
+&=& \gamma e^{-\beta(\mu - E_v)}
 \int_{-\infty}^{E_v} (E_v - E)^{1/2}e^{-\beta(E_v-E)}dE.
 \end{eqnarray*}
 If $x = E_v - E$ then $dx = -dE$ and the limits of integration go from $\infty$
 to $0$. The integral turns out to be the same as \eqref{c1e20} and we have
 \begin{equation}\label{c1e25}
-p = N_V e^{-\beta(mu - E_v)},
+p = N_V e^{-\beta(\mu - E_v)},
 \end{equation}
 where
 \begin{equation}\label{c1e26}
@@ -272,7 +273,7 @@ is also
 \end{equation}
 where $E$ is the energy in the valence band. The two energy functions in the
 previous two equations are not identical. As a result, the effective mass of
-an electron is not the same as that of the hole. The eletrons in the valence 
+an electron is not the same as that of the hole. The electrons in the valence 
 bond reside in bonding orbitals while those in the conduction band reside in the
 anti-bonding orbitals. The curvature of the former in $\vec{k}$ space is much
 smaller than that of the former. As a result, $m_n$ is usually smaller than
@@ -371,7 +372,7 @@ p_p \approx N_A &=& N_V e^{-\beta(mu - E_v)} \label{c1e42}
 From equation \eqref{c1e41} we get the expression for the fermi level in an
 n-type semiconductor as
 \begin{equation}\label{c1e43}
-mu = E_c - k_BT\ln\frac{N_C}{N_D}.
+\mu = E_c - k_BT\ln\frac{N_C}{N_D}.
 \end{equation}
 As the concentration of donors $N_D$ increases, $\ln(N_C/N_D)$ decreases,
 taking $mu$ closer to $E_c$. Thus, in an n-type semiconductor, the fermi level 
@@ -379,10 +380,10 @@ rises to be close to the conduction band.
 
 Similarly, from \eqref{c1e42}, we get
 \begin{equation}\label{c1e44}
-mu = E_v + k_BT\ln\frac{N_V}{N_A}
+\mu = E_v + k_BT\ln\frac{N_V}{N_A}
 \end{equation}
 As the concentration of donors $N_A$ increases, $\ln(N_V/N_A)$ decreases,
-taking $mu$ closer to $E_v$. Thus, in an p-type semiconductor, the fermi level 
+taking $\mu$ closer to $E_v$. Thus, in an p-type semiconductor, the fermi level 
 drops to be close to the valence band.
 
 \section{Continuity equation}\label{c1s5}
@@ -441,8 +442,8 @@ I = Ae\mu_p p\mathcal{E} - AeD_p\td{p}{x}.
 From equations \eqref{c1e51} and \eqref{c1e52}, we get the equation of 
 continuity
 \begin{equation}\label{c1e53}
-\pdt{p}{t} = -\frac{p}{\tau} + g -\mu_p\frac{\partial}{\partial x}(pE) +
-D_p\frac{\partial^2p}{\partial x^2}
+\pdt{p}{t} = -\frac{p}{\tau} + g -\mu_p\frac{\partial}{\partial x}(p\mathcal{E})
++ D_p\frac{\partial^2p}{\partial x^2}
 \end{equation}
 If there is no electric field and if the crystal is also in thermal equilibrium
 with its surroundings, a steady state prevails. That is, $p$ has an equilibrium
@@ -453,7 +454,8 @@ g = -\frac{p_0}{\tau}.
 \end{equation}
 This allows us to write \eqref{c1e53} as
 \begin{equation}\label{c1e55}
-\pdt{p}{t} = -\frac{p - p_0}{\tau} -\mu_p\frac{\partial}{\partial x}(pE) +
+\pdt{p}{t} = -\frac{p - p_0}{\tau} -
+\mu_p\frac{\partial}{\partial x}(p\mathcal{E}) +
 D_p\frac{\partial^2p}{\partial x^2}
 \end{equation}
 
