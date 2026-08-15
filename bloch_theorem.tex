@@ -16,8 +16,8 @@ T_{\vec{R}} f(\vec{r}) = f(\vec{r} + \vec{R}).
 Then,
 \[
 [U, T_{\vec{R}}]\psi(\vec{r}) = U(\vec{r})\psi(\vec{r} + \vec{R}) - U(\vec{r} + 
-\vec{R})\psi(\vec{r} + \vec{R}) = U(\vec{r})\psi(\vec{r} - U(\vec{r})
-\psi(\vec{r} = 0.
+\vec{R})\psi(\vec{r} + \vec{R}) = U(\vec{r})\psi(\vec{r}) - U(\vec{r})
+\psi(\vec{r}) = 0.
 \]
 Likewise,
 \[
@@ -29,8 +29,8 @@ Since
 \frac{\partial f}{\partial x} = \frac{\partial f}{\partial (x+a)}
 \frac{\partial (x+a)}{\partial x} = \frac{\partial f}{\partial (x+a)},
 \]
-we have $T_{\vec{R}}\left(\nabla^2 \psi(\vec{r})\right) = \nabla^2 \psi(vec{r} +
-\vec{R})$ so that $[\nabla^2, T_{\vec{R}}] = 0$.
+we have $T_{\vec{R}}\left(\nabla^2 \psi(\vec{r})\right) = \nabla^2 \psi(\vec{r}
++ \vec{R})$ so that $[\nabla^2, T_{\vec{R}}] = 0$.
 
 From these two commutation relations it follows that $T_{\vec{R}}$ commutes with
 the Hamiltonian $H$ and they have simultaneous eigenstates. If the eigenvalue
@@ -43,7 +43,7 @@ Therefore, we must have
 \begin{equation}\label{e4}
 C_{\vec{R}_1 + \vec{R}_2} = C_{\vec{R}_1}C_{\vec{R}_2}.
 \end{equation}
-If $\psi(\vec{r}$ is normalised then so is $\psi(\vec{r} + \vec{R})$. As a 
+If $\psi(\vec{r})$ is normalised then so is $\psi(\vec{r} + \vec{R})$. As a 
 result, we also have
 \begin{equation}\label{e5}
 |C_{\vec{R}}|^2 = 1.
@@ -62,7 +62,7 @@ so that
 Thus, the function $\psi(\vec{r})e^{\vec{k}\cdot\vec{r}}$ has a period equal to
 any lattice translation vector. We write the energy eigenstate as
 \begin{equation}\label{e7}
-\psi_{n\vec{k}} = \frac{1}{V}u_{n\vec{k}} e^{i\vec{k}\cdot\vec{r}},
+\psi_{n\vec{k}} = \frac{1}{\sqrt{V}}u_{n\vec{k}} e^{i\vec{k}\cdot\vec{r}},
 \end{equation}
 where $n$ is the band-index and $V$ is the volume of the primitive cell. The
 function $u_{n\vec{k}}$ is called the cell function and $\psi_{n\vec{k}}$ is
