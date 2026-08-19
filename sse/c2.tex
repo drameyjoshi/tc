@@ -69,7 +69,7 @@ Similarly, for the hole concentration, we have
 \end{equation}
 When the crystal is placed in an electric potential $V(x)$, its internal, 
 periodic potential shifts by that amount. All energy levels shift. However, 
-the differences between them, like the band gap, remain unchanged. We now
+the band gap being a differences between them, remain unchanged. We now
 choose the zero of our potential at $\mu_i$ so that when we apply the voltage,
 the chemical potential of the intrinsic crystal becomes $\mu_i = -eV$, $e > 0$ 
 being the elementary charge. If we also write $\mu = -e\varphi$ then equations
@@ -119,5 +119,99 @@ Likewise, we have
 \begin{equation}\label{c2e12}
 \vec{J}_n = -e\mu_n n \grad\varphi_n = -eb\mu_p n\grad\varphi_n,
 \end{equation}
-where $b = \mu_n/\mu_p$ is the ratio of the mobility of the two carriers.
+where $b = \mu_n/\mu_p$ is the ratio of the mobility of the two carriers. In
+both these equations, the current density depends only on the gradient of 
+$\varphi_p$ and $\varphi_n$. In particular, if the gradient of these potentials
+were zero then there is no current in spite of an overall potential. One way
+to understand this point is by noting that the term $e(\varphi_p - V)$ is the
+chemical potential. Therefore, $e\varphi_p$ is the total electrochemical 
+potential from which the electric potential $eV(x)$ is subtracted to obtain the
+true chemical potential. The current is a result of the gradient in the electro-
+chemical potential. It is a combination of the drift due to electric potential 
+and diffusion due to the chemical potential.
 
+At equilibrium, $\varphi_n = \varphi_p = \varphi$, which is a constant that can
+be chosen to be zero. Equation \eqref{c2e7} becomes
+\begin{equation}\label{c2e13}
+\rho = \rho_d - \rho_i\sinh(\beta eV),
+\end{equation}
+where $\rho_d = e(N_D - N_A)$ is the charge density due to defects and $\rho_i
+= 2en_i$ is the density of electrons and holes in a pure crystal. The potential
+$V$ satisfies the Laplace's equation
+\begin{equation}\label{c2e14}
+\nabla^2 V = -\frac{\rho}{\epsilon},
+\end{equation}
+where the charge density is given by \eqref{c2e13} and $\epsilon$ is the 
+permittivity of the crystal. Note that $\rho$ is the total charge density, not
+just the ``free" charge density. If 
+\begin{equation}\label{c2e15}
+u = e\beta V,
+\end{equation}
+then we can express \eqref{c2e14} as
+\begin{equation}\label{c2e16}
+\nabla^2 u = \frac{e\beta\rho_i}{\epsilon}\left(\sinh u - \frac{\rho_d}{\rho_i}
+\right).
+\end{equation}
+The quantity
+\begin{equation}\label{c2e17}
+L_D = \sqrt{\frac{\epsilon}{e\beta\rho_i}},
+\end{equation}
+has the dimension $[L]$ and is called the Debye length. It is the length over
+which the mobile charge carriers adjust themselves to screen the defects. Below
+$L_D$, the thermal motion of the charges prevents an effective screening. Beyond
+it, the crystal appears neutral.
+
+Let $u_0$ be the solution of \eqref{c2e13} when $\rho = 0$. That is, $u_0$ is
+the potential (multiplied by $e\beta$) that results in no charge density in the 
+crystal. That is,
+\begin{equation}\label{c2e18}
+\sinh u_0 = \frac{\rho_d}{\rho_i}.
+\end{equation}
+If $\rho_d$ is constant and $u$ differs only slightly from $u_0$ then in one 
+dimension, equation \eqref{c2e16} becomes
+\begin{equation}\label{c2e19}
+\std{u}{x} = \frac{1}{L_D^2}(\sinh u - \sinh u_0).
+\end{equation}
+For $u \approx u_0$, $\sinh u = \sinh u_0 + (u - u_0)\cosh u_0$ so that
+\begin{equation}\label{c2e20}
+\std{u}{x} = \frac{\cosh u_0}{L_D^2}(u - u_0) = \frac{d^2}{dx^2}(u - u_0),
+\end{equation}
+because $u_0$ is a constant. Its solution is
+\begin{equation}\label{c2e21}
+u - u_0 = A_1\exp\left(\frac{\sqrt{\cosh u_0}}{L_D} x\right) + 
+A_2\exp\left(-\frac{\sqrt{\cosh u_0}}{L_D} x\right)
+\end{equation}
+where $A_1$ and $A_2$ are constants. Thus, $u$ falls to a value $1/e$ of $u_0$
+within a distance $L_D/\sqrt{\cosh u_0}$. If $\rho_d$, the defect density,
+varies only little in a distance $L_D/\sqrt{\cosh u_0}$ then $u$ will not 
+substantially different from $u_0$, that is the crystal will be largely neutral
+without any space charge. If, on the other hand, this is not the case, we should
+expect charge density in the bulk of the crystal.
+
+Suppose the defect density varies as
+\begin{equation}\label{c2e22}
+N_D - N_A = ax.
+\end{equation}
+For a given $a$, we define the characteristic length
+\begin{equation}\label{c2e23}
+L_a = \frac{n_i}{a}.
+\end{equation}
+It is the length over which $n_d = N_D - N_A$ changes as much as $n_i$. It is
+tells how quickly does the transition from $p$-type material to $n$-type 
+material happen. A large $L_a$ corresponds to a gentle variation. We will 
+consider two extreme cases of variation of defect density.
+\begin{enumerate}
+\item When $L_a \gg L_D$, the concentration of dopants in the lattice changes 
+over a much greater length scale than the Debye length. Therefore, the mobile 
+charge carriers shield the fixed dopant ions over distances much smaller than 
+$L_a$. As a result, there is no space charge accumulation and 
+\begin{equation}\label{c2e24}
+p - n + N_D - N_A \approx 0.
+\end{equation}
+
+\item When $L_a \ll L_D$, the concentration of dopants changes much faster than 
+the Debye length. The mobile carriers are unable to adjust their concentration 
+to shield the bare ions. As a result, they appear as a zone of bare charges. 
+Because there is a paucity of mobile charge carriers in this zone, it is also 
+called the `depletion region' or an abrupt junction.
+\end{enumerate}
