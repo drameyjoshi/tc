@@ -14,11 +14,12 @@ Let $T_{\vec{R}}$ be a translation operator defined as
 T_{\vec{R}} f(\vec{r}) = f(\vec{r} + \vec{R}).
 \end{equation}
 Then,
-\[
-[U, T_{\vec{R}}]\psi(\vec{r}) = U(\vec{r})\psi(\vec{r} + \vec{R}) - U(\vec{r} + 
-\vec{R})\psi(\vec{r} + \vec{R}) = U(\vec{r})\psi(\vec{r}) - U(\vec{r})
-\psi(\vec{r}) = 0.
-\]
+\begin{eqnarray*}
+[U, T_{\vec{R}}]\psi(\vec{r}) &=& 
+U(\vec{r})\psi(\vec{r} + \vec{R})-U(\vec{r} + \vec{R})\psi(\vec{r} + \vec{R}) \\
+&=& U(\vec{r})\psi(\vec{r} + \vec{R}) - U(\vec{r}) \psi(\vec{r} + \vec{R}) \\
+&=& 0.
+\end{eqnarray*}
 Likewise,
 \[
 [\nabla^2, T_{\vec{R}}]\psi(\vec{r}) = \nabla^2\psi(\vec{r} + \vec{R}) - 
@@ -33,8 +34,8 @@ we have $T_{\vec{R}}\left(\nabla^2 \psi(\vec{r})\right) = \nabla^2 \psi(\vec{r}
 + \vec{R})$ so that $[\nabla^2, T_{\vec{R}}] = 0$.
 
 From these two commutation relations it follows that $T_{\vec{R}}$ commutes with
-the Hamiltonian $H$ and they have simultaneous eigenstates. If the eigenvalue
-equation of $T_{\vec{R}}$ is
+the Hamiltonian $H$ and they have simultaneous eigenstates. Let the eigenvalue
+equation of $T_{\vec{R}}$ be
 \begin{equation}\label{e3}
 T_{\vec{R}}\psi(\vec{r}) = C_{\vec{R}}\psi(\vec{r})
 \end{equation}
