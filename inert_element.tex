@@ -2,6 +2,8 @@
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing}
+
+\newcommand{\op}{\prime}
 \title{Crystals of Inert Elements}
 \begin{document}
 \author{Amey Joshi}
@@ -63,13 +65,16 @@ by a an ideal spring.
 
   \end{tikzpicture}
   \caption{A model of two polarised inert element atoms.}
+  \label{f1}
 \end{figure}
 The hamiltonian of each atom can be written as 
 \[
 \frac{p^2}{2m} + \frac{1}{2}Cx^2,
 \]
 where $x$ is the distance between the two charges, $p$ is their reduced momentum
-and $m$ their reduced mass. The hamiltonian of two atoms ignoring the 
+and $m$ their reduced mass. (Section \ref{s2} explains how to convert the 
+two-body problem into two one-body problems using standard techniques from
+classical mechanics.) The hamiltonian of two atoms ignoring the 
 interaction between them is
 \begin{equation}\label{e1}
 H_0 = \frac{p_1^2}{2m}+\frac{1}{2}Cx_1^2+\frac{p_2^2}{2m}+\frac{1}{2}Cx_2^2
@@ -137,12 +142,85 @@ be expressed as $B/R^{12}$ for a positive constant $B$.
 
 Thus the net interaction between two inert element atoms can be represented by
 \begin{equation}\label{e13}
-U(r) = 4\varepsilon\left[\left(\frac{\sigma}{r}\right)^6 - 
+U(r) = -4\varepsilon\left[\left(\frac{\sigma}{r}\right)^6 - 
 \left(\frac{\sigma}{r}\right)^{12}\right],
 \end{equation}
 where $\sigma$ and $\varepsilon$ are constants. It is also called the Lennard-
 Jones potential.
-\section{Two masses connected by a spring}
+
+Now suppose there is a crystal of $N$ atoms bound by Van der Waals force. The
+total potential energy is a sum of terms \eqref{e13} for each pair of atoms.
+Thus,
+\begin{equation}\label{e14}
+U_{\text{tot}} = -2\varepsilon\left[
+\sum_{i \ne j}\left(\frac{\sigma}{r_{ij}}\right)^6 - 
+\sum_{i \ne j}\left(\frac{\sigma}{r_{ij}}\right)^{12}\right]
+\end{equation}
+If we ignore the surface effects, each atom contributes equally to $U_{tot}$.
+Under this approximation, we can write \eqref{e14} as
+\begin{equation}\label{e15}
+U_{\text{tot}} = -2\varepsilon N\left[
+\sum_{i \ne j}\left(\frac{\sigma}{r_{ij}}\right)^6 - 
+\sum_{i \ne j}\left(\frac{\sigma}{r_{ij}}\right)^{12}\right]
+\end{equation}
+where the term in square brackets is for an arbitrarily chosen $i$-th atom in
+the bulk of the crystal. If $R$ is the nearest neighbour distance, it one can
+express $r_{ij} = Rp_{ij}$ and write \eqref{e15} as
+\begin{equation}\label{e16}
+U_{\text{tot}} = -2\varepsilon N\left[
+\frac{\sigma^6}{R^6}\sum_{i \ne j}\frac{1}{p_{ij}^6} - 
+\frac{\sigma^{12}}{R^{12}}\sum_{i \ne j}\frac{1}{p_{ij}^{12}}\right].
+\end{equation}
+
+Examples of inert element crystals:
+\begin{enumerate}
+\item Helium solidifies as hcp crystal. The sums in \eqref{e16} evaluate to
+\[
+\sum_{i \ne j}\frac{1}{p_{ij}^6} = 14.15489, \;
+\sum_{i \ne j}\frac{1}{p_{ij}^{12}} = 12.13229.
+\]
+
+\item Neon, Argon, Krypton, Xenon and Radon solidify as fcc crystal. For these
+crystals, the sums evaluate to
+\[
+\sum_{i \ne j}\frac{1}{p_{ij}^6} = 14.45382, \;
+\sum_{i \ne j}\frac{1}{p_{ij}^{12}} = 12.13188.
+\]
+
+\item Neon can also form bcc crystals for which
+\[
+\sum_{i \ne j}\frac{1}{p_{ij}^6} = 12.2533, \;
+\sum_{i \ne j}\frac{1}{p_{ij}^{12}} = 9.11418
+\]
+\end{enumerate}
+
+To make the notation less cluttered, we denote the sum as
+\begin{equation}\label{e17}
+\sum_{i \ne j}\frac{1}{p_{ij}^6} = P, \;
+\sum_{i \ne j}\frac{1}{p_{ij}^{12}} = Q
+\end{equation}
+so that \eqref{e16} is
+\[
+U_{\text{tot}} = -2\varepsilon N\left(\frac{P\sigma^6}{R^6} - \frac{Q\sigma^12}
+{R^{12}}\right).
+\]
+The equilibrium value of $R$ is the one that minimises $U_\text{tot}$. As
+\[
+\frac{dU_{\text{tot}}}{dR} = -2\varepsilon N\left(-\frac{6P\sigma^6}{R^7} +
+\frac{12Q\sigma^{12}}{R^{13}}\right).
+\]
+the function $U_\text{tot}$ has an extremum when
+\begin{equation}\label{e18}
+\frac{6P\sigma^6}{R^7} = \frac{12Q\sigma^{12}}{R^{13}} \Rightarrow
+\frac{6P\sigma^7}{R^7} = \frac{12Q\sigma^{13}}{R^{13}} \Rightarrow
+\frac{R}{\sigma} = \left(\frac{2Q}{P}\right)^{1/6}.
+\end{equation}
+
+The equilibrium cohesive energy for these crystals is evaluated by substituting
+the $R/\sigma$ found in \eqref{e18} into \eqref{e16}.
+
+
+\section{Two masses connected by a spring}\label{s2}
 Consider two masses $m_1$ and $m_2$ connected by an ideal spring as shown
 in the figure. Let the origin be at the centre of the spring when the spring
 is in its relaxed state. The equations of motion of the two masses are
@@ -182,6 +260,7 @@ the force of mass $m_2$ on $m_1$ and $F_{12}$ is its reaction.
 
   \end{tikzpicture}
   \caption{Two masses connected by an ideal spring.}
+  \label{f2}
 \end{figure}
 
 Introduce the coordinates
