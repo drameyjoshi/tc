@@ -5,7 +5,7 @@ outdir      = '../tmp'
 prefix      = 'gr'
 /
 &SYSTEM
-ibrav = 4
+ibrav       = 4
 a           = 2.4623
 c           = 10.0
 nat         = 2
