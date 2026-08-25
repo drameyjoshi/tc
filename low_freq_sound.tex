@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\newcommand{\op}{\prime}
+\title{Sound Waves at Low Frequency}
+\begin{document}
+\author{Amey Joshi}
+\maketitle
+\section{Low-frequency regime}\label{s1}
+The inter-atomic distances and lattice constants of crystals are in the range
+of a few \AA. Waves whose wavelengths are much longer than these distances are
+insensitive to changes at the lattice levels. We will focus on waves whose 
+wavelengths are longer than $10^{-6}$ cm. The speed of sound in solids is in a
+few thousand metres per second. Therefore, we shall consider waves with a 
+frequency less than $10^{11}$ Hz. We shall call these the low frequency waves.
+Note that this is quite different from the range of sound waves considered to be
+of low frequency in acoustics and electronics. In those fields, the ability of
+humans to hear waves is taken into account.
+
+In the low-frequency regime a crystal can be considered as a continuum and we
+can use the classical theory of elasticity to analyse the propagation of sound
+waves.
+
+\section{The strain tensor}\label{s2}
+For notational convenience, we shall label the three cartesian axes as $x_1, 
+x_2, x_3$ instead of $x, y, z$ and the components of a vector $\vec{F}$ shall
+be denoted as $F_1, F_2, F_3$ instead of $F_x, F_y, F_z$.
+
+We shall start with the definition of deformation of a solid. Fix the cartesian
+axis in an unstrained solid. After deformation, the axes $x_i$ are transformed
+to axes $x_i^\op$. Unit vectors along these axes $\hat{x}_i$ are transformed to
+$\vec{x}_i^\op$. Note that a unit vector may be transformed into a vector whose
+magnitude need not be $1$. We define numbers $\epsilon_{ij}$ by
+\begin{equation}\label{e1}
+\vec{x}_i^\op - \hat{x}_i = \epsilon_{i1}\hat{x}_1 + \epsilon_{i2}\hat{x}_2
++ \epsilon_{i3}\hat{x}_3 = \epsilon_{ij}\hat{x}_j,
+\end{equation}
+where we have used the summation convention. We can express \eqref{e1} as
+\begin{equation}\label{e2}
+\vec{x}_i^\op = (\delta_{ij} + \epsilon_{ij})\hat{x}_j,
+\end{equation}
+where $\delta_{ij}$ is the Kronecker-$\delta$. Up to first order in 
+$\epsilon_{ij}$, 
+\begin{equation}\label{e3}
+\lVert\vec{x}^\op_i\rVert^2 = 1 + 2\epsilon_{ii},
+\end{equation}
+from which it follows that
+\begin{equation}\label{e4}
+\lVert\vec{x}_i^\op\rVert = 1 + \epsilon_{ii} = \lVert\hat{x}_i\rVert +
+\epsilon_{ii}.
+\end{equation}
+Thus the change in length of unit vectors is
+\begin{equation}\label{e5}
+\lVert\vec{x}_i^\op\rVert - \lVert\hat{x}_i\rVert = \epsilon_{ii}.
+\end{equation}
+The angles between the deformed axes are no longer equal to $\pi/2$. Instead,
+they are
+\begin{eqnarray*}
+\cos\theta_{ij} &=& \frac{\vec{x}_i^\op \cdot \vec{x}_j^\op}
+{\lVert\vec{x}_i^\op\rVert\lVert\vec{x}_j^\op\rVert}  \\
+&=& \frac{(\delta_{il} + \epsilon_{il})(\delta_{jm} + \epsilon_{jm})\hat{x}_l
+\cdot\hat{x}_m}{(1 + \epsilon_{ii})(1 + \epsilon_{jj})}  \\
+&=& \frac{(\delta_{il} + \epsilon_{il})(\delta_{jm} + \epsilon_{jm})\delta_{lm}}
+{(1 + \epsilon_{ii} + \epsilon_{jj})}  \\
+&=& \frac{(\delta_{il} + \epsilon_{il})(\delta_{jl} + \epsilon_{jl})}
+{(1 + \epsilon_{ii} + \epsilon_{jj})}  \\
+&=& \frac{\delta_{ij} + \epsilon_{ij} + \epsilon_{ji}}
+{(1 + \epsilon_{ii} + \epsilon_{jj})}  
+\end{eqnarray*}
+If $i = j$ then $\cos\theta_{ii} = 1$ so that $\theta_{ii} = 0$, as we would 
+have expected. When $i \ne j$, up to first order in $\epsilon_{ij}$, we have
+\begin{equation}\label{e6}
+\cos\theta_{ij} = \epsilon_{ij} + \epsilon_{ji}.
+\end{equation}
+We define the strain tensor, $e_{ab}$ in abstract index notation, in terms of 
+$\epsilon_{ij}$ as
+\begin{equation}\label{e7}
+e_{ab} = \begin{bmatrix}
+\epsilon_{11} & \epsilon_{12} + \epsilon_{21} & \epsilon_{13} + \epsilon_{31} \\
+\epsilon_{21} + \epsilon_{12} & \epsilon_{22} & \epsilon_{13} + \epsilon_{31} \\
+\epsilon_{31} + \epsilon_{13} & \epsilon_{32} + \epsilon_{23} & \epsilon_{33} 
+\end{bmatrix}.
+\end{equation}
+Deformation also causes the volume of a parallelepiped formed by $\hat{x}_i$
+to change from $1$ to $|\vec{x}_1^\op\cdot(\vec{x}_2^\op\times\vec{x}_3^\op)|$,
+which is
+\[
+\begin{vmatrix}
+1 + \epsilon_{11} & \epsilon_{12} & \epsilon_{13} \\
+\epsilon_{21} & 1 + \epsilon_{22} & \epsilon_{23} \\
+\epsilon_{31} & \epsilon_{32} & 1 + \epsilon_{33}
+\end{vmatrix} = 1 + \epsilon_{ii} = 1 + e_{aa}.
+\]
+We define the dilation of the volume element, $\delta$ as the ratio of the 
+change in volume to the original volume. Thus, the dilation
+\begin{equation}\label{e8}
+\delta = e_{aa} = e_{11} + e_{22} + e_{33},
+\end{equation}
+is equal to the trace of the strain tensor when the deformation is slight.
+\end{document}
