@@ -2,6 +2,7 @@
 \usepackage{amsmath, amssymb, amsfonts}
 
 \newcommand{\op}{\prime}
+\DeclareMathOperator{\tr}{Tr}
 \title{Sound Waves at Low Frequency}
 \begin{document}
 \author{Amey Joshi}
@@ -89,12 +90,13 @@ which is
 1 + \epsilon_{11} & \epsilon_{12} & \epsilon_{13} \\
 \epsilon_{21} & 1 + \epsilon_{22} & \epsilon_{23} \\
 \epsilon_{31} & \epsilon_{32} & 1 + \epsilon_{33}
-\end{vmatrix} = 1 + \epsilon_{ii} = 1 + e_{aa}.
+\end{vmatrix} = 1 + \epsilon_{11} + \epsilon_{22} + \epsilon_{33} = 
+1 + \tr{e_{aa}}.
 \]
 We define the dilation of the volume element, $\delta$ as the ratio of the 
 change in volume to the original volume. Thus, the dilation
 \begin{equation}\label{e8}
-\delta = e_{aa} = e_{11} + e_{22} + e_{33},
+\delta = \tr{e_{aa}} = e_{11} + e_{22} + e_{33},
 \end{equation}
 is equal to the trace of the strain tensor when the deformation is slight.
 \end{document}
