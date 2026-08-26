@@ -99,4 +99,61 @@ change in volume to the original volume. Thus, the dilation
 \delta = \tr{e_{aa}} = e_{11} + e_{22} + e_{33},
 \end{equation}
 is equal to the trace of the strain tensor when the deformation is slight.
+
+\section{Stress tensor}
+Consider a plane portion with unit area of a solid aligned such that the $x$-axis 
+is perpendicular to it. A force acting on this surface will, in general, have all
+three components. We denote them as $(T_{xx}, T_{xy}, T_{xz})$. Forces acting
+plane surfaces perpendicular to other axes are denoted analogously. Thus
+$T_{ij}$ is the $j$-th component of the force acing per unit area aligned along
+the $i$-axis.
+
+Consider a small volume element such that the forces on opposite faces are 
+equal. If $T_{xy}$ and $T_{yx}$ are not equal then there will be a net torque
+on the element resulting in an angular motion about the $z$-axis. If the volume
+element is in equilibrium, then the two forces have to be equal. This is true
+for all combinations of unequal indices. That is
+\begin{equation}\label{e9}
+T_{ij} = T_{ji}.
+\end{equation}
+
+Hooke's law states that the stress and strain are proportional to each other.
+Thus,
+\begin{eqnarray}
+e_{ab} &=& S_{abcd}T_{cd}  \label{e10} \\
+T_{ab} &=& C_{acbd}e_{cd}, \label{e11}
+\end{eqnarray}
+where $S_{abcd}$ is called the elastic compliance tensor and $C_{abcd}$ is 
+called the elastic stiffness tensor, also called the modulus of elasticity.
+From equations \eqref{e7} and \eqref{e9} it is evident that the strain and
+stress tensors are both symmetric. Each one of them has $6$ independent 
+components. Each of these components results in a corresponding element in 
+$C_{abcd}$. Thus, there are $36$ independent components in $C_{abcd}$. For an
+elastic material deforming reversibly the work done is stored as elastic energy.
+\[
+U = \frac{1}{2} C_{abcd}e_{ab}e_{cd}.
+\]
+Since
+\[
+\frac{\partial^2 U}{\partial e_{ab}\partial e_{cd}} = \frac{\partial^2 U}
+{\partial e_{cd}\partial e_{ab}}
+\]
+we must also have $C_{abcd} = C_{cdab}$. We can represent the double index
+$ab$ by $\alpha$ and $cd$ by $\beta$ and treat $C_{abcd}$ as if it were a 
+$6 \times 6$ matrix. The symmetric $C_{\alpha\beta} = C_{\beta\alpha}$ reduces
+the number of independent components to $21$. (It is the sum of $6$ diagonal
+elements plus $5 + 4 + 3 + 2 + 1 = 15$ off-diagonal elements.) The same is true
+for the elastic compliance tensor.
+
+\subsection{Alternative notation}
+The six independent components of the strain and stress tensor can be chosen to
+be $xx, yy, zz, yz, zx, xy$. They can be relabelled as $1, \ldots, 6$. We can
+treat them to be six dimension vectors $e_\mu$ and $T_\mu$. We can write 
+equations \eqref{e10} and \eqref{e11} as
+\begin{eqnarray}
+e_\mu &=& S_{\mu\nu}T_\nu \label{e12} \\
+T_\mu &=& C_{\mu\nu}T_\nu \label{e13}
+\end{eqnarray}
+where $S_{\mu\nu}$ and $C_{\mu\nu}$ are $6 \times 6$ symmetric compliance and 
+stiffness matrices.
 \end{document}
