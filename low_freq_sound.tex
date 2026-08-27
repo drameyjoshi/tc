@@ -30,35 +30,35 @@ be denoted as $F_1, F_2, F_3$ instead of $F_x, F_y, F_z$.
 We shall start with the definition of deformation of a solid. Fix the cartesian
 axis in an unstrained solid. After deformation, the axes $x_i$ are transformed
 to axes $x_i^\op$. Unit vectors along these axes $\hat{x}_i$ are transformed to
-$\vec{x}_i^\op$. Note that a unit vector may be transformed into a vector whose
+$\vec{x^\op}_i$. Note that a unit vector may be transformed into a vector whose
 magnitude need not be $1$. We define numbers $\epsilon_{ij}$ by
 \begin{equation}\label{e1}
-\vec{x}_i^\op - \hat{x}_i = \epsilon_{i1}\hat{x}_1 + \epsilon_{i2}\hat{x}_2
+\vec{x^\op}_i - \hat{x}_i = \epsilon_{i1}\hat{x}_1 + \epsilon_{i2}\hat{x}_2
 + \epsilon_{i3}\hat{x}_3 = \epsilon_{ij}\hat{x}_j,
 \end{equation}
 where we have used the summation convention. We can express \eqref{e1} as
 \begin{equation}\label{e2}
-\vec{x}_i^\op = (\delta_{ij} + \epsilon_{ij})\hat{x}_j,
+\vec{x^\op}_i = (\delta_{ij} + \epsilon_{ij})\hat{x}_j,
 \end{equation}
 where $\delta_{ij}$ is the Kronecker-$\delta$. Up to first order in 
 $\epsilon_{ij}$, 
 \begin{equation}\label{e3}
-\lVert\vec{x}^\op_i\rVert^2 = 1 + 2\epsilon_{ii},
+\lVert\vec{x^\op}_i\rVert^2 = 1 + 2\epsilon_{ii},
 \end{equation}
 from which it follows that
 \begin{equation}\label{e4}
-\lVert\vec{x}_i^\op\rVert = 1 + \epsilon_{ii} = \lVert\hat{x}_i\rVert +
+\lVert\vec{x^\op}_i\rVert = 1 + \epsilon_{ii} = \lVert\hat{x}_i\rVert +
 \epsilon_{ii}.
 \end{equation}
 Thus the change in length of unit vectors is
 \begin{equation}\label{e5}
-\lVert\vec{x}_i^\op\rVert - \lVert\hat{x}_i\rVert = \epsilon_{ii}.
+\lVert\vec{x^\op}_i\rVert - \lVert\hat{x}_i\rVert = \epsilon_{ii}.
 \end{equation}
 The angles between the deformed axes are no longer equal to $\pi/2$. Instead,
 they are
 \begin{eqnarray*}
-\cos\theta_{ij} &=& \frac{\vec{x}_i^\op \cdot \vec{x}_j^\op}
-{\lVert\vec{x}_i^\op\rVert\lVert\vec{x}_j^\op\rVert}  \\
+\cos\theta_{ij} &=& \frac{\vec{x^\op}_i \cdot \vec{x^\op}_j}
+{\lVert\vec{x^\op}_i\rVert\lVert\vec{x^\op}_j\rVert}  \\
 &=& \frac{(\delta_{il} + \epsilon_{il})(\delta_{jm} + \epsilon_{jm})\hat{x}_l
 \cdot\hat{x}_m}{(1 + \epsilon_{ii})(1 + \epsilon_{jj})}  \\
 &=& \frac{(\delta_{il} + \epsilon_{il})(\delta_{jm} + \epsilon_{jm})\delta_{lm}}
@@ -83,7 +83,7 @@ e_{ab} = \begin{bmatrix}
 \end{bmatrix}.
 \end{equation}
 Deformation also causes the volume of a parallelepiped formed by $\hat{x}_i$
-to change from $1$ to $|\vec{x}_1^\op\cdot(\vec{x}_2^\op\times\vec{x}_3^\op)|$,
+to change from $1$ to $|\vec{x^\op}_1\cdot(\vec{x^\op}_2\times\vec{x^\op}_3)|$,
 which is
 \[
 \begin{vmatrix}
@@ -156,4 +156,53 @@ T_\mu &=& C_{\mu\nu}T_\nu \label{e13}
 \end{eqnarray}
 where $S_{\mu\nu}$ and $C_{\mu\nu}$ are $6 \times 6$ symmetric compliance and 
 stiffness matrices.
+
+\section{Elastic waves in cubic crystals}
+We start with Kittel's expression of \eqref{e13} for a cubic crystal,
+\begin{equation}\label{e14}
+\begin{pmatrix}T_1 \\ T_2 \\ T_3 \\ T_4 \\ T_5 \\ T_6\end{pmatrix} = 
+\begin{pmatrix}
+C_{11} & C_{12} & C_{12} & 0 & 0 & 0 \\
+C_{12} & C_{11} & C_{12} & 0 & 0 & 0 \\
+C_{12} & C_{12} & C_{11} & 0 & 0 & 0 \\
+0 & 0 & 0 & C_{44} & 0 & 0 \\
+0 & 0 & 0 & 0 & C_{44} & 0 \\
+0 & 0 & 0 & 0 & 0 & C_{44}
+\end{pmatrix}
+\begin{pmatrix}e_1 \\ e_2 \\ e_3 \\ e_4 \\ e_5 \\ e_6\end{pmatrix}
+\end{equation}
+In order to write the equations of motion, it is convenient to use the 
+standard cartesian tensor notation for the components of stress and strain.
+However, we keep the notation for the components of the stiffness tensor 
+unchanged. Thus, \eqref{e14} becomes
+\begin{equation}\label{e15}
+\begin{pmatrix}T_{xx} \\ T_{yy} \\ T_{zz} \\ T_{yz} \\ T_{zx} \\ T_{xy}
+\end{pmatrix} = 
+\begin{pmatrix}
+C_{11} & C_{12} & C_{12} & 0 & 0 & 0 \\
+C_{12} & C_{11} & C_{12} & 0 & 0 & 0 \\
+C_{12} & C_{12} & C_{11} & 0 & 0 & 0 \\
+0 & 0 & 0 & C_{44} & 0 & 0 \\
+0 & 0 & 0 & 0 & C_{44} & 0 \\
+0 & 0 & 0 & 0 & 0 & C_{44}
+\end{pmatrix}
+\begin{pmatrix}e_{xx} \\ e_{yy} \\ e_{zz} \\ e_{yz} \\ e_{zx} \\ e_{xy}
+\end{pmatrix}
+\end{equation}
+The Cauchy equation for continua in abstract index notation is
+\begin{equation}\label{e16}
+\rho\frac{\partial^2 R_b}{\partial t^2} = \nabla_{a}T_{ab},
+\end{equation}
+where 
+\begin{equation}\label{e17}
+\vec{R}(\vec{r}) = \vec{r^\op} - \vec{r} = u_i(\vec{r})\hat{x}_i
+\end{equation}
+is the deformation. Now,
+\[
+\nabla_a T_{ab} = \hat{e}_i\frac{\partial}{\partial x_i}\cdot\hat{e}_j\hat{e}_k
+T_{jk} = \delta_{ij}\frac{\partial}{\partial x_i}\hat{e}_k T_{jk} = 
+\frac{\partial T_{jk}}{\partial x_j}\hat{e}_k = 
+\frac{\partial T_{kj}}{\partial x_j}\hat{e}_k
+\]
+where the last equations follows from the symmetry of the stress tensor.
 \end{document}
