@@ -2,6 +2,9 @@
 \usepackage{amsmath, amssymb, amsfonts}
 
 \newcommand{\op}{\prime}
+\newcommand{\pdt}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\spdt}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
+\newcommand{\spdtm}[3]{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
 \DeclareMathOperator{\tr}{Tr}
 \title{Sound Waves at Low Frequency}
 \begin{document}
@@ -204,5 +207,61 @@ T_{jk} = \delta_{ij}\frac{\partial}{\partial x_i}\hat{e}_k T_{jk} =
 \frac{\partial T_{jk}}{\partial x_j}\hat{e}_k = 
 \frac{\partial T_{kj}}{\partial x_j}\hat{e}_k
 \]
-where the last equations follows from the symmetry of the stress tensor.
+where the last equations follows from the symmetry of the stress tensor. Thus,
+\begin{eqnarray*}
+\nabla_a T_{ab} &=& \hat{e}_x\left(\frac{\partial T_{xx}}{\partial x} + 
+\frac{\partial T_{xy}}{\partial y}+\frac{\partial T_{xz}}{\partial z}\right)+\\
+ & & \hat{e}_y\left(\frac{\partial T_{yx}}{\partial x} + 
+\frac{\partial T_{yy}}{\partial y}+\frac{\partial T_{yz}}{\partial z}\right)+\\
+ & & \hat{e}_z\left(\frac{\partial T_{zx}}{\partial x} + 
+\frac{\partial T_{zy}}{\partial y} + \frac{\partial T_{zz}}{\partial z}\right)
+\end{eqnarray*}
+Using \eqref{e15}
+\begin{eqnarray*}
+\nabla_a T_{ab} &=& \hat{e}_x\left(C_{11}\pdt{e_{xx}}{x} + C_{12}\pdt{e_{yy}}{x}
++C_{12}\pdt{e_{zz}}{x}+C_{44}\pdt{e_{xy}}{y} + C_{44}\pdt{e_{zx}}{x}\right)+\\
+& & \hat{e}_y\left(C_{44}\pdt{e_{xy}}{x} + C_{12}\pdt{e_{xx}}{y} + 
+C_{11}\pdt{e_{yy}}{y} + C_{12}\pdt{e_{zz}}{y} + C_{44}\pdt{e_{yz}}{z}\right)+\\
+& & \hat{e}_z\left(C_{44}\pdt{e_{zx}}{x} + C_{44}\pdt{e_{yz}}{y} +
+C_{12}\pdt{e_{xx}}{z} + C_{12}\pdt{e_{yy}}{z} + C_{11}\pdt{e_{zz}}{z}\right)
+\end{eqnarray*}
+Using these expressions in \eqref{e16},
+\begin{eqnarray*}
+\rho\spdt{u_x}{t} &=& C_{11}\pdt{e_{xx}}{x} + C_{12}\left(\pdt{e_{yy}}{x} +
+\pdt{e_{zz}}{x}\right) + C_{44}\left(\pdt{e_{xy}}{y} + \pdt{e_{zx}}{x}\right) \\
+\rho\spdt{u_y}{t} &=& C_{11}\pdt{e_{yy}}{y} + C_{12}\left(\pdt{e_{xx}}{y} +
+\pdt{e_{zz}}{y}\right) + C_{44}\left(\pdt{e_{xy}}{x} + \pdt{e_{yz}}{z}\right) \\
+\rho\spdt{u_z}{t} &=& C_{11}\pdt{e_{zz}}{z} + C_{12}\left(\pdt{e_{xx}}{z} +
+\pdt{e_{yy}}{z}\right) + C_{44}\left(\pdt{e_{zx}}{x} + \pdt{e_{yz}}{y}\right)
+\end{eqnarray*}
+The strains are derivatives of $u_x, u_y, u_z$ so that these equations become
+\begin{eqnarray*}
+\rho\spdt{u_x}{t} &=& C_{11}\spdt{u_x}{x} + C_{12}\left(\spdtm{u_y}{x}{y} +
+\spdtm{u_z}{x}{z}\right) + \\
+& & C_{44}\left(\spdt{u_x}{y} + \spdtm{u_y}{x}{y} + 
+\spdtm{u_x}{x}{z} + \spdt{u_x}{z}\right) \\
+\rho\spdt{u_y}{t} &=& C_{11}\spdt{u_y}{y} + C_{12}\left(\spdtm{u_x}{x}{y} +
+\spdtm{u_z}{y}{z}\right) + \\
+ & & C_{44}\left(\spdtm{u_x}{x}{y} + \spdt{u_y}{x} + \spdt{u_y}{z}
++ \spdtm{u_z}{y}{z}\right) \\
+\rho\spdt{u_z}{t} &=& C_{11}\pdt{u_z}{z} + C_{12}\left(\spdtm{u_x}{x}{z} +
+\pdt{u_y}{y}{z}\right) + \\
+& & C_{44}\left(\spdtm{u_z}{x}{z} + \spdt{u_z}{x} + \spdtm{u_y}{y}{z}
++ \spdt{u_z}{y}\right)
+\end{eqnarray*}
+Simplifying them a bit, we get the equations of elastic waves in a cubic crystal
+\begin{eqnarray}
+\rho\spdt{u_x}{t} &=& C_{11}\spdt{u_x}{x} +C_{44}\left(\spdt{u_x}{y} + 
+\spdt{u_x}{z}\right) + \nonumber \\
+& & (C_{12} + C_{44})\left(\spdtm{u_y}{x}{y} + \spdtm{u_z}{x}{z}\right)
+\label{e18} \\
+\rho\spdt{u_y}{t} &=& C_{11}\spdt{u_y}{y} + C_{44}\left(\spdt{u_y}{x} + 
+\spdt{u_y}{z}\right) + \nonumber \\
+& & (C_{12} + C_{44})\left(\spdtm{u_x}{x}{y} + \spdtm{u_z}{y}{z}\right)
+\label{e19} \\
+\rho\spdt{u_z}{t} &=& C_{11}\spdt{u_z}{z} + C_{44}\left(\spdt{u_z}{x} + 
+\spdt{u_z}{z}\right) + \nonumber \\
+& & (C_{12} + C_{44})\left(\spdtm{u_x}{x}{z} + \spdtm{u_y}{y}{z}\right)
+\label{e20}
+\end{eqnarray}
 \end{document}
