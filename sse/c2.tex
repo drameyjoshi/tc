@@ -157,66 +157,81 @@ then we can express \eqref{c2e14} as
 \nabla^2 u = \frac{q\beta\rho_i}{\epsilon}\left(\sinh u - \frac{\rho_d}{\rho_i}
 \right).
 \end{equation}
-The quantity
+Define
 \begin{equation}\label{c2e17}
 L_D = \sqrt{\frac{\epsilon}{q\beta\rho_i}},
 \end{equation}
-has the dimension $[L]$ and is called the Debye length. It is the length over
-which the mobile charge carriers adjust themselves to screen the defects. Below
-$L_D$, the thermal motion of the charges prevents an effective screening of the
-impurity ions. Beyond it, the crystal appears neutral.
-
-Let $u_0$ be the solution of \eqref{c2e13} when $\rho = 0$. That is, when the
-potential in the crystal is equal to $u_0(x)$, the electrons and holes adjust
-their densities to produce a net zero charge density. That is,
+so that equation \eqref{c2e16} becomes
 \begin{equation}\label{c2e18}
-\sinh u_0(x) = \frac{\rho_d(x)}{\rho_i(x)}.
+\nabla^2 u = \frac{1}{L_D^2}\left(\sinh u - \frac{\rho_d}{\rho_i}\right).
 \end{equation}
-Equation \eqref{c2e16}, in one dimension, becomes
+It is easy to check that $L_D$ has dimension $[L]$. Before proceeding, let us
+understand the physical significance of this equation. 
+
+\subsection{Pure crystal}
+If the crystal is not doped, $\rho_d = 0$ and we have
 \begin{equation}\label{c2e19}
-\std{u}{x} = \frac{1}{L_D^2}(\sinh u - \sinh u_0),
+\nabla^2 u = \frac{1}{L_D^2}\sinh u.
 \end{equation}
-where we used \eqref{c2e18}. When $u \approx u_0$, $\sinh u = \sinh u_0 + 
-(u - u_0)\cosh u_0$ so that
+If there is no electric field, the potential $V$ is a constant. Therefore, $u$
+too is a constant. The left hand side is zero and hence we must have $\sinh u =
+0$, that is $u = 0$. The right hand side is a constant multiplied to the charge
+density. In absence of an electric field, there is no macroscopic charge density
+in the crystal. When we apply an electric field, the electron and hole densities
+vary as described by equations \eqref{c2e8} and \eqref{c2e9} giving rise to 
+a term with $\sinh u$ in it, which is no longer constant.
+
+In one dimension, \eqref{c2e19} becomes
 \begin{equation}\label{c2e20}
-\std{u}{x} = \frac{\cosh u_0}{L_D^2}(u - u_0) = \frac{d^2}{dx^2}(u - u_0),
+\frac{d^2u}{dx^2} = \frac{\sinh u}{L_D^2}.
 \end{equation}
-because $u_0$ is a constant. Its solution is
+When $u$ is very small, $\sinh u \approx u$ and the solution of \eqref{c2e20}
+is $u(x) = Ae^{x/L_D} + Be^{-x/L_D}$. Choosing the origin at the left end of
+the crystal, $u(x) = u(0)e^{-x/L_D}$. Thus, the effects of the external 
+potential are erased within a distance $L_D$ from the edge. 
+
+Equation \eqref{c2e19} and its one dimension form first appeared in the theory
+of strong electrolytes. The parameter $L_D$ in it was called Debye length. We
+keep the same nomenclature in the theory of semiconductor junctions. It is the
+distance over which the mobile charges screen the immobile ions.
+
+\subsection{Doped crystal}
+In this case, $\rho_d$ is not zero. It may as well vary within the crystal. Let
+$u_0$ be a solution of \eqref{c2e18} which results in a zero macroscopic charge
+density in the crystal. That is, for this choice of the potential, the rhs of
+\eqref{c2e18} vanishes. Clearly, 
 \begin{equation}\label{c2e21}
-u - u_0 = A_1\exp\left(\frac{\sqrt{\cosh u_0}}{L_D} x\right) + 
-A_2\exp\left(-\frac{\sqrt{\cosh u_0}}{L_D} x\right)
+u_0(\vec{x}) = \sinh^{-1}\left(\frac{\rho_d(\vec{x})}{\rho_i(\vec{x})}\right).
 \end{equation}
-where $A_1$ and $A_2$ are constants. Thus, $u$ falls to a value $1/e$ of $u_0$
-within a distance $L_D/\sqrt{\cosh u_0}$. If $\rho_d$, the defect density,
-varies only little in a distance $L_D/\sqrt{\cosh u_0}$ then $u$ will not 
-substantially different from $u_0$, that is the crystal will be largely neutral
-without any space charge. If, on the other hand, this is not the case, we should
-expect charge density in the bulk of the crystal.
+At this potential, the mobile charges adjust themselves around the immobile
+impurity ions such that their presence is not noticed in the crystal. We will
+use this special solution of \eqref{c2e18} as a reference to compare its other
+solutions.
 
-Suppose the defect density varies as
+Let us consider a one dimensional, doped crystal. In terms of $u_0(x)$, we can
+write \eqref{c2e18} as
 \begin{equation}\label{c2e22}
-N_D - N_A = ax.
+\td{u}{x} = \frac{1}{L_D^2}(\sinh u - \sinh u_0).
 \end{equation}
-For a given $a$, we define the characteristic length
+Consider a situation in which $u$ varies only slightly from $u_0$. Then
+$\sinh u \approx \sinh u_0 + (u - u_0)\cosh u_0$ and \eqref{c2e22} becomes
 \begin{equation}\label{c2e23}
-L_a = \frac{n_i}{a}.
+\td{u}{x} = \frac{1}{L_D^2}\cosh u_0 (u - u_0).
 \end{equation}
-It is the length over which $n_d = N_D - N_A$ changes as much as $n_i$. It is
-tells how quickly does the transition from $p$-type material to $n$-type 
-material happen. A large $L_a$ corresponds to a gentle variation. We will 
-consider two extreme cases of variation of defect density.
-\begin{enumerate}
-\item When $L_a \gg L_D$, the concentration of dopants in the lattice changes 
-over a much greater length scale than the Debye length. Therefore, the mobile 
-charge carriers shield the fixed dopant ions over distances much smaller than 
-$L_a$. As a result, there is no space charge accumulation and 
+Since 
+\[
+\td{u_0}{x} = 0,
+\]
+by definition of $u_0$, we can as well write \eqref{c2e23} as
 \begin{equation}\label{c2e24}
-p - n + N_D - N_A \approx 0.
+\frac{d^2}{dx^2}(u - u_0) = \frac{\cosh u_0}{L_D^2}(u - u_0).
 \end{equation}
-
-\item When $L_a \ll L_D$, the concentration of dopants changes much faster than 
-the Debye length. The mobile carriers are unable to adjust their concentration 
-to shield the bare ions. As a result, they appear as a zone of bare charges. 
-Because there is a paucity of mobile charge carriers in this zone, it is also 
-called the `depletion region' or an abrupt junction.
-\end{enumerate}
+Consider a region in which $\rho_d$ is almost constant so that $u_0$ is also
+constant. In this region, \eqref{c2e24} suggests that $u - u_0$ varies as
+\[
+\exp\left(\pm\frac{\sqrt{\cosh u_0}}{L_D} x\right).
+\]
+Thus, the distance required to erase the difference between $u(x)$ and $u_0(x)$
+is of the order of $\sqrt{\cosh(u_0)}/L_D$. If $\rho_d$ hasn't changed much
+in this distance, $u$ will be almost same as $u_0$ and the crystal will appear
+as if there is no space charge in it.
