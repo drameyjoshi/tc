@@ -20,9 +20,9 @@ Shockley's paper \cite{shockley1949theory}
 
 The p-side has an excess of acceptor impurity over donor impurity. The situation
 is the other way round on the n-side. The junction exists at a point where 
-$N_A = N_D$. The concentration $|N_A - N_D|$ is small in a neighbourhood of the
-junction, call the \emph{transition layer}. Beyond the transition layer, the
-impurity concentration is substantial. 
+$N_A = N_D$. The neighbourhood of the junction in which the concentration 
+$|N_A - N_D|$ is small, is called the \emph{transition layer}. Beyond the 
+transition layer, the impurity concentration is substantial. 
 
 A rectifying junction is formed when charge carriers diffuse across the 
 junction. The electrons diffusing across the junction combine with the holes
@@ -48,7 +48,7 @@ n = N_C e^{-\beta(E_c - \mu)},
 \]
 where $N_C$ is the density of states, $E_c$ the lowest energy in the conduction
 band and $\mu$ is the chemical potential. As long as the doping is not 
-excessive, the presence of dopants does not appreciable change the crystal 
+excessive, the presence of dopants does not appreciably change the crystal 
 structure of the host. As a result, the band structure is unchanged and so is
 the density of states. However, the chemical potential shifts because of 
 impurities. We observed in equations \eqref{c1e43} (\eqref{c1e44}) that the
@@ -82,11 +82,11 @@ where we used the fact that $p_i = n_i$ for an intrinsic semiconductor. If
 $N_D$ and $N_A$ are the concentrations of donor and acceptors then the total
 charge density is
 \begin{equation}\label{c2e6}
-\rho = e(p - n + N_D - N_A),
+\rho = q(p - n + N_D - N_A),
 \end{equation}
 which, using \eqref{c2e4} and \eqref{c2e5} becomes
 \begin{equation}\label{c2e7}
-\rho = e(N_D - N_A + 2n_i\sinh(\beta e (\varphi - V)).
+\rho = q(N_D - N_A + 2n_i\sinh(\beta e (\varphi - V)).
 \end{equation}
 
 There is a further modification to the chemical potential when there is an
@@ -94,49 +94,54 @@ injection of carriers or their generation due to other means like light. If
 we denote it be $\varphi_n$ and $\varphi_p$ for the electrons and holes
 respectively, we get
 \begin{eqnarray}
-n &=& n_i e^{\beta e(V - \varphi_n)} \label{c2e8} \\
-p &=& n_i e^{\beta e(\varphi_p - V)}. \label{c2e9}
+n &=& n_i e^{\beta q(V - \varphi_n)} \label{c2e8} \\
+p &=& n_i e^{\beta q(\varphi_p - V)}. \label{c2e9}
 \end{eqnarray}
 The net hole current is due to diffusion as well as drift. Thus,
 \begin{equation}\label{c2e10}
-\vec{J}_q = -eD_p\grad{p} - e\mu_p p \grad{V},
+\vec{J}_p = -qD_p\grad{p} - q\mu_p p \grad{V},
 \end{equation}
 where $D_p$ is the hole diffusion constant and $\mu_p$ is the hole mobility.
 From equation \eqref{c2e9},
 \[
-\grad p = pe\beta(\grad\varphi_p - \grad V)
+\grad p = pq\beta(\grad\varphi_p - \grad V)
 \]
 so that \eqref{c2e10} becomes
 \[
-\vec{J}_p = -pe^2\beta D_p\grad\varphi_p + pe^2\beta D_p\grad V - 
-e\mu_p p\grad{V}.
+\vec{J}_p = -pq^2\beta D_p\grad\varphi_p + pq^2\beta D_p\grad V - 
+q\mu_p p\grad{V}.
 \]
-Using equation \eqref{c1e46}, the last two terms cancel each other and we get
+Using equation \eqref{c1e46}, $q\beta D_p = \mu_p$ so that
+\[
+\vec{J}_p = -pq^2\beta D_p\grad\varphi_p + pq\mu_p\grad V - 
+q\mu_p p\grad{V}.
+\]
+The last two terms cancel each other and we get
 \begin{equation}\label{c2e11}
-\vec{J}_p = -e\mu_p p \grad\varphi_p.
+\vec{J}_p = -q\mu_p p \grad\varphi_p.
 \end{equation}
 Likewise, we have
 \begin{equation}\label{c2e12}
-\vec{J}_n = -e\mu_n n \grad\varphi_n = -eb\mu_p n\grad\varphi_n,
+\vec{J}_n = -q\mu_n n \grad\varphi_n = -qb\mu_p n\grad\varphi_n,
 \end{equation}
 where $b = \mu_n/\mu_p$ is the ratio of the mobility of the two carriers. In
 both these equations, the current density depends only on the gradient of 
 $\varphi_p$ and $\varphi_n$. In particular, if the gradient of these potentials
 were zero then there is no current in spite of an overall potential. One way
-to understand this point is by noting that the term $e(\varphi_p - V)$ is the
-chemical potential. Therefore, $e\varphi_p$ is the total electrochemical 
-potential from which the electric potential $eV(x)$ is subtracted to obtain the
-true chemical potential. The current is a result of the gradient in the electro-
-chemical potential. It is a combination of the drift due to electric potential 
-and diffusion due to the chemical potential.
+to understand this point is by noting that the term $q(\varphi_p - V)$ is the
+chemical potential. Therefore, $q\varphi_p$ is the total electrochemical 
+potential from which the electric potential $qV(x)$ is subtracted to obtain the
+true chemical potential. The current is a result of the gradient in the 
+electro-chemical potential. It is a combination of the drift due to electric 
+potential and diffusion due to the chemical potential.
 
 At equilibrium, $\varphi_n = \varphi_p = \varphi$, which is a constant that can
 be chosen to be zero. Equation \eqref{c2e7} becomes
 \begin{equation}\label{c2e13}
-\rho = \rho_d - \rho_i\sinh(\beta eV),
+\rho = \rho_d - 2\rho_i\sinh(\beta qV),
 \end{equation}
-where $\rho_d = e(N_D - N_A)$ is the charge density due to defects and $\rho_i
-= 2en_i$ is the density of electrons and holes in a pure crystal. The potential
+where $\rho_d = q(N_D - N_A)$ is the charge density due to defects and $\rho_i
+= 2qn_i$ is the density of electrons and holes in a pure crystal. The potential
 $V$ satisfies the Laplace's equation
 \begin{equation}\label{c2e14}
 \nabla^2 V = -\frac{\rho}{\epsilon},
@@ -145,34 +150,34 @@ where the charge density is given by \eqref{c2e13} and $\epsilon$ is the
 permittivity of the crystal. Note that $\rho$ is the total charge density, not
 just the ``free" charge density. If 
 \begin{equation}\label{c2e15}
-u = e\beta V,
+u = q\beta V,
 \end{equation}
 then we can express \eqref{c2e14} as
 \begin{equation}\label{c2e16}
-\nabla^2 u = \frac{e\beta\rho_i}{\epsilon}\left(\sinh u - \frac{\rho_d}{\rho_i}
+\nabla^2 u = \frac{q\beta\rho_i}{\epsilon}\left(\sinh u - \frac{\rho_d}{\rho_i}
 \right).
 \end{equation}
 The quantity
 \begin{equation}\label{c2e17}
-L_D = \sqrt{\frac{\epsilon}{e\beta\rho_i}},
+L_D = \sqrt{\frac{\epsilon}{q\beta\rho_i}},
 \end{equation}
 has the dimension $[L]$ and is called the Debye length. It is the length over
 which the mobile charge carriers adjust themselves to screen the defects. Below
-$L_D$, the thermal motion of the charges prevents an effective screening. Beyond
-it, the crystal appears neutral.
+$L_D$, the thermal motion of the charges prevents an effective screening of the
+impurity ions. Beyond it, the crystal appears neutral.
 
-Let $u_0$ be the solution of \eqref{c2e13} when $\rho = 0$. That is, $u_0$ is
-the potential (multiplied by $e\beta$) that results in no charge density in the 
-crystal. That is,
+Let $u_0$ be the solution of \eqref{c2e13} when $\rho = 0$. That is, when the
+potential in the crystal is equal to $u_0(x)$, the electrons and holes adjust
+their densities to produce a net zero charge density. That is,
 \begin{equation}\label{c2e18}
-\sinh u_0 = \frac{\rho_d}{\rho_i}.
+\sinh u_0(x) = \frac{\rho_d(x)}{\rho_i(x)}.
 \end{equation}
-If $\rho_d$ is constant and $u$ differs only slightly from $u_0$ then in one 
-dimension, equation \eqref{c2e16} becomes
+Equation \eqref{c2e16}, in one dimension, becomes
 \begin{equation}\label{c2e19}
-\std{u}{x} = \frac{1}{L_D^2}(\sinh u - \sinh u_0).
+\std{u}{x} = \frac{1}{L_D^2}(\sinh u - \sinh u_0),
 \end{equation}
-For $u \approx u_0$, $\sinh u = \sinh u_0 + (u - u_0)\cosh u_0$ so that
+where we used \eqref{c2e18}. When $u \approx u_0$, $\sinh u = \sinh u_0 + 
+(u - u_0)\cosh u_0$ so that
 \begin{equation}\label{c2e20}
 \std{u}{x} = \frac{\cosh u_0}{L_D^2}(u - u_0) = \frac{d^2}{dx^2}(u - u_0),
 \end{equation}

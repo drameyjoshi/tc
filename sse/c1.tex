@@ -4,17 +4,22 @@ The Fermi-Dirac distribution function is
 \begin{equation}\label{c1e1}
 f(E) = \frac{1}{1 + e^{\beta(E-\mu(\beta))}},\; \beta = \frac{1}{k_BT}
 \end{equation}
-where $\mu$ is the chemical potential at $0$ K. If the temperature is slightly
-greater than $0$ K, some electrons in the valence band will be excited to the
-conduction band, leaving an equal number of holes in the valence band. If $N_V$
-and $N_C$ are the density of states in the valence and conduction bands 
-respectively then the number density of electrons is
+where $\mu$ is the chemical potential at $0$ K. As $T \rightarrow 0^+$, the 
+argument of the exponential will be a large negative number if $E < \mu$ and we 
+can ignore the exponential as compared to one. This gives $f(E) = 1$ for all 
+$E < \mu$. If $E$ is greater than $\mu$, the exponential is very large and 
+$f(E)$ is almost zero. When the temperature is slightly greater than $0$ K, some
+electrons in the valence band will be excited to the conduction band, leaving 
+an equal number of holes in the valence band. If $N_V$ and $N_C$ are the density 
+of states in the valence and conduction bands respectively then the number 
+density of electrons is
 \begin{equation}\label{c1e2}
 n = N_C f(E_c)
 \end{equation}
-At temperature slightly greater than zero, the argument of the exponential is
-a very large number and we can as well ignore the $1$ in the denominator of
-$f(E_c)$ and write \eqref{c1e2} as
+We will prove later on that a semiconductor has $E_v < \mu < E_c$, where $E_v$
+is the highest energy in the valence band and $E_c$ the lowest in the conduction
+band. Thus, at temperature slightly greater than zero, the argument of the 
+exponential is a very large number and we can write \eqref{c1e2} as
 \begin{equation}\label{c1e3}
 n = N_C e^{-\beta(E_c - \mu)}
 \end{equation}
@@ -110,11 +115,12 @@ indicated the charge carrier. It will be $n$ for electrons and $p$ for holes.
 If $n_c$ is the number density of the charge carriers then the current density 
 is
 \begin{equation}\label{c1e9}
-\vec{J} = n_ce\vec{v} = n_ce\mu_c\vec{\mathcal{E}},
+\vec{J} = n_ce\vec{v} = n_cq\mu_c\vec{\mathcal{E}},
 \end{equation}
-so that from Ohm's law we get an expression for the crystal's conductivity
+where $q$ is the charge on the carrier. Using Ohm's law we get an expression 
+for the crystal's conductivity
 \begin{equation}\label{c1e10}
-\sigma = n_ce\mu_c.
+\sigma = n_cq\mu_c.
 \end{equation}
 
 In a semiconductor, there are two types of charge carriers of opposite charges.
@@ -122,14 +128,14 @@ An applied electric field drifts them in opposite directions but their current
 is in the same direction. As a result, the current density in a semiconductor
 crystal is
 \begin{equation}\label{c1e11}
-J = (n\mu_n + p\mu_p)e\mathcal{E} = \sigma\mathcal{E},
+J = (n\mu_n + p\mu_p)q\mathcal{E} = \sigma\mathcal{E},
 \end{equation}
 and its conductivity is
 \begin{equation}\label{c1e12}
-\sigma = (n\mu_n + p\mu_p)e.
+\sigma = (n\mu_n + p\mu_p)q.
 \end{equation}
 In these equations, $n$ and $p$ are number densities of electrons and holes and
-$\mu_n$ and $\mu_p$ are their mobilities. $-e$ is the charge on the electron.
+$\mu_n$ and $\mu_p$ are their mobilities. $-q$ is the charge on the electron.
 For a pure, that is undoped, semiconductor crystal, $n = p$ and the common
 number is denoted by $n_i$, the intrinsic carrier density. Equation 
 \eqref{c1e11} simplifies to
@@ -275,13 +281,15 @@ where $E$ is the energy in the valence band. The two energy functions in the
 previous two equations are not identical. As a result, the effective mass of
 an electron is not the same as that of the hole. The electrons in the valence 
 bond reside in bonding orbitals while those in the conduction band reside in the
-anti-bonding orbitals. The curvature of the former in $\vec{k}$ space is much
-smaller than that of the former. As a result, $m_n$ is usually smaller than
-$m_p$. Mobility of charge carriers is inversely proportional to their effective
-mass. As a result, the electrons are more mobile than the holes. This fact has
-a significant influence on device designs. We also note that the band structure
-of semiconductors is quite complex and the approximations of \eqref{c1e28} and
-\eqref{c1e29} have limitations.
+anti-bonding orbitals. The curvature of the bonding orbitals in $\vec{k}$ space 
+is much smaller than that of the anti-bonding orbitals. The curvature is 
+proportional to the second derivative. Therefore $1/m_n$ is larger than $1/m_p$.
+Equivalently, $m_n$ is usually smaller than $m_p$. Mobility of charge carriers 
+is inversely proportional to their effective mass. As a result, the electrons 
+are more mobile than the holes. This fact has a significant influence on device 
+designs. We also note that the band structure of semiconductors is quite 
+complex and the approximations of \eqref{c1e28} and \eqref{c1e29} have 
+limitations.
 
 From equations \eqref{c1e21} and \eqref{c1e25} we get
 \begin{equation}\label{c1e30}
@@ -305,7 +313,7 @@ the free electrons in conduction band. Pentavalent impurities are therefore
 called donor impurities and the resulting crystal is called an n-type crystal.
 
 Likewise, addition of trivalent atoms in an Si or Ge crystal result in negative
-ions of those atoms occupying the latice and an extra hole. Impurities of these
+ions of those atoms occupying the lattice and an extra hole. Impurities of these
 kind create energy level just above the valence band. Electrons normally in the
 valence band find them easily accessible. Almost all of them are filled at room
 temperature, leaving an equal number of holes in the valence band. Trivalent
@@ -340,8 +348,8 @@ N_A \approx p.
 Both these equations approximate carrier concentration with impurity 
 concentration.
 
-We introduced the symbol $n_i$ ($= p_i$) for the concentration of electrons (
-and holes) in an intrinsic semiconductor. To completely describe carrier 
+We introduced the symbol $n_i$ ($= p_i$) for the concentration of electrons 
+(and holes) in an intrinsic semiconductor. To completely describe carrier 
 concentration in doped semiconductors, we introduce:
 \begin{enumerate}
 \item $p_n$: concentration of holes in n-type semiconductor.
@@ -375,7 +383,7 @@ n-type semiconductor as
 \mu = E_c - k_BT\ln\frac{N_C}{N_D}.
 \end{equation}
 As the concentration of donors $N_D$ increases, $\ln(N_C/N_D)$ decreases,
-taking $mu$ closer to $E_c$. Thus, in an n-type semiconductor, the fermi level 
+taking $\mu$ closer to $E_c$. Thus, in an n-type semiconductor, the fermi level 
 rises to be close to the conduction band.
 
 Similarly, from \eqref{c1e42}, we get
@@ -390,12 +398,12 @@ drops to be close to the valence band.
 Charge carriers move in a crystal due to diffusion as well as electric field.
 The diffusion current density is given by Fick's law,
 \begin{equation}\label{c1e45}
-\vec{J}_p = -eD_p\grad p,
+\vec{J}_p = -qD_p\grad p,
 \end{equation}
 where $D_p$ is the diffusion coefficient. It is related to the carrier's 
 mobility through the Einstein-Smoluchowski relation
 \begin{equation}\label{c1e46}
-D_p = \frac{k_BT}{\mu_p}.
+qD_p = \mu_p k_BT = \frac{\mu_p}{\beta}.
 \end{equation}
 
 The concentration of charge carriers in a semiconductor increases due to
@@ -413,12 +421,12 @@ Consider a volume element of a semiconductor crystal of length $dx$ and area of
 cross section $A$. If $p$ is the concentration of holes and if $\tau$ is their
 lifetime then it decreases in a unit time by an amount
 \begin{equation}\label{c1e48}
-\delta{p}_1= eAdx\frac{p}{\tau}
+\delta{p}_1= qAdx\frac{p}{\tau}
 \end{equation}
 However, in the same duration, new holes are created due to generation of 
 electron-hole pairs. This increases the charge in a unit time by an amount,
 \begin{equation}\label{c1e49}
-\delta{p}_2 = eAdxg,
+\delta{p}_2 = qAdxg,
 \end{equation}
 where $g$ is the rate of generation.
 There is also a flow of current through the volume element. In general, it 
@@ -430,14 +438,18 @@ decrease of hole concentration of by an amount,
 \end{equation}
 per unit time. These three effects result in a change in concentration of holes.
 Thus, we must have,
+\[
+qAdx\td{p}{t} = -qAdx\frac{p}{\tau} + qAdxg - dI
+\]
+that is,
 \begin{equation}\label{c1e51}
-eAdx\td{p}{t} = -eAdx\frac{p}{\tau} + eAdxg - dI.
+\td{p}{t} = -\frac{p}{\tau} + g - \frac{1}{qA}\td{I}{x}.
 \end{equation}
 
 The hole current $I$ is a combination of drift current due to electric field
 $\mathcal{E}$ and diffusion current. Thus,
 \begin{equation}\label{c1e52}
-I = Ae\mu_p p\mathcal{E} - AeD_p\td{p}{x}.
+I = Aq\mu_p p\mathcal{E} - AqD_p\td{p}{x}.
 \end{equation}
 From equations \eqref{c1e51} and \eqref{c1e52}, we get the equation of 
 continuity
@@ -495,5 +507,6 @@ p(x) - p_0 = [p(0) - p_0]e^{-x/L_p}.
 Note that $p_0$ is the steady state, equilibrium hole concentration and $p(0)$
 is the concentration at $x = 0$. This situation can arise at the junction 
 between an $n$ and a $p$ type crystal, the junction itself being at $x=0$ and
-the $p$-type crystal along the positive $x$-axis.
+the $p$-type crystal along the positive $x$-axis. We will consider such a 
+junction in great details in the next chapter.
 \end{enumerate}
