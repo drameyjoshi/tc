@@ -9,13 +9,13 @@ crystal. The junction has its origin in the chemical and not mechanical
 inhomogeneity. We will largely follow the treatment in Shockley's 
 \cite{shockley1949theory} paper of 1949.
 
-Figure \ref{fig1} shows the schematic diagram of a pn junction, published in
+Figure \ref{c2f1} shows the schematic diagram of a pn junction, published in
 Shockley's paper \cite{shockley1949theory}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{pn-junction-shockley1949}
 \caption{A p-n junction}
-\label{fig1}
+\label{c2f1}
 \end{figure}
 
 The p-side has an excess of acceptor impurity over donor impurity. The situation
@@ -235,3 +235,25 @@ Thus, the distance required to erase the difference between $u(x)$ and $u_0(x)$
 is of the order of $\sqrt{\cosh(u_0)}/L_D$. If $\rho_d$ hasn't changed much
 in this distance, $u$ will be almost same as $u_0$ and the crystal will appear
 as if there is no space charge in it.
+
+\subsection{Solution of Poisson equation}
+Equation \eqref{c2e18}, restricted to one dimension, is
+\[
+\std{u}{x} = \frac{1}{L_D^2}\left(\sinh u - \frac{\rho_d(x)}{\rho_i(x)}\right).
+\]
+We have already transformed the potential $V$ into a dimensionless quantity $u$.
+We will do the same with $x$. The impurity profile of the crystal in figure
+\ref{c2f1} is of the form $N_D - N_A = ax$, where $a$ is a constant. Thus, $a$
+is the rate of change of impurities with $x$. This allows us to define
+\begin{equation}\label{c2e25}
+L_a = \frac{n_i}{a},
+\end{equation}
+as a length scale characterized by the impurity profile. Equation \eqref{c2e25}
+is equivalent to $n_i = a L_a$. Thus, $L_a$ is the distance over which the net 
+impurity concentration changes by an amount equal to the intrinsic carrier 
+concentration $n_i$. A very small $L_a$ indicates a very steep impurity gradient
+(large $a$), and \emph{vice versa}. If $L_a \ll L_D$, mobile carriers cannot 
+screen the rapidly varying impurity distribution, leaving a space-charge layer 
+of uncompensated ions. Conversely, if $L_a \gg L_D$, the impurity profile varies
+gradually enough that mobile carriers locally neutralize the fixed ions, 
+maintaining approximate electrical neutrality throughout the transition. 
