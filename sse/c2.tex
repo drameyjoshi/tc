@@ -71,12 +71,12 @@ When the crystal is placed in an electric potential $V(x)$, its internal,
 periodic potential shifts by that amount. All energy levels shift. However, 
 the band gap being a differences between them, remain unchanged. We now
 choose the zero of our potential at $\mu_i$ so that when we apply the voltage,
-the chemical potential of the intrinsic crystal becomes $\mu_i = -eV$, $e > 0$ 
-being the elementary charge. If we also write $\mu = -e\varphi$ then equations
+the chemical potential of the intrinsic crystal becomes $\mu_i = -qV$, $q > 0$ 
+being the elementary charge. If we also write $\mu = -q\varphi$ then equations
 \eqref{c2e2} and \eqref{c2e3} become
 \begin{eqnarray}
-n &=& n_i e^{\beta e(V - \varphi)} \label{c2e4} \\
-p &=& n_i e^{\beta e(\varphi - V)} \label{c2e5}
+n &=& n_i e^{\beta q(V - \varphi)} \label{c2e4} \\
+p &=& n_i e^{\beta q(\varphi - V)} \label{c2e5}
 \end{eqnarray}
 where we used the fact that $p_i = n_i$ for an intrinsic semiconductor. If
 $N_D$ and $N_A$ are the concentrations of donor and acceptors then the total
@@ -86,7 +86,7 @@ charge density is
 \end{equation}
 which, using \eqref{c2e4} and \eqref{c2e5} becomes
 \begin{equation}\label{c2e7}
-\rho = q(N_D - N_A + 2n_i\sinh(\beta e (\varphi - V)).
+\rho = q(N_D - N_A + 2n_i\sinh(\beta q (\varphi - V)).
 \end{equation}
 
 There is a further modification to the chemical potential when there is an
@@ -354,3 +354,26 @@ The potential at the boundary of the transition layer is
 \begin{equation}\label{c2e38}
 V(x_m) = \frac{1}{6}\frac{qa}{\epsilon_0\kappa}x_m^3.
 \end{equation}
+We observe that $V$ is an odd function of $x$, as it should be in across a pn
+junction. At $x_m$, the impurity number density is
+\begin{equation}\label{c2e39}
+n_m = ax_m.
+\end{equation}
+This is also the number density of electrons (or holes if $a < 0$ and $x_m > 0$,
+in which case, we would call it $p_m$ )needed to neutralise the impurity ions.
+In terms of $n_m$, 
+\eqref{c2e38} is
+\begin{equation}\label{c2e40}
+V(x_m) = \frac{1}{6}\frac{q}{\epsilon_0\kappa a^2}n_m^3.
+\end{equation}
+
+When the crystal is in thermal equilibrium, the chemical potential is constant
+because there is no net motion of charge carriers. We can as well assume it to
+be zero and use equation \eqref{c2e4} to get
+\begin{equation}\label{c2e41}
+n_m = n_i e^{q\beta V(x_m)}.
+\end{equation}
+neutralise the impurity ions. Given the impurity concentration gradient $a$
+one can use equation \eqref{c2e40} to get the potential at the edge of the 
+transition layer. Knowing $V(x_m)$ one can get $n_m$ the carrier density at the
+same position in the crystal.
