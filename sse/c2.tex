@@ -256,4 +256,101 @@ concentration $n_i$. A very small $L_a$ indicates a very steep impurity gradient
 screen the rapidly varying impurity distribution, leaving a space-charge layer 
 of uncompensated ions. Conversely, if $L_a \gg L_D$, the impurity profile varies
 gradually enough that mobile carriers locally neutralize the fixed ions, 
-maintaining approximate electrical neutrality throughout the transition. 
+maintaining approximate electrical neutrality throughout the transition. We 
+will now investigate these extreme regimes analytically. To do so, we introduce
+\begin{equation}\label{c2e26}
+y = \frac{x}{2L_a}
+\end{equation}
+as the dimensionless form of $x$. The one-dimensional form of \eqref{c2e18}
+then becomes
+\[
+\frac{1}{4L_a^2}\std{u}{y} = \frac{1}{L_D^2}
+\left(\sinh u - \frac{\rho_d(x)}{\rho_i(x)}\right),
+\]
+or
+\begin{equation}\label{c2e27}
+\std{u}{y} = \frac{1}{K^2} \left(\sinh u - \frac{\rho_d(x)}{\rho_i(x)}\right),
+\end{equation}
+where the constant
+\begin{equation}\label{c2e28}
+K = \frac{L_D}{2L_a}.
+\end{equation}
+From equation \eqref{c2e21}
+\[
+\frac{\rho_d(x)}{\rho_i(x)} = \sinh u_0(x).
+\]
+The lhs of this equation is
+\[
+\frac{\rho_d(x)}{\rho_i(x)} = \frac{qn_d}{2qn_i} = \frac{ax}{2n_i} = \frac{x}
+{2l_a} = y.
+\]
+Therefore, we can write \eqref{c2e27} as
+\begin{equation}\label{c2e29}
+\std{u}{y} = \frac{1}{K^2} (\sinh u - y).
+\end{equation}
+We will this form of the one-dimensional Poisson equation for our analysis.
+
+If we assume $u$ to be a smooth function then the left hand side of 
+\eqref{c2e27} is a finite quantity. Therefore, if $K \ll 1$, the approximate
+solution of \eqref{c2e27} is
+\begin{equation}\label{c2e30}
+y = \sinh u.
+\end{equation}
+However $y$ is the same as $\sinh u_0$. Therefore, in the regime $K \ll 1$, the
+approximate solution of \eqref{c2e29} is $u \approx u_0$. That is, the crystal 
+is approximately electrically neutral. The relation $K \ll 1$ is equivalent to
+$L_D \ll L_a$, that is, the impurity concentration changes gently as compared to
+the Debye length. 
+
+Now consider the regime $K \gg 1$. In this regime, $L_a \ll L_D$. The impurity
+ions overwhelm the mobile carriers. The term $y$ is represents the impurity 
+ions and the term $\sinh u$ represents the mobile carriers. (Refer to 
+\eqref{c2e13}.) Thus, we can ignore $\sinh u$ and approximate \eqref{c2e29}
+as
+\begin{equation}\label{c2e31}
+\std{u}{y} = - \frac{y}{K^2},
+\end{equation}
+the solution is which is
+\begin{equation}\label{c2e32}
+u(y) = -\frac{y^3}{6K^2} - a_1 y - a_2,
+\end{equation}
+where $a_1$ and $a_2$ are constants of integration. If we choose the zero of
+the potential at the junction then $a_2 = 0$. In terms of the original 
+variables \eqref{c2e32} is
+\begin{equation}\label{c2e33}
+q\beta V(x) = -\frac{1}{6}\frac{4L_a^2}{L_D^2}\frac{x^3}{8L_a^3} - 
+a_1\frac{x}{2L_a} = -\frac{1}{12}\frac{x^3}{L_D^2L_a} - \frac{a_1x}{2L_a}.
+\end{equation}
+From \eqref{c2e17} and \eqref{c2e25},
+\[
+\frac{1}{L_D^2L_a} = \frac{q\beta \rho_i}{\epsilon}\frac{a}{n_i} = 
+\frac{q^2\beta a}{\epsilon_0\kappa},
+\]
+where $\epsilon_0$ is the permittivity of free space and $\kappa$ is the 
+dielectric constant. Therefore, equation \eqref{c2e34} becomes
+\begin{equation}\label{c2e34}
+V(x) = -\frac{1}{12}\frac{qa}{\epsilon_0\kappa}x^3 - a_1 \frac{ax}{2\rho_i\beta}.
+\end{equation}
+The region where $K \gg 1$ exists around the junction. In this region, the 
+impurity ions are imperfectly shielded and there is an electric field. In the 
+rest of the region, the Debye length exceeds $L_a$ and the crystal is 
+electrically neutral and there is no electric field. We define the 
+\emph{transition region} or the \emph{depletion region} as the one in which an
+electric field due to unshielded impurity ions exists. If it extends from $-x_m$
+to $x_m$ then we get the boundary condition
+\begin{equation}\label{c2e35}
+\td{V}{x}\Big|_{x_m} = 0,
+\end{equation}
+using which we evaluate the constant of integration
+\begin{equation}\label{c2e36}
+a_1 = -\frac{1}{2}\frac{q\beta\rho_i}{\epsilon_0\kappa}x_m^2
+\end{equation}
+and the solution \eqref{c2e34} is
+\begin{equation}\label{c2e37}
+V(x) = -\frac{1}{12}\frac{qa}{\epsilon_0\kappa}x^3 + 
+\frac{qax_m^2}{4\epsilon_0\kappa}x.
+\end{equation}
+The potential at the boundary of the transition layer is
+\begin{equation}\label{c2e38}
+V(x_m) = \frac{1}{6}\frac{qa}{\epsilon_0\kappa}x_m^3.
+\end{equation}
