@@ -403,3 +403,59 @@ These equations are derived in SI units. Therefore, $x_m$ and $a$ are measured
 in metres. The paper \cite{shockley1949theory} uses CGS units and therefore it
 reports a power $-8$ instead of $-10$ in our case.
 \end{enumerate}
+
+\subsection{The transition capacitance}
+The transition layer has bare, immobile impurity ions, positive on the n side 
+and negative on the p side. This layer of opposite charges behaves like a
+capacitor. We will estimate its capacity by applying a small potential 
+difference across the crystal. If the p side is applied a small positive
+potential with respect to the n side, a small amount of holes flows into the
+crystal. They approach the transition layer and neutralise a few negative ions.
+To keep the crystal electrically neutral, an equal number of electrons enter
+the crystal from the other end and neutralise the same number of positive ions
+of the transition layer. Thus, the application of a mild positive bias reduces
+the width of the depletion layer. When a mild negative bias is applied, the
+number of holes in the bulk of the p region is reduced exposing a few more
+negative ions near the transition layer. The crystal maintains its electrical 
+neutrality by losing an equal number of electron from the n region and exposing
+a few more positive impurity ions near the transition layer but on the n side.
+As the width of the transition layer changes, so does its capacitance. In this
+subsection we will get an expression for the capacitance, called the transition
+capacitance, denoted by $C_T$. An application of a small bias voltage of any
+polarity will result in a current flow. However, we are interested in estimating
+the capacitance. Therefore, we will assume a pseudo-equilibrium condition in
+which:
+\begin{enumerate}
+\item There is no electron-hole recombination;
+\item Holes entering the p-side do not exit the crystal;
+\item Electrons entering the n-side to do exist the crystal.
+\end{enumerate}
+Thus the sole effect of electrons and holes entering the crystal is to alter
+the width of the transition layer and change its capacitance.
+
+Suppose that we apply a voltage $\delta V$ across the crystal. The bulk of the
+crystal, outside the transition layer, has enough mobile carriers resulting in
+a high conductivity. Therefore, much of this voltage appears across the 
+transition layer. Under the pseudo-equilibrium condition approximation discussed
+in the previous paragraph, an application of $\delta V$ does not cause current.
+Therefore, the chemical potentials $\varphi_p$ and $\varphi_n$, introduced in
+equations \eqref{c2e8} and \eqref{c2e9} remain constant through the bulk of 
+the crystal and yet,
+\begin{equation}\label{c2e43}
+\varphi_p - \varphi_n = \delta V.
+\end{equation}
+This equation describes the fact that electrons travel from lower to higher
+potential while holes travel in the opposite direction. Let 
+\begin{equation}\label{c2e44}
+\varphi_1 = \frac{\varphi_p + \varphi_n}{2}
+\end{equation}
+so that we can express equations \eqref{c2e8} and \eqref{c2e9} as
+\begin{eqnarray}
+p &=& n_i e^{q\beta(\phi_p - V)} = n_1e^{q\beta(\phi_1 - V)  \label{c2e45} \\
+n &=& n_i e^{q\beta(V - \phi_n)} = n_1e^{q\beta(V - \phi_1), \label{c2e46}
+\end{eqnarray}
+where
+\begin{equation}\label{c2e47}
+n_1 = n_i e^{q\beta\delta V}.
+\end{equation}
+
