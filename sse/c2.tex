@@ -445,17 +445,53 @@ the crystal and yet,
 \varphi_p - \varphi_n = \delta V.
 \end{equation}
 This equation describes the fact that electrons travel from lower to higher
-potential while holes travel in the opposite direction. Let 
+potential while holes travel in the opposite direction. We hasten to remark that
+there is no current flowing through the device and the transport of mobile
+charge carriers was only for the purpose of reaching a new quasi-equilibrium
+state. Let 
 \begin{equation}\label{c2e44}
 \varphi_1 = \frac{\varphi_p + \varphi_n}{2}
 \end{equation}
 so that we can express equations \eqref{c2e8} and \eqref{c2e9} as
 \begin{eqnarray}
-p &=& n_i e^{q\beta(\phi_p - V)} = n_1e^{q\beta(\phi_1 - V)  \label{c2e45} \\
-n &=& n_i e^{q\beta(V - \phi_n)} = n_1e^{q\beta(V - \phi_1), \label{c2e46}
+p &=& n_i e^{q\beta(\varphi_p - V)} = 
+    n_1e^{q\beta(\varphi_1 - V)}  \label{c2e45} \\
+n &=& n_i e^{q\beta(V - \varphi_n)} = 
+    n_1e^{q\beta(V - \varphi_1)}, \label{c2e46}
 \end{eqnarray}
 where
 \begin{equation}\label{c2e47}
-n_1 = n_i e^{q\beta\delta V}.
+n_1 = n_i e^{q\beta\delta V/2}.
+\end{equation}
+
+In true thermal equilibrium, $\varphi_n = \varphi_p = \varphi$ is a constant,
+which we set to zero. This simplification allowed us to write \eqref{c2e13}. We
+attempt to do the same here. The analogue of \eqref{c2e13} will be
+\begin{equation}\label{c2e48}
+\rho = \rho_d - 2\rho_1\sinh(\beta qV),
+\end{equation}
+where $\rho_1 = 2qn_1$.
+for pseudo-equilibrum by introducing $\varphi_1$. 
+
+Shockley also remarks on page 446 of \cite{shockley1949theory} that the effect
+of applying $\delta V$ is a reduction of the band gap by $q\delta V$. It 
+follows from the product 
+\begin{equation}\label{c2e49}
+pn = n_1^2 = n_i^2 e^{q\beta\delta V} = N_CN_Ve^{-\beta (E_g - q\delta V)},
+\end{equation}
+where we used \eqref{c2e45} and \eqref{c2e46} to get the first equality,
+\eqref{c2e48} for the second one and \eqref{c1e30} and \eqref{c1e31} for the
+last one. Thus, the product $pn$ is as if the band gap of the crystal is now
+$E_g - q\delta V$.
+
+In the p-region, using \eqref{c2e45}, we have
+\begin{equation}\label{c2e50}
+V = -\frac{1}{q\beta}\ln\left(\frac{p}{n_i}\right) + \varphi_1 + 
+\frac{\delta V}{2}.
+\end{equation}
+Similarly, on the n-side, using \eqref{c2e46}, we have
+\begin{equation}\label{c2e51}
+V = \frac{1}{q\beta}\ln\left(\frac{n}{n_i}\right) + \varphi_1 - 
+\frac{\delta V}{2}.
 \end{equation}
 
