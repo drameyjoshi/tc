@@ -387,8 +387,8 @@ p-type or n-type.
 \item Equations \eqref{c2e37} to \eqref{c2e40} depend on the approximation that
 in the transition layer, the impurity ions overwhelm the mobile carriers. That
 is, it is indeed a layer depleted of mobile carriers. This is a good 
-approximation because the electron on the n side are rapidly diffused into the 
-p side. Likewise, the holes on the p side are diffused into the n side. On both
+approximation because the electron on the n-side are rapidly diffused into the 
+p-side. Likewise, the holes on the p-side are diffused into the n-side. On both
 sides, the minority carriers undergo a recombination leading to fresh injection
 of charges until an equilibrium is reached.
 \item We evaluate the constant factor in \eqref{c2e40} for Si and Ge using their
@@ -405,11 +405,11 @@ reports a power $-8$ instead of $-10$ in our case.
 \end{enumerate}
 
 \subsection{The transition capacitance}
-The transition layer has bare, immobile impurity ions, positive on the n side 
-and negative on the p side. This layer of opposite charges behaves like a
+The transition layer has bare, immobile impurity ions, positive on the n-side 
+and negative on the p-side. This layer of opposite charges behaves like a
 capacitor. We will estimate its capacity by applying a small potential 
-difference across the crystal. If the p side is applied a small positive
-potential with respect to the n side, a small amount of holes flows into the
+difference across the crystal. If the p-side is applied a small positive
+potential with respect to the n-side, a small amount of holes flows into the
 crystal. They approach the transition layer and neutralise a few negative ions.
 To keep the crystal electrically neutral, an equal number of electrons enter
 the crystal from the other end and neutralise the same number of positive ions
@@ -418,7 +418,7 @@ the width of the depletion layer. When a mild negative bias is applied, the
 number of holes in the bulk of the p region is reduced exposing a few more
 negative ions near the transition layer. The crystal maintains its electrical 
 neutrality by losing an equal number of electron from the n region and exposing
-a few more positive impurity ions near the transition layer but on the n side.
+a few more positive impurity ions near the transition layer but on the n-side.
 As the width of the transition layer changes, so does its capacitance. In this
 subsection we will get an expression for the capacitance, called the transition
 capacitance, denoted by $C_T$. An application of a small bias voltage of any
@@ -497,4 +497,73 @@ V = \frac{1}{q\beta}\ln\left(\frac{n}{n_i}\right) + \varphi_1 -
 \frac{\delta V}{2}.
 \end{equation}
 As compared to the unbiased state, the voltage in the biased state is pulled
-down by $\delta V/2$.
+down by $\delta V/2$. These equations could have been important in the 1940s
+and 50s when graded junctions were popular. They are of little importance in
+today's devices made up of abrupt junctions.
+
+\subsection{Transition capacitance of graded junctions}
+Although graded junctions are no longer used in modern devices, we will follow
+Shockley's analysis as a useful exercice in understanding semiconductor devices.
+Let $P$ be number of holes between positions $x_a$ and $x_b$ of the crystal.
+Their charge is $qP$ and their capacitance is
+\begin{equation}\label{c2e52}
+C_T = q\td{P}{\delta V}.
+\end{equation}
+The number of holes $P$ can be calculated from the hole number density as
+\begin{equation}\label{c2e53}
+P = \int_{x_a}^{x_b}pAdx,
+\end{equation}
+where $A$ is the area of cross-section of the device. In a graded junction $K
+\ll 1$, the crystal is electrically neutral and from equation \eqref{c2e30} we
+have
+\begin{equation}\label{c2e54}
+\frac{\rho_d(x)}{\rho_i(x)} = \sinh u \Rightarrow ax = 2n_1\sinh u,
+\end{equation}
+where $\rho_d(x) = ax$ for a graded junction and
+\begin{equation}\label{c2e55}
+u = q\beta(V - \varphi_1).
+\end{equation}
+Note that we previously defined $u = q\beta V$ because we chose $\varphi = 0$
+under the condition of thermal equilibrium. Equation \eqref{c2e54} is the 
+solution of Poisson equation. It gives potential as a function of $x$. We can
+recast is as
+\[
+x = 2\frac{n_1}{a}\sinh u,
+\]
+so that
+\[
+dx = 2\frac{n_1}{a}\cosh u du
+\]
+and 
+\[
+P = \int_{u_a}^{u_b} p \cdot \frac{2n_1}{a} \cosh u du.
+\]
+From equation \eqref{c2e45} $p = n_1 e^{-u}$ and from \eqref{c2e46} $n=n_1e^u$
+so that
+\begin{eqnarray}
+P &=& \int_{u_a}^{u_b}2\frac{n_1^2}{a}e^{-u}\cosh u du \nonumber \\
+ &=& \frac{n_1^2}{a}\int_{u_a}^{u_b}(1 - e^{-2u})du \nonumber \\
+ &=& \frac{n_1^2}{a}\left[(u_b - u_a)+\frac{(e^{-2u_a} - e^{-2u_b})}{2}\right].
+  \label{c2e56}
+\end{eqnarray}
+From $p = n_1 e^{-u}$ we get
+\begin{equation}\label{c2e57}
+u_a = -\ln\frac{p_a}{n_1} \Rightarrow e^{-2u_a} = \frac{p_a^2}{n_1^2}
+\end{equation}
+and from $n = n_1 e^u$, we get
+\begin{equation}\label{c2e58}
+u_b = \ln\frac{n_b}{n_1} \Rightarrow e^{-2u_b} = \frac{n_1^2}{n_b^2},
+\end{equation}
+where $p_a = p(x_a)$ and $n_b = n(x_b)$. If $x_a$ is deep inside the p-side and
+$x_b$ deep inside n-side then $p(x_a) \approx N_A$ and $n(x_b) \approx N_D$. In
+typical devices, $N_A$ and $N_D$ are of the order of $10^{15}$ to $10^{18}$ cm
+$^3$. On the other hand, $n_i \approx 10^{13}$ cm$^3$ for Ge and 
+$\approx 10^{10}$ cm$^3$. Thus, $p_a$ and $n_b$ are substantially larger than
+$n_i$. Since $n_1 = n_i \exp(q\beta\delta V)$, and $\delta V$ is very small,
+$n_1$ is of the same order of magnitude as $n_i$. Thus, in each of equations
+\eqref{c2e57} and \eqref{c2e58}, the arguments of logarithms are large numbers.
+Substituting \eqref{c2e57} and \eqref{c2e58} in \eqref{c2e56} gives
+\[
+P = \frac{n_1^2}{2a}\left[2(u_b-u_a) + \frac{p_a^2}{n_1^2} -
+\frac{n_1^2}{n_b^2}\right]
+\]
