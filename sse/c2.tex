@@ -497,9 +497,7 @@ V = \frac{1}{q\beta}\ln\left(\frac{n}{n_i}\right) + \varphi_1 -
 \frac{\delta V}{2}.
 \end{equation}
 As compared to the unbiased state, the voltage in the biased state is pulled
-down by $\delta V/2$. These equations could have been important in the 1940s
-and 50s when graded junctions were popular. They are of little importance in
-today's devices made up of abrupt junctions.
+down by $\delta V/2$. 
 
 \subsection{Transition capacitance of graded junctions}
 Although graded junctions are no longer used in modern devices, we will follow
@@ -608,3 +606,29 @@ C_T = \frac{n_1}{a^2}\frac{e^{q\beta\delta V}}{2\epsilon_0\kappa L_D^2L_a}
 [q\beta(V_b - V_a - \delta V) - 1].
 \end{equation}
 as the expression for transition capacitance in graded junctions.
+
+\subsection{Transition capacitance of abrupt junctions}
+An abrupt junction has $K \gg 1$. The potential at the boundary of the junction
+is given by \eqref{c2e38}
+\[
+V(x_m) = \frac{1}{3}\frac{qa}{\epsilon_0\kappa}x_m^3
+\]
+so that
+\[
+\delta V(x_m) = \frac{qa}{\epsilon_0\kappa}x_m^2\delta x_m.
+\]
+From \eqref{c2e50}, the change in $V_m$ due to an application of $\delta V$
+is $\delta V/2$ so that
+\[
+\delta V = 2\delta V(x_m) = \frac{2qa}{\epsilon_0\kappa}x_m^2\delta x_m.
+\]
+The number of charges in a region of length $\delta x_m$ is $\delta Q = 
+qn\delta x_mA$, where $A$ is the area of cross section of the crystal. If $n = 
+ax$, $\delta Q = qax_mA\delta x_m$ and
+\begin{equation}\label{c2e63}
+C_T = \frac{\delta Q}{\delta V} =  \frac{A}{2x_m}\epsilon_0\kappa.
+\end{equation}
+This expression is also the capacitance of a parallel plate condensor of area
+$A$ separated by a distance $2x_m$ and filled with a dielectric of relative
+permittivity $\kappa$.
+is the transition layer capacitance of an abrupt junction.
