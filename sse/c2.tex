@@ -565,5 +565,46 @@ $n_1$ is of the same order of magnitude as $n_i$. Thus, in each of equations
 Substituting \eqref{c2e57} and \eqref{c2e58} in \eqref{c2e56} gives
 \[
 P = \frac{n_1^2}{2a}\left[2(u_b-u_a) + \frac{p_a^2}{n_1^2} -
-\frac{n_1^2}{n_b^2}\right]
+\frac{n_1^2}{n_b^2}\right].
 \]
+Since $n_1$ is much smaller than $n_b$,
+\begin{equation}\label{c2e59}
+P = \frac{p_a^2}{2a} + \frac{n_1^2}{a}(u_b - u_a).
+\end{equation}
+From equations \eqref{c2e57} and \eqref{c2e58},
+\begin{equation}\label{c2e60}
+P = \frac{p_a^2}{2a} + \frac{n_1^2}{a}\left(\ln\frac{n_b}{n_1} + \ln\frac{p_a}
+{n_1}\right).
+\end{equation}
+From equation \eqref{c2e47},
+\begin{equation}\label{c2e61}
+P = \frac{p_a^2}{2a} + \frac{n_ie^{q\beta\delta V}}{a}\left(\ln\frac{n_bp_a}
+{n_i^2} - q\beta\delta V\right).
+\end{equation}
+Differentiating with respect to $\delta V$,
+\[
+\td{P}{\delta V} = \frac{n_1q\beta}{a}e^{q\beta\delta V}\left(\ln\frac{n_bp_a}
+{n_i^2} - q\beta\delta V - 1\right)
+\]
+so that, from \eqref{c2e52}
+\[
+C_T = \frac{n_1q^2\beta}{a}e^{q\beta\delta V}\left(\ln\frac{n_bp_a}{n_i^2} - 
+q\beta\delta V - 1\right).
+\]
+At equilibrium, $\varphi_1 = 0$, equation \eqref{c2e45} gives $p_a=n_1
+e^{-q\beta V_a}$ and equation \eqref{c2e46} gives $n_b = n_1e^{q\beta V_b}$
+so that
+\[
+\frac{p_an_b}{n_1^2} = e^{q\beta(V_b - V_a)}.
+\]
+Putting this in the expression for $C_T$,
+\[
+C_T = \frac{n_1q^2\beta}{a}e^{q\beta\delta V}\left(q\beta(V_b - V_a - \delta V)
+- 1\right).
+\]
+Using the equation prior to \eqref{c2e34}, we get
+\begin{equation}\label{c2e62}
+C_T = \frac{n_1}{a^2}\frac{e^{q\beta\delta V}}{2\epsilon_0\kappa L_D^2L_a}
+[q\beta(V_b - V_a - \delta V) - 1].
+\end{equation}
+as the expression for transition capacitance in graded junctions.
