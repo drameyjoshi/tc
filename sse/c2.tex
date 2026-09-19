@@ -13,7 +13,7 @@ Figure \ref{c2f1} shows the schematic diagram of a pn junction, published in
 Shockley's paper \cite{shockley1949theory}
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[line cap=round, line join=round, font=\sffamily]
+\begin{tikzpicture}[line cap=round, line join=round]
 
   % Global horizontal boundaries
   \def\xa{0.6}
@@ -39,9 +39,9 @@ Shockley's paper \cite{shockley1949theory}
     \draw[thick, dashed] (\xTRR, 0) -- (\xTRR, 1.2);
 
     % Region text labels
-    \node[font=\bfseries\small] at (2.4, 0.6) {p-region};
-    \node[font=\bfseries\small] at (6.6, 0.6) {n-region};
-    \node[align=center, font=\bfseries\scriptsize] at (\xmid, 1.7) {Transition
+    \node[font=\small] at (2.4, 0.6) {p-region};
+    \node[font=\small] at (6.6, 0.6) {n-region};
+    \node[align=center, font=\scriptsize] at (\xmid, 1.7) {Transition
     \\region};
 
     % External circuit wire leads
@@ -60,16 +60,18 @@ Shockley's paper \cite{shockley1949theory}
     % Polarity labels & delta phi
     \node[font=\scriptsize] at (4.15, 2.5) {+};
     \node[font=\scriptsize] at (4.88, 2.5) {$-$};
-    \node[font=\small\bfseries] at (4.52, 2.75) {$\delta\boldsymbol{V}$};
+    \node[font=\small] at (4.52, 2.75) {$\delta{V}$};
 
     % Current direction arrow I
-    \draw[thick, ->, >=stealth] (2.9, 2.48) -- (2.3, 2.48) node[midway, above, font=\small\bfseries] {$I$};
+    \draw[thick, ->, >=stealth] (2.9, 2.48) -- (2.3, 2.48) 
+    node[midway, above, font=\small] {$I$};
 
     % Subfigure label
-    \node[font=\bfseries] at (\xb+0.4, 0.6) {(a)};
+    \node at (\xb+0.4, 0.6) {(a)};
   \end{scope}
 
-  % Vertical alignment dashed lines connecting the transition region through all plots
+  % Vertical alignment dashed lines connecting the transition region through 
+  % all plots
   \draw[dashed, thin] (\xTRL, 0) -- (\xTRL, 10.2);
   \draw[dashed, thin] (\xTRR, 0) -- (\xTRR, 10.2);
 
@@ -87,26 +89,28 @@ Shockley's paper \cite{shockley1949theory}
     % Curves
     % Na (acceptors: dashed linear line decreasing toward right)
     \draw[very thick, dashed] (\xa, 3.6) -- (\xb, 2.5);
-    \node[above, font=\bfseries\small] at (2.4, 3.3) {$N_a$};
+    \node[above, font=\small] at (2.4, 3.3) {$N_a$};
 
     % Nd (donors: solid line increasing toward right)
     \draw[very thick] (\xa, 2.7) -- (\xb, 3.3);
-    \node[below, font=\bfseries\small] at (2.4, 2.7) {$N_d$};
+    \node[below, font=\small] at (2.4, 2.7) {$N_d$};
 
     % Nd - Na net density linear ramp
     \draw[very thick] (\xa, 0.6) -- (\xb, 3.0);
-    \node[rotate=16, font=\bfseries\small] at (2.1, 1.45) {$N_d - N_a = ax$};
+    \node[rotate=16, font=\small] at (2.1, 1.45) {$N_d - N_a = ax$};
 
     % Tick and Axis origin label
-    \node[anchor=east, font=\bfseries\small] at (\xa, 2.1) {0};
+    \node[anchor=east, font=\small] at (\xa, 2.1) {0};
 
     % Left Y-axis label
-    \node[rotate=90, anchor=south, align=center, font=\bfseries\scriptsize] at (\xa-0.5, 2.1) {
-      Densities of\\acceptors $N_a$ \& donors $N_d$\\$\longleftarrow\quad\longrightarrow$
+    \node[rotate=90, anchor=south, align=center, font=\scriptsize] at 
+    (\xa-0.5, 2.1) {
+      Densities of\\acceptors $N_a$ \& donors $N_d$\\
+      $\longleftarrow\quad\longrightarrow$
     };
 
     % Subfigure label
-    \node[font=\bfseries] at (\xb+0.4, 2.1) {(b)};
+    \node[font=] at (\xb+0.4, 2.1) {(b)};
   \end{scope}
 
   % =========================================================================
@@ -121,7 +125,7 @@ Shockley's paper \cite{shockley1949theory}
 
     % Top saturation/total current reference level (dashed)
     \draw[thick, dashed] (\xa, 3.7) -- (\xb, 3.7);
-    \node[fill=white, inner sep=1pt, font=\bfseries\small] at (6.6, 3.7) {$I$};
+    \node[fill=white, inner sep=1pt, font=\small] at (6.6, 3.7) {$I$};
 
     % Three current profile curves:
     % 1. Good hole emitter (extended exponential-like tail into n-region)
@@ -140,28 +144,33 @@ Shockley's paper \cite{shockley1949theory}
       -- (\xb, 0.0);
 
     % Curve Labels and Pointer Arrows
-    \draw[thick, dashed, ->, >=stealth] (2.2, 2.6) node[left, font=\bfseries\scriptsize] {Rectifying} -- (3.6, 2.7);
-    \draw[thick, dashed, ->, >=stealth] (3.8, 1.2) node[left, font=\bfseries\scriptsize] {Ohmic} -- (4.45, 1.2);
-    \draw[thick, dashed, ->, >=stealth] (6.8, 2.7) node[above, align=center, font=\bfseries\scriptsize] {Good hole\\emitter} -- (5.2, 2.65);
+    \draw[thick, dashed, ->, >=stealth] (2.2, 2.6) 
+    node[left, font=\scriptsize] {Rectifying} -- (3.6, 2.7);
+    \draw[thick, dashed, ->, >=stealth] (3.8, 1.2) 
+    node[left, font=\scriptsize] {Ohmic} -- (4.45, 1.2);
+    \draw[thick, dashed, ->, >=stealth] (6.8, 2.7) 
+    node[above, align=center, font=\scriptsize] 
+    {Good hole\\emitter} -- (5.2, 2.65);
 
     % Left Y-axis markings and labels
-    \node[anchor=east, font=\bfseries\small] at (\xa, 3.7) {$I$};
-    \node[anchor=east, font=\bfseries\small] at (\xa, 0) {0};
-    \node[rotate=90, anchor=south, align=center, font=\bfseries\scriptsize] at (\xa-0.5, 2.1) {
+    \node[anchor=east, font=\small] at (\xa, 3.7) {$I$};
+    \node[anchor=east, font=\small] at (\xa, 0) {0};
+    \node[rotate=90, anchor=south, align=center, font=\scriptsize] at 
+    (\xa-0.5, 2.1) {
       Hole current, $I_p$\\$\longleftarrow$
     };
 
     % X-axis Ticks and Labels
-    \node[below, font=\bfseries\small] at (\xa, 0) {$x_a$};
-    \node[below, font=\bfseries\small] at (\xmid, 0) {0};
-    \node[below, font=\bfseries\small] at (\xb, 0) {$x_b$};
+    \node[below, font=\small] at (\xa, 0) {$x_a$};
+    \node[below, font=\small] at (\xmid, 0) {0};
+    \node[below, font=\small] at (\xb, 0) {$x_b$};
 
     % Subfigure label
-    \node[font=\bfseries] at (\xb+0.4, 0.6) {(c)};
+    \node[font=] at (\xb+0.4, 0.6) {(c)};
   \end{scope}
 
   % Shared X-axis label across all figures
-  \node[anchor=north, font=\bfseries\small] at (\xmid, -0.4) {
+  \node[anchor=north, font=\small] at (\xmid, -0.4) {
     Distance through sample, $x \longrightarrow$
   };
 
@@ -914,7 +923,7 @@ same situation. Figure \ref{c2f2} shows the variation of the potential
 experienced by the holes across a pn-junction.
 \begin{figure}[htpb]
 \centering
-\begin{tikzpicture}[line cap=round, line join=round, font=\sffamily]
+\begin{tikzpicture}[line cap=round, line join=round]
 
   % Define bounding box dimensions
   \def\w{9.0}
@@ -946,9 +955,9 @@ experienced by the holes across a pn-junction.
   \draw[thick] (\xn, \h) -- (\xn, \h+0.35);
   \draw[thick] (\w, \h) -- (\w, \h+0.35);
 
-  \node[anchor=south] at (0.5*\xp, \h) {\textbf{p-region}};
-  \node[anchor=south] at (0.5*\xp + 0.5*\xn, \h) {\textbf{Transition region}};
-  \node[anchor=south] at (0.5*\xn + 0.5*\w, \h) {\textbf{n-region}};
+  \node[anchor=south] at (0.5*\xp, \h) {p-region};
+  \node[anchor=south] at (0.5*\xp + 0.5*\xn, \h) {Transition region};
+  \node[anchor=south] at (0.5*\xn + 0.5*\w, \h) {n-region};
 
   % Region dividing vertical dashed lines
   \draw[thick, dash pattern=on 8pt off 3pt on 2pt off 3pt] (\xp, 0) -- (\xp, \h);
@@ -956,7 +965,7 @@ experienced by the holes across a pn-junction.
   \draw[thick, dash pattern=on 8pt off 3pt on 2pt off 3pt] (\xn, 0) -- (\xn, \h);
 
   % Left Y-axis label with arrow
-  \node[rotate=90, anchor=south, font=\sffamily\bfseries] at (-0.6, 0.5*\h) {
+  \node[rotate=90, anchor=south] at (-0.6, 0.5*\h) {
     $V_h\longrightarrow$
   };
 
@@ -990,20 +999,20 @@ experienced by the holes across a pn-junction.
   }
 
   % Potential Labels on Left Axis
-  \node[anchor=east] at (-0.05, \yphi) {$\boldsymbol{\varphi_0}$};
-  \node[anchor=east] at (-0.05, \ypsiL) {$\boldsymbol{V_a}$};
-  \node[anchor=west] at (\w+0.05, \ypsiR) {$\boldsymbol{V_b}$};
+  \node[anchor=east] at (-0.05, \yphi) {$\varphi_0$};
+  \node[anchor=east] at (-0.05, \ypsiL) {$V_a$};
+  \node[anchor=west] at (\w+0.05, \ypsiR) {$V_b$};
 
   % Internal Labels
-  \node[align=center, font=\bfseries] at (2.2, 6.6) {Valence band};
-  \node[align=center, font=\bfseries] at (6.7, 1.3) {Conduction band};
-  \node[anchor=south west, inner sep=2pt] at (0.2, \yphi) {$\boldsymbol{\varphi = \varphi_p = \varphi_n}$};
-  \node[font=\large] at (5.7, 4.9) {$\boldsymbol{V}$};
+  \node[align=center] at (2.2, 6.6) {Valence band};
+  \node[align=center] at (6.7, 1.3) {Conduction band};
+  \node[anchor=south west, inner sep=2pt] at (0.2, \yphi) {$\varphi = \varphi_p = \varphi_n$};
+  \node at (5.5, 4.9) {$V_h$};
 
   % Energy Gap Dimension Arrow and Label
   \def\xGap{8.0}
   \draw[thick, dashed, <->, >=stealth] (\xGap, \ycondR) -- (\xGap, \yvalR);
-  \node[align=center, fill=white, inner sep=1pt, font=\bfseries\small] at (\xGap, 0.5*\ycondR + 0.5*\yvalR) {
+  \node[align=center, fill=white, inner sep=1pt, font=\small] at (\xGap, 0.5*\ycondR + 0.5*\yvalR) {
     Energy\\gap
   };
 \end{tikzpicture}
