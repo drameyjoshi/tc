@@ -1006,16 +1006,205 @@ experienced by the holes across a pn-junction.
   % Internal Labels
   \node[align=center] at (2.2, 6.6) {Valence band};
   \node[align=center] at (6.7, 1.3) {Conduction band};
-  \node[anchor=south west, inner sep=2pt] at (0.2, \yphi) {$\varphi = \varphi_p = \varphi_n$};
+  \node[anchor=south west, inner sep=2pt] at (0.2, \yphi) 
+  {$\varphi = \varphi_p = \varphi_n$};
   \node at (5.5, 4.9) {$V_h$};
 
   % Energy Gap Dimension Arrow and Label
   \def\xGap{8.0}
   \draw[thick, dashed, <->, >=stealth] (\xGap, \ycondR) -- (\xGap, \yvalR);
-  \node[align=center, fill=white, inner sep=1pt, font=\small] at (\xGap, 0.5*\ycondR + 0.5*\yvalR) {
+  \node[align=center, fill=white, inner sep=1pt, font=\small] at 
+  (\xGap, 0.5*\ycondR + 0.5*\yvalR) {
     Energy\\gap
   };
 \end{tikzpicture}
 \caption{Potential energy $V_h$ of a hole}
 \label{c2f2}
+\end{figure}
+
+The current distribution across the junction is shown in figure \ref{c2f3}. 
+Deep inside the p-side, the current is entirely due to holes. Close to the 
+transition region, some of those holes combine with the electrons injected from
+the n-side. Yet, there is a non-zero hole-current at the junction which diffuses
+into the n-side. Analogous situation exists for the electron current flowing in
+the opposite direction. We will argue later that the diffusion current plays
+an important role in making a pn-junction a rectifying junction.
+\begin{figure}
+\centering
+\begin{tikzpicture}[line cap=round, line join=round]
+
+  % Dimensions
+  \def\w{9.0}
+  \def\h{3.2}
+  \def\xp{2.7}    % Boundary between p-region and transition region
+  \def\xn{6.7}    % Boundary between transition region and n-region
+  % Key x-coordinates matching the junction structure
+  \def\xone{2.7}   % Left boundary of transition region
+  \def\xmid{4.5}   % Junction center
+  \def\xtwo{6.7}   % Right boundary of transition region
+
+  \node[anchor=south] at (0.5*\xp, \h) {p-region};
+  \node[anchor=south] at (0.5*\xp + 0.5*\xn, \h) {Transition region};
+  \node[anchor=south] at (0.5*\xn + 0.5*\w, \h) {n-region};
+
+  % Outer framing rectangle
+  \draw[thick] (0, 0) rectangle (\w, \h);
+
+  % Vertical divider lines
+  \draw[thick, dash pattern=on 7pt off 3pt on 2pt off 3pt] (\xone, 0) -- 
+  (\xone, \h);
+  \draw[thick] (\xmid, 0) -- (\xmid, \h);
+  \draw[thick, dash pattern=on 7pt off 3pt on 2pt off 3pt] (\xtwo, 0) -- 
+  (\xtwo, \h);
+
+  % Total current level line I (dashed across the diagram)
+  \draw[thick, dashed] (0, 2.7) -- (\w, 2.7);
+  \node[above, font=\small] at (\xmid, 2.7) {$I$};
+
+  % Curves: Ip (solid) and In (dashed), complementary sigmoidal profiles
+  % Hole current Ip: starts at I, transitions through 0.5*I at center, drops 
+  % to 0
+  \draw[very thick] (0, 2.7) -- (1.5, 2.7)
+    .. controls (2.7, 2.7) and (3.6, 2.2) .. (\xmid, 1.35)
+    .. controls (5.4, 0.5) and (6.3, 0.0) .. (7.5, 0.0)
+    -- (\w, 0);
+
+  % Electron current In: starts at 0, transitions through 0.5*I at center, 
+  % rises to I
+  \draw[very thick, dashed] (0, 0) -- (1.5, 0)
+    .. controls (2.7, 0.0) and (3.6, 0.5) .. (\xmid, 1.35)
+    .. controls (5.4, 2.2) and (6.3, 2.7) .. (7.5, 2.7)
+    -- (\w, 2.7);
+
+  % Curve labels
+  \node[font=\small] at (3.5, 1.95) {$I_p$};
+  \node[font=\small] at (3.5, 0.75) {$I_n$};
+
+  % Left vertical axis ticks and labels
+  \node[anchor=east, font=\small] at (-0.05, 2.7) {$I$};
+  \node[anchor=east, font=\small] at (-0.05, 0) {$0$};
+
+  % Left vertical axis title (Title Case as requested)
+  \node[rotate=90, anchor=south, align=center, font=\small] at (-0.6, 0.5*\h) {
+    Currents $I_p$, $I_n \longrightarrow$
+  };
+
+\end{tikzpicture}
+\caption{Distribution of electron and hole currents under forward bias}
+\label{c2f3}
+\end{figure}
+
+\begin{figure}[htpb]
+\begin{tikzpicture}[line cap=round, line join=round]
+
+  % Dimensions
+  \def\w{9.2}
+  \def\h{5.6}
+  \def\xp{2.7}    % Boundary between p-region and transition region
+  \def\xn{6.7}    % Boundary between transition region and n-region
+
+  % Key x-coordinates matching junction partitions
+  \def\xa{0.0}
+  \def\xone{2.6}   % Left edge of transition region
+  \def\xmid{4.6}   % Metallurgical junction center (x = 0)
+  \def\xtwo{6.7}   % Right edge of transition region
+  \def\xb{9.2}
+
+  % Key y-levels
+  \def\yphitop{4.0}    % phi_0 + delta V baseline
+  \def\yphibot{2.2}    % phi_0 baseline
+  \def\yVao{0.7}       % V_a0 level at left contact
+
+  % Boundary rectangle
+  \draw[thick] (0, 0) rectangle (\w, \h);
+
+  \node[anchor=south] at (0.5*\xp, \h) {p-region};
+  \node[anchor=south] at (0.5*\xp + 0.5*\xn, \h) {Transition region};
+  \node[anchor=south] at (0.5*\xn + 0.5*\w, \h) {n-region};
+
+  % Region dividing vertical dashed lines
+  \draw[thick, dash pattern=on 8pt off 3pt on 2pt off 3pt] 
+  (\xone, 0) -- (\xone, \h);
+  \draw[thick] (\xmid, 0) -- (\xmid, \h);
+  \draw[thick, dash pattern=on 8pt off 3pt on 2pt off 3pt] 
+  (\xtwo, 0) -- (\xtwo, \h);
+
+  % Shaded region between quasi-Fermi levels phi_p and phi_n
+  \fill[gray!20]
+    (1.7, \yphitop) --
+    plot[domain=1.7:\xb, samples=60] 
+    (\x, {\yphibot + (\yphitop - \yphibot)*exp(-0.35*(\x - 1.7))}) --
+    (\xb, \yphibot) --
+    plot[domain=\xb:1.7, samples=60] 
+    (\x, {\yphibot + (\yphitop - \yphibot)/(1 + exp(1.6*(\x - 3.8)))});
+
+  % Horizontal dashed reference lines for potentials
+  \draw[thick, dashed] (0, \yphitop) -- (5.7, \yphitop);
+  \draw[thick, dashed] (0, \yphibot) -- (5.7, \yphibot);
+  \draw[thick] (0, \yVao) -- (0.6, \yVao);
+
+  % Curves:
+  % 1. Electrostatic potential V (long dashed curve: V_a0 -> V_b)
+  \draw[very thick, dash pattern=on 9pt off 4pt]
+    (0, 2.5) -- (\xone, 2.4)
+    .. controls (3.8, 2.3) and (4.2, 3.1) .. (\xmid, 3.4)
+    .. controls (5.0, 3.7) and (5.7, 3.7) .. (\xb, 3.7);
+
+  % 2. Hole quasi-Fermi level phi_p (solid curve)
+  \draw[very thick]
+    (0, \yphitop) -- (1.7, \yphitop)
+    .. controls (3.5, 3.9) and (5.5, 2.7) .. (\xb, 1.95);
+
+  % 3. Electron quasi-Fermi level phi_n (short dashed curve)
+  \draw[very thick, dashed]
+    (1.7, \yphitop)
+    .. controls (2.7, 3.9) and (3.3, 3.2) .. (3.8, 2.8)
+    .. controls (4.4, 2.4) and (5.5, 2.2) .. (\xb, 2.2);
+
+  % Internal Curve Labels
+  \node[above, font=\bfseries\small] at (4.3, 3.8) {$\varphi_p$};
+  \node[below, font=\bfseries\small] at (3.4, 3.1) {$\varphi_n$};
+  \node[above, font=\bfseries\small] at (7.8, 3.7) {$V$};
+
+  % Y-axis labels on Left & Right
+  \node[anchor=east, font=\small] at (-0.05, \yphitop) {$\varphi_0 + \delta V$};
+  \node[anchor=east, font=\small] at (-0.05, \yphibot) {$\varphi_0$};
+  \node[anchor=east, font=\small] at (-0.05, \yVao) {$V_{a0}$};
+
+  \node[anchor=west, font=\small] at (\w+0.05, 3.7) {$V_b$};
+  \node[anchor=west, font=\small] at (\w+0.05, 1.95) {$\varphi_b$};
+
+  % Left Delta V dimension arrows
+  \draw[thick, dashed, <->, >=stealth] (0.8, \yphibot) -- (0.8, \yphitop)
+    node[midway, right, font=\small] {$\delta V$};
+  \draw[thick, dashed, <->, >=stealth] (0.5, \yVao) -- (0.5, \yphibot)
+    node[midway, right, font=\small] {$\delta V$};
+
+  % Voltage drop breakdowns on the right of center line (x ~ 5.4)
+  \def\xdrop{5.35}
+  \def\ydropTop{\yphitop}
+  \def\ydropP{3.4}
+  \def\ydropN{3.1}
+  \def\ydropBot{\yphibot}
+
+  \draw[thick, <->, >=stealth] (\xdrop, \ydropP) -- (\xdrop, \ydropTop)
+    node[midway, right=1pt, font=\small] {$\delta V_{Rp}$};
+  \draw[thick, <->, >=stealth] (\xdrop, \ydropN) -- (\xdrop, \ydropP)
+    node[midway, right=1pt, font=\small] {$\delta V_J$};
+  \draw[thick, <->, >=stealth] (\xdrop, \ydropBot) -- (\xdrop, \ydropN)
+    node[midway, right=1pt, font=\small] {$\delta V_{Rn}$};
+
+  % X-axis tick labels
+  \node[below, font=\bfseries\small] at (0, 0) {$x_a$};
+  \node[below, font=\bfseries\small] at (\xmid, 0) {$0$};
+  \node[below, font=\bfseries\small] at (\xb, 0) {$x_b$};
+
+  % Vertical Y-axis title (Mixed case as requested)
+  \node[rotate=90, anchor=south, align=center, font=\small] at (-1.5, 0.5*\h) {
+    Electrochemical potentials$\longrightarrow$
+  };
+
+\end{tikzpicture}
+\caption{Electrochemical potential across a forward biased junction.}
+\label{c2f4}
 \end{figure}
