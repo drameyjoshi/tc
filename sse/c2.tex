@@ -13,7 +13,159 @@ Figure \ref{c2f1} shows the schematic diagram of a pn junction, published in
 Shockley's paper \cite{shockley1949theory}
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{pn-junction-shockley1949}
+\begin{tikzpicture}[line cap=round, line join=round, font=\sffamily]
+
+  % Global horizontal boundaries
+  \def\xa{0.6}
+  \def\xb{8.4}
+  \def\w{9.0}
+  \def\xmid{4.5}
+  \def\xTRL{4.0}
+  \def\xTRR{5.0}
+
+  % =========================================================================
+  % Part (a): Schematic Diode & External Circuit
+  % =========================================================================
+  \begin{scope}[yshift=10.2cm]
+    % Outer boundary of the semiconductor bar
+    \draw[thick] (\xa, 0) rectangle (\xb, 1.2);
+
+    % End contact metal plates (narrow rectangles on each end)
+    \draw[thick, fill=gray!20] (\xa, 0) rectangle (\xa+0.3, 1.2);
+    \draw[thick, fill=gray!20] (\xb-0.3, 0) rectangle (\xb, 1.2);
+
+    % Transition region vertical division markers
+    \draw[thick, dashed] (\xTRL, 0) -- (\xTRL, 1.2);
+    \draw[thick, dashed] (\xTRR, 0) -- (\xTRR, 1.2);
+
+    % Region text labels
+    \node[font=\bfseries\small] at (2.4, 0.6) {p-region};
+    \node[font=\bfseries\small] at (6.6, 0.6) {n-region};
+    \node[align=center, font=\bfseries\scriptsize] at (\xmid, 1.7) {Transition
+    \\region};
+
+    % External circuit wire leads
+    \draw[thick] (\xa+0.15, 1.2) -- (\xa+0.15, 2.3) -- (4.25, 2.3);
+    \draw[thick] (4.75, 2.3) -- (\xb-0.15, 2.3) -- (\xb-0.15, 1.2);
+
+    % Battery / Potential Source (delta phi)
+    \draw[thick] (4.32, 2.05) -- (4.32, 2.55);   % Long plate (+)
+    \draw[very thick] (4.48, 2.15) -- (4.48, 2.45); % Short plate (-)
+    \draw[thick] (4.25, 2.3) -- (4.32, 2.3);
+    \draw[thick] (4.48, 2.3) -- (4.56, 2.3);
+    \draw[thick] (4.56, 2.05) -- (4.56, 2.55);   % Long plate (+)
+    \draw[very thick] (4.72, 2.15) -- (4.72, 2.45); % Short plate (-)
+    \draw[thick] (4.72, 2.3) -- (4.75, 2.3);
+
+    % Polarity labels & delta phi
+    \node[font=\scriptsize] at (4.15, 2.5) {+};
+    \node[font=\scriptsize] at (4.88, 2.5) {$-$};
+    \node[font=\small\bfseries] at (4.52, 2.75) {$\delta\boldsymbol{V}$};
+
+    % Current direction arrow I
+    \draw[thick, ->, >=stealth] (2.9, 2.48) -- (2.3, 2.48) node[midway, above, font=\small\bfseries] {$I$};
+
+    % Subfigure label
+    \node[font=\bfseries] at (\xb+0.4, 0.6) {(a)};
+  \end{scope}
+
+  % Vertical alignment dashed lines connecting the transition region through all plots
+  \draw[dashed, thin] (\xTRL, 0) -- (\xTRL, 10.2);
+  \draw[dashed, thin] (\xTRR, 0) -- (\xTRR, 10.2);
+
+  % =========================================================================
+  % Part (b): Donor and Acceptor Densities
+  % =========================================================================
+  \begin{scope}[yshift=5.1cm]
+    % Framing box
+    \draw[thick] (\xa, 0) rectangle (\xb, 4.2);
+
+    % Center axis lines
+    \draw[thick] (\xa, 2.1) -- (\xb, 2.1);
+    \draw[thick] (\xmid, 0) -- (\xmid, 4.2);
+
+    % Curves
+    % Na (acceptors: dashed linear line decreasing toward right)
+    \draw[very thick, dashed] (\xa, 3.6) -- (\xb, 2.5);
+    \node[above, font=\bfseries\small] at (2.4, 3.3) {$N_a$};
+
+    % Nd (donors: solid line increasing toward right)
+    \draw[very thick] (\xa, 2.7) -- (\xb, 3.3);
+    \node[below, font=\bfseries\small] at (2.4, 2.7) {$N_d$};
+
+    % Nd - Na net density linear ramp
+    \draw[very thick] (\xa, 0.6) -- (\xb, 3.0);
+    \node[rotate=16, font=\bfseries\small] at (2.1, 1.45) {$N_d - N_a = ax$};
+
+    % Tick and Axis origin label
+    \node[anchor=east, font=\bfseries\small] at (\xa, 2.1) {0};
+
+    % Left Y-axis label
+    \node[rotate=90, anchor=south, align=center, font=\bfseries\scriptsize] at (\xa-0.5, 2.1) {
+      Densities of\\acceptors $N_a$ \& donors $N_d$\\$\longleftarrow\quad\longrightarrow$
+    };
+
+    % Subfigure label
+    \node[font=\bfseries] at (\xb+0.4, 2.1) {(b)};
+  \end{scope}
+
+  % =========================================================================
+  % Part (c): Hole Current Distributions
+  % =========================================================================
+  \begin{scope}[yshift=0cm]
+    % Framing box
+    \draw[thick] (\xa, 0) rectangle (\xb, 4.2);
+
+    % Center vertical axis line
+    \draw[thick] (\xmid, 0) -- (\xmid, 4.2);
+
+    % Top saturation/total current reference level (dashed)
+    \draw[thick, dashed] (\xa, 3.7) -- (\xb, 3.7);
+    \node[fill=white, inner sep=1pt, font=\bfseries\small] at (6.6, 3.7) {$I$};
+
+    % Three current profile curves:
+    % 1. Good hole emitter (extended exponential-like tail into n-region)
+    \draw[very thick] (\xa, 3.7) -- (\xTRL, 3.7)
+      .. controls (5.0, 3.65) and (5.5, 2.5) .. (6.5, 1.8)
+      .. controls (7.2, 1.3) and (7.7, 1.1) .. (\xb, 0.95);
+
+    % 2. Rectifying (moderate decay)
+    \draw[very thick] (\xa, 3.7) -- (2.6, 3.7)
+      .. controls (3.8, 3.65) and (4.5, 1.6) .. (6.0, 0.5)
+      .. controls (6.7, 0.1) and (7.2, 0.02) .. (\xb, 0.0);
+
+    % 3. Ohmic (rapid recombination in/near transition region)
+    \draw[very thick] (\xa, 3.7) -- (\xTRL, 3.7)
+      .. controls (4.4, 3.5) and (4.4, 0.6) .. (5.0, 0.08)
+      -- (\xb, 0.0);
+
+    % Curve Labels and Pointer Arrows
+    \draw[thick, dashed, ->, >=stealth] (2.2, 2.6) node[left, font=\bfseries\scriptsize] {Rectifying} -- (3.6, 2.7);
+    \draw[thick, dashed, ->, >=stealth] (3.8, 1.2) node[left, font=\bfseries\scriptsize] {Ohmic} -- (4.45, 1.2);
+    \draw[thick, dashed, ->, >=stealth] (6.8, 2.7) node[above, align=center, font=\bfseries\scriptsize] {Good hole\\emitter} -- (5.2, 2.65);
+
+    % Left Y-axis markings and labels
+    \node[anchor=east, font=\bfseries\small] at (\xa, 3.7) {$I$};
+    \node[anchor=east, font=\bfseries\small] at (\xa, 0) {0};
+    \node[rotate=90, anchor=south, align=center, font=\bfseries\scriptsize] at (\xa-0.5, 2.1) {
+      Hole current, $I_p$\\$\longleftarrow$
+    };
+
+    % X-axis Ticks and Labels
+    \node[below, font=\bfseries\small] at (\xa, 0) {$x_a$};
+    \node[below, font=\bfseries\small] at (\xmid, 0) {0};
+    \node[below, font=\bfseries\small] at (\xb, 0) {$x_b$};
+
+    % Subfigure label
+    \node[font=\bfseries] at (\xb+0.4, 0.6) {(c)};
+  \end{scope}
+
+  % Shared X-axis label across all figures
+  \node[anchor=north, font=\bfseries\small] at (\xmid, -0.4) {
+    Distance through sample, $x \longrightarrow$
+  };
+
+\end{tikzpicture}
 \caption{A p-n junction}
 \label{c2f1}
 \end{figure}
@@ -394,17 +546,17 @@ of charges until an equilibrium is reached.
 \item We evaluate the constant factor in \eqref{c2e40} for Si and Ge using their
 dielectric constants $12.5$ and $19$ respectively. Thus, we have
 \begin{equation}
-V_m = \begin{cases}
+V_m = \begin{dcases}
 4.8254 \times 10^{-10} x_m^3/a^2 & \text{ for Si} \\
 3.1746 \times 10^{-10} x_m^3/a^2 & \text{ for Ge}
-\end{cases}
+\end{dcases}
 \end{equation}
 These equations are derived in SI units. Therefore, $x_m$ and $a$ are measured
 in metres. The paper \cite{shockley1949theory} uses CGS units and therefore it
 reports a power $-8$ instead of $-10$ in our case.
 \end{enumerate}
 
-\subsection{The transition capacitance}
+\section{The transition capacitance}\label{c2s3}
 The transition layer has bare, immobile impurity ions, positive on the n-side 
 and negative on the p-side. This layer of opposite charges behaves like a
 capacitor. We will estimate its capacity by applying a small potential 
@@ -420,7 +572,7 @@ negative ions near the transition layer. The crystal maintains its electrical
 neutrality by losing an equal number of electron from the n region and exposing
 a few more positive impurity ions near the transition layer but on the n-side.
 As the width of the transition layer changes, so does its capacitance. In this
-subsection we will get an expression for the capacitance, called the transition
+section we will get an expression for the capacitance, called the transition
 capacitance, denoted by $C_T$. An application of a small bias voltage of any
 polarity will result in a current flow. However, we are interested in estimating
 the capacitance. Therefore, we will assume a pseudo-equilibrium condition in
@@ -502,6 +654,12 @@ down by $\delta V/2$.
 \subsection{Transition capacitance of graded junctions}
 Although graded junctions are no longer used in modern devices, we will follow
 Shockley's analysis as a useful exercice in understanding semiconductor devices.
+The capacitance in the regions where the crystal is largely neutral is different
+from the region where space charge exists. We will consider these cases
+separately.
+
+\begin{enumerate}
+\item Neutral region:
 Let $P$ be number of holes between positions $x_a$ and $x_b$ of the crystal.
 Their charge is $qP$ and their capacitance is
 \begin{equation}\label{c2e52}
@@ -511,7 +669,7 @@ The number of holes $P$ can be calculated from the hole number density as
 \begin{equation}\label{c2e53}
 P = \int_{x_a}^{x_b}pAdx,
 \end{equation}
-where $A$ is the area of cross-section of the device. In a graded junction $K
+where $A$ is the area of cross-section of the device. In this region $K
 \ll 1$, the crystal is electrically neutral and from equation \eqref{c2e30} we
 have
 \begin{equation}\label{c2e54}
@@ -607,7 +765,7 @@ C_T = \frac{n_1}{a^2}\frac{e^{q\beta\delta V}}{2\epsilon_0\kappa L_D^2L_a}
 \end{equation}
 as the expression for transition capacitance in graded junctions.
 
-\subsection{Transition capacitance of abrupt junctions}
+\item Space-charged region:
 An abrupt junction has $K \gg 1$. The potential at the boundary of the junction
 is given by \eqref{c2e38}
 \[
@@ -630,5 +788,225 @@ C_T = \frac{\delta Q}{\delta V} =  \frac{A}{2x_m}\epsilon_0\kappa.
 \end{equation}
 This expression is also the capacitance of a parallel plate condensor of area
 $A$ separated by a distance $2x_m$ and filled with a dielectric of relative
-permittivity $\kappa$.
-is the transition layer capacitance of an abrupt junction.
+permittivity $\kappa$. From equation \eqref{c2e38}, we can write this expression
+in terms of the potential difference across the junction as
+\begin{equation}\label{c2e64}
+C_T = \frac{A}{2}\left(\frac{qa\epsilon_0^2\kappa^2}{3}\right)^{1/3}
+V_m^{-1/3},
+\end{equation}
+where $V_m = V(x_m)$.
+\end{enumerate}
+
+\subsection{Transition capacitance of abrupt junctions}
+Modern semiconductor devices tend to have abrupt junctions. There are no mobile
+charge carriers in the transition region and the impurity concentration can be
+assumed to be constant on either sides of the junction. Let $N_A$ and $N_D$ be
+the acceptor and donor concentrations on the p and n sides of the junction and
+let the junction extend from $-x_p$ to $x_n$. The one dimensional Poisson's 
+equation is
+\begin{equation}\label{c2e65}
+\std{V}{x} = -\frac{\rho}{\epsilon_0\kappa},
+\end{equation}
+where $\rho$ is either $N_A$ of $N_D$, both of which are assumed to be constant.
+Integrating it once gives
+\[
+\td{V}{x} = -\frac{\rho}{\epsilon_0\kappa}x + c_1,
+\]
+where $c_1$ is a constant of integration. Since the crystal is neutral leftwards
+of $-x_p$ and rightwards of $x_n$, the electric field should vanish at these 
+points. Therefore, we must have 
+\[
+c_1 = \begin{dcases}
+-\frac{\rho}{\epsilon_0\kappa}x_p & x < 0 \\
++\frac{\rho}{\epsilon_0\kappa}x_n & x > 0
+\end{dcases}
+\]
+and hence
+\[
+V(x) = \begin{dcases}
+-\frac{1}{2}\frac{\rho}{\epsilon_0\kappa}(x - x_p)^2 + c_2 & x < 0 \\
+-\frac{1}{2}\frac{\rho}{\epsilon_0\kappa}(x - x_n)^2 + c_3 & x > 0
+\end{dcases}
+\]
+where $c_2$ and $c_3$ are constants of integration. Now $\rho = -qN_A \approx 
+-qp_p$ (from \eqref{c1e38}) on the p-side and $\rho = qN_D \approx qn_n$ (from 
+\eqref {c1e39}) on the n-side. Therefore,
+\begin{equation}\label{c2e66}
+V(x) = \begin{dcases}
+ \frac{1}{2}\frac{qp_p}{\epsilon_0\kappa}(x - x_p)^2 + c_2 & x < 0 \\
+-\frac{1}{2}\frac{qn_n}{\epsilon_0\kappa}(x - x_n)^2 + c_3 & x > 0
+\end{dcases}
+\end{equation}
+The electric field is continuous throughout the junction so that we must also
+have
+\begin{equation}\label{c2e67}
+x_pp_p = -x_nn_n.
+\end{equation}
+If $W$ is the total width of the junction then 
+\begin{equation}\label{c2e68}
+W = x_n - x_p
+\end{equation}
+so that
+\begin{eqnarray}
+x_p &=& -\frac{n_nW}{n_n + p_p} \label{c2e69} \\
+x_n &=& +\frac{p_pW}{n_n + p_p} \label{c2e70}
+\end{eqnarray}
+If we choose $V(x = 0) = 0$ then the constants of integrations in \eqref{c2e66}
+can be found and the complete solution of Poisson's equation is
+\begin{equation}\label{c2e71}
+V(x) = \begin{dcases}
+ \frac{1}{2}\frac{qp_p}{\epsilon_0\kappa}[(x - x_p)^2 - x_p^2] & x < 0 \\
+-\frac{1}{2}\frac{qn_n}{\epsilon_0\kappa}[(x - x_n)^2 - x_n^2] & x > 0
+\end{dcases}
+\end{equation}
+This allows us to get an expression for the potential difference across the
+junction $V_J$ as
+\begin{equation}\label{c2e72}
+V_J = V(x_n) - V(-x_p) = 
+\frac{1}{2}\frac{q}{\epsilon_0\kappa}\frac{p_pn_n}{n_n+p_p}
+W^2.
+\end{equation}
+The total charge in the reqion is $Q = q(-x_pp_p + x_nn_n)$. Using equations
+\eqref{c2e69} and \eqref{c2e70}, we get
+\begin{equation}\label{c2e73}
+Q = q\frac{p_pn_n}{p_p + n_n}WA,
+\end{equation}
+where $A$ is the area of cross section of the crystal. We can recast equation
+\eqref{c2e72} as
+\begin{equation}\label{c2e74}
+V_J = \frac{1}{2\epsilon_0\kappa}\frac{QW}{A},
+\end{equation}
+Using \eqref{c2e73} to express $W$ in terms of $Q$ and $A$,
+\begin{equation}\label{c2e75}
+V_J = \frac{Q^2}{2A^2\epsilon_0\kappa}\frac{p_p + n_n}{p_pn_nq}.
+\end{equation}
+Differentiating both sides with respect to $V_J$,
+\[
+1 = \frac{Q}{A^2\epsilon_0\kappa}\frac{p_p + n_n}{p_pn_nq}\td{Q}{V} \Rightarrow
+\td{Q}{V} = \frac{\epsilon_0\kappa A}{W}.
+\]
+Thus, the transition capacitance is
+\begin{equation}\label{c2e76}
+C_T = \frac{\epsilon_0\kappa A}{W}.
+\end{equation}
+We use \eqref{c2e72} to express $W$ in terms of $V_J$ to get
+\begin{equation}\label{c2e77}
+C_T = \sqrt{\frac{q\epsilon_0\kappa}{2}\frac{p_pn_n}{p_p + n_n}}V_J^{-1/2}A.
+\end{equation}
+Unlike the case of a graded junction, the transition capacitance of an abrupt
+junction varies as $-1/2$th power of the potential across the junction.
+
+\section{Current across a junction}\label{c2s4}
+Equations \eqref{c2e50} and \eqref{c2e51} give the solution of the Poisson 
+equation in a semiconductor crystal in the presence of a small biasing voltage
+$\delta V$. If there is no bias, that is if $\delta V = 0$, then $\varphi_1 =
+\varphi$ and the potential distribution is
+\begin{equation}\label{c2e78}
+V = \begin{dcases} \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i} & \text{p side} \\
+\varphi + \frac{1}{q\beta}\ln\frac{n}{n_i} & \text{n side}
+\end{dcases}
+\end{equation}
+Thus, the potential is depressed on the p-side as compared to the equilibrium 
+chemical potential and elevated on the n-side. The junction thus presents a
+potential barrier for the holes. The bare donor ions on the n-side deter the
+holes from crossing the barrier. The electrons on the n-side face exactly the
+same situation. Figure \ref{c2f2} shows the variation of the potential 
+experienced by the holes across a pn-junction.
+\begin{figure}[htpb]
+\centering
+\begin{tikzpicture}[line cap=round, line join=round, font=\sffamily]
+
+  % Define bounding box dimensions
+  \def\w{9.0}
+  \def\h{8.0}
+
+  % Region division coordinates (x)
+  \def\xp{2.7}    % Boundary between p-region and transition region
+  \def\xmid{4.7}  % Center line of transition region
+  \def\xn{6.7}    % Boundary between transition region and n-region
+
+  % Energy level baselines (y)
+  \def\yvalL{5.1}   % Valence band top in p-region
+  \def\yvalR{7.5}   % Valence band top in n-region
+
+  \def\ypsiL{2.6}   % Midgap / potential psi left
+  \def\ypsiR{5.15}  % Midgap / potential psi right
+
+  \def\ycondL{0.2}  % Conduction band bottom in p-region
+  \def\ycondR{2.65} % Conduction band bottom in n-region
+
+  \def\yphi{3.9}    % Fermi level phi
+
+  % Outer border box
+  \draw[thick] (0,0) rectangle (\w,\h);
+
+  % Top Region Labels and Tick marks
+  \draw[thick] (0, \h) -- (0, \h+0.35);
+  \draw[thick] (\xp, \h) -- (\xp, \h+0.35);
+  \draw[thick] (\xn, \h) -- (\xn, \h+0.35);
+  \draw[thick] (\w, \h) -- (\w, \h+0.35);
+
+  \node[anchor=south] at (0.5*\xp, \h) {\textbf{p-region}};
+  \node[anchor=south] at (0.5*\xp + 0.5*\xn, \h) {\textbf{Transition region}};
+  \node[anchor=south] at (0.5*\xn + 0.5*\w, \h) {\textbf{n-region}};
+
+  % Region dividing vertical dashed lines
+  \draw[thick, dash pattern=on 8pt off 3pt on 2pt off 3pt] (\xp, 0) -- (\xp, \h);
+  \draw[thick] (\xmid, 0) -- (\xmid, \h);
+  \draw[thick, dash pattern=on 8pt off 3pt on 2pt off 3pt] (\xn, 0) -- (\xn, \h);
+
+  % Left Y-axis label with arrow
+  \node[rotate=90, anchor=south, font=\sffamily\bfseries] at (-0.6, 0.5*\h) {
+    $V_h\longrightarrow$
+  };
+
+  % Curves (Valence band, Psi, Conduction band) using smooth beziers
+  % 1. Valence-Bond Band (Top curve)
+  \draw[very thick] (0, \yvalL) -- (\xp, \yvalL)
+    .. controls (\xp+1.0, \yvalL) and (\xn-1.0, \yvalR) .. (\xn, \yvalR)
+    -- (\w, \yvalR);
+
+  % 2. Intrinsic potential / midgap (Psi curve)
+  \draw[very thick] (0, \ypsiL) -- (\xp, \ypsiL)
+    .. controls (\xp+1.0, \ypsiL) and (\xn-1.0, \ypsiR) .. (\xn, \ypsiR)
+    -- (\w, \ypsiR);
+
+  % 3. Conduction Band (Bottom curve)
+  \draw[very thick] (0, \ycondL) -- (\xp, \ycondL)
+    .. controls (\xp+1.0, \ycondL) and (\xn-1.0, \ycondR) .. (\xn, \ycondR)
+    -- (\w, \ycondR);
+
+  % Fermi Level (dashed horizontal line)
+  \draw[very thick, dashed] (0, \yphi) -- (\w, \yphi);
+
+  % Holes (plus signs) in valence band
+  \foreach \x in {0.25, 0.75, 1.25, 1.75, 2.25} {
+    \node at (\x, \yvalL + 0.25) {\large $+$};
+  }
+
+  % Electrons (minus signs) in conduction band
+  \foreach \x in {7.1, 7.6, 8.1, 8.6} {
+    \node at (\x, \ycondR - 0.25) {\large $-$};
+  }
+
+  % Potential Labels on Left Axis
+  \node[anchor=east] at (-0.05, \yphi) {$\boldsymbol{\varphi_0}$};
+  \node[anchor=east] at (-0.05, \ypsiL) {$\boldsymbol{V_a}$};
+  \node[anchor=west] at (\w+0.05, \ypsiR) {$\boldsymbol{V_b}$};
+
+  % Internal Labels
+  \node[align=center, font=\bfseries] at (2.2, 6.6) {Valence band};
+  \node[align=center, font=\bfseries] at (6.7, 1.3) {Conduction band};
+  \node[anchor=south west, inner sep=2pt] at (0.2, \yphi) {$\boldsymbol{\varphi = \varphi_p = \varphi_n}$};
+  \node[font=\large] at (5.7, 4.9) {$\boldsymbol{V}$};
+
+  % Energy Gap Dimension Arrow and Label
+  \def\xGap{8.0}
+  \draw[thick, dashed, <->, >=stealth] (\xGap, \ycondR) -- (\xGap, \yvalR);
+  \node[align=center, fill=white, inner sep=1pt, font=\bfseries\small] at (\xGap, 0.5*\ycondR + 0.5*\yvalR) {
+    Energy\\gap
+  };
+\end{tikzpicture}
+\caption{Potential energy $V_h$ of a hole}
+\label{c2f2}
+\end{figure}
