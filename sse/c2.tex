@@ -1029,7 +1029,7 @@ the n-side. Yet, there is a non-zero hole-current at the junction which diffuses
 into the n-side. Analogous situation exists for the electron current flowing in
 the opposite direction. We will argue later that the diffusion current plays
 an important role in making a pn-junction a rectifying junction.
-\begin{figure}
+\begin{figure}[htpb]
 \centering
 \begin{tikzpicture}[line cap=round, line join=round]
 
@@ -1093,6 +1093,32 @@ an important role in making a pn-junction a rectifying junction.
 \caption{Distribution of electron and hole currents under forward bias}
 \label{c2f3}
 \end{figure}
+
+Figure \ref{c2f3} shows how the chemical potential changes across the junction.
+$\varphi_0$ is the equilibrium chemical potential. When a forward bias $\delta 
+V$ is applied across the diode, the electric potential becomes
+\begin{equation}\label{c2e79}
+V = \begin{dcases} \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i} + \frac{\delta V}
+    {2}& \text{p side} \\
+\varphi + \frac{1}{q\beta}\ln\frac{n}{n_i} - \frac{\delta V}{2} & \text{n side}
+\end{dcases}
+\end{equation}
+These equations were derived by taking the zero of the potential at the 
+junction. If, instead, we choose the zero at the n-side then these equations
+are modified to
+\begin{equation}\label{c2e90}
+V = \begin{dcases} \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i} + \delta V
+    & \text{p side} \\
+\varphi + \frac{1}{q\beta}\ln\frac{n}{n_i} & \text{n side}
+\end{dcases}
+\end{equation}
+In the p-side case of this equation, we define
+\begin{equation}\label{c2e80}
+V_{a0} = \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i}
+\end{equation}
+and show it on figure \ref{c2f4}. When a forward bias $\delta V$ is applied to
+it, the potential rises by $\delta V$. Equivalently, the potential barrier
+reduces by the same amount.
 
 \begin{figure}[htpb]
 \begin{tikzpicture}[line cap=round, line join=round]
