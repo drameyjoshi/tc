@@ -909,10 +909,11 @@ junction varies as $-1/2$th power of the potential across the junction.
 Equations \eqref{c2e50} and \eqref{c2e51} give the solution of the Poisson 
 equation in a semiconductor crystal in the presence of a small biasing voltage
 $\delta V$. If there is no bias, that is if $\delta V = 0$, then $\varphi_1 =
-\varphi$ and the potential distribution is
+\varphi_0$ and the potential distribution is
 \begin{equation}\label{c2e78}
-V = \begin{dcases} \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i} & \text{p side} \\
-\varphi + \frac{1}{q\beta}\ln\frac{n}{n_i} & \text{n side}
+V = \begin{dcases} 
+    \varphi_0 - \frac{1}{q\beta}\ln\frac{p}{n_i} & \text{p side} \\
+    \varphi_0 + \frac{1}{q\beta}\ln\frac{n}{n_i} & \text{n side}
 \end{dcases}
 \end{equation}
 Thus, the potential is depressed on the p-side as compared to the equilibrium 
@@ -1007,7 +1008,7 @@ experienced by the holes across a pn-junction.
   \node[align=center] at (2.2, 6.6) {Valence band};
   \node[align=center] at (6.7, 1.3) {Conduction band};
   \node[anchor=south west, inner sep=2pt] at (0.2, \yphi) 
-  {$\varphi = \varphi_p = \varphi_n$};
+  {$\varphi_0 = \varphi_p = \varphi_n$};
   \node at (5.5, 4.9) {$V_h$};
 
   % Energy Gap Dimension Arrow and Label
@@ -1098,27 +1099,77 @@ Figure \ref{c2f3} shows how the chemical potential changes across the junction.
 $\varphi_0$ is the equilibrium chemical potential. When a forward bias $\delta 
 V$ is applied across the diode, the electric potential becomes
 \begin{equation}\label{c2e79}
-V = \begin{dcases} \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i} + \frac{\delta V}
+V = \begin{dcases} 
+ \varphi_0 - \frac{1}{q\beta}\ln\frac{p}{n_i} + \frac{\delta V}
     {2}& \text{p side} \\
-\varphi + \frac{1}{q\beta}\ln\frac{n}{n_i} - \frac{\delta V}{2} & \text{n side}
+ \varphi_0 + \frac{1}{q\beta}\ln\frac{n}{n_i} - \frac{\delta V}{2} & \text{n side}
 \end{dcases}
 \end{equation}
 These equations were derived by taking the zero of the potential at the 
 junction. If, instead, we choose the zero at the n-side then these equations
 are modified to
 \begin{equation}\label{c2e90}
-V = \begin{dcases} \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i} + \delta V
+V = \begin{dcases} \varphi_0 - \frac{1}{q\beta}\ln\frac{p}{n_i} + \delta V
     & \text{p side} \\
-\varphi + \frac{1}{q\beta}\ln\frac{n}{n_i} & \text{n side}
+\varphi_0 + \frac{1}{q\beta}\ln\frac{n}{n_i} & \text{n side}
 \end{dcases}
 \end{equation}
 In the p-side case of this equation, we define
 \begin{equation}\label{c2e80}
-V_{a0} = \varphi - \frac{1}{q\beta}\ln\frac{p}{n_i}
+V_{a0} = \varphi_0 - \frac{1}{q\beta}\ln\frac{p}{n_i}
 \end{equation}
 and show it on figure \ref{c2f4}. When a forward bias $\delta V$ is applied to
 it, the potential rises by $\delta V$. Equivalently, the potential barrier
-reduces by the same amount.
+reduces by the same amount. The electrostatic potential is shown as a curve 
+with bold, long dashes. It starts a little over $\varphi_0$ at the start of the
+p-side and drops gently until it reaches the transition layer. The drop 
+indicates the small drop in potential because of the ohmic resistance of the
+bulk of the p-side. It rises in the transition layer eventually reaching the
+value $V_b$ at the other end.
+
+The chemical potential of holes is shown as a thick, solid curve that starts at
+$\varphi_0 + \delta V$ at the left end of the diode. It remains almost flat in
+the bulk of the p-region and drops beyond eventually dropping to the 
+equilibrium level $\varphi_0$ at the other end of the diode. It is largely flat
+in the bulk of the crystal indicating almost no diffusion in those areas. It 
+drops drastically in the transition layer because of the strong diffusion of 
+holes. The curve is described by \eqref{c2e9} written as
+\[
+\varphi_p(x) = V + \frac{1}{q\beta}\ln\frac{p(x)}{n_i}.
+\]
+Deep inside the p-region, the electrostatic potential is $V + \delta V$ and
+$p(x) = p_p \approx N_A$. Therefore,
+\[
+\varphi_p(x_a) = V + \delta V + \frac{1}{q\beta}\ln\frac{p_p}{n_i} =
+\varphi_0 + \delta V.
+\]
+Deep inside the n-region, $p(x) = p_n = n_i^2/n_n$. The electrostatic potential
+is $V$ and hence,
+\[
+\varphi_p(x_b) = V - \frac{1}{q\beta}\ln\frac{n_n}{n_i} = \varphi_0.
+\]
+
+The chemical potential of the electrons is shown as thick, small-dashed curve 
+that starts at $\varphi_b$ at the right end of the diode and rises to
+$\varphi_0 + \delta V$ at the left end. The electrons flow from right to left
+so that its conventional current flows from left to right. From \eqref{c2e12},
+for $\vec{J}_n$ to be in the positive $x$-direction, $d\varphi_n/dx$ must be
+negative so that $\varphi_n$ must slope downwards as one goes from p-side to
+the n-side. The curve is described by \eqref{c2e8} written as
+\[
+\varphi_n(x) = V - \frac{1}{q\beta}\ln\frac{n(x)}{n_i}.
+\]
+Deep inside the $n$ region, $n(x) = n_n \approx N_D$, $V = V_b$ and
+\[
+\varphi_n(x_b) = V_b - \frac{1}{q\beta}\ln\frac{N_D}{n_i} = \varphi_b.
+\]
+Likewise, deep inside the $p$-region, $n(x) = n_p \approx n_i^2/p_p$ so that 
+$n(x)/n_i = n_i/p_p$. Furthermore, the electrostatic potential is $V + \delta V$.
+Therefore,
+\[
+\varphi_n(x_a) = V + \delta V - \frac{1}{q\beta}\ln\frac{n_i}{p_p} =
+V + \frac{1}{\beta}\ln\frac{p_p}{n_i} + \delta V = \varphi_0 + \delta V.
+\]
 
 \begin{figure}[htpb]
 \begin{tikzpicture}[line cap=round, line join=round]
@@ -1156,13 +1207,13 @@ reduces by the same amount.
   (\xtwo, 0) -- (\xtwo, \h);
 
   % Shaded region between quasi-Fermi levels phi_p and phi_n
-  \fill[gray!20]
-    (1.7, \yphitop) --
-    plot[domain=1.7:\xb, samples=60] 
-    (\x, {\yphibot + (\yphitop - \yphibot)*exp(-0.35*(\x - 1.7))}) --
-    (\xb, \yphibot) --
-    plot[domain=\xb:1.7, samples=60] 
-    (\x, {\yphibot + (\yphitop - \yphibot)/(1 + exp(1.6*(\x - 3.8)))});
+  %\fill[gray!20]
+  %  (1.7, \yphitop) --
+  %  plot[domain=1.7:\xb, samples=60] 
+  %  (\x, {\yphibot + (\yphitop - \yphibot)*exp(-0.35*(\x - 1.7))}) --
+  %  (\xb, \yphibot) --
+  %  plot[domain=\xb:1.7, samples=60] 
+  %  (\x, {\yphibot + (\yphitop - \yphibot)/(1 + exp(1.6*(\x - 3.8)))});
 
   % Horizontal dashed reference lines for potentials
   \draw[thick, dashed] (0, \yphitop) -- (5.7, \yphitop);
@@ -1179,7 +1230,7 @@ reduces by the same amount.
   % 2. Hole quasi-Fermi level phi_p (solid curve)
   \draw[very thick]
     (0, \yphitop) -- (1.7, \yphitop)
-    .. controls (3.5, 3.9) and (5.5, 2.7) .. (\xb, 1.95);
+    .. controls (3.5, 3.9) and (5.5, 2.7) .. (\xb, 1.95 + 0.22);
 
   % 3. Electron quasi-Fermi level phi_n (short dashed curve)
   \draw[very thick, dashed]
@@ -1203,7 +1254,7 @@ reduces by the same amount.
   % Left Delta V dimension arrows
   \draw[thick, dashed, <->, >=stealth] (0.8, \yphibot) -- (0.8, \yphitop)
     node[midway, right, font=\small] {$\delta V$};
-  \draw[thick, dashed, <->, >=stealth] (0.5, \yVao) -- (0.5, \yphibot)
+  \draw[thick, dashed, <->, >=stealth] (0.5, \yVao) -- (0.5, \yphibot + 0.3)
     node[midway, right, font=\small] {$\delta V$};
 
   % Voltage drop breakdowns on the right of center line (x ~ 5.4)
@@ -1213,12 +1264,12 @@ reduces by the same amount.
   \def\ydropN{3.1}
   \def\ydropBot{\yphibot}
 
-  \draw[thick, <->, >=stealth] (\xdrop, \ydropP) -- (\xdrop, \ydropTop)
-    node[midway, right=1pt, font=\small] {$\delta V_{Rp}$};
-  \draw[thick, <->, >=stealth] (\xdrop, \ydropN) -- (\xdrop, \ydropP)
-    node[midway, right=1pt, font=\small] {$\delta V_J$};
-  \draw[thick, <->, >=stealth] (\xdrop, \ydropBot) -- (\xdrop, \ydropN)
-    node[midway, right=1pt, font=\small] {$\delta V_{Rn}$};
+  %\draw[thick, <->, >=stealth] (\xdrop, \ydropP) -- (\xdrop, \ydropTop)
+  %  node[midway, right=1pt, font=\small] {$\delta V_{Rp}$};
+  %\draw[thick, <->, >=stealth] (\xdrop, \ydropN) -- (\xdrop, \ydropP)
+  %  node[midway, right=1pt, font=\small] {$\delta V_J$};
+  %\draw[thick, <->, >=stealth] (\xdrop, \ydropBot) -- (\xdrop, \ydropN)
+  %  node[midway, right=1pt, font=\small] {$\delta V_{Rn}$};
 
   % X-axis tick labels
   \node[below, font=\bfseries\small] at (0, 0) {$x_a$};
@@ -1234,3 +1285,26 @@ reduces by the same amount.
 \caption{Electrochemical potential across a forward biased junction.}
 \label{c2f4}
 \end{figure}
+
+From equations \eqref{c2e8} and \eqref{c2e9},
+\[
+n(x)p(x) = n_i^2e^{q\beta(\varphi_p(x) - \varphi_n(x)}
+\]
+so that
+\begin{equation}\label{c2e82}
+\varphi_p(x) = \varphi_n(x) + \frac{1}{q\beta}\ln\frac{n(x)p(x)}{n_i^2}.
+\end{equation}
+There is an excess of minority carriers injected from across the junction in 
+the transition layer. As a result, $n(x)p(x) > n_i^2$ and hence $\varphi_p(x)
+> \varphi_n(x)$ in the transition layer. Far from it, $n(x)p(x) = n_i^2$ and
+the two curves coincide.
+
+We also define 
+\begin{eqnarray}
+V_J &=& \varphi_p(x=0) - \varphi_n(x=0) \label{c2e83} \\
+V_{R_p}(x) &=& \varphi_p(x_a) - \varphi_p(x) \label{c2e84} \\
+V_{R_n}(x) &=& \varphi_p(x) - \varphi_p(x_b) \label{c2e85}
+\end{eqnarray}
+Ideally, $V_{R_p}$ and $V_{R_n}$ are very small at the junction because of the
+high conductivity of the bulk of the p and n sides of the diode and the entire
+potential drop appears across the junction.
