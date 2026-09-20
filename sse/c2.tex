@@ -1375,10 +1375,19 @@ equation of continuity of holes is
 where we used \eqref{c2e8} and \eqref{c2e9} for $n$ and $p$. We also used the
 fact that under equilibrium conditions, $g = rn_i^2$. Integrating this equation
 from $x_a$ to $x_b$,
-\begin{equation}\label{c2e97}
+\[
 J_p(x_b) - J_p(x_a) = qg\int_{x_a}^{x_b}dx\left(1 - e^{q\beta(\varphi_p(x) - 
 \varphi_n(x))}\right)
+\]
+In a diode, holes are introduced into the p-side and as hole current reduces
+as one goes towards the n-side. So the quantity of physical interest is
+\begin{equation}\label{c2e97}
+J_p(x_a) - J_p(x_b) = qg\int_{x_a}^{x_b}dx\left(e^{q\beta(\varphi_p(x) - 
+\varphi_n(x))} - 1\right)
 \end{equation}
+This is the rate at which holes are lost to recombination as they traverse
+the diode.
+
 For a fixed flow of current, if $g$ increases, $\varphi_p(x) - \varphi_n(x)$
 decreases. In the limit of very large $g$ when $\varphi_p(x) = \varphi_n(x)$,
 equation \eqref{c2e95} becomes
@@ -1414,7 +1423,7 @@ p-side and holes on the n-side. We also assume that $\varphi_p(x) -
 \varphi_n(x)$ is constant over this interval. Integration of \eqref{c2e97}
 becomes trivial and we get
 \begin{equation}\label{c2e101}
-J_p(L_p) - J_p(L_n) = qg(1 - e^{q\beta(\varphi_p - \varphi_n)})(L_p + L_n)
+J_p(L_n) - J_p(L_p) = qg(e^{q\beta(\varphi_p - \varphi_n)} - 1)(L_p + L_n)
 \end{equation}
 The quantity
 \begin{equation}\label{c2e102}
@@ -1428,7 +1437,7 @@ $L_p$ arising solely due to electron-hole pair generation. The difference
 is the potential drop across the junction. In terms of $J_g$ and $\delta V_j$
 we can express \eqref{c2e101} as
 \begin{equation}\label{c2e104}
-J = J_g(1 - e^{q\beta\delta V_J})
+J = J_g(e^{q\beta\delta V_J} - 1)
 \end{equation}
 
 We next consider the voltage drop across the p and n sides of the diode outside
@@ -1443,15 +1452,16 @@ so that the total voltage drop is
 \]
 where $\delta V_J$ is the drop across the junction. From \eqref{c2e104},
 \[
-\frac{J}{J_g} = 1 - e^{q\beta\delta V_J} \Rightarrow \delta V_J = \frac{1}
-{q\beta}\left(1 - \frac{J}{J_g}\right).
+\frac{J}{J_g} = 1 + e^{q\beta\delta V_J} \Rightarrow \delta V_J = \frac{1}
+{q\beta}\left(1 + \frac{J}{J_g}\right).
 \]
 The other two terms can be combined into a single term $JR_1$, where $R_1$
 is the ohmic resistance of the bulk of the crystal. Thus,
 \begin{equation}\label{c2e107}
-\delta V = JR_1 + \frac{1}{q\beta}\ln\left(1 - \frac{J}{J_g}\right).
+\delta V = JR_1 + \frac{1}{q\beta}\ln\left(1 + \frac{J}{J_g}\right).
 \end{equation}
 It can be recast as
 \begin{equation}\label{c2e108}
-J = J_g\left(1 - e^{q\beta(\delta V - JR_1)}\right).
+J = J_g\left(e^{q\beta(\delta V - JR_1)} - 1\right).
 \end{equation}
+This equation tells why a pn-junction is a value and a diode is a rectifier.
