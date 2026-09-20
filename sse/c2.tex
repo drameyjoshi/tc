@@ -906,6 +906,7 @@ Unlike the case of a graded junction, the transition capacitance of an abrupt
 junction varies as $-1/2$th power of the potential across the junction.
 
 \section{Current across a junction}\label{c2s4}
+\subsection{Qualitative discussion}
 Equations \eqref{c2e50} and \eqref{c2e51} give the solution of the Poisson 
 equation in a semiconductor crystal in the presence of a small biasing voltage
 $\delta V$. If there is no bias, that is if $\delta V = 0$, then $\varphi_1 =
@@ -1108,14 +1109,14 @@ V = \begin{dcases}
 These equations were derived by taking the zero of the potential at the 
 junction. If, instead, we choose the zero at the n-side then these equations
 are modified to
-\begin{equation}\label{c2e90}
+\begin{equation}\label{c2e80}
 V = \begin{dcases} \varphi_0 - \frac{1}{q\beta}\ln\frac{p}{n_i} + \delta V
     & \text{p side} \\
 \varphi_0 + \frac{1}{q\beta}\ln\frac{n}{n_i} & \text{n side}
 \end{dcases}
 \end{equation}
 In the p-side case of this equation, we define
-\begin{equation}\label{c2e80}
+\begin{equation}\label{c2e81}
 V_{a0} = \varphi_0 - \frac{1}{q\beta}\ln\frac{p}{n_i}
 \end{equation}
 and show it on figure \ref{c2f4}. When a forward bias $\delta V$ is applied to
@@ -1308,3 +1309,149 @@ V_{R_n}(x) &=& \varphi_p(x) - \varphi_p(x_b) \label{c2e85}
 Ideally, $V_{R_p}$ and $V_{R_n}$ are very small at the junction because of the
 high conductivity of the bulk of the p and n sides of the diode and the entire
 potential drop appears across the junction.
+
+\subsection{Analytical discussion}
+Let $g$ be the of generation of electron-hole pairs. Each such event creates one
+electron and one hole. Electrons and holes can also recombine. However, their
+numbers are not equal in doped semiconductors. The rate of recombination is
+proportional to $n$ and $p$. Let $r$ be the constant of proportionality so that
+the net rate of generation is $g - rnp$. At equilibrium, $np = n_i^2$ and the
+net rate of generation is zero. Therefore, $g = rn_i^2$. If the equilibrium
+concentration of electrons and holes changes by $\delta n$ and $\delta p$ the
+net rate of generation is
+\begin{equation}\label{c2e86}
+\delta\dot{p} = \delta\dot{n} = g - r(n + \delta n)(p + \delta p) =
+-rn\delta p - rp\delta n,
+\end{equation}
+where we ignored the incremental terms of quadratic order. In an n-type 
+semiconductor, an injection of $\delta p$ additional holes will results in their
+recombination and the excess will decay according to the rate law,
+\begin{equation}\label{c2e87}
+\delta{\dot{p}_n} = -rn\delta p_n,
+\end{equation}
+whose solution is 
+\begin{equation}\label{c2e88}
+\delta p_n(t) = \delta p_n(0) e^{-rn_nt} = \delta p_n(0) e^{-t/\tau_p},
+\end{equation}
+where
+\begin{equation}\label{c2e89}
+\tau_p = \frac{1}{rn_n}
+\end{equation}
+is called the carrier lifetime of holes. Under equilibrium  conditions, $g = 
+rp_nn_n$ so that $\tau_p$ can as well be written as
+\begin{equation}\label{c2e90}
+\tau_p = \frac{p_n}{g}.
+\end{equation}
+
+Similarly, the excess electrons on the p-side evolve as 
+\begin{equation}\label{c2e91}
+\delta n_p(t) = \delta n_p(0) e^{-t/\tau_n},
+\end{equation}
+where
+\begin{equation}\label{c2e92}
+\tau_n = \frac{1}{rp_p} = \frac{n_n}{g}.
+\end{equation}
+is the carrier lifetime of electrons. Note that the carrier lifetime of minority
+holes (electrons) depends on the concentration of majority electrons (holes),
+which is to be expected.
+
+A change in $\varphi_p$ and $\varphi_n$ drives currents. Thus, we have
+\begin{eqnarray}
+J_p &=& -q\mu p\pdt{\varphi_p}{x} \label{c2e93}\\
+J_n &=& +qb\mu n\pdt{\varphi_n}{x}. \label{c2e94}
+\end{eqnarray}
+In these equations, $\mu$ is the mobility of holes and $b\mu$ is that of 
+electrons, where $b$ is a constant. The total current density is
+\begin{equation}\label{c2e95}
+J = J_p + J_n = -q\mu\left(p\pdt{\varphi_p}{x} - bn\pdt{\varphi_n}{x}\right).
+\end{equation}
+Holes and electrons are individually conserved and obey their own continuity
+equations. The rate of generation of holes is $q(g - rnp)$, therefore the
+equation of continuity of holes is
+\begin{equation}\label{c2e96}
+\pdt{J_p}{x} = q(g - rnp) = q(g - rn_i^2e^{q\beta(\varphi_p(x) - \varphi_n(x))})
+= qg(1 - e^{q\beta(\varphi_p(x) - \varphi_n(x))})
+\end{equation}
+where we used \eqref{c2e8} and \eqref{c2e9} for $n$ and $p$. We also used the
+fact that under equilibrium conditions, $g = rn_i^2$. Integrating this equation
+from $x_a$ to $x_b$,
+\begin{equation}\label{c2e97}
+J_p(x_b) - J_p(x_a) = qg\int_{x_a}^{x_b}dx\left(1 - e^{q\beta(\varphi_p(x) - 
+\varphi_n(x))}\right)
+\end{equation}
+For a fixed flow of current, if $g$ increases, $\varphi_p(x) - \varphi_n(x)$
+decreases. In the limit of very large $g$ when $\varphi_p(x) = \varphi_n(x)$,
+equation \eqref{c2e95} becomes
+\begin{equation}\label{c2e98}
+J = -q\mu(p - bn)\pdt{\varphi_p}{x}
+\end{equation}
+and
+\[
+\int_{x_a}^{x_b}d\varphi_p(x) = -\int_{x_a}^{x_b}\frac{J}{q\mu(p - bn)}dx.
+\]
+From figure \ref{c2f4} we see that $\varphi_p(x_b) - \varphi_p(x_a) = -\delta V$
+so that
+\[
+-\delta V =  -\int_{x_a}^{x_b}\frac{J}{q\mu(p - bn)}dx.
+\]
+While concluding the equality of electrochemical potentials, we assumed that the
+current is fixed. Therefore, we write the above equation as 
+\begin{equation}\label{c2e99}
+\delta V = J\int_{x_a}^{x_b}\frac{dx}{q\mu(p - bn)}
+\end{equation}
+To be precise, the integral on the right should be a volume integral such that
+the $y$ and $z$ integrals evaluate to the area of cross section and 
+\eqref{c2e99} is
+\begin{equation}\label{c2e100}
+\delta V = I\int_{x_a}^{x_b}\frac{dx}{q\mu(p - bn)} = IR_0.
+\end{equation}
+$R_0$ is the resistance of the crystal.
+
+We now consider the case when almost all of voltage drop across the device 
+happens across the junction which extends from $x = -L_n$ to $x = L_p$. The
+subscripts are not wrong. These are the diffusion lengths of electrons on the
+p-side and holes on the n-side. We also assume that $\varphi_p(x) - 
+\varphi_n(x)$ is constant over this interval. Integration of \eqref{c2e97}
+becomes trivial and we get
+\begin{equation}\label{c2e101}
+J_p(L_p) - J_p(L_n) = qg(1 - e^{q\beta(\varphi_p - \varphi_n)})(L_p + L_n)
+\end{equation}
+The quantity
+\begin{equation}\label{c2e102}
+J_g = qg(L_p + L_n)
+\end{equation}
+is the current density in the region around the junction between $-L_n$ to
+$L_p$ arising solely due to electron-hole pair generation. The difference
+\begin{equation}\label{c2e103}
+\varphi_p - \varphi_n = \delta V_J
+\end{equation}
+is the potential drop across the junction. In terms of $J_g$ and $\delta V_j$
+we can express \eqref{c2e101} as
+\begin{equation}\label{c2e104}
+J = J_g(1 - e^{q\beta\delta V_J})
+\end{equation}
+
+We next consider the voltage drop across the p and n sides of the diode outside
+the neighbourhood of the junction. 
+\begin{eqnarray}
+\delta V_{R_p} &=& \int_{x_a}^{L_n}d\varphi_p \label{c2e105} \\
+\delta V_{R_n} &=& \int_{L_p}^{x_b}d\varphi_n \label{c2e106}
+\end{eqnarray}
+so that the total voltage drop is
+\[
+\delta V = \delta V_{R_p} + \delta V_J + \delta V_{R_n}
+\]
+where $\delta V_J$ is the drop across the junction. From \eqref{c2e104},
+\[
+\frac{J}{J_g} = 1 - e^{q\beta\delta V_J} \Rightarrow \delta V_J = \frac{1}
+{q\beta}\left(1 - \frac{J}{J_g}\right).
+\]
+The other two terms can be combined into a single term $JR_1$, where $R_1$
+is the ohmic resistance of the bulk of the crystal. Thus,
+\begin{equation}\label{c2e107}
+\delta V = JR_1 + \frac{1}{q\beta}\ln\left(1 - \frac{J}{J_g}\right).
+\end{equation}
+It can be recast as
+\begin{equation}\label{c2e108}
+J = J_g\left(1 - e^{q\beta(\delta V - JR_1)}\right).
+\end{equation}
