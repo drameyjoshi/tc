@@ -1310,7 +1310,7 @@ Ideally, $V_{R_p}$ and $V_{R_n}$ are very small at the junction because of the
 high conductivity of the bulk of the p and n sides of the diode and the entire
 potential drop appears across the junction.
 
-\subsection{Analytical discussion}
+\subsection{The diode equation}
 Let $g$ be the of generation of electron-hole pairs. Each such event creates one
 electron and one hole. Electrons and holes can also recombine. However, their
 numbers are not equal in doped semiconductors. The rate of recombination is
@@ -1458,10 +1458,43 @@ where $\delta V_J$ is the drop across the junction. From \eqref{c2e104},
 The other two terms can be combined into a single term $JR_1$, where $R_1$
 is the ohmic resistance of the bulk of the crystal. Thus,
 \begin{equation}\label{c2e107}
-\delta V = JR_1 + \frac{1}{q\beta}\ln\left(1 + \frac{J}{J_g}\right).
+\delta V = JR_1 + \frac{1}{q\beta}\ln\left(1 + \frac{J}{J_g}\right),
+\end{equation}
+where
+\begin{equation}\label{c2e109}
+\delta V_{R_p} + \delta V_J = JR_1.
 \end{equation}
 It can be recast as
-\begin{equation}\label{c2e108}
+\begin{equation}\label{c2e110}
 J = J_g\left(e^{q\beta(\delta V - JR_1)} - 1\right).
 \end{equation}
 This equation tells why a pn-junction is a value and a diode is a rectifier.
+Multiplying both sides by area of cross section gives the I-V characteristics
+of a diode.
+
+\subsection{Comparision of resistances}
+We will use \eqref{c2e100} to evaluate the two terms in \eqref{c2e109}. Thus,
+\begin{eqnarray}
+\delta V_{R_p} &=& \int_{-x_a}^{-L_a}\frac{dx}{q\mu p} \label{c2e111} \\
+\delta V_{R_n} &=& \int_{L_a}^{x_b}\frac{dx}{q\mu n}, \label{c2e112}
+\end{eqnarray}
+where we assume that that transition layer is between $[-L_a, L_a]$, where $L_a$
+is \eqref{c2e25}. The corresponding term for the junction is
+\begin{equation}\label{c2e113}
+\delta V_J = \int_{-L_a}^{L_a}\frac{dx}{q\mu(p + bn)}.
+\end{equation}
+In the regions $[-x_a, -L_a]$ and $[L_a, x_b]$, the crystal is assumed to be
+electrically neutral, that is $K \ll 1$. In this region $p = -ax$ and $n = ax$
+so that
+\begin{eqnarray}
+\delta V_{R_p} &=& \frac{1}{q\mu a}\ln\frac{x_a}{L_a} \label{c2e113} \\
+\delta V_{R_n} &=& \frac{1}{q\mu ba}\ln\frac{x_b}{L_a} \label{c2e114}
+\end{eqnarray}
+We further assume that $|x_a| = |x_b|$ so that these terms add to
+\begin{equation}\label{c2e115}
+\delta V_{R_p} + \delta V_{R_n} = \frac{1}{q\mu a}\left(1 + \frac{1}{b}\right)
+\ln\frac{x_b}{L_a}.
+\end{equation}
+\end{eqnarray}
+\end{equation}
+
