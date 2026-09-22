@@ -1452,49 +1452,83 @@ so that the total voltage drop is
 \]
 where $\delta V_J$ is the drop across the junction. From \eqref{c2e104},
 \[
-\frac{J}{J_g} = 1 + e^{q\beta\delta V_J} \Rightarrow \delta V_J = \frac{1}
-{q\beta}\left(1 + \frac{J}{J_g}\right).
+\frac{J}{J_g} = 1 + e^{q\beta\delta V_J} = \frac{I}{I_g} \Rightarrow 
+\delta V_J = \frac{1}{q\beta}\left(1 + \frac{I}{I_g}\right).
 \]
-The other two terms can be combined into a single term $JR_1$, where $R_1$
+The other two terms can be combined into a single term $IR_1$, where $R_1$
 is the ohmic resistance of the bulk of the crystal. Thus,
 \begin{equation}\label{c2e107}
-\delta V = JR_1 + \frac{1}{q\beta}\ln\left(1 + \frac{J}{J_g}\right),
+\delta V = IR_1 + \frac{1}{q\beta}\ln\left(1 + \frac{I}{I_g}\right),
 \end{equation}
 where
-\begin{equation}\label{c2e109}
-\delta V_{R_p} + \delta V_J = JR_1.
+\begin{equation}\label{c2e108}
+\delta V_{R_p} + \delta V_J = IR_1.
 \end{equation}
 It can be recast as
-\begin{equation}\label{c2e110}
-J = J_g\left(e^{q\beta(\delta V - JR_1)} - 1\right).
+\begin{equation}\label{c2e109}
+I = I_g\left(e^{q\beta(\delta V - IR_1)} - 1\right).
 \end{equation}
 This equation tells why a pn-junction is a value and a diode is a rectifier.
-Multiplying both sides by area of cross section gives the I-V characteristics
 of a diode.
 
-\subsection{Comparision of resistances}
-We will use \eqref{c2e100} to evaluate the two terms in \eqref{c2e109}. Thus,
+\subsection{Static ohmic resistance}
+We will use \eqref{c2e100} to evaluate the resistance $R_1$ in equations 
+\eqref{c2e107} and \eqref{c2e109}. $R_1$ is a sum of resistances of the three
+portions of the device, namely the p-side, the transition region and the n-side.
+We use \eqref{c2e100} to estimate each of these.
 \begin{eqnarray}
-\delta V_{R_p} &=& \int_{-x_a}^{-L_a}\frac{dx}{q\mu p} \label{c2e111} \\
-\delta V_{R_n} &=& \int_{L_a}^{x_b}\frac{dx}{q\mu n}, \label{c2e112}
+{R_p} &=& \int_{-x_a}^{-L_a}\frac{dx}{q\mu p} \label{c2e110} \\
+{R_n} &=& \int_{L_a}^{x_b}\frac{dx}{q\mu n}, \label{c2e111}
 \end{eqnarray}
 where we assume that that transition layer is between $[-L_a, L_a]$, where $L_a$
 is \eqref{c2e25}. The corresponding term for the junction is
-\begin{equation}\label{c2e113}
-\delta V_J = \int_{-L_a}^{L_a}\frac{dx}{q\mu(p + bn)}.
+\begin{equation}\label{c2e112}
+R_J = \int_{-L_a}^{L_a}\frac{dx}{q\mu(p + bn)}.
 \end{equation}
 In the regions $[-x_a, -L_a]$ and $[L_a, x_b]$, the crystal is assumed to be
 electrically neutral, that is $K \ll 1$. In this region $p = -ax$ and $n = ax$
 so that
 \begin{eqnarray}
-\delta V_{R_p} &=& \frac{1}{q\mu a}\ln\frac{x_a}{L_a} \label{c2e113} \\
-\delta V_{R_n} &=& \frac{1}{q\mu ba}\ln\frac{x_b}{L_a} \label{c2e114}
+{R_p} &=& \frac{1}{q\mu a}\ln\frac{x_a}{L_a} \label{c2e113} \\
+{R_n} &=& \frac{1}{q\mu ba}\ln\frac{x_b}{L_a} \label{c2e114}
 \end{eqnarray}
 We further assume that $|x_a| = |x_b|$ so that these terms add to
 \begin{equation}\label{c2e115}
-\delta V_{R_p} + \delta V_{R_n} = \frac{1}{q\mu a}\left(1 + \frac{1}{b}\right)
+{R_p} + {R_n} = \frac{1}{q\mu a}\left(1 + \frac{1}{b}\right)
 \ln\frac{x_b}{L_a}.
 \end{equation}
-\end{eqnarray}
+We next approximate the integral in \eqref{c2e112}. In a typical diode, the
+transition layer is much smaller than the rest of the device. So we can 
+approximate the integrand by considering its value right at the centre of the
+transition layer. At the centre, that is, at $x = 0$, $N_A = N_D = 0$ and the
+crystal is no different from an intrinsic semiconductor. Therefore, both $p$
+and $n$ can be approximated by $n_i$ and the integral 
+\begin{equation}\label{c2e116}
+R_J = \frac{2L_a}{q\mu n_i(1 + b)}
+\end{equation}
+so that, we have, after using the definition $L_a = n_i/a$ (\eqref{c2e25}),
+\begin{equation}\label{c2e117}
+R_1 = \frac{L_a}{q\mu n_i}\left[\left(1 + \frac{1}{b}\right)
+\ln\frac{x_b}{L_a} + \frac{2}{1 + b}\right].
+\end{equation}
+Since $L_a$ is very small as compared to $x_b$, the logarithmic term dominates
+$2/(1 + b)$ and we can further approximate \eqref{c2e117} to
+\begin{equation}\label{c2e118}
+R_1 = \frac{L_a}{q\mu n_i}\left(1 + \frac{1}{b}\right)\ln\frac{x_b}{L_a}.
 \end{equation}
 
+\subsection{Dynamic resistance}
+The dynamic resistance of the device is defined by
+\begin{equation}\label{c2e119}
+R_g = \frac{\delta V}{I}.
+\end{equation}
+For small $I$, we can approximate \eqref{c2e107} as
+\[
+\delta V = IR_1 + \frac{1}{q\beta}\frac{I}{I_g}
+\]
+so that
+\begin{equation}\label{c2e120}
+R_g = R_1 + \frac{1}{q\beta I_g}.
+\end{equation}
+We already have an expression \eqref{c2e118} for $R_1$. To get $R_g$ we only 
+need to find $I_g$ in terms of the device's physical parameters.
