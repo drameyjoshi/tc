@@ -1531,4 +1531,42 @@ so that
 R_g = R_1 + \frac{1}{q\beta I_g}.
 \end{equation}
 We already have an expression \eqref{c2e118} for $R_1$. To get $R_g$ we only 
-need to find $I_g$ in terms of the device's physical parameters.
+need to find $I_g$ in terms of the device's physical parameters. From 
+\eqref{c2e102}, 
+\begin{equation}\label{c2e121}
+R_g = R_1 + \frac{1}{q^2\beta Ag(L_p + L_n)}.
+\end{equation}
+Thus the estimate of $R_g$ depends on that of $L_p$ and $L_n$, the diffusion
+lengths of holes and electrons across the junction. Shockley 
+\cite{shockley1949theory} assumed that after diffusing to a distance $L_p$ into 
+the n-side, it reaches a point where the life-time is
+\[
+\tau_p = \frac{1}{rn_n} = \frac{1}{raL_p},
+\]
+where we used \eqref{c2e89} for $\tau_p$ and the fact that the carrier 
+concentration $n_n = ax$ is evaluated at $x=L_p$. From \eqref{c1e57},
+\[
+L_p^2 = D_p\tau_p =  \frac{D_p}{raL_p} = \frac{D_pn_i^2}{gaL_p},
+\]
+where we used the relation $g=rn_i^2$ infered while developing \eqref{c2e86}.
+Thus, we get an estimate of $L_p$ in terms of device parameters as
+\begin{equation}\label{c2e122}
+L_p = \frac{D_p^{1/3}n_i^{2/3}}{g^{1/3}a^{1/3}}.
+\end{equation}
+Similarly, we infer
+\begin{equation}\label{c2e123}
+L_n = \frac{D_n^{1/3}n_i^{2/3}}{g^{1/3}a^{1/3}}.
+\end{equation}
+From \eqref{c1e46}, 
+\[
+D_n = \frac{\mu_n}{q\beta} = \frac{b\mu_p}{q\beta} = bD_p
+\]
+so that
+\begin{equation}\label{c2e124}
+L_n = \frac{b^{1/3}D_p^{1/3}n_i^{2/3}}{g^{1/3}a^{1/3}}.
+\end{equation}
+Substituting these expressions in \eqref{c2e121} we get
+\begin{equation}\label{c2e125}
+R_g = R_1 + \frac{1}{q^2\beta Ag}
+\frac{(ga)^{1/3}}{D_p^{1/3}n_i^{2/3}(1 + b^{1/3})}.
+\end{equation}
