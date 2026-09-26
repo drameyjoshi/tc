@@ -112,8 +112,48 @@ so that
 \]
 This function has an extremum at $a_0 = 2/\pi$ so that
 \[
-\braket{\opr{H}}(a_0) = -\frac{1}{\pi}.
+\braket{\opr{H}}(a_0) = -\frac{1}{\pi} \approx -0.3183 > -0.5.
 \]
+We used equation \eqref{a1e8} to evaluate the integrals in this example.
+
+\item This is exercise 1.19 in the book \cite{so1989}. The hamiltonian for the
+hydrogen atom is
+\[
+\opr{H} = \left(-\frac{1}{2}\nabla^2 - \frac{1}{r}\right).
+\]
+Once again we try the gaussian trial function
+\[
+\ket{\tilde{\Phi}} = Ne^{-ar^2}.
+\]
+This is a three dimensional wave-function and therefore the normalisation
+condition is
+\[
+\int_0^\infty\int_0^{2\pi}\int_0^\pi N^2 e^{-2ar^2}r^2\sin\theta drd\theta d\phi
+= 4\pi N^2 \frac{1}{8a}\sqrt{\frac{\pi}{2a}} = 1
+\]
+so that
+\[
+N^2 = \sqrt{\frac{2a}{\pi}}
+\]
+Now,
+\[
+\opr{H}\ket{\tilde{\Phi}} = aN(3 - 2ar^2)e^{-ar^2} - N\frac{e^{-ar^2}}{r}
+\]
+so that
+\[
+\braket{\opr{H}}(a) = \frac{3a}{2} - 2\sqrt{\frac{2a}{\pi}}.
+\]
+Its minimum is as 
+\[
+a_0 = \frac{8}{9\pi}
+\]
+so that the minimum expectation value is
+\[
+\braket{\opr{H}}(a) = -\frac{4}{3\pi} \approx -0.4244,
+\]
+while the actual ground state energy is $-0.5$ hartree.
+
+
 \end{enumerate}
 
 \section{Standard integrals}
@@ -222,3 +262,20 @@ By putting $2n+1=k$ in equation \eqref{a1e9} and $2n=k$ in equation
 \int_0^\infty x^{k} e^{-ax^2}dx = 
 \frac{\Gamma\left(\frac{k+1}{2}\right)}{2a^{(k+1)/2}}.
 \end{equation}
+
+\section{Constrained optimisation}
+Consider the problem of finding the maximum of a function $f:\mathbb{R}^2
+\rightarrow \mathbb{R}$ subject to the constraint $g(\vec{r}) = c$ where
+$g:\mathbb{R}^3 \rightarrow \mathbb{R}$. If there was no constraint, we
+would have equated $\grad f = 0$. However the constraint requires us to traverse
+the surface $z = f(x, y)$ along the curve $g(x, y, z) = c$. In general, 
+travelling along the curve $g(x, y, z) = c$ involves crossing the level curves
+of $f$. However, at the extrema, the level curves of $f$ are tangential to $g$
+or that the gradients of the two functions are parallel to each other. Therefore,
+there exists a constant $\lambda$ such that $\grad f = \lambda\grad g$. 
+Equivalently, the condition for constraind optimisation is
+\begin{equation}\label{a1e1}
+\grad (f - \lambda g) = 0.
+\end{equation}
+The constant $\lambda$ need not be calculated and is therefore called an
+undetermined multiplier of the constraint.
