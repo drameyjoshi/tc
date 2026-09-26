@@ -1,0 +1,224 @@
+\chapter{Mathematical Preliminaries}\label{c1}
+These notes follow the chapters of \cite{so1989} as a general route towards 
+understanding methods of quantum chemistry. The book was published in 1989 and
+a lot of resources easily available now were not within a student's reach four
+decades ago. I hope to make plenty of digressions as I study these chapters.
+
+\section{The variation method}
+We want to find an approximate solution to the time-independent Schr\"{o}dinger
+equation
+\begin{equation}\label{c1e1}
+\opr{H}\ket{\Phi} = \mathcal{E}\ket{\Phi}
+\end{equation}
+Suppose that $\opr{H}$ has a discrete spectrum of eigenvalues $\{\mathcal{E}_n\}$
+with $n = 0, 1, \ldots$. Let $\{\ket{\Phi_n}\}$ be the corresponding eigenkets.
+Since $\opr{H}$ is hermitian, the eigenvalues are real and the eigenkets can be
+assumed to be orthonormal. Therefore, we also have,
+\begin{equation}\label{c2e2}
+\braket{\Phi_a|\opr{H}|\Phi_b} = E_a\delta_{ab}.
+\end{equation}
+We can also assume that $\{\ket{\Phi_a}\}$ form a complete set so that any other
+ket $\ket{\tilde{\Phi}}$ obeying the same boundary conditions can be expressed
+as 
+\begin{equation}\label{c2e3}
+\ket{\tilde{\Phi}} = \sum_a\ket{\Phi_a}\braket{\Phi_a|\tilde{\Phi}}.
+\end{equation}
+
+In almost all cases, except the simplest system, $\{\ket{\Phi_a}\}$ are unknown.
+But their existence can be assumed following the mathematical properties of
+$\opr{H}$. Therefore, \ref{c2e3} is true in principle. If $\ket{\tilde{\Phi}}$
+is an approximate solution to \eqref{c1e1} then we will show that
+\begin{equation}\label{c2e4}
+\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathcal{E}_0.
+\end{equation}
+That is, the true ground state energy of the system is a lower bound to the
+expectation value of $\opr{H}$ in the state $\ket{\tilde{\Phi}}$. Therefore, in
+any method to find an approximate solution to \eqref{c1e1} we choose the ket
+that minimises the expectation value of $\opr{H}$ in it. Typically, we consider
+a family of \emph{trial kets} that depend on a set of parameters. We choose the
+parameters that minimise the expectation value of the hamiltonian in the state.
+Before illustrating this method for a few simple problems, we will prove the
+inequality \eqref{c2e4}. Let
+\begin{equation}\label{c2e5}
+\ket{\tilde{\Phi}} = \sum_a c_a\ket{\Phi_a}
+\end{equation}
+so that,
+\[
+\opr{H}\ket{\tilde{\Phi}} = \sum_a c_aE_a\ket{\Phi_a}
+\]
+and
+\begin{equation}\label{c2e6}
+\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} = \sum_{a,b}c_b^\ast c_a\mathcal{E}_a
+\braket{\Phi_b|\Phi_a} \sum_a |c_a|^\mathcal{E}_a.
+\end{equation}
+Since $\ket{\tilde{\Phi}}$ can be assumed to be normalised. 
+\[
+\sum_a |c_a^2| = 1.
+\]
+If the eigenstates are labelled such that $\mathcal{E}_0 \le \mathcal{E}_1 \le
+\ldots$ then
+\[
+\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathcal{E}_0\sum_a|c_a|^2 =
+\mathcal{E}_0.
+\]
+
+Examples:
+\begin{enumerate}
+\item This is exercise 1.18 in the book \cite{so1989}. We will first solve
+the hamiltonian analytically. Let
+\[
+\left(-\frac{1}{2}\frac{d^2}{dx^2} - \delta(x)\right)\psi(x)=\mathcal{E}\psi(x).
+\]
+In the region $x \ne 0$ the solution is
+\[
+\psi(x)=\begin{dcases}Ae^{-\kappa x} & x > 0 \\Be^{\kappa x} & x < 0\end{dcases}
+\]
+where $A$ and $B$ are constants. Since $\psi$ must be continuous at $x = 0$,
+we must have $A = B$. This gives us the energy eigenvalue
+\[
+\mathcal{E} = -\frac{\kappa^2}{2}.
+\]
+If we integrate the Schr\"{o}dinger equation over the region $[-a, a]$ then
+we have
+\[
+-\frac{1}{2}(\psi^\op(a) - \psi^\op(-a)) - \psi(0) = \mathcal{E}
+\int_{-a}^a\psi(x)dx.
+\]
+so that
+\[
+-\frac{1}{2}(-\kappa A e^{-\kappa a} - \kappa A e^{+\kappa a}) = 
+\psi(0) + \mathcal{E}\int_{-a}^a\psi(x)dx.
+\]
+In the limit $a \rightarrow 0$, since $\psi$ is continuous, the integral 
+vanishes and this equation gives
+\[
+\kappa = 1
+\]
+Thus the true energy eigenvalue is $-1/2$.
+
+We will now use the variational method to get it. Let $\tilde{\Phi} = Ne^{-ax^2}$
+be a trial function. The normalisation condition gives 
+\[
+N^2 = \sqrt{\frac{2a}{\pi}}.
+\]
+We next evaluate
+\[
+\opr{H}\tilde{\Phi} = aN(1 - 2ax^2)e^{-ax^2} - \delta(x)Ne^{-ax^2}.
+\]
+so that
+\[
+\braket{\opr{H}}(a) = \int_{-\infty}^\infty dx\left(aN^2(1 - 2ax^2)e^{-2ax^2} - 
+\delta(x)N^2 e^{-2ax^2}\right) = \frac{a}{2} - \sqrt{\frac{2a}{\pi}}.
+\]
+This function has an extremum at $a_0 = 2/\pi$ so that
+\[
+\braket{\opr{H}}(a_0) = -\frac{1}{\pi}.
+\]
+\end{enumerate}
+
+\section{Standard integrals}
+The most basic Gaussian integral is
+\begin{equation}\label{a1e1}
+\int_{-\infty}^\infty e^{-x^2}dx = \sqrt{\pi}.
+\end{equation}
+To evaluate it, start with 
+\[
+I^2 = \int_{-\infty}^\infty\int_{-\infty}^\infty e^{-x^2-y^2}dxdy
+\]
+Transforming to polar coordinates
+\[
+I^2 = \int_0^\infty\int_0^{2\pi} e^{-r^2}rdrd\theta = 
+2\pi\int_0^\infty e^{-r^2}rdr = \pi
+\]
+from which equation \eqref{a1e1} follows immediately. From \eqref{a1e1} we 
+have, using a quick transformation of variables
+\begin{equation}\label{a1e2}
+\int_{-\infty}^\infty e^{-ax^2}dx = \sqrt{\frac{\pi}{a}}.
+\end{equation}
+The integral
+\[
+\int_{-\infty}^\infty e^{-ax^2+bx}dx
+\]
+is evaluated by completing the square
+\[
+-ax^2+bx = -\left(ax^2 - 2\sqrt{a}x\frac{b}{2\sqrt{a}} + \frac{b^2}{4a}\right)
++ \frac{b^2}{4a} = -\left(ax - \frac{b}{2\sqrt{a}}\right)^2 + \frac{b^2}{4a}
+\]
+we have
+\[
+\int_{-\infty}^\infty e^{-ax^2+bx}dx = \exp\left(\frac{b^2}{4a}\right)
+\int_{-\infty}^\infty\exp\left[-\left(ax-\frac{b}{2\sqrt{a}}\right)^2\right]dx
+\]
+so that
+\begin{equation}\label{a1e3}
+\int_{-\infty}^\infty e^{-ax^2+bx}dx = 
+\exp\left(\frac{b^2}{4a}\right)\sqrt{\frac{\pi}{a}}.
+\end{equation}
+A trivial generalisation of this result is
+\begin{equation}\label{a1e4}
+\int_{-\infty}^\infty e^{-ax^2+bx+c}dx = \exp\left(\frac{b^2}{4a} + c\right)
+\sqrt{\frac{\pi}{a}}.
+\end{equation}
+The integral \eqref{a1e1} is related to the gamma function. For, using the 
+transformation $t = x^2$,
+\[
+\int_{-\infty}^\infty e^{-x^2}dx = 2\int_{0}^\infty e^{-x^2}dx =
+\int_{0}^\infty e^{-t}t^{-1/2}dt = \Gamma\left(\frac{1}{2}\right)
+\]
+where
+\begin{equation}\label{a1e5}
+\Gamma(z) = \int_{0}^\infty t^{z-1}e^{-t}dt.
+\end{equation}
+Thus we have the frequently used result
+\begin{equation}\label{a1e6}
+\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}.
+\end{equation}
+Integrating \eqref{a1e5} by parts once we get
+\begin{equation}\label{a1e7}
+\Gamma(z) = (z - 1)\Gamma(z - 1).
+\end{equation}
+
+We now start with equation \eqref{a1e2} and differentiate it with respect to 
+$a$ to get
+\[
+\int_{-\infty}^\infty -x^2e^{-ax^2}dx = -\frac{1}{2}\frac{\sqrt{\pi}}{a^{3/2}}
+\]
+or
+\[
+\int_{-\infty}^\infty x^2e^{-ax^2}dx = 
+\frac{1}{2}\Gamma\left(\frac{1}{2}\right)\frac{1}{a^{3/2}} = 
+\frac{\Gamma(3/2)}{a^{3/2}}.
+\]
+Integrating it once more with respect to $a$ you get
+\[
+\int_{-\infty}^\infty x^4e^{-ax^2}dx = \frac{\Gamma(5/2)}{a^{5/2}}.
+\]
+Integrating it $n$ times, we get the result
+\begin{equation}\label{a1e8}
+\int_{-\infty}^\infty x^{2n}e^{-ax^2}dx = 
+\frac{\Gamma(\frac{2n+1}{2})}{a^{(2n+1)/2}}.
+\end{equation}
+and hence
+\begin{equation}\label{a1e9}
+\int_{0}^\infty x^{2n}e^{-ax^2}dx = 
+\frac{1}{2}\frac{\Gamma(\frac{2n+1}{2})}{a^{(2n+1)/2}}.
+\end{equation}
+It is clear that
+\begin{equation}\label{a1e10}
+\int_{-\infty}^\infty x^{2n+1}e^{-ax^2}dx = 0.
+\end{equation}
+However, we can the integral with limits $0$ to $\infty$ will be non-zero. To 
+get their value, we start with
+\[
+\int_0^\infty x e^{-ax^2}dx = \frac{1}{2a}
+\]
+and differentiate it $n$ times to get
+\begin{equation}\label{a1e11}
+\int_0^\infty x^{2n+1} e^{-ax^2}dx = \frac{n!}{2a^{n+1}}.
+\end{equation}
+By putting $2n+1=k$ in equation \eqref{a1e9} and $2n=k$ in equation 
+\eqref{a1e11} we get the single formula
+\begin{equation}\label{a1e12}
+\int_0^\infty x^{k} e^{-ax^2}dx = 
+\frac{\Gamma\left(\frac{k+1}{2}\right)}{2a^{(k+1)/2}}.
+\end{equation}
