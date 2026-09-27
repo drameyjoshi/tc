@@ -8,14 +8,14 @@ decades ago. I hope to make plenty of digressions as I study these chapters.
 We want to find an approximate solution to the time-independent Schr\"{o}dinger
 equation
 \begin{equation}\label{c1e1}
-\opr{H}\ket{\Phi} = \mathcal{E}\ket{\Phi}
+\opr{H}\ket{\Phi} = \mathscr{E}\ket{\Phi}
 \end{equation}
-Suppose that $\opr{H}$ has a discrete spectrum of eigenvalues $\{\mathcal{E}_n\}$
+Suppose that $\opr{H}$ has a discrete spectrum of eigenvalues $\{\mathscr{E}_n\}$
 with $n = 0, 1, \ldots$. Let $\{\ket{\Phi_n}\}$ be the corresponding eigenkets.
 Since $\opr{H}$ is hermitian, the eigenvalues are real and the eigenkets can be
 assumed to be orthonormal. Therefore, we also have,
 \begin{equation}\label{c2e2}
-\braket{\Phi_a|\opr{H}|\Phi_b} = E_a\delta_{ab}.
+\braket{\Phi_a|\opr{H}|\Phi_b} = \mathscr{E}_a\delta_{ab}.
 \end{equation}
 We can also assume that $\{\ket{\Phi_a}\}$ form a complete set so that any other
 ket $\ket{\tilde{\Phi}}$ obeying the same boundary conditions can be expressed
@@ -29,7 +29,7 @@ But their existence can be assumed following the mathematical properties of
 $\opr{H}$. Therefore, \ref{c2e3} is true in principle. If $\ket{\tilde{\Phi}}$
 is an approximate solution to \eqref{c1e1} then we will show that
 \begin{equation}\label{c2e4}
-\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathcal{E}_0.
+\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathscr{E}_0.
 \end{equation}
 That is, the true ground state energy of the system is a lower bound to the
 expectation value of $\opr{H}$ in the state $\ket{\tilde{\Phi}}$. Therefore, in
@@ -44,22 +44,22 @@ inequality \eqref{c2e4}. Let
 \end{equation}
 so that,
 \[
-\opr{H}\ket{\tilde{\Phi}} = \sum_a c_aE_a\ket{\Phi_a}
+\opr{H}\ket{\tilde{\Phi}} = \sum_a c_a\mathscr{E}_a\ket{\Phi_a}
 \]
 and
 \begin{equation}\label{c2e6}
-\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} = \sum_{a,b}c_b^\ast c_a\mathcal{E}_a
-\braket{\Phi_b|\Phi_a} \sum_a |c_a|^\mathcal{E}_a.
+\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} = \sum_{a,b}c_b^\ast c_a\mathscr{E}_a
+\braket{\Phi_b|\Phi_a} \sum_a |c_a|^2\mathscr{E}_a.
 \end{equation}
 Since $\ket{\tilde{\Phi}}$ can be assumed to be normalised. 
 \[
 \sum_a |c_a^2| = 1.
 \]
-If the eigenstates are labelled such that $\mathcal{E}_0 \le \mathcal{E}_1 \le
+If the eigenstates are labelled such that $\mathscr{E}_0 \le \mathscr{E}_1 \le
 \ldots$ then
 \[
-\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathcal{E}_0\sum_a|c_a|^2 =
-\mathcal{E}_0.
+\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathscr{E}_0\sum_a|c_a|^2 =
+\mathscr{E}_0.
 \]
 
 Examples:
@@ -67,7 +67,7 @@ Examples:
 \item This is exercise 1.18 in the book \cite{so1989}. We will first solve
 the hamiltonian analytically. Let
 \[
-\left(-\frac{1}{2}\frac{d^2}{dx^2} - \delta(x)\right)\psi(x)=\mathcal{E}\psi(x).
+\left(-\frac{1}{2}\frac{d^2}{dx^2} - \delta(x)\right)\psi(x)=\mathscr{E}\psi(x).
 \]
 In the region $x \ne 0$ the solution is
 \[
@@ -76,18 +76,18 @@ In the region $x \ne 0$ the solution is
 where $A$ and $B$ are constants. Since $\psi$ must be continuous at $x = 0$,
 we must have $A = B$. This gives us the energy eigenvalue
 \[
-\mathcal{E} = -\frac{\kappa^2}{2}.
+\mathscr{E} = -\frac{\kappa^2}{2}.
 \]
 If we integrate the Schr\"{o}dinger equation over the region $[-a, a]$ then
 we have
 \[
--\frac{1}{2}(\psi^\op(a) - \psi^\op(-a)) - \psi(0) = \mathcal{E}
+-\frac{1}{2}(\psi^\op(a) - \psi^\op(-a)) - \psi(0) = \mathscr{E}
 \int_{-a}^a\psi(x)dx.
 \]
 so that
 \[
 -\frac{1}{2}(-\kappa A e^{-\kappa a} - \kappa A e^{+\kappa a}) = 
-\psi(0) + \mathcal{E}\int_{-a}^a\psi(x)dx.
+\psi(0) + \mathscr{E}\int_{-a}^a\psi(x)dx.
 \]
 In the limit $a \rightarrow 0$, since $\psi$ is continuous, the integral 
 vanishes and this equation gives
@@ -152,9 +152,181 @@ so that the minimum expectation value is
 \braket{\opr{H}}(a) = -\frac{4}{3\pi} \approx -0.4244,
 \]
 while the actual ground state energy is $-0.5$ hartree.
-
-
 \end{enumerate}
+
+In the two examples considered above the trial function was a gaussian. In most
+hamiltonians of interest, the trial function must have several parameters and 
+they are optimised to minimise the expectation value. This procedure is 
+simplified if we consider a set of ``basis" functions $\{\ket{\Psi_i}\}$, each 
+of which is individually well-understood and construct a trial function of the 
+form
+\begin{equation}\label{c1e7}
+\ket{\tilde{\Phi}} = \sum_{i=1}^N c_i\ket{\Psi_i}.
+\end{equation}
+We assume, for now, that the basis functions are real-valued and orthonormal.
+Let
+\begin{equation}\label{c1e8}
+H_{ij} = \braket{\Psi_i|\opr{H}|\Psi_j}.
+\end{equation}
+$\opr{H}$ being hermitian and $\{\ket{\Psi_i}\}$ being real-valuef guarantees
+that
+\begin{equation}\label{c1e9}
+H_{ij} = H_{ji}.
+\end{equation}
+We also assumet that $\ket{\tilde{\Phi}}$ is normalised so that
+\begin{equation}\label{c1e10}
+\sum_{i=1}^N |c_i|^2 = 1.
+\end{equation}
+The variational procedure requires us to minimise
+\begin{equation}\label{c1e11}
+\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} = \sum_{i,j}c_ic_jH_{ij},
+\end{equation}
+by treating it as a function if $N$ parameters $c_1, \ldots, c_N$. They cannot
+be chosen arbitrarily because they must satisfy \eqref{c1e10}. We use Lagrange's
+method of undetermined multiplier to solve this minimisation problem. If
+\begin{equation}\label{c1e12}
+\mathscr{L}(c_1, \ldots, c_N, E) = \braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} 
+- E(\braket{\tilde{\Phi}|\tilde{\Phi}} - 1),
+\end{equation}
+where $E$ is the undetermined multiplier then we find the minimum using the
+conditions
+\begin{equation}\label{c1e13}
+\pdt{\mathscr{L}}{c_k} = 0, k = 1, \ldots, N - 1.
+\end{equation}
+We then choose $E$ such that
+\begin{equation}\label{c1e14}
+\pdt{\mathscr{L}}{c_N} = 0.
+\end{equation}
+Using \eqref{c1e10} and \eqref{c1e11} in \eqref{c1e12}, we get
+\begin{equation}\label{c1e15}
+\mathscr{L}(c_1, \ldots, c_N, E) = \sum_{i,j}c_ic_jH_{ij} - E\left(\sum_i|c_i|^2
+- 1\right),
+\end{equation}
+so that
+\[
+\pdt{\mathscr{L}}{c_k} = \sum_jc_jH_{kj} + \sum_ic_iH_{ik} - 2Ec_k.
+\]
+Using \eqref{c1e9}, it can be simplified to
+\begin{equation}\label{c1e16}
+\pdt{\mathscr{L}}{c_k} = 2\sum_i H_{kj}c_j - 2Ec_k.
+\end{equation}
+If $\vec{c} = (c_1, \ldots, c_N)^T$ then we can express the minimisation 
+condition as the matrix eigenvalue equation
+\begin{equation}\label{c1e17}
+H\vec{c} = E\vec{c}.
+\end{equation}
+Since $H$ is symmetric and real-valued, the eigenvalues $E_1, \ldots, E_N$ are
+real. We label them so that $E_1 \le E_2 \le \ldots \le E_N$. Let $\vec{c}^1,
+\ldots \vec{c}^N$ be the corresponding eigenvectors which can be chosen to be
+orthonormal. Each of these eigenvectors gives the $N$ coefficients in 
+\eqref{c1e7}. Thus, we get $N$ trial functions
+\begin{equation}\label{c1e18}
+\ket{\Phi^a} = \sum_i c^a_i\ket{\Psi_i}.
+\end{equation}
+They are guaranteed to be orthonormal because
+\begin{equation}\label{c1e19}
+\braket{\Phi^a|\Phi^b} = \sum_{ij}c^a_ic^b_j\braket{\Psi_i|\Psi_j} = 
+\sum_i c^a_ic^b_j = \delta_{ab},
+\end{equation}
+where in the second term we used orthonormality of the basis functions and in
+the third term we used the orthonormality of $\{\vec{c}^i\}$. The equation
+\begin{equation}\label{c1e20}
+\braket{\tilde{\Phi}^a|\opr{H}|\tilde{\Phi}^a} = \sum_{i,j}c_i^ac_j^a\braket{
+\Psi_i|\opr{H}|\Psi_j} = \sum_{i,j}c_i^a H_{ij} c_j^a = E_a\sum_i{c_i^a}^2
+= E_a.
+\end{equation}
+Thus, the eigenvalues of \eqref{c1e17} are the expectation values of the 
+hamiltonian in the $N$ trial states.
+
+We shall demonstrate this procedure to find the energy levels of a hydrogen
+atom in an external electric field $F\uv{z}$. The hamiltonian, in atomic units,
+is
+\begin{equation}\label{c1e21}
+\opr{H} = -\frac{1}{2}\nabla^2 - \frac{1}{r} + Fr\cos\theta = \mathscr{H}_0 +
+Fr\cos\theta.
+\end{equation}
+We choose the basis functions $\{\ket{1s}, \ket{2p_z}\}$ so that the trial
+function is
+\begin{equation}\label{c1e22}
+\ket{\tilde{\Phi}} = c_1\ket{1s} + c_2\ket{2p_z}.
+\end{equation}
+We also have
+\begin{eqnarray*}
+\mathscr{H}_0\ket{1s} &=& -\frac{1}{2}\ket{1s} \\
+\mathscr{H}_0\ket{2p_z} &=& -\frac{1}{8}\ket{2p_z}
+\end{eqnarray*}
+Our first task is to compute the matrix elements $H_{ij}$.
+\begin{equation}\label{c1e23}
+H_{11} = \braket{1s|\opr{H}_0 + Fr\cos\theta|1s} = -\frac{1}{2} + F\int_0^\infty
+\int_0^\pi\int_0^{2\pi} \frac{e^{-2r}}{\pi}r^3\cos\theta\sin\theta drd\theta
+d\phi,
+\end{equation}
+where we used
+\[
+\ket{1s} = \frac{e^{-r}}{\sqrt{\pi}}.
+\]
+The $\theta$-integral can be readily confirmed to vanish so that
+\begin{equation}\label{c1e24}
+H_{11} = -\frac{1}{2}.
+\end{equation}
+
+We now compute
+\begin{equation}\label{c1e25}
+H_{22} = -\frac{1}{8} + \frac{F}{32\pi}\int_0^\infty\int_0^\pi\int_0^{2\pi}
+r^4e^{-r}\cos^3\theta\sin\theta drd\theta d\phi,
+\end{equation}
+where we used
+\begin{equation*}
+\ket{2p_z} = \frac{1}{\sqrt{32\pi}} re^{-r/2}\cos\theta.
+\end{equation*}
+Once again the $\theta$ integral vanishes and we get
+\begin{equation}\label{c1e26}
+H_{22} = -\frac{1}{8}F.
+\end{equation}
+
+The off-diagonal term is
+\begin{equation}\label{c1e27}
+H_{12} = -\frac{1}{8}\braket{1s|2p_z} + \frac{F}{\pi\sqrt{32}}\int_0^\infty
+\int_0^\pi\int_0^{2\pi} r^3 e^{-3r/2}\cos^2\theta\sin\theta drd\theta d\phi
+\end{equation}
+The first term vanishes because of the orthogonality of the $1s$ and $2p_z$ 
+states. After evaluating the integral in the second term,
+\begin{equation}\label{c1e28}
+H_{12} = F\frac{128\sqrt{2}}{243}
+\end{equation}
+
+Let us introduce the constant
+\begin{equation}\label{c1e29}
+\beta = \frac{128\sqrt{2}}{243}
+\end{equation}
+so that the $H$-matrix is
+\begin{equation}\label{c1e30}
+H = \begin{bmatrix} -1/2 & F\beta \\ F\beta & -1/8 \end{bmatrix}.
+\end{equation}
+Its secular equation is
+\begin{equation}\label{c1e31}
+E^2 +  (H_{11} + H_{22})E + (H_{11}H_{22} - H_{12})^2 = 0
+\end{equation}
+so that the eigen values are
+\begin{equation}\label{c1e32}
+E = \frac{H_{11} + H_{22}}{2} \pm \sqrt{\left(\frac{H_{11} - H_{22}}{2}\right)^2
++ H_{12}^2}.
+\end{equation}
+Substituting the values of the matrix elements, we get
+\begin{equation}\label{c1e33}
+E = -\frac{5}{16} \pm \sqrt{\frac{9}{256} + \frac{32768}{59049}F^2}.
+\end{equation}
+When the field is weak, that is $F$ is small, we can approximate this expression
+as
+\[
+E = -\frac{5}{16} \pm \frac{3}{16}\left(1 + \frac{1}{2}\frac{256}{9}
+\frac{32768}{59049}F^2\right)
+\]
+so that
+\[
+E_- = -\frac{1}{2} - \frac{1}{2}\frac{3}{16}\frac{256}{9}\frac{32768}{59049}F^2
+= -\frac{1}{1} - \frac{1}{2}(2.9596 F^2).
+\]
 
 \section{Standard integrals}
 The most basic Gaussian integral is
@@ -273,8 +445,8 @@ travelling along the curve $g(x, y, z) = c$ involves crossing the level curves
 of $f$. However, at the extrema, the level curves of $f$ are tangential to $g$
 or that the gradients of the two functions are parallel to each other. Therefore,
 there exists a constant $\lambda$ such that $\grad f = \lambda\grad g$. 
-Equivalently, the condition for constraind optimisation is
-\begin{equation}\label{a1e1}
+Equivalently, the condition for constrained optimisation is
+\begin{equation}\label{a2e1}
 \grad (f - \lambda g) = 0.
 \end{equation}
 The constant $\lambda$ need not be calculated and is therefore called an
