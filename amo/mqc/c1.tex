@@ -4,51 +4,57 @@ understanding methods of quantum chemistry. The book was published in 1989 and
 a lot of resources easily available now were not within a student's reach four
 decades ago. I hope to make plenty of digressions as I study these chapters.
 
+\section{Notation}
+Dynamical variables are always operators in quantum mechanics. Therefore, we will
+not use a separate notation for operators. We will also use the same symbol for
+its matrix representation. Whether a symbol means the abstract operator or its
+matrix representation is clear from the context.
+
 \section{The variation method}
 We want to find an approximate solution to the time-independent Schr\"{o}dinger
 equation
 \begin{equation}\label{c1e1}
-\opr{H}\ket{\Phi} = \mathscr{E}\ket{\Phi}
+H\ket{\Phi} = \mathscr{E}\ket{\Phi}
 \end{equation}
-Suppose that $\opr{H}$ has a discrete spectrum of eigenvalues $\{\mathscr{E}_n\}$
+Suppose that $H$ has a discrete spectrum of eigenvalues $\{\mathscr{E}_n\}$
 with $n = 0, 1, \ldots$. Let $\{\ket{\Phi_n}\}$ be the corresponding eigenkets.
-Since $\opr{H}$ is hermitian, the eigenvalues are real and the eigenkets can be
+Since $H$ is hermitian, the eigenvalues are real and the eigenkets can be
 assumed to be orthonormal. Therefore, we also have,
-\begin{equation}\label{c2e2}
-\braket{\Phi_a|\opr{H}|\Phi_b} = \mathscr{E}_a\delta_{ab}.
+\begin{equation}\label{c1e2}
+\braket{\Phi_a|H|\Phi_b} = \mathscr{E}_a\delta_{ab}.
 \end{equation}
 We can also assume that $\{\ket{\Phi_a}\}$ form a complete set so that any other
 ket $\ket{\tilde{\Phi}}$ obeying the same boundary conditions can be expressed
 as 
-\begin{equation}\label{c2e3}
+\begin{equation}\label{c1e3}
 \ket{\tilde{\Phi}} = \sum_a\ket{\Phi_a}\braket{\Phi_a|\tilde{\Phi}}.
 \end{equation}
 
 In almost all cases, except the simplest system, $\{\ket{\Phi_a}\}$ are unknown.
 But their existence can be assumed following the mathematical properties of
-$\opr{H}$. Therefore, \ref{c2e3} is true in principle. If $\ket{\tilde{\Phi}}$
+$H$. Therefore, \ref{c1e3} is true in principle. If $\ket{\tilde{\Phi}}$
 is an approximate solution to \eqref{c1e1} then we will show that
-\begin{equation}\label{c2e4}
-\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathscr{E}_0.
+\begin{equation}\label{c1e4}
+\braket{\tilde{\Phi}|H|\tilde{\Phi}} \ge \mathscr{E}_0.
 \end{equation}
 That is, the true ground state energy of the system is a lower bound to the
-expectation value of $\opr{H}$ in the state $\ket{\tilde{\Phi}}$. Therefore, in
+expectation value of $H$ in the state $\ket{\tilde{\Phi}}$. Therefore, in
 any method to find an approximate solution to \eqref{c1e1} we choose the ket
-that minimises the expectation value of $\opr{H}$ in it. Typically, we consider
+that minimises the expectation value of $H$ in it. Typically, we consider
 a family of \emph{trial kets} that depend on a set of parameters. We choose the
 parameters that minimise the expectation value of the hamiltonian in the state.
 Before illustrating this method for a few simple problems, we will prove the
-inequality \eqref{c2e4}. Let
-\begin{equation}\label{c2e5}
+inequality \eqref{c1e4}. Let
+\begin{equation}\label{c1e5}
 \ket{\tilde{\Phi}} = \sum_a c_a\ket{\Phi_a}
 \end{equation}
 so that,
 \[
-\opr{H}\ket{\tilde{\Phi}} = \sum_a c_a\mathscr{E}_a\ket{\Phi_a}
+H\ket{\tilde{\Phi}} = \sum_a c_a\mathscr{E}_a\ket{\Phi_a}
 \]
 and
-\begin{equation}\label{c2e6}
-\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} = \sum_{a,b}c_b^\ast c_a\mathscr{E}_a
+\begin{equation}\label{c1e6}
+\braket{\tilde{\Phi}|H|\tilde{\Phi}} = \sum_{a,b}c_b^\ast c_a\mathscr{E}_a
 \braket{\Phi_b|\Phi_a} \sum_a |c_a|^2\mathscr{E}_a.
 \end{equation}
 Since $\ket{\tilde{\Phi}}$ can be assumed to be normalised. 
@@ -58,7 +64,7 @@ Since $\ket{\tilde{\Phi}}$ can be assumed to be normalised.
 If the eigenstates are labelled such that $\mathscr{E}_0 \le \mathscr{E}_1 \le
 \ldots$ then
 \[
-\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} \ge \mathscr{E}_0\sum_a|c_a|^2 =
+\braket{\tilde{\Phi}|H|\tilde{\Phi}} \ge \mathscr{E}_0\sum_a|c_a|^2 =
 \mathscr{E}_0.
 \]
 
@@ -103,23 +109,23 @@ N^2 = \sqrt{\frac{2a}{\pi}}.
 \]
 We next evaluate
 \[
-\opr{H}\tilde{\Phi} = aN(1 - 2ax^2)e^{-ax^2} - \delta(x)Ne^{-ax^2}.
+H\tilde{\Phi} = aN(1 - 2ax^2)e^{-ax^2} - \delta(x)Ne^{-ax^2}.
 \]
 so that
 \[
-\braket{\opr{H}}(a) = \int_{-\infty}^\infty dx\left(aN^2(1 - 2ax^2)e^{-2ax^2} - 
+\braket{H}(a) = \int_{-\infty}^\infty dx\left(aN^2(1 - 2ax^2)e^{-2ax^2} - 
 \delta(x)N^2 e^{-2ax^2}\right) = \frac{a}{2} - \sqrt{\frac{2a}{\pi}}.
 \]
 This function has an extremum at $a_0 = 2/\pi$ so that
 \[
-\braket{\opr{H}}(a_0) = -\frac{1}{\pi} \approx -0.3183 > -0.5.
+\braket{H}(a_0) = -\frac{1}{\pi} \approx -0.3183 > -0.5.
 \]
 We used equation \eqref{a1e8} to evaluate the integrals in this example.
 
 \item This is exercise 1.19 in the book \cite{so1989}. The hamiltonian for the
 hydrogen atom is
 \[
-\opr{H} = \left(-\frac{1}{2}\nabla^2 - \frac{1}{r}\right).
+H = \left(-\frac{1}{2}\nabla^2 - \frac{1}{r}\right).
 \]
 Once again we try the gaussian trial function
 \[
@@ -137,11 +143,11 @@ N^2 = \sqrt{\frac{2a}{\pi}}
 \]
 Now,
 \[
-\opr{H}\ket{\tilde{\Phi}} = aN(3 - 2ar^2)e^{-ar^2} - N\frac{e^{-ar^2}}{r}
+H\ket{\tilde{\Phi}} = aN(3 - 2ar^2)e^{-ar^2} - N\frac{e^{-ar^2}}{r}
 \]
 so that
 \[
-\braket{\opr{H}}(a) = \frac{3a}{2} - 2\sqrt{\frac{2a}{\pi}}.
+\braket{H}(a) = \frac{3a}{2} - 2\sqrt{\frac{2a}{\pi}}.
 \]
 Its minimum is as 
 \[
@@ -149,7 +155,7 @@ a_0 = \frac{8}{9\pi}
 \]
 so that the minimum expectation value is
 \[
-\braket{\opr{H}}(a) = -\frac{4}{3\pi} \approx -0.4244,
+\braket{H}(a) = -\frac{4}{3\pi} \approx -0.4244,
 \]
 while the actual ground state energy is $-0.5$ hartree.
 \end{enumerate}
@@ -166,9 +172,9 @@ form
 We assume, for now, that the basis functions are real-valued and orthonormal.
 Let
 \begin{equation}\label{c1e8}
-H_{ij} = \braket{\Psi_i|\opr{H}|\Psi_j}.
+H_{ij} = \braket{\Psi_i|H|\Psi_j}.
 \end{equation}
-$\opr{H}$ being hermitian and $\{\ket{\Psi_i}\}$ being real-valuef guarantees
+$H$ being hermitian and $\{\ket{\Psi_i}\}$ being real-valuef guarantees
 that
 \begin{equation}\label{c1e9}
 H_{ij} = H_{ji}.
@@ -179,13 +185,13 @@ We also assumet that $\ket{\tilde{\Phi}}$ is normalised so that
 \end{equation}
 The variational procedure requires us to minimise
 \begin{equation}\label{c1e11}
-\braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} = \sum_{i,j}c_ic_jH_{ij},
+\braket{\tilde{\Phi}|H|\tilde{\Phi}} = \sum_{i,j}c_ic_jH_{ij},
 \end{equation}
 by treating it as a function if $N$ parameters $c_1, \ldots, c_N$. They cannot
 be chosen arbitrarily because they must satisfy \eqref{c1e10}. We use Lagrange's
 method of undetermined multiplier to solve this minimisation problem. If
 \begin{equation}\label{c1e12}
-\mathscr{L}(c_1, \ldots, c_N, E) = \braket{\tilde{\Phi}|\opr{H}|\tilde{\Phi}} 
+\mathscr{L}(c_1, \ldots, c_N, E) = \braket{\tilde{\Phi}|H|\tilde{\Phi}} 
 - E(\braket{\tilde{\Phi}|\tilde{\Phi}} - 1),
 \end{equation}
 where $E$ is the undetermined multiplier then we find the minimum using the
@@ -231,8 +237,8 @@ They are guaranteed to be orthonormal because
 where in the second term we used orthonormality of the basis functions and in
 the third term we used the orthonormality of $\{\vec{c}^i\}$. The equation
 \begin{equation}\label{c1e20}
-\braket{\tilde{\Phi}^a|\opr{H}|\tilde{\Phi}^a} = \sum_{i,j}c_i^ac_j^a\braket{
-\Psi_i|\opr{H}|\Psi_j} = \sum_{i,j}c_i^a H_{ij} c_j^a = E_a\sum_i{c_i^a}^2
+\braket{\tilde{\Phi}^a|H|\tilde{\Phi}^a} = \sum_{i,j}c_i^ac_j^a\braket{
+\Psi_i|H|\Psi_j} = \sum_{i,j}c_i^a H_{ij} c_j^a = E_a\sum_i{c_i^a}^2
 = E_a.
 \end{equation}
 Thus, the eigenvalues of \eqref{c1e17} are the expectation values of the 
@@ -242,7 +248,7 @@ We shall demonstrate this procedure to find the energy levels of a hydrogen
 atom in an external electric field $F\uv{z}$. The hamiltonian, in atomic units,
 is
 \begin{equation}\label{c1e21}
-\opr{H} = -\frac{1}{2}\nabla^2 - \frac{1}{r} + Fr\cos\theta = \mathscr{H}_0 +
+H = -\frac{1}{2}\nabla^2 - \frac{1}{r} + Fr\cos\theta = H_0 +
 Fr\cos\theta.
 \end{equation}
 We choose the basis functions $\{\ket{1s}, \ket{2p_z}\}$ so that the trial
@@ -252,12 +258,12 @@ function is
 \end{equation}
 We also have
 \begin{eqnarray*}
-\mathscr{H}_0\ket{1s} &=& -\frac{1}{2}\ket{1s} \\
-\mathscr{H}_0\ket{2p_z} &=& -\frac{1}{8}\ket{2p_z}
+H_0\ket{1s} &=& -\frac{1}{2}\ket{1s} \\
+H_0\ket{2p_z} &=& -\frac{1}{8}\ket{2p_z}
 \end{eqnarray*}
 Our first task is to compute the matrix elements $H_{ij}$.
 \begin{equation}\label{c1e23}
-H_{11} = \braket{1s|\opr{H}_0 + Fr\cos\theta|1s} = -\frac{1}{2} + F\int_0^\infty
+H_{11} = \braket{1s|H_0 + Fr\cos\theta|1s} = -\frac{1}{2} + F\int_0^\infty
 \int_0^\pi\int_0^{2\pi} \frac{e^{-2r}}{\pi}r^3\cos\theta\sin\theta drd\theta
 d\phi,
 \end{equation}

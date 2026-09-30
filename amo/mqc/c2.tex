@@ -1,0 +1,71 @@
+\chapter{Many-electron Wave Functions and Operators}\label{c2}
+\section{Spinors}\label{c2s1}
+A complete description of an electronic state needs its spatial as well as spin
+wavefunction. Being a spin $1/2$ particle, an electron's spin state can be 
+described by one of
+\begin{equation}\label{c2e1}
+\ket{+} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}; \;
+\ket{-} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+\end{equation}
+If $\psi_+(\vec{r})$ is the spatial wave function in the spin up state and 
+$\psi_-(\vec{r})$ in the spin down state then the electron's state can be
+expressed by 
+\begin{equation}\label{c2e2}
+\ket{\chi} = \psi_+(\vec{r})\ket{+} + \psi_-(\vec{r})\ket{-} =
+\begin{bmatrix}\psi_+(\vec{r}) \\ \psi_-(\vec{r}) \end{bmatrix}.
+\end{equation}
+The probability of finding an electron in a volume element $d\vec{r}$ about the
+point $\vec{r}$ is 
+\[
+\rho(\vec{r})d\vec{r} = (|\psi_+(\vec{r})|^2 + |\psi_-(\vec{r})|^2)d\vec{r}.
+\]
+When the spin and spatial degrees of freedom are decoupled we can write the 
+spinor as
+\begin{equation}\label{c2e3}
+\ket{\chi} = \psi(\vec{r})\begin{bmatrix}c_1 \\ c_2\end{bmatrix}
+\end{equation}
+where $c_1, c_2 \in \mathbb{C}$. This is the most common situation in quantum
+chemistry. 
+
+Here are the expressions for common operators acting on spinors.
+\begin{eqnarray}
+p\ket{\chi} &=& -i\hbar\nabla\psi_+\ket{+} - i\hbar\nabla\psi_-\ket{-} = 
+-i\hbar\begin{bmatrix}\nabla\psi_+ \\ \nabla\psi_-\end{bmatrix}
+\label{c2e4} \\
+L\ket{\chi} &=& (L\psi_+)\ket{+} + (L\psi_-)\ket{-} = 
+\begin{bmatrix}L \psi_+ \\ L \psi_-\end{bmatrix}
+\label{c2e5} \\
+S\ket{\chi} &=& \psi_+S\ket{+} + \psi_-S\ket{-}
+\label{c2e6}
+\end{eqnarray}
+
+In case we have an operator like $H_{SO}=\vec{L}\cdot\vec{S}$,
+then we use the Pauli matrix representation for 
+\begin{equation}\label{c2e7}
+\vec{S} = \frac{\hbar}{2}\left(\sigma_x\uv{x} + \sigma_y\uv{y} +
+\sigma_z\uv{z}\right)
+\end{equation}
+so that
+\begin{equation}\label{c2e8}
+H_{SO}=\frac{\hbar}{2}\left(L_x\sigma_x + L_y\sigma_y + L_z\sigma_z\right).
+\end{equation}
+Since
+\begin{eqnarray}
+\sigma_x &=& \begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix} \label{c2e9} \\
+\sigma_y &=& \begin{bmatrix}0 & i \\ -i & 0 \end{bmatrix} \label{c2e10} \\
+\sigma_z &=& \begin{bmatrix}1 & 0 \\ 0 & -1 \end{bmatrix}\label{c2e11} 
+\end{eqnarray}
+so that
+\begin{equation}\label{c2e12}
+H_{SO} = \frac{\hbar}{2}\begin{bmatrix}
+L_z & L_x + iL_y \\
+L_x - iL_y & -L_z
+\end{bmatrix}
+\end{equation}
+and
+\begin{equation}\label{c2e13}
+H_{SO}\ket{\chi} = \frac{\hbar}{2}\begin{bmatrix}
+L_z & L_x + iL_y \\
+L_x - iL_y & -L_z
+\end{bmatrix}\begin{bmatrix}\psi_+(\vec{r}) \\ \psi_-(\vec{r})\end{bmatrix}.
+\end{equation}
