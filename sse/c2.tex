@@ -247,7 +247,7 @@ charge density is
 \end{equation}
 which, using \eqref{c2e4} and \eqref{c2e5} becomes
 \begin{equation}\label{c2e7}
-\rho = q(N_D - N_A + 2n_i\sinh(\beta q (\varphi - V)).
+\rho = q(N_D - N_A + 2n_i\sinh(\beta q (\varphi - V))).
 \end{equation}
 
 There is a further modification to the chemical potential when there is an
@@ -372,16 +372,16 @@ solutions.
 Let us consider a one dimensional, doped crystal. In terms of $u_0(x)$, we can
 write \eqref{c2e18} as
 \begin{equation}\label{c2e22}
-\td{u}{x} = \frac{1}{L_D^2}(\sinh u - \sinh u_0).
+\std{u}{x} = \frac{1}{L_D^2}(\sinh u - \sinh u_0).
 \end{equation}
 Consider a situation in which $u$ varies only slightly from $u_0$. Then
 $\sinh u \approx \sinh u_0 + (u - u_0)\cosh u_0$ and \eqref{c2e22} becomes
 \begin{equation}\label{c2e23}
-\td{u}{x} = \frac{1}{L_D^2}\cosh u_0 (u - u_0).
+\std{u}{x} = \frac{1}{L_D^2}\cosh u_0 (u - u_0).
 \end{equation}
 Since 
 \[
-\td{u_0}{x} = 0,
+\std{u_0}{x} = 0,
 \]
 by definition of $u_0$, we can as well write \eqref{c2e23} as
 \begin{equation}\label{c2e24}
@@ -443,13 +443,13 @@ From equation \eqref{c2e21}
 The lhs of this equation is
 \[
 \frac{\rho_d(x)}{\rho_i(x)} = \frac{qn_d}{2qn_i} = \frac{ax}{2n_i} = \frac{x}
-{2l_a} = y.
+{2L_a} = y.
 \]
 Therefore, we can write \eqref{c2e27} as
 \begin{equation}\label{c2e29}
 \std{u}{y} = \frac{1}{K^2} (\sinh u - y).
 \end{equation}
-We will this form of the one-dimensional Poisson equation for our analysis.
+We will use this form of the one-dimensional Poisson equation for our analysis.
 
 If we assume $u$ to be a smooth function then the left hand side of 
 \eqref{c2e27} is a finite quantity. Therefore, if $K \ll 1$, the approximate
@@ -488,7 +488,7 @@ From \eqref{c2e17} and \eqref{c2e25},
 \frac{2q^2\beta a}{\epsilon_0\kappa},
 \]
 where $\epsilon_0$ is the permittivity of free space and $\kappa$ is the 
-dielectric constant. Therefore, equation \eqref{c2e34} becomes
+dielectric constant. Therefore, equation \eqref{c2e33} becomes
 \begin{equation}\label{c2e34}
 V(x) = -\frac{1}{6}\frac{qa}{\epsilon_0\kappa}x^3 - a_1 \frac{ax}{2\rho_i\beta}.
 \end{equation}
@@ -627,12 +627,13 @@ n_1 = n_i e^{q\beta\delta V/2}.
 
 In true thermal equilibrium, $\varphi_n = \varphi_p = \varphi$ is a constant,
 which we set to zero. This simplification allowed us to write \eqref{c2e13}. We
-attempt to do the same here. The analogue of \eqref{c2e13} will be
+attempt to do the same here for pseudo-equilibrum by introducing $\varphi_1$. 
+The analogue of \eqref{c2e13} will be
 \begin{equation}\label{c2e48}
 \rho = \rho_d - 2\rho_1\sinh(\beta qV),
 \end{equation}
 where $\rho_1 = 2qn_1$.
-for pseudo-equilibrum by introducing $\varphi_1$. 
+
 
 Shockley also remarks on page 446 of \cite{shockley1949theory} that the effect
 of applying $\delta V$ is a reduction of the band gap by $q\delta V$. It 
@@ -775,7 +776,7 @@ C_T = \frac{n_1}{a^2}\frac{e^{q\beta\delta V}}{2\epsilon_0\kappa L_D^2L_a}
 as the expression for transition capacitance in graded junctions.
 
 \item Space-charged region:
-An abrupt junction has $K \gg 1$. The potential at the boundary of the junction
+Around the junction has $K \gg 1$. The potential at the boundary of the junction
 is given by \eqref{c2e38}
 \[
 V(x_m) = \frac{1}{3}\frac{qa}{\epsilon_0\kappa}x_m^3
@@ -864,7 +865,7 @@ If we choose $V(x = 0) = 0$ then the constants of integrations in \eqref{c2e66}
 can be found and the complete solution of Poisson's equation is
 \begin{equation}\label{c2e71}
 V(x) = \begin{dcases}
- \frac{1}{2}\frac{qp_p}{\epsilon_0\kappa}[(x - x_p)^2 - x_p^2] & x < 0 \\
++\frac{1}{2}\frac{qp_p}{\epsilon_0\kappa}[(x - x_p)^2 - x_p^2] & x < 0 \\
 -\frac{1}{2}\frac{qn_n}{\epsilon_0\kappa}[(x - x_n)^2 - x_n^2] & x > 0
 \end{dcases}
 \end{equation}
@@ -1289,7 +1290,7 @@ V + \frac{1}{\beta}\ln\frac{p_p}{n_i} + \delta V = \varphi_0 + \delta V.
 
 From equations \eqref{c2e8} and \eqref{c2e9},
 \[
-n(x)p(x) = n_i^2e^{q\beta(\varphi_p(x) - \varphi_n(x)}
+n(x)p(x) = n_i^2e^{q\beta(\varphi_p(x) - \varphi_n(x))}
 \]
 so that
 \begin{equation}\label{c2e82}
