@@ -69,3 +69,18 @@ L_z & L_x + iL_y \\
 L_x - iL_y & -L_z
 \end{bmatrix}\begin{bmatrix}\psi_+(\vec{r}) \\ \psi_-(\vec{r})\end{bmatrix}.
 \end{equation}
+
+\section{The molecular hamiltonian}
+Consider a molecule with $N$ electrons at positions $\vec{r}_1, \ldots, 
+\vec{r}_N$, $M$ nuclei with masses $M_1, \ldots, M_M$, atomic numbers $Z_1, 
+\ldots, Z_M$ and at positions $\vec{R}_1, \ldots, \vec{R}_M$. The complete,
+non-relativistic hamiltonian for the molecule, in atomic units, is
+\begin{equation}\label{c2e14}
+H = -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
+\sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{R_{ia}} +
+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}} -
+\sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 +
+\sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}},
+\end{equation}
+where $r_{ij} = |\vec{r}_i - \vec{r}_j|, r_{ia} = |\vec{r}_i - \vec{R}_a|$ and
+$R_{ab} = |\vec{R}_a - \vec{R}_b|$.
