@@ -75,15 +75,24 @@ Consider a molecule with $N$ electrons at positions $\vec{r}_1, \ldots,
 \vec{r}_N$, $M$ nuclei with masses $M_1, \ldots, M_M$, atomic numbers $Z_1, 
 \ldots, Z_M$ and at positions $\vec{R}_1, \ldots, \vec{R}_M$. The complete,
 non-relativistic hamiltonian for the molecule, in atomic units, is
-\begin{equation}\label{c2e14}
-H = -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
-\sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{R_{ia}} +
-\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}} -
-\sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 +
-\sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}},
-\end{equation}
+\begin{eqnarray}
+H &=& -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
+\sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{r_{ia}} + 
+ \sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}} -\nonumber \\
+& & \sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 + 
+ \sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}} \nonumber \\
+ &=& T_{e} + V_{ne} + V_{ee} + T_{n} + V_{nn} \label{c2e14}
+\end{eqnarray}
 where $r_{ij} = |\vec{r}_i - \vec{r}_j|, r_{ia} = |\vec{r}_i - \vec{R}_a|$ and
-$R_{ab} = |\vec{R}_a - \vec{R}_b|$.
+$R_{ab} = |\vec{R}_a - \vec{R}_b|$. In this expression, the terms of rhs are
+\begin{enumerate}
+\item $T_e$ Kinetic energy of the electrons,
+\item $V_{ne}$ Electrostatic attractive potential energy of the electrons in 
+the field of the nuclei,
+\item $V_{ee}$ Electrostatic repulsive potential energy among the electrons,
+\item $T_n$ Kinetic energy of the nuclei and
+\item $V_{nn}$ Electrostatic repulsive potential energy among the nuclei.
+\end{enumerate}
 
 Since the nuclei are much more massive than the electrons, substantial 
 simplification is achieved by treating them as stationary while studying the 
@@ -91,12 +100,12 @@ electronic properties. This is called the \emph{Born-Oppenheimer} approximation
 under which the molecular hamiltonian is 
 \begin{equation}\label{c2e15}
 H_{el} = -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
-\sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{R_{ia}} +
+\sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{r_{ia}} +
 \sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}} -
 \end{equation}
 Its eigenvalue equation is
 \begin{equation}\label{c2e16}
-H_{el}\Phi(\vec{r}; \vec{R}) = \mathscr{E}(\vec{R})\Phi(\vec{r}; \vec{R}),
+H_{el}\Phi(\vec{r}; \vec{R}) = \mathscr{E}_{el}(\vec{R})\Phi(\vec{r}; \vec{R}),
 \end{equation}
 where $\vec{r} = (\vec{r}_1, \ldots, \vec{r}_N)$ and $\vec{R} = (\vec{R}_1,
 \ldots, \vec{R}_M)$. The eigenvalue and the eigenfunction have $\vec{R}$ as a
@@ -105,4 +114,116 @@ system moves on the potential energy surface
 \begin{equation}\label{c2e17}
 \mathscr{E}_{nucl} = \sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}}.
 \end{equation}
+
+Having solved the electronic hamiltonian, one can solve the nuclear hamiltonian
+by replacing the electronic terms in \eqref{c2e14} by their average. Thus, 
+\begin{equation}\label{c2e18}
+H_{nucl} = \sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 +
+\sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}} -
+\left\langle\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
+\sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{r_{ia}} +
+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}\right\rangle
+\end{equation}
+The expectation value of the electronic portion is the electronic enerygy 
+$\mathscr{E}_{el}(\vec{R})$ so that,
+\begin{equation}\label{c2e19}
+H_{nucl} = \sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 + \mathscr{E}_{nucl} + 
+\mathscr{E}_{el}(\vec{R}),
+\end{equation}
+where we used \eqref{c2e17}. Thus, the nuclei move in a potential
+\begin{equation}\label{c2e20}
+\mathscr{E}_{tot} = \mathscr{E}_{nucl} + \mathscr{E}_{el}(\vec{R}).
+\end{equation}
+Because $\mathscr{E}_{tot}$ includes electronic contribution as well, the
+eigenvalue equation
+\begin{equation}\label{c2e21}
+H_{nucl}\Phi_{nucl} = \mathscr{E}\Phi_{nucl},
+\end{equation}
+leads to $\mathscr{E}$ that includes electronic plus nuclear motion. Thus, it
+includes the translational, rotational and vibrational motions. The wavefunction
+for the complete hamiltonian of \eqref{c2e14} under this approximation is
+\begin{equation}\label{c2e22}
+\Phi(\vec{r}; \vec{R}) = \Phi_{el}(\vec{r}; \vec{R})\Phi_{nucl}(\vec{R}).
+\end{equation}
+
+\subsection{Beyond Born-Oppenheimer approximation}
+We define the clamped electronic hamiltonian,
+\begin{equation}\label{c2e23}
+H_{ce}(\vec{r}; \vec{R}) = T_e + V_{ne}(\vec{r}; \vec{R}) + V_{ee}(\vec{r})
++ V_{nn}(\vec{R})
+\end{equation}
+and its eigenvalue equation
+\begin{equation}\label{c2e24}
+H_{ce}\psi_j(\vec{r}; \vec{R}) = \mathscr{E}_j(\vec{R})\psi_j(\vec{r}; \vec{R}).
+\end{equation}
+The function $\mathscr{E}_j(\vec{R})$ defines an \emph{adiabiatic potential 
+energy surface}. The clamped electronic eigenfunctions are constrained to
+stay on the adiabatic potential energy surface. The full molecular hamiltonian
+is
+\begin{equation}\label{c2e25}
+H = H_{ce} + T_n.
+\end{equation}
+If $\{\psi_k(\vec{r}; \vec{R})\}$ are the complete set of eigenfunctions of
+$H_{ce}$ and $\chi_k(\vec{R})$ are the eigenfunctions of $T_n$ then the
+eigenfunctions of $H$ may be written as
+\begin{equation}\label{c2e26}
+\Psi(\vec{r}; \vec{R}) = \sum_k\chi_k(\vec{R})\psi_k(\vec{r}; \vec{R}).
+\end{equation}
+This is called the \emph{Born-Huang} expansion. Now,
+\[
+\nabla_R(\chi_k\psi_k) = (\nabla_R\chi_k)\psi_k + \chi_k\nabla_R\psi_k
+\]
+and
+\[
+\nabla^2_R(\chi_k\psi_k) = \psi_k\nabla^2_R\chi_k + 2\nabla_R\chi_k\cdot\nabla_R
+\psi_k + \chi_k\nabla_R^2\psi_k
+\]
+so that 
+\begin{equation}\label{c2e27}
+T_n\Psi(\vec{r}; \vec{R}) = \sum_{k,a}\left(\frac{\psi_k}{2}\nabla^2_R\chi_k +
+\nabla_R\chi_k\cdot\nabla_R\psi_k + \frac{\chi_k}{2}\nabla_R^2\psi_k\right)
+\end{equation}
+Now consider
+\begin{eqnarray*}
+H\Psi &=& (H_{ce} + T_n)\Psi \\
+ &=& H_{ce}\Psi + T_n\Psi \\
+ &=& \sum_k(\chi_k H_{ce}\psi_k) + T_n\Psi \\
+ &=& \sum_k\mathscr{E}_k\chi_k\psi_k + \sum_{k,a}\left(\frac{\psi_k}{2}\nabla^2_R\chi_k + 
+ \nabla_R\chi_k\cdot\nabla_R\psi_k + \frac{\chi_k}{2}\nabla_R^2\psi_k\right) \\
+ &=& \sum_k\psi_k(\mathscr{E}_k + T_n)\chi_k + \sum_{k,a}\left( 
+ \nabla_R\chi_k\cdot\nabla_R\psi_k + \frac{\chi_k}{2}\nabla_R^2\psi_k\right) 
+\end{eqnarray*}
+so that $H\Psi = \mathscr{E}\Psi$ gives,
+\begin{equation}\label{c2e28}
+\sum_k\psi_k(\mathscr{E}_k + T_n - \mathscr{E})\chi_k = 
+\sum_{k,a}\left(\nabla_R\chi_k\cdot\nabla_R\psi_k + 
+\frac{\chi_k}{2}\nabla_R^2\psi_k\right) 
+\end{equation}
+Now take the scalar product of this equation with $\psi_j$ and use the fact that
+$\braket{\psi_j|\psi_k} = \delta_{jk}$ to get
+\begin{eqnarray}
+(\mathscr{E}_j + T_n - \mathscr{E})\chi_j &=& 
+\sum_{k,a}\left(\nabla_R\chi_k\cdot\braket{\psi_j|\nabla_R\psi_k} + 
+\frac{\chi_k}{2}\braket{\psi_j|\nabla_R^2\psi_k}\right) \\
+&=& \sum_{k,a}\left(\braket{\psi_j|\nabla_R\psi_k}\cdot\nabla_R + \frac{1}{2} 
+\braket{\psi_j|\nabla_R^2\psi_k}\right)\chi_k \nonumber \\
+&=& \sum_{k,a}\Lambda_{jk}\chi_k \label{c2e29}
+\end{eqnarray}
+where
+\begin{equation}\label{c2e30}
+\Lambda_{jk} = \sum_a \braket{\psi_j|\nabla_a\psi_k}\cdot\nabla_a + 
+\frac{1}{2} \braket{\psi_j|\nabla_a^2\psi_k},
+\end{equation}
+is called the coupling operator. Here we recall that $\vec{R}$ is a collection
+of all $\vec{R}_a$. The first order derivative coupling vector is defined as
+\begin{equation}\label{c2e31}
+\vec{d}_{jk}^a(\vec{R}) = \braket{\psi_j(\vec{R})|\nabla_a\psi_k(\vec{R})}.
+\end{equation}
+It described the change in state $k$ when the nuclei move as projected on state
+$j$. Since $\braket{\psi_i|\psi_j} = \delta_{ij}$, 
+$\nabla_a\braket{\psi_i|\psi_j} = 0$ so that $\braket{\nabla_a\psi_i|\psi_j}
+= \braket{\psi_j|\nabla_a\psi_i}^\ast = -\braket{\psi_i|\nabla_a\psi_j}$, that is
+$\vec{d}_{ji}^\ast(\vec{R}) = -\vec{d}_{ij}(\vec{R})$. Thus, $\vec{d}$ is an
+anti-hermitian operator.
+
 
