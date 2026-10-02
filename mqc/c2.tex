@@ -105,14 +105,14 @@ H_{el} = -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 -
 \end{equation}
 Its eigenvalue equation is
 \begin{equation}\label{c2e16}
-H_{el}\Phi(\vec{r}; \vec{R}) = \mathscr{E}_{el}(\vec{R})\Phi(\vec{r}; \vec{R}),
+H_{el}\Phi(\vec{r}; \vec{R}) = E_{el}(\vec{R})\Phi(\vec{r}; \vec{R}),
 \end{equation}
 where $\vec{r} = (\vec{r}_1, \ldots, \vec{r}_N)$ and $\vec{R} = (\vec{R}_1,
 \ldots, \vec{R}_M)$. The eigenvalue and the eigenfunction have $\vec{R}$ as a
 parameter. We are essentially assuming that the nuclei are at rest and the 
 system moves on the potential energy surface
 \begin{equation}\label{c2e17}
-\mathscr{E}_{nucl} = \sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}}.
+E_{nucl} = \sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}}.
 \end{equation}
 
 Having solved the electronic hamiltonian, one can solve the nuclear hamiltonian
@@ -125,21 +125,21 @@ H_{nucl} = \sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 +
 \sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}\right\rangle
 \end{equation}
 The expectation value of the electronic portion is the electronic enerygy 
-$\mathscr{E}_{el}(\vec{R})$ so that,
+$E_{el}(\vec{R})$ so that,
 \begin{equation}\label{c2e19}
-H_{nucl} = \sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 + \mathscr{E}_{nucl} + 
-\mathscr{E}_{el}(\vec{R}),
+H_{nucl} = \sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 + E_{nucl} + 
+E_{el}(\vec{R}),
 \end{equation}
 where we used \eqref{c2e17}. Thus, the nuclei move in a potential
 \begin{equation}\label{c2e20}
-\mathscr{E}_{tot} = \mathscr{E}_{nucl} + \mathscr{E}_{el}(\vec{R}).
+E_{tot} = E_{nucl} + E_{el}(\vec{R}).
 \end{equation}
-Because $\mathscr{E}_{tot}$ includes electronic contribution as well, the
+Because $E_{tot}$ includes electronic contribution as well, the
 eigenvalue equation
 \begin{equation}\label{c2e21}
-H_{nucl}\Phi_{nucl} = \mathscr{E}\Phi_{nucl},
+H_{nucl}\Phi_{nucl} = E\Phi_{nucl},
 \end{equation}
-leads to $\mathscr{E}$ that includes electronic plus nuclear motion. Thus, it
+leads to $E$ that includes electronic plus nuclear motion. Thus, it
 includes the translational, rotational and vibrational motions. The wavefunction
 for the complete hamiltonian of \eqref{c2e14} under this approximation is
 \begin{equation}\label{c2e22}
@@ -154,9 +154,9 @@ H_{ce}(\vec{r}; \vec{R}) = T_e + V_{ne}(\vec{r}; \vec{R}) + V_{ee}(\vec{r})
 \end{equation}
 and its eigenvalue equation
 \begin{equation}\label{c2e24}
-H_{ce}\psi_j(\vec{r}; \vec{R}) = \mathscr{E}_j(\vec{R})\psi_j(\vec{r}; \vec{R}).
+H_{ce}\psi_j(\vec{r}; \vec{R}) = E_j(\vec{R})\psi_j(\vec{r}; \vec{R}).
 \end{equation}
-The function $\mathscr{E}_j(\vec{R})$ defines an \emph{adiabiatic potential 
+The function $E_j(\vec{R})$ defines an \emph{adiabiatic potential 
 energy surface}. The clamped electronic eigenfunctions are constrained to
 stay on the adiabatic potential energy surface. The full molecular hamiltonian
 is
@@ -188,21 +188,21 @@ Now consider
 H\Psi &=& (H_{ce} + T_n)\Psi \\
  &=& H_{ce}\Psi + T_n\Psi \\
  &=& \sum_k(\chi_k H_{ce}\psi_k) + T_n\Psi \\
- &=& \sum_k\mathscr{E}_k\chi_k\psi_k + \sum_{k,a}\left(\frac{\psi_k}{2}\nabla^2_R\chi_k + 
+ &=& \sum_kE_k\chi_k\psi_k + \sum_{k,a}\left(\frac{\psi_k}{2}\nabla^2_R\chi_k + 
  \nabla_R\chi_k\cdot\nabla_R\psi_k + \frac{\chi_k}{2}\nabla_R^2\psi_k\right) \\
- &=& \sum_k\psi_k(\mathscr{E}_k + T_n)\chi_k + \sum_{k,a}\left( 
+ &=& \sum_k\psi_k(E_k + T_n)\chi_k + \sum_{k,a}\left( 
  \nabla_R\chi_k\cdot\nabla_R\psi_k + \frac{\chi_k}{2}\nabla_R^2\psi_k\right) 
 \end{eqnarray*}
-so that $H\Psi = \mathscr{E}\Psi$ gives,
+so that $H\Psi = E\Psi$ gives,
 \begin{equation}\label{c2e28}
-\sum_k\psi_k(\mathscr{E}_k + T_n - \mathscr{E})\chi_k = 
+\sum_k\psi_k(E_k + T_n - E)\chi_k = 
 \sum_{k,a}\left(\nabla_R\chi_k\cdot\nabla_R\psi_k + 
 \frac{\chi_k}{2}\nabla_R^2\psi_k\right) 
 \end{equation}
 Now take the scalar product of this equation with $\psi_j$ and use the fact that
 $\braket{\psi_j|\psi_k} = \delta_{jk}$ to get
 \begin{eqnarray}
-(\mathscr{E}_j + T_n - \mathscr{E})\chi_j &=& 
+(E_j + T_n - E)\chi_j &=& 
 \sum_{k,a}\left(\nabla_R\chi_k\cdot\braket{\psi_j|\nabla_R\psi_k} + 
 \frac{\chi_k}{2}\braket{\psi_j|\nabla_R^2\psi_k}\right) \\
 &=& \sum_{k,a}\left(\braket{\psi_j|\nabla_R\psi_k}\cdot\nabla_R + \frac{1}{2} 
@@ -212,7 +212,7 @@ $\braket{\psi_j|\psi_k} = \delta_{jk}$ to get
 where
 \begin{equation}\label{c2e30}
 \Lambda_{jk} = \sum_a \braket{\psi_j|\nabla_a\psi_k}\cdot\nabla_a + 
-\frac{1}{2} \braket{\psi_j|\nabla_a^2\psi_k},
+\frac{1}{2}\braket{\psi_j|\nabla_a^2\psi_k},
 \end{equation}
 is called the coupling operator. Here we recall that $\vec{R}$ is a collection
 of all $\vec{R}_a$. The first order derivative coupling vector is defined as
@@ -224,6 +224,54 @@ $j$. Since $\braket{\psi_i|\psi_j} = \delta_{ij}$,
 $\nabla_a\braket{\psi_i|\psi_j} = 0$ so that $\braket{\nabla_a\psi_i|\psi_j}
 = \braket{\psi_j|\nabla_a\psi_i}^\ast = -\braket{\psi_i|\nabla_a\psi_j}$, that is
 $\vec{d}_{ji}^\ast(\vec{R}) = -\vec{d}_{ij}(\vec{R})$. Thus, $\vec{d}$ is an
-anti-hermitian operator.
+anti-hermitian operator. Likewise, the second order derivative coupling operator
+is
+\begin{equation}\label{c2e32}
+\vec{D}_{jk}^a(\vec{R}) = \frac{1}{2}\braket{\psi_j|\nabla_a^2\psi_k}.
+\end{equation}
 
-
+We will now show that $\vec{d}^a_{jk}$ blows up when $E_k$ and $E_j$ are very 
+close. The electronic eigenstate $\psi_k$ obeys
+\[
+H_{el}\ket{\psi_k} = E_k\ket{\psi_k}
+\]
+so that, applying $\nabla_a$ to it gives
+\[
+(\nabla_a H_{el})\ket{\psi_k} + H_{el}\ket{\nabla_a\psi_k} = 
+(\nabla_a E_k)\ket{\psi_k} + E_k \nabla_a\ket{\psi_k}
+\].
+Taking inner product with $\ket{\psi_j}$,
+\[
+\braket{\psi_j|\nabla_a H_{el}|\psi_k} + \braket{\psi_j|H_{el}|\nabla_a\psi_k}
+= (\nabla_a E_k)\braket{\psi_j|\psi_k} + E_k\braket{\psi_j|\nabla_a\psi_k}
+\]
+that is,
+\[
+\braket{\psi_j|\nabla_a H_{el}|\psi_k} + E_j\braket{\psi_j|\nabla_a\psi_k} = 
+0 + E_k\braket{\psi_j|\nabla_a\psi_k}
+\]
+or
+\begin{equation}\label{c2e33}
+\braket{\psi_j|\nabla_a\psi_k} = \frac{\braket{\psi_j|\nabla_a H_{el}|\psi_k}}
+{E_k(\vec{R}) - E_j(\vec{R})}.
+\end{equation}
+Recall that $E_k(\vec{R})$ is called an adiabatic potential energy surface.
+When two such surfaces intersect each other, or are very close to each other,
+$|E_k(\vec{R}) - E_j(\vec{R})| \rightarrow 0$. This is when the derivative
+coupling operator dominates the hamiltonian and the Born-Oppenheimer 
+approximation breaks. For the Born-Oppenheimer approximation consists of 
+treating $\Lambda_{jk} \approx 0$. Such a situation arises in:
+\begin{itemize}
+\item Conical intersections in photochemistry and
+\item Two-state reactivity in ground-state reactions.
+\end{itemize}
+In a chemical reaction the nuclear arrangement changes and is not inconceivable
+that between the initial and the final state in a reaction step the potential
+energy surfaces will be very similar and the Born-Oppenheimer approximation
+breaks. When $\vec{R}_a$ change rapidly with time, the full molecular 
+hamiltonian cannot be treated adiabatically (in the sense of adiabatic 
+invariants of classical mechanics \cite{goldstein} p. 531 or adiabatic 
+approximation of quantum mechanics \cite{schiff} p.289) and we have to resort 
+to non-adiabatic techniques. We will not cover non-adiabatic situations in this
+book and will go back to the analysis of molecular structure where the
+Born-Oppenheimer approximation is always applicable.

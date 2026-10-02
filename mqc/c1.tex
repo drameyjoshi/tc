@@ -14,14 +14,14 @@ matrix representation is clear from the context.
 We want to find an approximate solution to the time-independent Schr\"{o}dinger
 equation
 \begin{equation}\label{c1e1}
-H\ket{\Phi} = \mathscr{E}\ket{\Phi}
+H\ket{\Phi} = E\ket{\Phi}
 \end{equation}
-Suppose that $H$ has a discrete spectrum of eigenvalues $\{\mathscr{E}_n\}$
+Suppose that $H$ has a discrete spectrum of eigenvalues $\{E_n\}$
 with $n = 0, 1, \ldots$. Let $\{\ket{\Phi_n}\}$ be the corresponding eigenkets.
 Since $H$ is hermitian, the eigenvalues are real and the eigenkets can be
 assumed to be orthonormal. Therefore, we also have,
 \begin{equation}\label{c1e2}
-\braket{\Phi_a|H|\Phi_b} = \mathscr{E}_a\delta_{ab}.
+\braket{\Phi_a|H|\Phi_b} = E_a\delta_{ab}.
 \end{equation}
 We can also assume that $\{\ket{\Phi_a}\}$ form a complete set so that any other
 ket $\ket{\tilde{\Phi}}$ obeying the same boundary conditions can be expressed
@@ -35,7 +35,7 @@ But their existence can be assumed following the mathematical properties of
 $H$. Therefore, \ref{c1e3} is true in principle. If $\ket{\tilde{\Phi}}$
 is an approximate solution to \eqref{c1e1} then we will show that
 \begin{equation}\label{c1e4}
-\braket{\tilde{\Phi}|H|\tilde{\Phi}} \ge \mathscr{E}_0.
+\braket{\tilde{\Phi}|H|\tilde{\Phi}} \ge E_0.
 \end{equation}
 That is, the true ground state energy of the system is a lower bound to the
 expectation value of $H$ in the state $\ket{\tilde{\Phi}}$. Therefore, in
@@ -50,22 +50,22 @@ inequality \eqref{c1e4}. Let
 \end{equation}
 so that,
 \[
-H\ket{\tilde{\Phi}} = \sum_a c_a\mathscr{E}_a\ket{\Phi_a}
+H\ket{\tilde{\Phi}} = \sum_a c_aE_a\ket{\Phi_a}
 \]
 and
 \begin{equation}\label{c1e6}
-\braket{\tilde{\Phi}|H|\tilde{\Phi}} = \sum_{a,b}c_b^\ast c_a\mathscr{E}_a
-\braket{\Phi_b|\Phi_a} \sum_a |c_a|^2\mathscr{E}_a.
+\braket{\tilde{\Phi}|H|\tilde{\Phi}} = \sum_{a,b}c_b^\ast c_aE_a
+\braket{\Phi_b|\Phi_a} \sum_a |c_a|^2E_a.
 \end{equation}
 Since $\ket{\tilde{\Phi}}$ can be assumed to be normalised. 
 \[
 \sum_a |c_a^2| = 1.
 \]
-If the eigenstates are labelled such that $\mathscr{E}_0 \le \mathscr{E}_1 \le
+If the eigenstates are labelled such that $E_0 \le E_1 \le
 \ldots$ then
 \[
-\braket{\tilde{\Phi}|H|\tilde{\Phi}} \ge \mathscr{E}_0\sum_a|c_a|^2 =
-\mathscr{E}_0.
+\braket{\tilde{\Phi}|H|\tilde{\Phi}} \ge E_0\sum_a|c_a|^2 =
+E_0.
 \]
 
 Examples:
@@ -73,7 +73,7 @@ Examples:
 \item This is exercise 1.18 in the book \cite{so1989}. We will first solve
 the hamiltonian analytically. Let
 \[
-\left(-\frac{1}{2}\frac{d^2}{dx^2} - \delta(x)\right)\psi(x)=\mathscr{E}\psi(x).
+\left(-\frac{1}{2}\frac{d^2}{dx^2} - \delta(x)\right)\psi(x)=E\psi(x).
 \]
 In the region $x \ne 0$ the solution is
 \[
@@ -82,18 +82,18 @@ In the region $x \ne 0$ the solution is
 where $A$ and $B$ are constants. Since $\psi$ must be continuous at $x = 0$,
 we must have $A = B$. This gives us the energy eigenvalue
 \[
-\mathscr{E} = -\frac{\kappa^2}{2}.
+E = -\frac{\kappa^2}{2}.
 \]
 If we integrate the Schr\"{o}dinger equation over the region $[-a, a]$ then
 we have
 \[
--\frac{1}{2}(\psi^\op(a) - \psi^\op(-a)) - \psi(0) = \mathscr{E}
+-\frac{1}{2}(\psi^\op(a) - \psi^\op(-a)) - \psi(0) = E
 \int_{-a}^a\psi(x)dx.
 \]
 so that
 \[
 -\frac{1}{2}(-\kappa A e^{-\kappa a} - \kappa A e^{+\kappa a}) = 
-\psi(0) + \mathscr{E}\int_{-a}^a\psi(x)dx.
+\psi(0) + E\int_{-a}^a\psi(x)dx.
 \]
 In the limit $a \rightarrow 0$, since $\psi$ is continuous, the integral 
 vanishes and this equation gives
