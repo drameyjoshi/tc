@@ -84,3 +84,25 @@ H = -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 -
 \end{equation}
 where $r_{ij} = |\vec{r}_i - \vec{r}_j|, r_{ia} = |\vec{r}_i - \vec{R}_a|$ and
 $R_{ab} = |\vec{R}_a - \vec{R}_b|$.
+
+Since the nuclei are much more massive than the electrons, substantial 
+simplification is achieved by treating them as stationary while studying the 
+electronic properties. This is called the \emph{Born-Oppenheimer} approximation
+under which the molecular hamiltonian is 
+\begin{equation}\label{c2e15}
+H_{el} = -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
+\sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{R_{ia}} +
+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}} -
+\end{equation}
+Its eigenvalue equation is
+\begin{equation}\label{c2e16}
+H_{el}\Phi(\vec{r}; \vec{R}) = \mathscr{E}(\vec{R})\Phi(\vec{r}; \vec{R}),
+\end{equation}
+where $\vec{r} = (\vec{r}_1, \ldots, \vec{r}_N)$ and $\vec{R} = (\vec{R}_1,
+\ldots, \vec{R}_M)$. The eigenvalue and the eigenfunction have $\vec{R}$ as a
+parameter. We are essentially assuming that the nuclei are at rest and the 
+system moves on the potential energy surface
+\begin{equation}\label{c2e17}
+\mathscr{E}_{nucl} = \sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}}.
+\end{equation}
+
