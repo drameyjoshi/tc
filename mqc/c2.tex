@@ -70,7 +70,7 @@ L_x - iL_y & -L_z
 \end{bmatrix}\begin{bmatrix}\psi_+(\vec{r}) \\ \psi_-(\vec{r})\end{bmatrix}.
 \end{equation}
 
-\section{The molecular hamiltonian}
+\section{The molecular hamiltonian}\label{c2s2}
 Consider a molecule with $N$ electrons at positions $\vec{r}_1, \ldots, 
 \vec{r}_N$, $M$ nuclei with masses $M_1, \ldots, M_M$, atomic numbers $Z_1, 
 \ldots, Z_M$ and at positions $\vec{R}_1, \ldots, \vec{R}_M$. The complete,
@@ -280,3 +280,104 @@ approximation of quantum mechanics \cite{schiff} p.289) and we have to resort
 to non-adiabatic techniques. We will not cover non-adiabatic situations in this
 book and will go back to the analysis of molecular structure where the
 Born-Oppenheimer approximation is always applicable.
+
+\section{Molecules and Solids}\label{c2s3}
+A molecule is a stable collection of nuclei and electrons. If it has only one
+nucleus it is an atom \cite{barbatti2023empty}. If there nuclei are arranged in
+a periodic fashion it is a solid. An ideal solid is just an infinitely large 
+molecule with a symmetrical arranged nuclei. The fundamental problem in each of
+these arrangements is the same. It is to find the energies of the electrons. 
+When one understands each of these systems quantum mechanically, one must bear 
+in mind that \cite{barbatti2023empty}:
+\begin{enumerate}
+\item Nuclei are not point masses. They too have and orbital, a region in space
+where they are likely to be found. Even in a hydrogen atom, we solve the two-body
+problem reduced to a one-body problem. The energy levels that we get are for the
+entire system and not just the electrons. A change in the energy affects both
+the electron and the proton. The wavefunction $\psi_{nlm}(\vec{r})$ is a
+function of
+\begin{equation}\label{c2e35}
+\vec{r} = \vec{r}_e - \vec{r}_p,
+\end{equation}
+where $\vec{r}_e$ refers to the electron's position and $\vec{r}_p$ to the 
+proton's. If we choose to place the origin at the centre of mass of the system,
+\[
+\vec{r}_e = \frac{m_p}{m_e + m_p}\vec{r};\; \vec{r}_p = -\frac{m_e}{m_e + m_p}
+\vec{r}
+\]
+so that the quantity
+\[
+|\psi_{nlm}(\vec{r})^2|d\vec{r} = \rho_p d\vec{r_p} = \rho_p\left|
+\left(-\frac{m_e}{m_e + m_p}\right)^3\right|d\vec{r}
+\]
+and hence
+\[
+\rho_pi(\vec{r}_p) = \left(\frac{m_e + m_p}{m_e}\right)^3\psi_{nlm}\left|
+\left(-\frac{m_e + m_p}{m_e}\vec{r}_p\right)\right|^2.
+\]
+Thus $\rho_p$ has the same shape as $|\psi_{nlm}|^2$ except that is packed in
+a much smaller volume.
+
+\item The position of the nuclei in molecules is even more interesting. Even in
+the centre of mass frame they undergo rotations and vibrations. Even a simplified
+quantum mechanical treatment of the problem leads to an uncertainty in their
+positions.
+
+\item We know from Earnshaw's theorem of electrostatics that a collection of
+static charges is always unstable. The stability of molecules and solids is
+because the charges are not pinned to a location. The electrons in a molecules
+or a solid are often shared across nuclei. The wavefunctions of outermost 
+electrons in a solid are spread across the lattice although the inner electrons'
+wavefunctions are more localised.
+
+\item Electrons are indistinguishable. One can only describe their occupancy
+at various energy levels. Each of those energy levels are characterised by
+their orbitals which extend over all space.
+
+\item $|\psi|^2$ of electrons and nuclei in molecules is independent of time.
+There is no motion in the classical sense. Angular momentum of electrons is
+just an arrangement of nodes in their orbitals. 
+mech
+\end{enumerate}
+
+\section{An alternative notation for spinors}\label{c2s4}
+The spinor notation of section \ref{c2s1} is convenient while dealing with one
+or two electrons. When there are $N$ electrons, it is more convenient to 
+introduce a four dimensional vector $\vec{x} = (\vec{r}, \omega)$ where 
+$\vec{r}$ are the spatial coordinates and $\omega$ is  the spin of the electron. 
+It relies on the isomorphism between the mappings $\mathbb{R}^3 \rightarrow 
+\mathbb{C}^2$ of spinors and $\mathbb{R}^3 \times \{+, -\} \rightarrow 
+\mathbb{C}$. The wavefunction of an electron is written as $\chi(\vec{x})$ and
+\begin{equation}\label{c2e36}
+\int d\vec{x} |\chi(\vec{x})|^2=\sum_\omega\int d\vec{r}|\chi(\vec{r}, \omega)
+|^2 = \int d\vec{r}|\chi(\vec{r}, +)|^2 + \int d\vec{r}|\chi(\vec{r}, -)|^2
+\end{equation}
+An $N$-electron wavefunction is written as $\Phi(\vec{x}_1, \ldots, \vec{x}_N)$.
+It is a mapping 
+\[
+\Phi: (\mathbb{R}^3 \times \{+, -\})^N \rightarrow \mathbb{C}.
+\]
+Since electrons are fermions, it is necessary that
+\begin{equation}\label{c2e37}
+\Phi(\vec{x}_1, \ldots, \vec{x}_i, \ldots, \vec{x}_j, \ldots, \vec{x}_N) = 
+-\Phi(\vec{x}_1, \ldots, \vec{x}_j, \ldots, \vec{x}_i, \ldots, \vec{x}_N).
+\end{equation}
+
+We can express write $\chi(\vec{x}) = \psi(\vec{r})\alpha(\omega)$, where
+$\psi: \mathbb{R}^3 \rightarrow \mathbb{C}$ and $\alpha = \{+, -\} \rightarrow
+\mathbb{C}$. $\psi$ is called the spatial orbital and $\chi$ is called the
+spin orbital.
+
+If the spatial orbitals are orthonormal so are the spin orbitals. This is 
+because,
+\[
+\int d\vec{x}\chi_i^\ast(\vec{x})\chi_j(\vec{x}) = \sum_\omega\int d\vec{r}
+\psi_i^\ast(\vec{r})\psi_j(\vec{r}) \alpha_i^\ast(\omega)\alpha_j(\omega)
+= \sum_\omega\alpha_i^\ast(\omega)\alpha_j(\omega)\delta_{ij}.
+\]
+If we choose the functions $\alpha_i, \alpha_j$ to be orthonormal then
+\[
+\int d\vec{x}\chi_i^\ast(\vec{x})\chi_j(\vec{x}) = (\delta_{ij})^2 = 
+\delta_{ij}.
+\]
+
