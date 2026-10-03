@@ -97,33 +97,35 @@ the field of the nuclei,
 Since the nuclei are much more massive than the electrons, substantial 
 simplification is achieved by treating them as stationary while studying the 
 electronic properties. This is called the \emph{Born-Oppenheimer} approximation
-under which the molecular hamiltonian is 
+under which the molecular hamiltonian is approximated to 
 \begin{equation}\label{c2e15}
 H_{el} = -\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
 \sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{r_{ia}} +
-\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}} -
+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}
 \end{equation}
 Its eigenvalue equation is
 \begin{equation}\label{c2e16}
 H_{el}\Phi(\vec{r}; \vec{R}) = E_{el}(\vec{R})\Phi(\vec{r}; \vec{R}),
 \end{equation}
-where $\vec{r} = (\vec{r}_1, \ldots, \vec{r}_N)$ and $\vec{R} = (\vec{R}_1,
-\ldots, \vec{R}_M)$. The eigenvalue and the eigenfunction have $\vec{R}$ as a
-parameter. We are essentially assuming that the nuclei are at rest and the 
-system moves on the potential energy surface
+where $\vec{r} = \{\vec{r}_1, \ldots, \vec{r}_N\}$ and $\vec{R} = \{\vec{R}_1,
+\ldots, \vec{R}_M\}$. The eigenvalue and the eigenfunction have $\vec{R}$ as a
+parameter. One also includes the nuclear repulsion in the hamiltonian of
+\eqref{c2e15}. However, under the Born-Oppenheimer approximation,
 \begin{equation}\label{c2e17}
-E_{nucl} = \sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}}.
+E_{nucl} = \sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}}
 \end{equation}
+is a constant and its only effect is to increase every value of $E_{el}$ by
+this amount.
 
 Having solved the electronic hamiltonian, one can solve the nuclear hamiltonian
 by replacing the electronic terms in \eqref{c2e14} by their average. Thus, 
-\begin{equation}\label{c2e18}
-H_{nucl} = \sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 +
-\sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}} -
-\left\langle\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
+\begin{eqnarray}
+H_{nucl} &=& -\sum_{a=1}^M\frac{1}{2M_a}\nabla_a^2 +
+\sum_{a=1}^M\sum_{b=a+1}^M\frac{Z_aZ_b}{R_{ab}} - \nonumber \\
+& & \left\langle\frac{1}{2}\sum_{i=1}^N\nabla_i^2 - 
 \sum_{i=1}^N\sum_{a=1}^M\frac{Z_a}{r_{ia}} +
-\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}\right\rangle
-\end{equation}
+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}\right\rangle \label{c2e18}
+\end{eqnarray}
 The expectation value of the electronic portion is the electronic enerygy 
 $E_{el}(\vec{R})$ so that,
 \begin{equation}\label{c2e19}
@@ -132,10 +134,13 @@ E_{el}(\vec{R}),
 \end{equation}
 where we used \eqref{c2e17}. Thus, the nuclei move in a potential
 \begin{equation}\label{c2e20}
-E_{tot} = E_{nucl} + E_{el}(\vec{R}).
-\end{equation}
-Because $E_{tot}$ includes electronic contribution as well, the
-eigenvalue equation
+E_{tot}(\vec{R}) = E_{nucl}(\vec{R}) + E_{el}(\vec{R}).
+end{equation}
+This is called the potential energy surface of the molecule on which the
+nuclear motion is confined.
+
+Because $E_{tot}$ includes electronic contribution as well, the eigenvalue 
+equation
 \begin{equation}\label{c2e21}
 H_{nucl}\Phi_{nucl} = E\Phi_{nucl},
 \end{equation}
