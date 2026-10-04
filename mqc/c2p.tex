@@ -1,0 +1,113 @@
+\chapter{Solution to exercises in chapter 2}
+\begin{enumerate}
+\item\label{c2p1} Given that the sets $\{\psi_i(\vec{r})\}$ and 
+$\{\phi_i(\vec{r})\}$ of $K$ spatial orbitals are orthonormal among themselves 
+but not with each other. That is, $\braket{\psi_i|\psi_j} = 
+\delta_{ij}, \braket{\phi_i|\phi_j} = \delta_{ij}$ but
+\[
+\braket{\psi_i|\phi_j} = S_{ij},
+\]
+which need not be zero. $S$ is called the overlap matrix. Let
+\begin{eqnarray*}
+\chi_{2i-1}(\vec{x}) &=& \psi_i(\vec{r})\alpha(\omega) \\
+\chi_{2i}(\vec{x}) &=& \phi_i(\vec{r})\beta(\omega) \\
+\end{eqnarray*}
+where $\alpha(+) = 1, \alpha(-) = 0, \beta(+) = 0, \beta(-) = 1$. Consider
+\begin{equation}\label{c2pe1}
+\braket{\chi_l|\chi_m} = \begin{dcases}
+1 & \text{ l = m } \\
+\braket{\psi_l|\psi_m} = \delta_{lm} & l \ne m, \text{both odd} \\
+\braket{\phi_l|\phi_m} = \delta_{lm} & l \ne m, \text{both even} \\
+\braket{\psi_l|\phi_m}\braket{\alpha|\beta} = 0 & l\text{ odd }m\text{ even} \\
+\braket{\phi_l|\psi_m}\braket{\beta|\alpha} = 0 & l\text{ even }m\text{ odd}
+\end{dcases}
+\end{equation}
+
+\item\label{c2p2} Independent electron approximation.
+\begin{eqnarray*}
+H\Psi^{HP} &=& \sum_{i=1}^N h_i\Psi^{HP} \\
+ &=& \sum_{i=1}^N h_i\prod_{j=1}^N\chi_j(\vec{x}_j) \\
+ &=& \sum_{i=1}^N \chi_1(\vec{x}_1)\ldots (\varepsilon_i\chi_i(\vec{x}_i))\ldots
+ \chi_N(\vec{x_N}) \\
+ &=& \left(\sum_{i=1}^N\varepsilon_i\right)\Psi^{HP}
+\end{eqnarray*}
+Thus $\Psi^{HP}$ is an eigenfunction of $H$ with eigenvalue $\varepsilon_1 + 
+\cdots + \varepsilon_N$.
+
+\item\label{c2p3} Normalisation of $2 \times 2$ Slater determinant.
+Given that
+\[
+\Psi(\vec{x}_1, \vec{x}_2) = \frac{1}{\sqrt{2}}
+(\chi_1(\vec{x}_1)\chi_2(\vec{x}_2) -\chi_1(\vec{x}_2)\chi_2(\vec{x}_1))
+\]
+\begin{eqnarray*}
+|\Psi|^2 &=& \frac{1}{2}\left[|\chi_1(\vec{x}_1)|^2|\chi_2(\vec{x}_2)|^2 -
+\chi_1^\ast(\vec{x}_1)\chi_1(\vec{x}_2)\chi_2^\ast(\vec{x}_2)\chi_2(\vec{x}_1)
+ - \right. \\
+& & \left.
+\chi_1^\ast(\vec{x}_2)\chi_1(\vec{x}_1)\chi_2^\ast(\vec{x}_1)\chi_2(\vec{x}_2)
++ |\chi_1(\vec{x}_2)|^2|\chi_2(\vec{x}_1)|^2\right]
+\end{eqnarray*}
+We use the integrals:
+\begin{eqnarray*}
+\int d\vec{x}_1|\chi_1(\vec{x}_1)^2| &=& 1 \\
+\int d\vec{x}_2|\chi_1(\vec{x}_2)^2| &=& 1 \\
+\int d\vec{x}_1 \chi_1^\ast(\vec{x}_1)\chi_2(\vec{x}_1) &=& 0 \\
+\int d\vec{x}_2 \chi_1^\ast(\vec{x}_2)\chi_2(\vec{x}_2) &=& 0 
+\end{eqnarray*}
+to conclude that 
+\[
+\int d\vec{x}_1 d\vec{x}_2 |\Psi(\vec{x}_1, \vec{x}_2)|^2 = 1.
+\]
+
+\item\label{c2p4} Comparison of eigenvalues of Hatree product and Slater
+determinant.
+Given that
+\begin{eqnarray*}
+h(1)\chi_i(\vec{x}_1) &=& \varepsilon_1\chi_i(\vec{x}_1) \\
+h(2)\chi_i(\vec{x}_2) &=& \varepsilon_2\chi_i(\vec{x}_2) 
+\end{eqnarray*}
+and $H = h(1) + h(2)$. Then,
+\begin{eqnarray*}
+H\Psi^{HP}_{12}(\vec{x}_1, \vec{x}_2) &=& H\chi_i(\vec{x}_1)\chi_j(\vec{x}_2) \\
+ &=& h(1)\chi_1(\vec{x}_1)\chi_j(\vec{x}_2) +
+     h(2)\chi_1(\vec{x}_1)\chi_j(\vec{x}_2) \\
+ &=& \varepsilon_i\chi_1(\vec{x}_1)\chi_j(\vec{x}_2) +
+     \varepsilon_j\chi_1(\vec{x}_1)\chi_j(\vec{x}_2) \\
+ &=& (\varepsilon_i + \varepsilon_j)\chi_1(\vec{x}_1)\chi_j(\vec{x}_2)
+\end{eqnarray*}
+Similarly, $H\Psi^{HP}_{21} = (\varepsilon_i + \varepsilon_j)\Psi^{HP}_{21}$.
+Now consider
+\begin{eqnarray*}
+h(1)\Psi(\vec{x}_1, \vec{x}_2) &=& \frac{1}{\sqrt{2}}
+(\varepsilon_i\chi_i(\vec{x}_1)\chi_j(\vec{x}_2) - 
+\varepsilon_j\chi_j(\vec{x}_1)\chi_i(\vec{x}_2)) \\
+h(2)\Psi(\vec{x}_1, \vec{x}_2) &=& \frac{1}{\sqrt{2}}
+(\varepsilon_j\chi_i(\vec{x}_1)\chi_j(\vec{x}_2) - 
+\varepsilon_i\chi_j(\vec{x}_1)\chi_i(\vec{x}_2)) 
+\end{eqnarray*}
+so that,
+\[
+H\Psi(\vec{x}_1, \vec{x}_2) = (\varepsilon_i + \varepsilon_j)
+\Psi(\vec{x}_1, \vec{x}_2)
+\]
+Thus, the Hartee product and the Slater determinant both have the same 
+eigenvalues.
+
+\item\label{c2p5} Orthonormality of Slater determinants.
+Let $\ket{K} = \ket{\chi_i\chi_j}$ and $\ket{L} = \ket{\chi_k\chi_l}$. Therefore,
+\begin{eqnarray*}
+\ket{K} &=&\frac{1}{\sqrt{2}}(\chi_i(1)\chi_j(2) - \chi_j(1)\chi_i(2)) \\
+\ket{L} &=&\frac{1}{\sqrt{2}}(\chi_k(1)\chi_l(2) - \chi_l(1)\chi_k(2)) 
+\end{eqnarray*}
+so that
+\begin{eqnarray*}
+2\braket{K|L} &=& \iint d1d2\left[\chi_i^\ast(1)\chi_k(1)\chi_j^\ast(2)\chi_l(2) - 
+ \chi_i^\ast(1)\chi_l(1)\chi_j^\ast(2)\chi_k(2) - \right. \\
+ & & \left. \chi_j^\ast(1)\chi_k(1)\chi_i^\ast(2)\chi_l(2) + 
+ \chi_j^\ast(1)\chi_l(1)\chi_i^\ast(2)\chi_k(2)\right] \\
+ &=& \delta_{ij}\delta_{jl} - \delta_{il}\delta{jk} - \delta_{jk}\delta_{il}
+ + \delta_{jl}\delta{ij} \\
+\braket{K|L} &=& \delta_{ij}\delta_{jl} - \delta_{il}\delta{jk}
+\end{eqnarray*}
+\end{enumerate}

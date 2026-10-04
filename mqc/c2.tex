@@ -281,21 +281,21 @@ to non-adiabatic techniques. We will not cover non-adiabatic situations in this
 book and will go back to the analysis of molecular structure where the
 Born-Oppenheimer approximation is always applicable.
 
-\section{Molecules and Solids}\label{c2s3}
+\section{Molecules and Crystals}\label{c2s3}
 A molecule is a stable collection of nuclei and electrons. If it has only one
 nucleus it is an atom \cite{barbatti2023empty}. If there nuclei are arranged in
-a periodic fashion it is a solid. An ideal solid is just an infinitely large 
+a periodic fashion it is a crystal. An ideal solid is just an infinitely large 
 molecule with a symmetrical arranged nuclei. The fundamental problem in each of
 these arrangements is the same. It is to find the energies of the electrons. 
 When one understands each of these systems quantum mechanically, one must bear 
 in mind that \cite{barbatti2023empty}:
 \begin{enumerate}
-\item Nuclei are not point masses. They too have and orbital, a region in space
-where they are likely to be found. Even in a hydrogen atom, we solve the two-body
-problem reduced to a one-body problem. The energy levels that we get are for the
-entire system and not just the electrons. A change in the energy affects both
-the electron and the proton. The wavefunction $\psi_{nlm}(\vec{r})$ is a
-function of
+\item Nuclei are not point masses. They too have an orbital, a region in space
+where they are likely to be found. For example, in a hydrogen atom, we solve 
+the two-body problem reduced to a one-body problem. The energy levels that we 
+get are for the entire system and not just the electrons. A change in the 
+energy affects both the electron and the proton. The wavefunction 
+$\psi_{nlm}(\vec{r})$ is a function of
 \begin{equation}\label{c2e35}
 \vec{r} = \vec{r}_e - \vec{r}_p,
 \end{equation}
@@ -380,4 +380,132 @@ If we choose the functions $\alpha_i, \alpha_j$ to be orthonormal then
 \int d\vec{x}\chi_i^\ast(\vec{x})\chi_j(\vec{x}) = (\delta_{ij})^2 = 
 \delta_{ij}.
 \]
+
+\section{The independent electron approximation}\label{c2s5}
+The electronic hamiltonian of \eqref{c2e15} is definitely a simplification of 
+the full molecular hamiltonian of \eqref{c2e14}. Yet, it is by no means trivial
+to solve for. One way to simplify it is assuming the electrons to be 
+independent of each other. Either we ignore the electron-electron repulsion or
+consider some sort of an average effect of all electrons so that the N-electron
+hamiltonian is
+\begin{equation}\label{c2e38}
+H = \sum_{i=1}^N h(i),
+\end{equation}
+where $h(i)$ is the hamiltonian of the $i$-th electron. Its eigenvalue equation
+is
+\begin{equation}\label{c2e39}
+h(i)\chi_j(\vec{x}_i) = \varepsilon_j\chi_j(\vec{x}_i).
+\end{equation}
+The coordinates of the $i$-th electron are $\vec{x}_i$. A wavefunction of the
+form
+\begin{equation}\label{c2e40}
+\Psi^{HP}(\vec{x}_1, \ldots, \vec{x}_N) = \chi_{i_1}(\vec{x}_1)\ldots
+\chi_{i_N}(\vec{x}_N)
+\end{equation}
+is called the Hartree product. We show in problem \ref{c2p2} that $\Psi^{HP}$ 
+is an eigenfunction of the hamiltonian in \eqref{c2e38} with eigenvalue 
+$\varepsilon_1 + \cdots + \varepsilon_N$. The term
+\[
+|\Psi^{HP}|^2 d\vec{x}_1\ldots d\vec{x}_N = \prod|\chi_{i_k}|^2d\vec{x}_{i_k}
+\]
+suggests that the probability of finding electron $1$ in a volume element
+$d\vec{x}_1$ at $\vec{x}_1$ and electron $2$ in a volume element $d\vec{x}_2$
+at $\vec{x}_2$ and so on is the product of probability of finding electon $1$
+in $d\vec{x}_1$ at $\vec{x}_1$, the probability of finding electron $2$ in 
+$d\vec{x}_2$ at $\vec{x}_2$ and so on. This is indeed the definition of
+independent random variables.
+
+Although $\Psi^{HP}$ satisfies the criterion for the electrons to be independent
+it fails to enforce the Pauli exclusion principle. A wavefunction of the
+form
+\begin{equation}\label{c2e41}
+\Psi(\vec{x}_1, \ldots, \vec{x}_N) = \frac{1}{\sqrt{N!}}\begin{vmatrix}
+\chi_{i_1}(\vec{x}_1) & \chi_{i_2}(\vec{x}_1) & \ldots & \chi_{i_N}(\vec{x}_1) \\
+\chi_{i_1}(\vec{x}_2) & \chi_{i_2}(\vec{x}_2) & \ldots & \chi_{i_N}(\vec{x}_2) \\
+\vdots \\
+\chi_{i_1}(\vec{x}_N) & \chi_{i_2}(\vec{x}_N) & \ldots & \chi_{i_N}(\vec{x}_N) \\
+\end{vmatrix}
+\end{equation}
+is called the \emph{Slater determinant}. Each row of the determinant refers
+to coordinates $\vec{x}_i$ while each column refers to a state $\chi_{i_k}$.
+From elementary properties of determinants it is clear that
+\begin{equation}\label{c2e42}
+\Psi(\vec{x}_1, \ldots, \vec{x}_i, \ldots, \vec{x}_j, \ldots, \vec{x}_N) = 
+-\Psi(\vec{x}_1, \ldots, \vec{x}_j, \ldots, \vec{x}_i, \ldots, \vec{x}_N),
+\end{equation}
+that is, the wavefunction is anti-symmetric. Therefore, it is impossible to
+have two electrons in the same state. In problem \ref{c2p4} we show that the
+wavefunction of \eqref{c2e41} is an eigenfunction of the independent electron
+eigenfunction with eigenvalues $\varepsilon_1 + \cdots + \varepsilon_N$. Unlike
+the true independence of the electronic states in a Hartree product, the Slater
+determinant brings in correlation between electrons. By not permitting two 
+electrons to be in the same state, it introduces a correlation between electrons
+with spins in the same direction. However, there is no correlation if the 
+electrons are anti-parallel. We will demonstrate it below using the simple case
+of $N = 2$ electrons.
+
+Suppose the two electrons have parallel spins so that their spin-orbitals are
+\begin{eqnarray}
+\chi_1(\vec{x}_1) &=& \psi_1(\vec{r}_1)\alpha(\omega) \label{c2e43} \\
+\chi_2(\vec{x}_2) &=& \psi_1(\vec{r}_2)\alpha(\omega) \label{c2e44}
+\end{eqnarray}
+so that
+\[
+\Psi(\vec{x}_1, \vec{x}_2) = \frac{\alpha^2(\omega)}{\sqrt{2}}[\psi_1(\vec{r}_1)
+\psi_2(\vec{r}_2) - \psi_1(\vec{r}_2)\psi_2(\vec{r}_1)]
+\]
+and
+\begin{eqnarray*}
+|\Psi|^2 &=& \frac{1}{2}\left[|\psi_1(\vec{r}_1)|^2|\psi_2(\vec{r}_2)|^2 + 
+|\psi_1(\vec{r}_2)|^2|\psi_2(\vec{r}_1)|^2 - \right. \\ 
+ & & \left. 
+ \psi_1^\ast(\vec{r}_1)\psi_1(\vec{r}_2)\psi_2^\ast(\vec{r}_2)\psi_2(\vec{r}_1)-
+\psi_1^\ast(\vec{r}_2)\psi_1(\vec{r}_1)\psi_2^\ast(\vec{r}_1)\psi_2(\vec{r}_2)
+\right]
+\end{eqnarray*}
+The last two terms are called \emph{exchange correlation} and their presence
+ensures that when $\vec{r}_1 = \vec{r}_2$, $|\Psi|^2 = 0$. The forbiddance of
+two electrons with parallel spins at the same position is sometimes described
+by the existence of a \emph{Fermi hole} at each position. The presence of an
+electron at $\vec{r}_1$ creates a hole in the wavefunction of all other 
+electrons with spins parallel to it at that position. (This is not the same as
+the ``hole" in a semiconductor crystal.)
+
+If, on the other hand, the electrons had anti-parallel spins, their spin-orbitals
+will be
+\begin{eqnarray}
+\chi_1(\vec{x}_1) &=& \psi_1(\vec{r}_1)\alpha(\omega_1) \label{c2e45} \\
+\chi_2(\vec{x}_2) &=& \psi_1(\vec{r}_2)\beta(\omega_2) \label{c2e46}
+\end{eqnarray}
+so that
+\[
+\Psi(\vec{x}_1, \vec{x}_2) = \frac{1}{\sqrt{2}}
+[\psi_1(\vec{r}_1) \psi_2(\vec{r}_2)\alpha(\omega_1)\beta(\omega_2) - 
+\psi_1(\vec{r}_2)\psi_2(\vec{r}_1)\alpha(\omega_2)\beta(\omega_1)]
+\]
+and
+\[
+|\Psi|^2 = \frac{1}{2}\left[|\psi_1(\vec{r}_1)|^2|\psi_2(\vec{r}_2)|^2 + 
+|\psi_1(\vec{r}_2)|^2|\psi_2(\vec{r}_1)|^2\right]
+\]
+The probability of this state is the average of probability of the state in
+which the first electron has coordinates $\vec{x}_1$ and the second one has
+$\vec{x}_2$ and the state when the electrons are exchanged. Since this electrons
+are indistingushable this result just says that the probability of the 
+two-electron state is the product of probabilities of the corresponding 
+one-electron states. In other words, there is no correlation.
+
+\subsection{A simpler notation for Slater determinants}
+The expression on the right hand side of \eqref{c2e41} is quite cumbersome. We
+can abbreviate it as
+\begin{equation}\label{c2e47}
+\ket{\Psi(\vec{x}_1, \ldots, \vec{x}_N)} = \ket{\chi_{i_1}(\vec{x}_1)\ldots
+\chi_{i_N}(\vec{x}_N)}
+\end{equation}
+and if we agree to label electrons in the same order as the coordinates it can
+be further simplified to
+\begin{equation}\label{c2e48}
+\ket{\Psi(\vec{x}_1, \ldots, \vec{x}_N)} = \ket{\chi_{i_1}\ldots\chi_{i_N}}.
+\end{equation}
+We will use this notation wherever it is possible to use unambiguously.
 
