@@ -110,4 +110,62 @@ so that
  + \delta_{jl}\delta{ij} \\
 \braket{K|L} &=& \delta_{ij}\delta_{jl} - \delta_{il}\delta{jk}
 \end{eqnarray*}
+
+\item\label{c2p6} Orthonormality of molecular orbitals.
+We will first show that the Guassian orbitals
+\[
+\phi(\vec{r}) = 
+\left(\frac{2\alpha}{\pi}\right)^{3/4}e^{-\alpha|\vec{r}-\vec{R}|^2}
+\]
+is normalised.
+Let
+\[
+I = \int d\vec{r} |\phi(\vec{r})|^2 = \left(\frac{2\alpha}{\pi}\right)^{3/2}
+\iiint dxdydz e^{-2\alpha (\vec{r} - \vec{R})^2}
+\]
+Let $\vec{r}^\op = \vec{r} - \vec{R}$ so that
+\[
+I = \left(\frac{2\alpha}{\pi}\right)^{3/2}
+\iiint dx^\op dy^\op dz^\op e^{-2\alpha {r^\op}^2}
+= \left(\frac{2\alpha}{\pi}\right)^{3/2}
+\left(\int_{-\infty}^\infty e^{-2\alpha x^2}dx\right)^3
+\]
+so that $\braket{\phi|\phi} = 1$.
+
+The remaining part is easy. We have
+\begin{eqnarray*}
+\psi_1 &=& \frac{\phi_1 + \phi_2}{\sqrt{2(1 + S_{12})}} \\
+\psi_2 &=& \frac{\phi_1 - \phi_2}{\sqrt{2(1 - S_{12})}} 
+\end{eqnarray*}
+where 
+\[
+S_{12} = \braket{\phi_1|\phi_2}
+\]
+and
+\begin{eqnarray*}
+\phi_1&=&\left(\frac{2\alpha}{\pi}\right)^{3/4}e^{-\alpha|\vec{r}-\vec{R}_1|^2} \\
+\phi_2&=&\left(\frac{2\alpha}{\pi}\right)^{3/4}e^{-\alpha|\vec{r}-\vec{R}_2|^2},
+\end{eqnarray*}
+where $\vec{R}_1$ and $\vec{R}_2$ are the positions of the two nuclei.
+Now,
+\[
+\braket{\psi_1|\psi_2} = \frac{\braket{\phi_1|\phi_1} - \braket{\phi_1|\phi_2}
++ \braket{\phi_2|\phi_1} - \braket{\phi_2|\phi_2}}{2\sqrt{1 - S_{12}^2}}
+\]
+Since the basis functions are real, $\braket{\phi_1|\phi_2} = \braket{\phi_2|
+\phi_2}$. They are also normalised so that the numerator vanishes making
+$\braket{\psi_1|\psi_2} = 0$.
+
+We next consider,
+\[
+\braket{\psi_1|\psi_1} = \frac{\braket{\phi_1|\phi_1} + \braket{\phi_1|\phi_2}
++ \braket{\phi_2|\phi_1} + \braket{\phi_2|\phi_2}}{2(1 + S_{12})}
+= \frac{1 + S_{12} + S_{12} + 1}{2(1 + S_{12})} = 1
+\]
+and
+\[
+\braket{\psi_2|\psi_2} = \frac{\braket{\phi_1|\phi_1} - \braket{\phi_1|\phi_2}
+- \braket{\phi_2|\phi_1} + \braket{\phi_2|\phi_2}}{2(1 - S_{12})}
+= \frac{1 - S_{12} - S_{12} + 1}{2(1 - S_{12})} = 1
+\]
 \end{enumerate}
