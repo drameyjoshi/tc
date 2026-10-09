@@ -8,3 +8,5 @@
 *.dvi
 *.swp
 amo/foundation/_book/
+*.fls
+*.fdb_latexmk
