@@ -509,3 +509,175 @@ be further simplified to
 \end{equation}
 We will use this notation wherever it is possible to use unambiguously.
 
+\section{Hartree-Fock method}\label{c2s6}
+The Hartree-Fock method uses an independent-particle model where the trial 
+$N$-electron wavefunction is a single Slater determinant. The optimal 
+one-electron spin-orbitals satisfy the canonical eigenvalue equations:
+\begin{equation}\label{c2e49}
+f(1)\chi_i(\mathbf{x}_1) = \varepsilon_i\chi_i(\mathbf{x}_1), 
+\quad i = 1, 2, \dots
+\end{equation}
+where $f(1)$ is the one-electron Fock operator representing the effective 
+hamiltonian of an electron moving in the average field of all electrons:
+\begin{equation}\label{c2e50}
+f(1) = -\frac{1}{2}\nabla_1^2 - \sum_{a=1}^M \frac{Z_a}{r_{1a}} + 
+v^{\text{HF}}(1)
+\end{equation}
+Here, $v^{\text{HF}}(1) = \sum_{b=1}^N [\mathcal{J}_b(1) - \mathcal{K}_b(1)]$ 
+is the Hartree-Fock potential composed of local Coulomb and non-local exchange 
+operators.
+
+Because $v^{\text{HF}}$ depends non-linearly on its own eigenfunctions 
+$\{\chi_b\}$, the problem is solved using the \emph{Self-Consistent Field (SCF)}
+procedure: an initial set of trial orbitals is used to construct the Fock 
+operator, which is diagonalized to yield new orbitals, iterating until the 
+orbital coefficients and energies converge to self-consistency.
+
+In practice, the molecular orbitals are expanded in a finite set of $K$ fixed 
+basis functions $\{\phi_\mu(\mathbf{r})\}$. Expanding into $2K$ spin-orbitals 
+yields $2K$ solutions to the Roothaan–Hall / Pople–Nesbet matrix equations. By 
+the Aufbau principle, the $N$ lowest-energy spin-orbitals form the ground-state 
+Slater determinant, while the remaining $2K - N$ spin-orbitals represent 
+unoccupied (virtual) states. As the basis set is systematically expanded toward 
+completeness, the ground-state expectation value decreases monotonically toward 
+the Hartree-Fock limit. This description of the algorithm is not complete. We 
+will describe it accurately in the next chapter. However, this broad-brush
+summary is reasonably accurate.
+
+\section{Minimal basis model for H$_2$}
+This section introduces a convenient notation and gives a glimpse of the Hartree-
+Fock method. A few statements in it will be unsubstantiated and we will point
+them out.
+
+Consider a hydrogen molecule with nuclei at positions $\vec{R}_1$ and 
+$\vec{R}_2$. The 1s atomic orbitals centred at them can be denoted by $\phi_1$
+and $\phi_2$. Thus, with respect to common origin, they are $\phi_1(\vec{r} - 
+\vec{R}_1)$ and $\phi_2(\vec{r} - \vec{R}_2)$. We assume them to be normalised.
+We define the overlap between them as
+\begin{equation}\label{c2e51}
+S_{ij} = \int d\vec{r}\phi_1^\ast(\vec{r}-\vec{R}_1)\phi_2(\vec{r} - \vec{R}_2).
+\end{equation}
+It is a function of $\vec{R}_1 - \vec{R}_2$. As $|\vec{R}_1 - \vec{R}_2| 
+\rightarrow 0$, $S_{ij} \rightarrow 1$ and as $|\vec{R}_1 - \vec{R}_2|
+\rightarrow \infty$, $S_{ij} \rightarrow 0$.
+
+We can combine $\phi_1$ and $\phi_2$ to form two molecular orbitals
+\begin{eqnarray}
+\psi_1 &=& \frac{\phi_1 + \phi_2}{\sqrt{2(1 + S_{12})}} \label{c2e52} \\
+\psi_2 &=& \frac{\phi_1 - \phi_2}{\sqrt{2(1 - S_{12})}} \label{c2e53}
+\end{eqnarray}
+In the solution to problem \ref{c2p6} we show that
+\begin{enumerate}
+\item The atomic orbitals $\phi_1$ and $\phi_2$ are normalised even if we assume
+them to be gaussian instead of the true 1s orbitals of a hydrogen atom.
+\item The set $\{\psi_1, \psi_2\}$ of the molecular orbitals is orthonormal.
+\end{enumerate}
+
+Later on we will show that a rigorous Hatree-Fock procedure leads to the same
+expressions. The two spatial molecular orbitals give rise to four spin orbitals
+\begin{empheq}[right=\empheqrbrace]{equation}
+\begin{aligned}
+\chi_1(\vec{x}) &= \psi_1(\vec{r})\alpha(\omega) \\
+\chi_1(\vec{x}) &= \psi_1(\vec{r})\beta(\omega) \\
+\chi_2(\vec{x}) &= \psi_2(\vec{r})\alpha(\omega) \\
+\chi_2(\vec{x}) &= \psi_2(\vec{r})\beta(\omega) 
+\end{aligned}\label{c2e54}
+\end{empheq}
+Clearly, $\chi_1$ and $\chi_2$ are degenerate. So are $\chi_3$ and $\chi_4$.
+The first pair has energy lower than the second one. The first pair is called
+the bonding orbital while the second one is called the anti-bonding orbital.
+The Hartree-Fock ground state in this model is
+\begin{equation}\label{c2e55}
+\ket{\Psi_0} = \ket{\chi_1\chi_2}
+\end{equation}
+We now introduce the notation
+\begin{equation}\label{c2e56}
+\chi_1 \equiv \psi_1; \chi_2 \equiv \bar{\psi}_1;
+\chi_3 \equiv \psi_2; \chi_4 \equiv \bar{\psi}_2
+\end{equation}
+so that we can as well write \eqref{c2e56}
+\begin{equation}\label{c2e57}
+\ket{\Psi_0} = \ket{\psi_1,\bar{\psi}_1} = \ket{1\bar{1}}.
+\end{equation}
+
+\section{Notation  for excited states}\label{c2s7}
+Consider an $N$-electron system modelled by an infinite basis of molecular
+orbitals. If we arrange the spin orbitals in increasing order of their 
+eigenvalues. Thus, $\chi_1, \ldots, \chi_N$ are the lowest $N$ energies so that 
+the ground state is
+\begin{equation}\label{c2e58}
+\ket{\Psi_0} = \ket{\chi_1\chi_2\ldots\chi_N}.
+\end{equation}
+We let $a, b, c, \ldots$ represent the filled spin orbirals and $r, s, \ldots$
+represent the empty ones. If an electron from $\chi_a$ is excited to $\chi_r$
+we denote that state as
+\begin{equation}\label{c2e59}
+\ket{\Psi_a^r} = \ket{\chi_1\ldots\chi_r\chi_b\ldots\chi_N}.
+\end{equation}
+If two electrons, one each from states $\chi_a$ and $\chi_b$ are excited to
+$\chi_r$ and $\chi_s$ respectively then this doubly excited state is denoted by
+\begin{equation}\label{c2e60}
+\ket{\Psi_{ab}^{rs}} = \ket{\chi_1\ldots\chi_r\chi_s\ldots\chi_N}.
+\end{equation}
+Higher order excited states are represented similarly. We can express the any
+state of the system as
+\begin{equation}\label{c2e61}
+\ket{\Phi} = c_0\ket{\Psi_0} + \sum_{a<r}c_a^r\ket{\Psi_a^r} +
+\sum_{a<b;r<s}c_{ab}^{rs}\ket{\Psi_{ab}^{rs}} +
+\sum_{a<b<c;r<s;t}c_{abc}^{rst}\ket{\Psi_{abc}^{rst}} + \cdots
+\end{equation}
+The right hand side has $N + 1$ summations, reprenting $0, 1, \ldots, N$
+excited electrons. Except for the first term, all others are infinite summations.
+The infinite set of determinants $\{\ket{\Psi_i}\} = \{\ket{\Psi_0}, 
+\ket{\Psi_a^r}, \ket{\Psi_{ab}^{rs}}, \ldots\}$ is the infinite basis in terms 
+of which any $N$-electron state can be represented. Every member $\ket{\Psi_i}$
+of this basis can be described by a configuration of the spin orbitals, the
+procedure of writing an $N$-electron state in terms of this basis is called
+\emph{configuration interaction}, CI.
+
+The hamiltonian is expressed as the matrix $\braket{\Psi_i|H|\Psi_i}$ in this
+basis. Its lowest eigenvalue $E_0$ is the exact, non-relativistic ground
+state energy of the Born-Oppenheimer approximated system. If $E_0^{HF}$ is the
+Hartree-Fock limit then
+\begin{equation}\label{c2e62}
+E_\text{corr} = E_0 - E_0^{HF} \le 0.
+\end{equation}
+is called the \emph{electron correlation energy}. It is non-zero because the
+Hartree-Fock method is an independent electron method that ignores the 
+correlation between them.
+
+If the minimal basis of an $N$-electron problem has $2K$ spin-orbitals then
+there will be
+\[
+\binom{2K}{N}
+\]
+possible configurations of the $N$ electrons among them. Expressing an arbitrary
+$N$-electron state in terms of these is called the \emph{full configuration
+interaction} or full CI. Problem \ref{c2p7} determines the size of the problem
+for a simple molecule like benzene. A full CI is computationally prohibitive
+because it has $O(10^{20})$ terms.
+
+We will demonstrate the full CI for the hydrogen molecule. The minimal basis
+of \eqref{c2e54} has $4$ spin-orbitals. Therefore, the full CI has 
+\[
+\binom{4}{2} = 6
+\]
+states $\{\ket{1\bar{1}}, \ket{12}, \ket{\bar{1}2}, \ket{1\bar{2}}, 
+\ket{\bar{1}\bar{2}}, \ket{2\bar{2}}\}$. Of these, the first one is the ground
+state, the last one is a doubly excited state and the rest are singly excited
+states. Furthermore, only the ground and the doubly excited states have the
+gerade symmetry, the rest are ungerade. The true ground state of the molecule is
+a gerade state. Therefore, it can be expressed only in terms of the gerade
+states of the full CI. Thus,
+\begin{equation}\label{c2e63}
+\ket{\Phi_0} = c_0\ket{1\bar{1}} + c_{12}^{34}\ket{2\bar{2}}.
+\end{equation}
+The full CI hamiltonian matrix is
+\begin{equation}\label{c2e64}
+H = \begin{bmatrix} 
+\braket{1\bar{1}|H|1\bar{1}} & \braket{1\bar{1}|H|2\bar{2}} \\
+\braket{2\bar{2}|H|1\bar{1}} & \braket{2\bar{2}|H|2\bar{2}}
+\end{bmatrix}
+\end{equation}
+Its lowest eigenvalue is the exact, non-relativistic ground state energy of the
+Hydrogen molecule under Born-Oppenheimer approximation.

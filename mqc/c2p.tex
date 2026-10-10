@@ -168,4 +168,21 @@ and
 - \braket{\phi_2|\phi_1} + \braket{\phi_2|\phi_2}}{2(1 - S_{12})}
 = \frac{1 - S_{12} - S_{12} + 1}{2(1 - S_{12})} = 1
 \]
+
+\item\label{c2p7} Full CI for benzene molecule.
+If the minimal basis set for beneze has $72$ spin orbitals, $2K = 72$. The 
+number of electrons in the molecule is $(6 \times 6) + 6 = 42$. Therefore, the
+full CI will have
+\[
+\binom{72}{42} \approx 2 \times 10^{20}
+\]
+terms. One of these will be the ground state. To create an excited state, we
+must choose one out of $42$ electrons in ground state and place it in one out
+of $30$ excited states. There are $42 \times 30 = 1260$ ways to do so, each one
+of them described by a configuration. The number of doubly excited states is
+\[
+\binom{42}{2}\binom{30}{2} = \frac{42 \times 41}{2}\frac{30 \times 29}{2} =
+374535.
+\]
+
 \end{enumerate}
