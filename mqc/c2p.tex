@@ -185,4 +185,21 @@ of them described by a configuration. The number of doubly excited states is
 374535.
 \]
 
+\item Matrix elements of the $O_1$-operator.
+Refer to equations \eqref{c2e73} to \eqref{c2e77}.
+
+\item\label{c2p9} Hermiticity of the matrix of \eqref{c2e85}
+From equation \eqref{c2e80}
+\[
+\braket{ij|kl} = \iint d\vec{x}_1d\vec{x}_2
+\chi_i^\ast(\vec{x}_1)\chi_j^\ast(\vec{x}_2)r_{12}^{-1}
+\chi_k(\vec{x}_1)\chi_l(\vec{x}_2)
+\]
+so that
+\[
+\braket{ij|kl}^\ast = \braket{kl|ij}
+\]
+We also have $\braket{ij|kl} = \braket{ji|kl} = \braket{ji|lk}$.
+Therefore, $(\braket{12|34} - \braket{12|43})^\ast = \braket{34|12} - 
+\braket{43|12} = \braket{34|12} - \braket{34|21}$. This proves the hermiticity.
 \end{enumerate}

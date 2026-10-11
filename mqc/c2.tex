@@ -681,3 +681,233 @@ H = \begin{bmatrix}
 \end{equation}
 Its lowest eigenvalue is the exact, non-relativistic ground state energy of the
 Hydrogen molecule under Born-Oppenheimer approximation.
+
+We will now evaluate these matrix elements. It is convenient to write
+\begin{equation}\label{c2e65}
+H = -\frac{1}{2}\nabla_1^2 - \sum_a\frac{1}{r_{1a}}
+    -\frac{1}{2}\nabla_2^2 - \sum_a\frac{1}{r_{2a}} + \frac{1}{r_{12}}
+\end{equation}
+as
+\begin{equation}\label{c2e66}
+H = (h(1) + h(2)) + \frac{1}{r_{12}} = O_1 + \frac{1}{r_{12}},
+\end{equation}
+where the operator $O_1$ is the sum of two one-electron hamiltonians. Recall 
+that the ground state 
+\[
+\ket{\Psi_0} = \ket{1\bar{1}} = \frac{1}{\sqrt{2!}}\begin{vmatrix}
+\chi_1(\vec{x}_1) & \chi_1(\vec{x}_2) \\
+\chi_2(\vec{x}_1) & \chi_2(\vec{x}_2) 
+\end{vmatrix}
+\]
+so that
+\[
+\ket{1\bar{1}} = \frac{1}{\sqrt{2}}(\chi_1(\vec{x}_1)\chi_2(\vec{x}_2) - 
+\chi_1(\vec{x}_2)\chi_2(\vec{x}_1))
+\]
+and
+\begin{equation}\label{c2e67}
+\begin{aligned}
+2\braket{1\bar{1}|h(1)|1\bar{1}} &= \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)h(1)\chi_1(\vec{x}_1)\chi_2(\vec{x}_2)
+- \\
+ &\quad \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)h(1)\chi_2(\vec{x}_1)\chi_1(\vec{x}_2)-
+\\
+ &\quad  \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_2)\chi_2^\ast(\vec{x}_1)h(1)\chi_1(\vec{x}_1)\chi_2(\vec{x}_2) +
+\\
+ &\quad  \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_2)\chi_2^\ast(\vec{x}_1)h(1)\chi_2(\vec{x}_1)\chi_1(\vec{x}_2)
+\end{aligned}
+\end{equation}
+Using \eqref{c2e54}, we see that
+\[
+\begin{aligned}
+\int d\vec{x}_2\chi_2^\ast(\vec{x}_2)\chi_2(\vec{x}_2) &= 
+\int d\omega \beta^\ast(\omega)\beta(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_1(\vec{r}_2) \\
+ &= 1 \times 1 = 1 \\
+\int d\vec{x}_2\chi_2^\ast(\vec{x}_2)\chi_1(\vec{x}_2) &= 
+\int d\omega \beta^\ast(\omega)\alpha(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_1(\vec{r}_2) \\
+ &= 0 \times 1 = 0 \\
+\int d\vec{x}_2\chi_1^\ast(\vec{x}_2)\chi_2(\vec{x}_2) &= 
+\int d\omega \alpha^\ast(\omega)\beta(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_1(\vec{r}_2) \\
+ &= 0 \times 1 = 0 \\
+\int d\vec{x}_2\chi_1^\ast(\vec{x}_2)\chi_2(\vec{x}_2) &= 
+\int d\omega \alpha^\ast(\omega)\alpha(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_1(\vec{r}_2) \\
+ &= 1 \times 1 = 1 
+\end{aligned}
+\]
+Substituting this in \eqref{c2e67} we get
+\begin{equation}\label{c2e68}
+\begin{aligned}
+\braket{1\bar{1}|h(1)|1\bar{1}} &= 
+\frac{1}{2}\int d\vec{x}_1\chi_1^\ast(\vec{x}_1)h(1)\chi_1(\vec{x}_1) + \\
+ &\quad\frac{1}{2}\int d\vec{x}_1 \chi_2^\ast(\vec{x}_1)h(1)\chi_2(\vec{x}_1)
+\end{aligned}
+\end{equation}
+Similarly, we can show that
+\begin{equation}\label{c2e69}
+\begin{aligned}
+\braket{1\bar{1}|h(2)|1\bar{1}} &= 
+\frac{1}{2}\int d\vec{x}_2\chi_2^\ast(\vec{x}_2)h(2)\chi_2(\vec{x}_2) + \\
+ &\quad\frac{1}{2}\int d\vec{x}_2 \chi_2^\ast(\vec{x}_2)h(2)\chi_2(\vec{x}_2) \\
+ &= \braket{1\bar{1}|h(1)|1\bar{1}}
+\end{aligned}
+\end{equation}
+so that
+\begin{equation}\label{c2e70}
+\braket{1\bar{1}|O_1|1\bar{1}} = 
+\int d\vec{x}_1\chi_1^\ast(\vec{x}_1)h(1)\chi_1(\vec{x}_1) +
+\int d\vec{x}_1 \chi_2^\ast(\vec{x}_1)h(1)\chi_2(\vec{x}_1).
+\end{equation}
+Integrals of this kind are found commonly enough so that they deserve a 
+simplified notation
+\begin{equation}\label{c2e71}
+\braket{i|h|j} = 
+\int d\vec{x}_1\chi_i^\ast(\vec{x}_1)h(\vec{r}_1)\chi_j(\vec{x}_1)
+\end{equation}
+so that
+\begin{equation}\label{c2e72}
+\braket{1\bar{1}|O_1|1\bar{1}} = \braket{1|h|1} + \braket{2|h|2}.
+\end{equation}
+
+The double excited state
+\[
+\ket{\Psi_{12}^{34}} = \ket{2\bar{2}} = \frac{1}{\sqrt{2!}}\begin{vmatrix}
+\chi_3(\vec{x}_1) & \chi_3(\vec{x}_2) \\
+\chi_4(\vec{x}_1) & \chi_4(\vec{x}_2)
+\end{vmatrix}
+\]
+so that
+\[
+\ket{2\bar{2}} = \frac{1}{\sqrt{2}}[\chi_3(\vec{x}_1)\chi_4(\vec{x}_2) -
+\chi_3(\vec{x}_2)\chi_4(\vec{x}_1)]
+\]
+Using the same steps as starting from \eqref{c2e67}, we get the analogue of
+\eqref{c2e72},
+\begin{equation}\label{c2e73}
+\braket{2\bar{2}|O_1|2\bar{2}} = \braket{3|h|3} + \braket{4|h|4}.
+\end{equation}
+
+We will now evaluate $\braket{1\bar{1}|O_1|2\bar{2}}$. To do so, we first need
+\begin{equation}\label{c2e74}
+\begin{aligned}
+2\braket{1\bar{1}|h(1)|2\bar{2}} &= \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)h(1)\chi_3(\vec{x}_1)\chi_4(\vec{x}_2)
+- \\
+ &\quad \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)h(1)\chi_3(\vec{x}_2)\chi_4(\vec{x}_1)-
+\\
+ &\quad  \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_2)\chi_2^\ast(\vec{x}_1)h(1)\chi_3(\vec{x}_1)\chi_4(\vec{x}_2) +
+\\
+ &\quad  \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_2)\chi_2^\ast(\vec{x}_1)h(1)\chi_3(\vec{x}_2)\chi_4(\vec{x}_1)
+\end{aligned}
+\end{equation}
+As we did before, we first evaluate the $\vec{x}_2$ integrals using \eqref{c2e54}.
+\[
+\begin{aligned}
+\int d\vec{x}_2\chi_2^\ast(\vec{x}_2)\chi_4(\vec{x}_2) &= 
+\int d\omega \alpha^\ast(\omega)\alpha(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_2(\vec{r}_2) \\
+ &= 1 \times 0 = 0 \\
+\int d\vec{x}_2\chi_2^\ast(\vec{x}_2)\chi_3(\vec{x}_2) &= 
+\int d\omega \alpha^\ast(\omega)\beta(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_1(\vec{r}_2) \\
+ &= 0 \times 1 = 0 \\
+\int d\vec{x}_2\chi_1^\ast(\vec{x}_2)\chi_4(\vec{x}_2) &= 
+\int d\omega \alpha^\ast(\omega)\beta(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_1(\vec{r}_2) \\
+ &= 0 \times 1 = 0 \\
+\int d\vec{x}_2\chi_1^\ast(\vec{x}_2)\chi_3(\vec{x}_2) &= 
+\int d\omega \alpha^\ast(\omega)\alpha(\omega)\int d\vec{r}_2\psi_1^\ast(\vec{r}_2)
+\psi_2(\vec{r}_2) \\
+ &= 1 \times 0 = 0 
+\end{aligned}
+\]
+Substituting these in \eqref{c2e74} we get
+\begin{equation}\label{c2e75}
+\braket{1\bar{1}|h(1)|2\bar{2}} = 0.
+\end{equation}
+Similarly, we can show that
+\begin{equation}\label{c2e76}
+\braket{1\bar{1}|h(2)|2\bar{2}} = 0
+\end{equation}
+so that
+\begin{equation}\label{c2e77}
+\braket{1\bar{1}|O_1|2\bar{2}} = 0.
+\end{equation}
+This completes the evaluation of all four matrix elements of \eqref{c2e64} but
+for the $O_1$ operator. We will next evaluate the elements for $r_{12}^{-1}$.
+\begin{equation}\label{c2e78}
+\begin{aligned}
+2\braket{1\bar{1}|r_{12}^{-1}|1\bar{1}} &= \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)r_{12}^{-1}\chi_1(\vec{x}_1)
+\chi_2(\vec{x}_2)
+- \\
+ &\quad \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)r_{12}^{-1}\chi_2(\vec{x}_1)
+\chi_1(\vec{x}_2)-
+\\
+ &\quad  \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_2)\chi_2^\ast(\vec{x}_1)r_{12}^{-1}\chi_1(\vec{x}_1)
+\chi_2(\vec{x}_2) +
+\\
+ &\quad  \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_2)\chi_2^\ast(\vec{x}_1)r_{12}^{-1}\chi_2(\vec{x}_1)
+\chi_1(\vec{x}_2)
+\end{aligned}
+\end{equation}
+Since 
+\[
+\frac{1}{r_{12}} = \frac{1}{|\vec{r}_1 - \vec{r}_2|} = 
+\frac{1}{|\vec{r}_2 - \vec{r}_1|}
+\]
+we can interchange the variables of integration in the last two integrals and
+observe that the fourth term is identical to the first one and that the third
+term is same as the second one. Therefore,
+\begin{equation}\label{c2e79}
+\begin{aligned}
+\braket{1\bar{1}|r_{12}^{-1}|1\bar{1}} &= \iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)r_{12}^{-1}\chi_1(\vec{x}_1)
+\chi_2(\vec{x}_2) - \\
+ &\quad\iint d\vec{x}_1d\vec{x}_2
+\chi_1^\ast(\vec{x}_1)\chi_2^\ast(\vec{x}_2)r_{12}^{-1}\chi_2(\vec{x}_1)
+\chi_1(\vec{x}_2)
+\end{aligned}
+\end{equation}
+These two-electron integrals also occur quite frequently to warrant simplifying
+symbols. Let
+\begin{equation}\label{c2e80}
+\braket{ij|kl} = \iint d\vec{x}_1d\vec{x}_2
+\chi_i^\ast(\vec{x}_1)\chi_j^\ast(\vec{x}_2)r_{12}^{-1}
+\chi_k(\vec{x}_1)\chi_l(\vec{x}_2).
+\end{equation}
+We can write \eqref{c2e79} as
+\begin{equation}\label{c2e81}
+\braket{1\bar{1}|r_{12}^{-1}|1\bar{1}} = \braket{12|12} - \braket{12|21}.
+\end{equation}
+It is easy to see that
+\begin{eqnarray}
+\braket{2\bar{2}|r_{12}^{-1}|2\bar{2}} &=& \braket{34|34}-\braket{34|43}
+\label{c2e82} \\
+\braket{1\bar{1}|r_{12}^{-1}|2\bar{2}} &=& \braket{12|34}-\braket{12|43}
+\label{c2e83} \\
+\braket{2\bar{2}|r_{12}^{-1}|1\bar{1}} &=& \braket{34|12}-\braket{34|21}
+\label{c2e84}
+\end{eqnarray}
+In terms of these one- and two-electron integrals, we can write the full CI
+hamiltonian matrix of \eqref{c2e64} as
+\begin{equation}\label{c2e85}
+H = \begin{bmatrix}
+\braket{1|h|1}+\braket{2|h|1}+\braket{12|12}-\braket{12|21} &
+\braket{12|34} - \braket{12|43} \\
+\braket{34|12} - \braket{34|21} &
+\braket{3|h|3}+\braket{4|h|3}+\braket{34|34}-\braket{34|43} &
+\end{bmatrix}
+\end{equation}
