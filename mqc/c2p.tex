@@ -202,4 +202,122 @@ so that
 We also have $\braket{ij|kl} = \braket{ji|kl} = \braket{ji|lk}$.
 Therefore, $(\braket{12|34} - \braket{12|43})^\ast = \braket{34|12} - 
 \braket{43|12} = \braket{34|12} - \braket{34|21}$. This proves the hermiticity.
+
+\item\label{c2p10} Equivalence of physicists' and chemists' notation.
+Equation (2.107) is
+\[
+\braket{K|H|K} = \sum_{m=1}^N\braket{m|h|m} + \frac{1}{2}\sum_{m=1}^N\sum_{n=1}^N
+\braket{mn||mn}.
+\]
+The double sum in the second term is unrestricted because of \eqref{c2e89}.
+The two notations are identical for the one-electron integrals. Therefore,
+\[
+\sum_{m=1}^N\braket{m|h|m} = \sum_{m=1}^N[m|h|m].
+\]
+In the second term,
+\[
+\braket{mn||mn} = \braket{mn|mn} - \braket{mn|nm} = [mm|nn] - [mn|nm],
+\]
+where we used \eqref{c2e91}. Therefore,
+\[
+\braket{K|H|K} = \sum_{m=1}^N[m|h|m] + \frac{1}{2}\sum_{m=1}^N\sum_{n=1}^N\left(
+[mm|nn] - [mn|nm]\right).
+\]
+The second term is equivalent to
+\[
+\braket{K|H|K} = \sum_{m=1}^N[m|h|m] + \sum_{m=1}^N\sum_{n>m}^N\left([mm|nn] - 
+[mn|nm]\right).
+\]
+
+\item\label{c2p11} Application of equation (2.107) to a three-electron state.
+Straightforward application of the formula.
+
+\item\label{c2p12} Evaluation of matrix elements of the full CI hamiltonian.
+From \eqref{c2e66}
+\[
+H = h(1) + h(2) + r_{12}^{-1}.
+\]
+Since $\ket{\Psi_0} = \ket{1\bar{1}} = \ket{\chi_1\chi_2}$,
+\[
+\braket{\Psi_0|H|\Psi_0} = \braket{1|h|1} + \braket{2|h|2} + \braket{12||12}
+\]
+Likewise, since $\ket{\Psi_{1\bar{1}}^{2\bar{2}}} = \ket{\chi_3\chi_4}$,
+\[
+\braket{\Psi_1|H|\Psi_1} = \braket{3|h|3} + \braket{4|h|4} + \braket{34||34}.
+\]
+For the integral $\braket{\Psi_0|H|Psi_{1\bar{1}}^{2\bar{2}}}$, case 3 of table
+2.4 of the book applies. This term, written equivalently as
+\[
+\braket{12|H|34} = \braket{12||34} = \braket{12|34} - \braket{12|43}.
+\]
+Likewise,
+\[
+\braket{34|H|12} = \braket{34||12} = \braket{34|12} - \braket{34|21}.
+\]
+These terms match the elements of the matrix in \eqref{c2e85}.
+
+\item\label{c2p13} Evaluation of $\braket{\Psi_a^r|O_1|\Psi_b^s}$.
+Recall that 
+\begin{eqnarray*}
+\ket{\Psi_a^r} &=& \ket{\ldots\chi_r\chi_b\ldots} \\
+\ket{\Psi_b^s} &=& \ket{\ldots\chi_a\chi_s\ldots}
+\end{eqnarray*}
+so that
+\[
+\braket{\Psi_a^r|O_1|\Psi_b^s} = 
+\braket{\ldots\chi_r\chi_b\ldots|O_1|\ldots\chi_a\chi_s\ldots}.
+\]
+If $a \ne b, r \ne s$, the two determinants differ by more than two spin 
+orbitals and therefore the matrix element is zero.
+If $a = b, r \ne s$, 
+\begin{eqnarray*}
+\ket{\Psi_a^r} &=& \ket{\ldots\chi_r\chi_b\ldots} \\
+\ket{\Psi_a^s} &=& \ket{\ldots\chi_s\chi_b\ldots}
+\end{eqnarray*}
+case 2 of table 2.3 applies and
+\[
+\braket{\Psi_a^r|O_1|\Psi_a^s} = \braket{r|h|s}.
+\]
+If $a \ne b, r = s$,
+\begin{eqnarray*}
+\ket{\Psi_a^r} &=& \ket{\ldots\chi_r\chi_b\ldots} \\
+\ket{\Psi_b^r} &=& \ket{\ldots\chi_a\chi_r\ldots}
+\end{eqnarray*}
+case 2 of table 2.3 applies and
+\[
+\braket{\Psi_a^r|O_1|\Psi_b^r} = \braket{\ldots rb \ldots|O_1\ldots ar \ldots}
+= -\braket{\ldots br \ldots|O_1|\ldots ar \ldots} = -\braket{b|h|a}
+\]
+If $a = b, r = s$,
+\begin{eqnarray*}
+\ket{\Psi_a^r} &=& \ket{\ldots\chi_r\chi_b\ldots} \\
+\ket{\Psi_a^r} &=& \ket{\ldots\chi_r\chi_b\ldots}
+\end{eqnarray*}
+case 1 of table 2.3 applies. If there are $N$ electrons then,
+\[
+\braket{\Psi_a^r|\Psi_a^r} = \sum_{i=1}^N\braket{i|h|i} - \braket{a|h|a} +
+\braket{r|h|r}
+\]
+this is because the sum is over all occupied states. However, since state `a'
+became vacant, $\braket{a|h|a}$ must be removed from the sum and since state
+`r' became occupied, $\braket{r|h|r}$ should be added to it.
+
+\item\label{c2p14} Ionisation energy.
+\begin{eqnarray*}
+\braket{^N\Psi_0|H|^N\Psi_0} &=& \braket{^N\Psi_0|O_1|^N\Psi_0} + 
+\braket{^N\Psi_0|O_2|^N\Psi_0} \\
+ &=& \sum_{i=1}^N\braket{i|h|i} + \frac{1}{2}
+\sum_{i=1}^N\sum_{j=1}^N\braket{ij||ij}
+\end{eqnarray*}
+When an electron in state `a' is removed,
+\[
+\braket{^{N-1}\Psi_0|H|^{N-1}\Psi_0} = \sum_{i=1, i\ne a}^N\braket{i|h|i} + 
+\frac{1}{2}\sum_{i=1,i\ne a}^N\sum_{j=1,j\ne a}^N\braket{ij||ij}
+\]
+so that the ionisation energy, the difference between the two terms is
+\[
+\Delta E = \braket{a|h|a} + \frac{1}{2}\sum_{j=1}^N\braket{aj||aj} +
+\frac{1}{2}\sum_{i=1}^N\braket{ia||ia} = \braket{a|h|a} + \sum_{j=1}^N\braket{
+aj||aj}.
+\]
 \end{enumerate}

@@ -911,3 +911,50 @@ H = \begin{bmatrix}
 \braket{3|h|3}+\braket{4|h|3}+\braket{34|34}-\braket{34|43} &
 \end{bmatrix}
 \end{equation}
+
+\section{Manipulation of integrals}\label{c2s9}
+In this section we introduce notations to represent one and two electron 
+integrals and several rules to compute matrix elements involving them.
+
+\subsection{Physicists' notation}
+Equation \eqref{c2e80} introduced the physicists' notation for two-electron
+integrals.
+\[
+\braket{ij|kl} = \iint d\vec{x}_1d\vec{x}_2
+\chi_i^\ast(\vec{x}_1)\chi_j^\ast(\vec{x}_2)r_{12}^{-1}
+\chi_k(\vec{x}_1)\chi_l(\vec{x}_2).
+\]
+From the definition itself, it follows that
+\begin{eqnarray}
+\braket{ij|kl} &=& \braket{ji|lk} \label{c2e86}\\
+\braket{ij|kl} &=& \braket{kl|ij}^\ast.\label{c2e87}
+\end{eqnarray}
+Equation \eqref{c2e85} showed that the notation
+\begin{equation}\label{c2e88}
+\braket{ij||kl} = \braket{ij|kl} - \braket{ij|lk}
+\end{equation}
+is also quite useful. It is immediately obvious that
+\begin{equation}\label{c2e89}
+\braket{ij||kk} = 0.
+\end{equation}
+
+\subsection{Chemists' notation}
+An alternative notation is common in the Hartree-Fock theory for the two-electron
+integrals.
+\begin{equation}\label{c2e90}
+[ij|kl] = \iint d\vec{x}_1d\vec{x}_2\chi_i^\ast(\vec{x}_1)\chi_j(\vec{x}_1)
+r_{12}^{-1}\chi_k^\ast(\vec{x}_2)\chi_l(\vec{x}_2).
+\end{equation}
+In this notation, $ij$ refer to electron 1 and $kl$ to electron 2. From
+\eqref{c2e80} and \eqref{c2e90} it follows that the two notations are related
+as
+\begin{equation}\label{c2e91}
+\braket{ij|kl} = [ik|jl].
+\end{equation}
+The consistency between these notations can be seen by observing that
+\begin{equation}\label{c2e92}
+\braket{ij|kl} = \braket{ji|lk} \Rightarrow [ik|kl] = [jl|ik],
+\end{equation}
+The equality between the chemists' notation is clearer if we remember that
+$\vec{x}_1$ and $\vec{x}_2$ can be swapped without changing the value of the
+integral.
