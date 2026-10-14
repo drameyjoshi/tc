@@ -320,4 +320,30 @@ so that the ionisation energy, the difference between the two terms is
 \frac{1}{2}\sum_{i=1}^N\braket{ia||ia} = \braket{a|h|a} + \sum_{j=1}^N\braket{
 aj||aj}.
 \]
+
+\item\label{c2p15} N-electron Slater determinant.
+It is defined as 
+\[
+\ket{\chi_1\ldots\chi_N} = (N!)^{-1/2}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}
+\sigma_n(\chi_1, \ldots, \chi_N),
+\]
+where $\sigma_n(\chi_1, \ldots, \chi_N)$ is the $n$-th permutation of the $N$
+spin orbitals $\chi_1, \ldots, \chi_N$ and $|\sigma_n| = \pm 1$ depending on
+whether the permutation is even or odd.
+
+Let $H = \sum_{i=1}^N h(i)$ so that
+\[
+\begin{aligned}
+H\ket{\chi_1\ldots\chi_N} &= (N!)^{-1/2}
+   \sum_{n=1}^{N!}(-1)^{|\sigma_n|}H\sigma_n(\chi_1, \ldots, \chi_N) \\
+ &=(N!)^{-1/2}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sigma_nH(\chi_1, \ldots, \chi_N) \\
+ &=(N!)^{-1/2}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sigma_n\sum_{j=1}^Nh(j)
+    (\chi_1, \ldots, \chi_N) \\
+ &=(N!)^{-1/2}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sigma_n\sum_{j=1}^N\varepsilon_j
+    (\chi_1, \ldots, \chi_N) \\
+ &=\sum_{j=1}^N\varepsilon_j(N!)^{-1/2}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sigma_n
+    (\chi_1, \ldots, \chi_N) \\
+ &=\left(\sum_{j=1}^N\varepsilon_j\right)\ket{\chi_1\ldots\chi_N}
+\end{aligned}
+\]
 \end{enumerate}

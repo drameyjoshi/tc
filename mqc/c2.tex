@@ -958,3 +958,93 @@ The consistency between these notations can be seen by observing that
 The equality between the chemists' notation is clearer if we remember that
 $\vec{x}_1$ and $\vec{x}_2$ can be swapped without changing the value of the
 integral.
+
+\subsection{Rules for manipulating integrals}
+\begin{enumerate}
+\item If $\ket{K} = \ket{\chi_m(1)\chi_n(2)\ldots}$, where each spin orbital is
+normalised then $\braket{K|K} = 0$. If $\ket{L} = \ket{\chi_m^\op(1)\chi_n^\op(2)
+\ldots}$ and if at least one of these spin orbitals is different from the ones 
+in $\ket{K}$ then $\braket{K|L} = 0$.
+
+\begin{equation}\label{c2e93}
+\ket{K} = \frac{1}{\sqrt{N!}}\sum_{n=1}^N(-1)^{|\sigma_n|}
+\sigma_n(\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)),
+\end{equation}
+where $\sigma_n$ is the $n$-th permutation of $N$ objects and $|\sigma_n| = \pm
+1$ depending on whether it is an even or an odd permutation.
+If
+\[
+\ket{L} = \frac{1}{\sqrt{N!}}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}
+\sigma_n(\chi_{j_1}(1)\chi_{j_2}(2)\ldots\chi_{j_N}(N))
+\]
+then
+\[
+\begin{aligned}
+\braket{K|L} &= \frac{1}{N!}\sum_{n=1}^{N!}\sum_{m=1}^{N!}
+(-1)^{|\sigma_n|+|\sigma_m|} \int\cdots\int d\vec{x}_1\ldots d\vec{x}_N \\
+ & \sigma_n^\ast(\chi_{i_1}(1)\chi_{i_2}^\ast(2)\ldots\chi_{i_N}^\ast(N))
+\sigma_m(\chi_{j_1}(1)\chi_{j_2}(2)\ldots\chi_{j_N}(N)) \\
+ &= \frac{1}{N!}\sum_{n=1}^{N!}\sum_{m=1}^{N!}(-1)^{|\sigma_n|+|\sigma_m|}
+\int\cdots\int d\vec{x}_1\ldots d\vec{x}_N \\
+ & \chi_{\sigma_n(i_1)}^\ast(1)\ldots\chi_{\sigma_n(i_N)}^\ast(N)
+   \chi_{\sigma_m(j_1)}(1)\ldots\chi_{\sigma_m(j_N)}(N)
+\end{aligned}
+\]
+An integral of the form
+\[
+\int d\vec{x}_1\chi_{\sigma_n(i_1)}^\ast(1)\chi_{\sigma_m(j_1)}(1)
+\]
+will vanish unless $\sigma_n(i_1) = \sigma_m(j_1)$. If $\ket{K} \ne \ket{L}$, 
+then in each of the $(N!)^2$ terms in the double summation, there will be at
+least one integral that will vanish. As a result, each term will vanish and
+we get $\braket{K|L} = 0$.
+
+Now suppose that $\ket{L}$ is just a permutation of $\ket{K}$. Then for every
+sum over $n$, there will be exactly one term for which the one-electron integrals
+do not vanish and we have
+\[
+\braket{K|L} = \frac{1}{N!}\sum_{n=1}^{N!}1 = 1.
+\]
+If the spin orbitals along the diagonal of $\ket{L}$ are just a permutation of
+those along the diagonal of $\ket{K}$ then we consider them to be the same.
+
+We also make a rule that in computing all integrals we will permute the spin
+orbitals to get maximum matching while noting that every transposition of spin
+orbitals results in flipping the sign of the determinant.
+
+\item While evaluating terms like $\braket{K|O_1|L}$, where $O_1 = h(1) + 
+\cdots + h(N)$, we have
+\[
+\braket{K|O_1|L} = \sum_{n=1}^N\braket{K|h(n)|L} = N\braket{K|h(1)|L}
+\]
+because of indistinguishability of the electrons. We will illustrate this point
+for $N=2$ electrons. If $\ket{K} = \ket{\chi_1\chi_2}$ and $\ket{L} = \ket{
+\chi^\op_1\chi^\op_2}$ then
+\[
+\begin{aligned}
+2\braket{K|h(1)|L} &= \int d1 \int d2\left[\chi_1^\ast(1)\chi_2^\ast(2) - 
+\chi_2^\ast(1)\chi_1^\ast(2)\right]h(1) \\
+ & \left[\chi_1^\op(1)\chi_2^\op(2) - \chi_2^\op(1)\chi_1^\op(2)\right] \\
+ &=\int d1\chi_1^\ast(1)h(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)\chi_2^\op(2) \\
+ &-\int d1\chi_1^\ast(1)h(1)\chi_2^\op(1)\int d2\chi_2^\ast(2)\chi_1^\op(2) \\
+ &-\int d1\chi_2^\ast(1)h(1)\chi_1^\op(1)\int d2\chi_1^\ast(2)\chi_2^\op(2) \\ 
+ &+\int d1\chi_2^\ast(1)h(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)\chi_1^\op(2) 
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+2\braket{K|h(2)|L} &= \int d1 \int d2\left[\chi_1^\ast(1)\chi_2^\ast(2) - 
+\chi_2^\ast(1)\chi_1^\ast(2)\right]h(2) \\
+ & \left[\chi_1^\op(1)\chi_2^\op(2) - \chi_2^\op(1)\chi_1^\op(2)\right] \\
+ &=\int d1\chi_1^\ast(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)h(2)\chi_2^\op(2) \\
+ &-\int d1\chi_1^\ast(1)\chi_2^\op(1)\int d2\chi_2^\ast(2)h(2)\chi_1^\op(2) \\
+ &-\int d1\chi_2^\ast(1)\chi_1^\op(1)\int d2\chi_1^\ast(2)h(2)\chi_2^\op(2) \\ 
+ &+\int d1\chi_2^\ast(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)h(2)\chi_1^\op(2) 
+\end{aligned}
+\]
+As $\vec{x}_1$ and $\vec{x}_2$ are dummy variables, here shortened as $1$ and
+$2$ respectively, we can interchange them in the second equation to see that
+it is identical with the first one.
+
+\end{enumerate}
