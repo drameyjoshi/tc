@@ -1022,29 +1022,39 @@ for $N=2$ electrons. If $\ket{K} = \ket{\chi_1\chi_2}$ and $\ket{L} = \ket{
 \chi^\op_1\chi^\op_2}$ then
 \[
 \begin{aligned}
-2\braket{K|h(1)|L} &= \int d1 \int d2\left[\chi_1^\ast(1)\chi_2^\ast(2) - 
+2\braket{K|h(1)|L} &= 
+\int d\vec{x}_1 \int d\vec{x}_2\left[\chi_1^\ast(1)\chi_2^\ast(2) - 
 \chi_2^\ast(1)\chi_1^\ast(2)\right]h(1) \\
  & \left[\chi_1^\op(1)\chi_2^\op(2) - \chi_2^\op(1)\chi_1^\op(2)\right] \\
- &=\int d1\chi_1^\ast(1)h(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)\chi_2^\op(2) \\
- &-\int d1\chi_1^\ast(1)h(1)\chi_2^\op(1)\int d2\chi_2^\ast(2)\chi_1^\op(2) \\
- &-\int d1\chi_2^\ast(1)h(1)\chi_1^\op(1)\int d2\chi_1^\ast(2)\chi_2^\op(2) \\ 
- &+\int d1\chi_2^\ast(1)h(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)\chi_1^\op(2) 
+ &=\int d\vec{x}_1\chi_1^\ast(1)h(1)\chi_1^\op(1)
+ \int d\vec{x}_2\chi_2^\ast(2)\chi_2^\op(2) \\
+ &-\int d\vec{x}_1\chi_1^\ast(1)h(1)\chi_2^\op(1)
+ \int d\vec{x}_2\chi_2^\ast(2)\chi_1^\op(2) \\
+ &-\int d\vec{x}_1\chi_2^\ast(1)h(1)\chi_1^\op(1)
+ \int d\vec{x}_2\chi_1^\ast(2)\chi_2^\op(2) \\ 
+ &+\int d\vec{x}_1\chi_2^\ast(1)h(1)\chi_1^\op(1)
+ \int d\vec{x}_2\chi_2^\ast(2)\chi_1^\op(2) 
 \end{aligned}
 \]
 and
 \[
 \begin{aligned}
-2\braket{K|h(2)|L} &= \int d1 \int d2\left[\chi_1^\ast(1)\chi_2^\ast(2) - 
+2\braket{K|h(2)|L} &= 
+\int d\vec{x}_1 \int d\vec{x}_2\left[\chi_1^\ast(1)\chi_2^\ast(2) - 
 \chi_2^\ast(1)\chi_1^\ast(2)\right]h(2) \\
  & \left[\chi_1^\op(1)\chi_2^\op(2) - \chi_2^\op(1)\chi_1^\op(2)\right] \\
- &=\int d1\chi_1^\ast(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)h(2)\chi_2^\op(2) \\
- &-\int d1\chi_1^\ast(1)\chi_2^\op(1)\int d2\chi_2^\ast(2)h(2)\chi_1^\op(2) \\
- &-\int d1\chi_2^\ast(1)\chi_1^\op(1)\int d2\chi_1^\ast(2)h(2)\chi_2^\op(2) \\ 
- &+\int d1\chi_2^\ast(1)\chi_1^\op(1)\int d2\chi_2^\ast(2)h(2)\chi_1^\op(2) 
+ &=\int d\vec{x}_1\chi_1^\ast(1)\chi_1^\op(1)
+ \int d\vec{x}_2\chi_2^\ast(2)h(2)\chi_2^\op(2) \\
+ &-\int d\vec{x}_1\chi_1^\ast(1)\chi_2^\op(1)
+ \int d\vec{x}_2\chi_2^\ast(2)h(2)\chi_1^\op(2) \\
+ &-\int d\vec{x}_1\chi_2^\ast(1)\chi_1^\op(1)
+ \int d\vec{x}_2\chi_1^\ast(2)h(2)\chi_2^\op(2) \\ 
+ &+\int d\vec{x}_1\chi_2^\ast(1)\chi_1^\op(1)
+ \int d\vec{x}_2\chi_2^\ast(2)h(2)\chi_1^\op(2) 
 \end{aligned}
 \]
 As $\vec{x}_1$ and $\vec{x}_2$ are dummy variables, here shortened as $1$ and
-$2$ respectively, we can interchange them in the second equation to see that
-it is identical with the first one.
+$2$ respectively as arguments of the spin orbitals, we can interchange them in 
+the second equation to see that it is identical with the first one.
 
 \end{enumerate}
