@@ -967,7 +967,7 @@ normalised then $\braket{K|K} = 0$. If $\ket{L} = \ket{\chi_m^\op(1)\chi_n^\op(2
 in $\ket{K}$ then $\braket{K|L} = 0$.
 
 \begin{equation}\label{c2e93}
-\ket{K} = \frac{1}{\sqrt{N!}}\sum_{n=1}^N(-1)^{|\sigma_n|}
+\ket{K} = \frac{1}{\sqrt{N!}}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}
 \sigma_n(\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)),
 \end{equation}
 where $\sigma_n$ is the $n$-th permutation of $N$ objects and $|\sigma_n| = \pm
@@ -1014,9 +1014,9 @@ orbitals results in flipping the sign of the determinant.
 
 \item While evaluating terms like $\braket{K|O_1|L}$, where $O_1 = h(1) + 
 \cdots + h(N)$, we have
-\[
+\begin{equation}\label{c2e94}
 \braket{K|O_1|L} = \sum_{n=1}^N\braket{K|h(n)|L} = N\braket{K|h(1)|L}
-\]
+\end{equation}
 because of indistinguishability of the electrons. We will illustrate this point
 for $N=2$ electrons. If $\ket{K} = \ket{\chi_1\chi_2}$ and $\ket{L} = \ket{
 \chi^\op_1\chi^\op_2}$ then
@@ -1057,4 +1057,155 @@ As $\vec{x}_1$ and $\vec{x}_2$ are dummy variables, here shortened as $1$ and
 $2$ respectively as arguments of the spin orbitals, we can interchange them in 
 the second equation to see that it is identical with the first one.
 
+\item We will show that
+\begin{equation}\label{c2e95}
+\braket{K|O_1|K} = \sum_{m=1}^N\braket{m|h|m}.
+\end{equation}
+From \eqref{c2e94} we have $\braket{K|O_1|K} = N\braket{K|h(1)|K}$. If $\ket{k}$
+is as in \eqref{c2e93},
+\[
+\begin{aligned}
+\braket{K|h(1)|K} =& \frac{N}{N!}\sum_{n=1}^{N!}\sum_{m=1}^{N!}(-1)^{|\sigma_n|+
+|\sigma_m|} \\
+ & \iint d\vec{x}_1\ldots d\vec{x}_N\sigma_n(\chi_{i_1}\ldots\chi_{i_N})h(1)
+\sigma_m(\chi_{j_1}\ldots\chi_{j_N})
+\end{aligned}
+\]
+For every permutation $\sigma_n(\chi_{i_1}\ldots\chi_{i_N})$ there is exactly
+one permutation $\sigma_m(\chi_{j_1}\ldots\chi_{j_N})$, namely the one identical
+to it, for which the integrals over $\vec{x}_2, \ldots, \vec{x}_N$ do not 
+vanish. Thus,
+\[
+\begin{aligned}
+\braket{K|h(1)|K} =& \frac{1}{(N-1)!}\sum_{n=1}^{N!}(-1)^{2|\sigma_n|} \\
+ & \iint d\vec{x}_1\ldots d\vec{x}_N\sigma_n(\chi_{i_1}\ldots\chi_{i_N})h(1)
+\sigma_n(\chi_{j_1}\ldots\chi_{j_N}) \\
+ =& \frac{1}{(N-1)!}\sum_{n=1}^{N!}
+ \iint d\vec{x}_1\ldots d\vec{x}_N\sigma_n(\chi_{i_1}\ldots\chi_{i_N})h(1)
+\sigma_n(\chi_{j_1}\ldots\chi_{j_N}) \\
+ \end{aligned}
+\]
+For every position of $\vec{x}_1$ term, there are $(N-1)!$ terms in which the
+other coordinates are arranged and the integrals over which evaluate to $1$.
+The $\vec{x}_1$ itself can appear in any of the $N$ positions. That is, electron
+1 can be in any of the $N$ spin-orbitals. Therefore, 
+\[
+\braket{K|O_1|K} = \frac{1}{(N-1)!}\sum_{n=1}^N(N-1)!\braket{\chi_{i_n}|h|
+\chi_{i_n}} = \sum_{m=1}^N\braket{m|h|m}.
+\]
+
+\item If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
+$\ket{L}=\ket{\chi_{j_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ then
+\[
+\braket{K|O_1|L} = \braket{i_1|h|j_1}.
+\]
+Using \eqref{c2e94}, we have
+\[
+\begin{aligned}
+\braket{K|O_1|L}=&\frac{1}{(N-1)!}\sum_{n,m=1}^{N!}(-1)^{|\sigma_n|+|\sigma_m|}\\
+ &\iint d\vec{x}_1\ldots d\vec{x}_N\sigma_n(\chi_{i_1}\chi_{i_2}\ldots\chi_{i_N})
+ h(1)\sigma_m(\chi_{j_1}\chi_{i_2}\ldots\chi_{i_N}) \\
+ &\frac{1}{(N-1)!}\sum_{n=1}^{N!}
+\iint d\vec{x}_1\ldots d\vec{x}_N\sigma_n(\chi_{i_1}\chi_{i_2}\ldots\chi_{i_N})\\
+& h(1)\sigma_n(\chi_{j_1}\chi_{i_2}\ldots\chi_{i_N}) \\
+\end{aligned}
+\]
+For a given position of electron $1$'s coordinates, all permutations of the
+spin-orbitals vanish except for the combination $\braket{i_1|h|j_1}$. For such 
+a position, there are $(N-1)!$ ways to arrange the other electron coordinates.
+However, $\chi_{i_1} \ne \chi_{j_1}$, therefore, the only arrangement in which
+they survive is when we compute the matrix element of $h(1)$ with them. As a
+result, we do not get the factor of $N$ we previously got an
+\begin{equation}\label{c2e96}
+\braket{K|O_1|L} = \braket{\chi_{i_1}|h(1)|\chi_{j_1}} = \braket{i_1|h(1)|j_1}
+\end{equation}A
+
+\item If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
+$\ket{L}=\ket{\chi_{j_1}(1)\chi_{j_2}(2)\ldots\chi_{i_N}(N)}$ then
+\[
+\braket{K|O_1|L} = 0.
+\]
+Using the same reasoning as the previous case, we observe that every permutation
+will have an inner product of either $\chi_{i_1}$ and $\chi_{j_1} \ne \chi_{i_1}$
+or $\chi_{j_2}$ and $\chi_{j_2} \ne \chi_{j_2}$. Since the spin-orbitals form 
+an orthonormal set, every permutation vanishes.
+
+The same is true if the two kets differ by three or more spin-orbitals.
+
+\item We now turn our attention to operators that depend on coordinates of
+two electrons. The most common example is $r_{ij}^{-1} = |\vec{r}_i - \vec{r}_j|$
+so that, 
+\[
+\braket{K|O_{12}|L} = \sum_{p=1}^N\sum_{q>i}^N\braket{K|o_{pq}|L}.
+\]
+The operator $o_{pq}$ depends on $\vec{x}_p$ and $\vec{x}_q$. Since the 
+electronic coordinates are dummy variables, because the electrons are 
+indistinguishable, each of these terms is equal to $\braket{K|o_{12}|L}$. There
+are $N(N-1)/2$ pairs of integers ranging from $1$ to $N$. Each pair evaluates
+to $\braket{K|o_{12}|L}$. Therefore, analogous to \eqref{c2e94}, we have
+\begin{equation}\label{c2e97}
+\braket{K|O_{12}|L} = \frac{N(N-1)}{2}\braket{K|o_{12}|L}.
+\end{equation}
+
+\item We show that
+\begin{equation}\label{c2e98}
+\braket{K|O_2|K} = \frac{1}{2}\sum_{m=1}^N\sum_{n=1}^N\braket{mn||nm}
+\end{equation}
+Using \eqref{c2e97}
+\[
+\braket{K|O_2|K} = \frac{N(N-1)}{2}\braket{K|o_{12}|K}.
+\]
+If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ then, 
+\[
+\begin{aligned}
+\braket{K|o_{12}|K} =& \frac{1}{N!}\sum_{n,m=1}^{N!}(-1)^{|\sigma_n|+|\sigma_m|}
+ \int d\vec{x}_1\ldots d\vec{x}_N \\
+ &\sigma_n(\chi_{i_1}\ldots\chi_{i_N})o_{12}\sigma_m(\chi_{j_1}\ldots\chi_{j_N})
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+\braket{K|O_2|K} =& \frac{1}{2}\frac{1}{(N-2)!}\sum_{n,m=1}^{N!}
+    (-1)^{|\sigma_n|+|\sigma_m|} \int d\vec{x}_1\ldots d\vec{x}_N \\
+ &\sigma_n(\chi_{i_1}\ldots\chi_{i_N})o_{12}\sigma_m(\chi_{j_1}\ldots\chi_{j_N})
+\end{aligned}
+\]
+For each permutation $\sigma_n$, there are two permutations $\sigma_m$ for
+which $\chi_{i_a} = \chi_{j_a}$, $a = 3, \ldots, N$. One of them will have 
+$\chi_{i_1} = \chi_{j_1}, \chi_{i_2} = \chi_{j_2}$, that is, $i_1=j_1, i_2=j_2$
+The other will have $\chi_{i_1} = \chi_{j_2}, \chi_{i_2} = \chi_{j=1}$, that is,
+$i_1 = j_2, i_2 = j_1$. The two permutations differ by a sign. Using the 
+physicists' notation, the first term will be $\braket{i_1 i_2|i_1i_2}$ while 
+the second one will be $-\braket{i_1i_2|i_2i_1}$. Integrals over other 
+coordinates will be unity. Thus, each permutation on $n$ will evaluate to 
+$\braket{i_1i_2|i_1i_2}-\braket{i_1i_2|i_2i_1}=\braket{i_1i_2||i_1 i_2}$. Once 
+we choose $i_1$ and $i_2$, the rest of the coordinates can be permuted among 
+themselves in $(N-2)!$ ways. Therefore, the double-sum over $m$ and $n$ 
+evaluates to
+\[
+\braket{K|O_2|K} = \frac{1}{2}\sum_{i_1=1}^N\sum_{i_2\ne i_1}\braket{i_1i_2||
+i_1i_2}
+\]
+We can remove the restriction on the second sum using \eqref{c2e89} and write
+\[
+\braket{K|O_2|K} = \frac{1}{2}\sum_{i_1=1}^N\sum_{i_2=1}^N\braket{i_1i_2||
+i_1i_2}
+\]
+In chemists' notation, we can write the above equation as
+\[
+\braket{K|O_2|K} = \frac{1}{2}\sum_{i_1=1}^N\sum_{i_2=1}^N([i_1i_1|i_2i_2] -
+[i_1i_2|i_2i_1])
+\]
+\item
+If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
+$\ket{L}=\ket{\chi_{j_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ then
+\[
+\begin{aligned}
+\braket{K|O_{12}|L} =& \frac{1}{N!}\sum_{p=1}^N\sum_{q>p}^N\sum_{n=1}^{N!}
+\sum_{m=1}^{N!} \\
+ & \int d\vec{x}_1\ldots d\vec{x}_N \sigma_n(\chi_{i_1}\ldots\chi_{i_N})o_{pq}
+ \sigma_m(\chi_{j_1}\ldots\chi_{j_N})
+\end{aligned}
+\]
 \end{enumerate}
