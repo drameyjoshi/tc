@@ -1197,15 +1197,101 @@ In chemists' notation, we can write the above equation as
 \braket{K|O_2|K} = \frac{1}{2}\sum_{i_1=1}^N\sum_{i_2=1}^N([i_1i_1|i_2i_2] -
 [i_1i_2|i_2i_1])
 \]
-\item
-If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
-$\ket{L}=\ket{\chi_{j_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ then
+
+\item We next show that if 
 \[
 \begin{aligned}
-\braket{K|O_{12}|L} =& \frac{1}{N!}\sum_{p=1}^N\sum_{q>p}^N\sum_{n=1}^{N!}
-\sum_{m=1}^{N!} \\
- & \int d\vec{x}_1\ldots d\vec{x}_N \sigma_n(\chi_{i_1}\ldots\chi_{i_N})o_{pq}
- \sigma_m(\chi_{j_1}\ldots\chi_{j_N})
+\ket{K} &= \ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)} \\
+\ket{L} &=\ket{\chi_{j_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}
+\end{aligned}
+\]
+then
+\begin{equation}\label{c2e99}
+\braket{K|O_2|L} = \sum_{i_2=1}^N[i_1j_1|i_2i_2] - [i_ii_2|i_2j_1]
+= \sum_{i_2=1}^N\braket{i_ii_2||j_1i_2}.
+\end{equation}
+Using \eqref{c2e97},
+\[
+\begin{aligned}
+\braket{K|O_2|L} =& \frac{N(N-1)}{2}\braket{K|o_{12}|L} \\
+ =& \frac{1}{2}\frac{1}{(N-2)!}\sum_{n,m=1}^{N!}(-1)^{|\sigma_n|+|\sigma_m|} \\
+  & \int\ldots\int d\vec{x}_1\ldots d\vec{x}_n \sigma_n(\chi_{i_1}\chi_{i_2}
+  \ldots\chi_{i_N})o_{12}\sigma_m(\chi_{j_1}\chi_{i_2}\ldots\chi_{i_N})
+\end{aligned}
+\]
+For each permutation $\sigma_n$, there are two permutations $\sigma_m$ for 
+which $\chi_{i_a} = \chi_{j_a}$, $a = 3, \ldots, N$. One of them will have
+$\chi_{i_1} \ne \chi_{j_1}, \chi_{i_2} = \chi_{j_2}$ and the other one will have
+$\chi_{i_1} = \chi_{j_1}, \chi_{i_2} \ne \chi_{j_2}$. If $P_{12}$ is the 
+operator to interchange two electrons then the two possibilities for $\sigma_m$
+are either $\sigma_m = \sigma_n$ or $\sigma_m = -P_{12}\sigma_n$, the minus
+sign takes into account that an interchange of a pair of elements makes an even
+permutation into odd and \emph{vice versa}. Therefore, we have
+\[
+\begin{aligned}
+\braket{K|O_2|L} =& \frac{1}{2}\frac{1}{(N-2)!}\sum_{n=1}^{N!}
+ \int\ldots\int d\vec{x}_1\ldots d\vec{x}_n \\
+ &\sigma_n(\chi_{i_1}\chi_{i_2} \ldots\chi_{i_N})o_{12}(1 - P_{12})
+  \sigma_n(\chi_{j_1}\chi_{i_2}\ldots\chi_{i_N})
+\end{aligned}
+\]
+For a given choice of occupancy of electrons 1 and 2, coupled by $o_{12}$,
+there are $(N-2)!$ choices for arranging occupancy of remaining spin orbitals.
+Electrons 1 and 2 can themselves be arranged in two ways:
+\begin{enumerate}
+\item Electron 1 in $\chi_{i_1}$ and $\chi_{j_1}$ or
+\item Electron 1 in $\chi_{i_2}$ and $\chi_{j_2}$
+\end{enumerate}
+so that we get
+\[
+\begin{aligned}
+\braket{K|O_2|L} =& \frac{1}{2}\sum_{i_2\ne i_1}\iint d\vec{x}_1
+d\vec{x}_2\left[\chi_{i_1}^\ast(\vec{x}_1)\chi_{i_2}^\ast(\vec{x}_2)
+    (1 - P_{12})o_{12}\chi_{j_1}(\vec{x}_1)\chi_{i_2}(\vec{x}_2)\right. \\
+ +& \left.\chi_{i_1}^\ast(\vec{x}_2)\chi_{i_2}^\ast(\vec{x}_1)(1 - P_{12})o_{12}
+ \chi_{j_1}(\vec{x}_2)\chi_{i_2}(\vec{x}_1)\right] 
+\end{aligned}
+\]
+The second term is the same as the first one if we interchange the variables
+of integration. Here we assume that $o_{12}$ like $|\vec{r}_1 - \vec{r}_2|$ is
+symmetric in the two coordiates. Therefore,
+\[
+\begin{aligned}
+\braket{K|O_2|L} &= \sum_{i_2\ne i_1}\iint d\vec{x}_1
+d\vec{x}_2\left[\chi_{i_1}^\ast(\vec{x}_1)\chi_{i_2}^\ast(\vec{x}_2)
+ (1 - P_{12})o_{12} \chi_{j_1}(\vec{x}_1)\chi_{i_2}(\vec{x}_2)\right] \\
+ &=\sum_{i_2\ne i_1}\left(\braket{i_1i_2|j_1i_2}-\braket{i_2i_1|i_2j_1}\right)\\
+ &= \braket{i_1i_2||j_1i_2}
+\end{aligned}
+\]
+
+\item Lastly we show that if
+\[
+\begin{aligned}
+\ket{K} &= \ket{\ldots\chi_{i_1}(1)\chi_{i_2}(2)\ldots} \\
+\ket{L} &= \ket{\ldots\chi_{j_1}(1)\chi_{j_2}(2)\ldots}
+\end{aligned}
+\]
+then
+\begin{equation}\label{c2e100}
+\braket{K|O_2|L} = \braket{i_1i_2||j_1j_2}
+\end{equation}
+We once again have,
+\[
+\begin{aligned}
+\braket{K|O_2|L} =& \frac{N(N-1)}{2}\braket{K|o_{12}|L} \\
+ =& \frac{1}{2}\frac{1}{(N-2)!}\sum_{n,m=1}^{N!}(-1)^{|\sigma_n|+|\sigma_m|} \\
+  & \int\ldots\int d\vec{x}_1\ldots d\vec{x}_n \sigma_n(\ldots\chi_{i_1}
+  \chi_{j_2}\ldots)o_{12}\sigma_m(\ldots\chi_{j_1}\chi_{i_2}\ldots) \\
+ =& \frac{1}{2}\iint d\vec{x}_1d\vec{x}_2\left[ 
+ \chi_{i_1}^\ast(\vec{x}_1)\chi_{i_2}^\ast(\vec{x}_2)(1 - P_{12})o_{12}
+ \chi_{j_1}(\vec{x}_1)\chi_{j_2}(\vec{x}_2)\right.\\
+ +& \left.\chi_{i_2}^\ast(\vec{x}_2)\chi_{i_1}^\ast(\vec{x}_1)(1 - P_{12})o_{12}
+ \chi_{j_2}(\vec{x}_2)\chi_{j_1}(\vec{x}_1)\right]\\
+ =& \iint d\vec{x}_1d\vec{x}_2\left[\chi_{i_1}^\ast(\vec{x}_1)\chi_{i_2}^\ast
+ (\vec{x}_2)(1 - P_{12})o_{12}\chi_{j_1}(\vec{x}_1)\chi_{j_2}(\vec{x}_2)\right]\\
+ =& \braket{i_1i_2|j_1j_2} - \braket{i_1i_2|j_2j_1} \\
+ =& \braket{i_1i_2||j_1j_2}
 \end{aligned}
 \]
 \end{enumerate}
