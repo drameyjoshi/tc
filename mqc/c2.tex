@@ -1294,4 +1294,22 @@ We once again have,
  =& \braket{i_1i_2||j_1j_2}
 \end{aligned}
 \]
+
+\subsection{Ground state energy of $\ket{\Psi_0}$}
+The $N$-electron hamiltonian is
+\[
+H = \sum_{i=1}^N h(i) + \sum_{i=1}^N\sum_{j > i}^N \frac{1}{r_{ij}}
+\]
+so that if the ground state is ${\Psi_0} = \ket{\chi_1\ldots\chi_N}$ then
+\begin{equation}\label{c2e101}
+\braket{\Psi_0|H|\Psi_0} = \sum_{i=1}^N\braket{i|h|i} + \frac{1}{2}\sum_{i=1}^N
+\sum_{j=1}^N\braket{ij||ij}
+\end{equation}
+in physicists' notation and
+\begin{equation}\label{c2e102}
+\braket{\Psi_0|H|\Psi_0} = \sum_{i=1}^N[i|h|i] + \frac{1}{2}\sum_{i=1}^N
+\sum_{j=1}^N\left([ii|jj] - [ij|ji]\right)
+\end{equation}
+in chemists' notation. Both these equations were derived using a straightforward 
+application of the rules to manipulate integrals derived above.
 \end{enumerate}
