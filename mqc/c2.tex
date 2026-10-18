@@ -905,10 +905,10 @@ In terms of these one- and two-electron integrals, we can write the full CI
 hamiltonian matrix of \eqref{c2e64} as
 \begin{equation}\label{c2e85}
 H = \begin{bmatrix}
-\braket{1|h|1}+\braket{2|h|1}+\braket{12|12}-\braket{12|21} &
+\braket{1|h|1}+\braket{2|h|2}+\braket{12|12}-\braket{12|21} &
 \braket{12|34} - \braket{12|43} \\
 \braket{34|12} - \braket{34|21} &
-\braket{3|h|3}+\braket{4|h|3}+\braket{34|34}-\braket{34|43} &
+\braket{3|h|3}+\braket{4|h|4}+\braket{34|34}-\braket{34|43}
 \end{bmatrix}
 \end{equation}
 
@@ -1313,3 +1313,91 @@ in physicists' notation and
 in chemists' notation. Both these equations were derived using a straightforward 
 application of the rules to manipulate integrals derived above.
 \end{enumerate}
+
+\section{Spatial orbitals}
+The theory of the electronic structure must be built using the spin-orbitals.
+However, the computations must be expressed in terms of spatial orbitals alone,
+after integrating out the spin portion. We will illustrate this for the hydrogem
+molecule. Applying equation \eqref{c2e102} to it,
+\[
+E_0 = [\chi_1|h|\chi_1] + [\chi_2|h|\chi_2] + [\chi_1\chi_1|\chi_2\chi_2] -
+[\chi_1\chi_2|\chi_2\chi_1],
+\]
+where
+\[
+\begin{aligned}
+\chi_1(\vec{x}) &= \psi_1(\vec{x}) = \psi_1(\vec{r})\alpha(\omega) \\
+\chi_2(\vec{x}) &= \bar{\psi}_1(\vec{x}) = \psi_2(\vec{r})\beta(\omega)
+\end{aligned}
+\]
+so that in terms of $\psi$ and $\bar{\psi}$,
+\[
+E_0 = [\psi_1|h|\psi_1] + [\bar{\psi}_1|h|\bar{\psi}_1] + 
+[\psi_1\psi_1|\bar{\psi}_1\bar{\psi}_1]-[\psi_1\bar{\psi}_1|\bar{\psi}_1\psi_1].
+\]
+Expressing these terms as integrals and introducing new symbols for spatial
+one-electron integrals,
+\begin{equation}\label{c2e103}
+\begin{aligned}
+[\psi_1|h|\psi_1] &= \int d\vec{x_1}\psi_1^\ast(\vec{r}_1)\alpha^\ast(\omega)
+  h(\vec{r}_1)\psi_1(\vec{r}_1)\alpha(\omega) \\
+ &= \int d\vec{x_1}\psi_1^\ast(\vec{r}_1) h(\vec{r}_1)\psi_1(\vec{r}_1) \\
+ &= (\psi_1|h|\psi_1) \\
+[\bar{\psi}_1|h|\bar{\psi}_1] &= \int d\vec{x_1}\psi_1^\ast(\vec{r}_1)
+ \beta^\ast(\omega)h(\vec{x}_1)\psi_1(\vec{r}_1)\beta(\omega) \\
+ &= \int d\vec{r_1}\psi_1^\ast(\vec{r}_1) h(\vec{r}_1)\psi_1(\vec{r}_1) \\
+ &= (\psi_1|h|\psi_1) 
+\end{aligned}
+\end{equation}
+Thus both $[\psi_1|h|\psi_1]$ and $[\bar{\psi}_1|h|\bar{\psi}_1]$ map to the
+same symbol $(\psi_1|h|\psi_1)$. That is natural because $\psi_1$ and 
+$\bar{\psi}_1$ differ only in their spin parts. This also suggests that 
+introducing the new symbols, we are halving the number of terms to be computed.
+
+Moving to the two-electron integrals,
+\begin{equation}\label{c2e104}
+\begin{aligned}
+[\psi_1\psi_1|\bar{\psi}_1\bar{\psi}_1] &= \iint d\vec{x}_1 d\vec{x}_2
+\psi_1^\ast(\vec{x}_1)\psi_1(\vec{x}_1)r_{12}^{-1}
+\bar{\psi}_1^\ast(\vec{x}_2)\bar{\psi}_1 (\vec{x}_2) \\
+ &= \iint d\vec{r}_1 d\vec{r}_2 \iint d\omega_1 d\omega_2\psi_1^\ast(\vec{r}_1)
+ \alpha^\ast(\omega_1)\psi_1(\vec{r}_1)\alpha(\omega_1)r_{12}^{-1}\\
+ &\quad \psi_1^\ast(\vec{r}_2)\beta^\ast(\omega_2)\psi_1(\vec{r}_2)
+ \beta(\omega_2) \\
+ &= \iint d\vec{r}_1 d\vec{r}_2\psi_1^\ast(\vec{r}_1)\psi_1(\vec{r}_1)r_{12}^{-1}
+ \psi_1^\ast(\vec{r}_2)\psi_1(\vec{r}_2) \\
+ &= (\psi_1\psi_1|\psi_1\psi_1) \\
+[\psi_1\bar{\psi}_1|\bar{\psi}_1\psi_1] &= \iint d\vec{x}_1 d\vec{x}_2
+\psi_1^\ast(\vec{x}_1)\bar{\psi}_1(\vec{x}_1)r_{12}^{-1}
+\bar{\psi}_1^\ast(\vec{x}_2)\psi_1(\vec{x}_2) \\
+ &= \iint d\vec{r}_1 d\vec{r}_2 \iint d\omega_1 d\omega_2 \psi_1^\ast(\vec{r}_1)
+ \alpha^\ast(\omega_1)\psi_1(\vec{r}_1)\beta(\omega_1) r_{12}^{-1} \\
+&\quad\psi_1^\ast(\vec{r}_2)\beta^\ast(\omega_2)\psi_1(\vec{r}_2)\alpha(\omega_2)\\
+ &= 0,
+\end{aligned}
+\end{equation}
+because
+\[
+\begin{aligned}
+\int d\omega_1 \alpha^\ast(\omega_1)\beta(\omega_1) &= \braket{\alpha|\beta}=0\\
+\int d\omega_2 \alpha^\ast(\omega_2)\beta(\omega_2) &= \braket{\alpha|\beta}=0
+\end{aligned}
+\]
+Thus, the ground state energy of hydrogen molecule is
+\begin{equation}\label{c2e105}
+E_0 = 2(\psi_1|h|\psi_1) + (\psi_1\psi_1|\psi_1\psi_1).
+\end{equation}
+Generalising the first equation of \eqref{c2e104}, we get
+\begin{equation}\label{c2e106}
+\begin{aligned}
+[\psi_i\psi_j|\bar{\psi}_k\bar{\psi}_l] &= (\psi_i\psi_j|\psi_k\psi_l) \\
+[\psi_i\psi_j|\psi_k\psi_l] &= (\psi_i\psi_j|\psi_k\psi_l) \\
+[\bar{\psi}_i\bar{\psi}_j|\psi_k\psi_l] &= (\psi_i\psi_j|\psi_k\psi_l) \\
+[\bar{\psi}_i\bar{\psi}_j|\bar{\psi}_k\bar{\psi}_l] &= (\psi_i\psi_j|\psi_k\psi_l)
+\end{aligned}
+\end{equation}
+Doing the same for the second equation gives
+\begin{equation}\label{c2e107}
+[\psi_i\bar{\psi}_j|\bar{\psi}_k\psi_l]=[\bar{\psi}_i\psi_j|\bar{\psi}_k\psi_l]=
+[\psi_i\bar{\psi}_j|\psi_k\bar{\psi}_l]=[\bar{\psi}_i\psi_j|\psi_k\bar{\psi}_l]=0.
+\end{equation}

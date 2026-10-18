@@ -350,4 +350,38 @@ H\ket{\chi_1\ldots\chi_N} &= (N!)^{-1/2}
 \item Alternative proofs of the rules to manipulate integrals.
 
 I omit it.
+
+\item\label{c2p17} Full CI matrix for H$_2$ in terms of spatial integrals.
+In the chemists' notation, equation \eqref{c2e85} is
+\[
+H = \begin{bmatrix}
+[1|h|1]+[2|h|2]+[11|22]-[12|21] & [13|24] - [14|23] \\
+[31|42] - [32|41] & [3|h|3]+[4|h|4]+[33|44]-[34|43]
+\end{bmatrix}
+\]
+Recall that
+\[
+\begin{aligned}
+\chi_1(\vec{x}) &= \psi_1(\vec{x}) = \psi_1(\vec{r})\alpha(\omega) \\
+\chi_2(\vec{x}) &= \bar{\psi}_1(\vec{x}) = \psi_1(\vec{r})\beta(\omega) \\
+\chi_3(\vec{x}) &= \psi_2(\vec{x}) = \psi_2(\vec{r})\alpha(\omega) \\
+\chi_4(\vec{x}) &= \bar{\psi}_2(\vec{x}) = \psi_2(\vec{r})\beta(\omega) 
+\end{aligned}
+\]
+so that
+\[
+H = \begin{bmatrix}
+[1|h|1]+[\bar{1}|h|\bar{1}]+[11|\bar{1}\bar{1}]-[1\bar{1}|\bar{1}1] & 
+[13|\bar{1}\bar{3}] - [1\bar{3}|\bar{1}3] \\
+[31|\bar{3}\bar{1}] - [3\bar{1}|\bar{3}1] & 
+[3|h|3]+[\bar{3}|h|\bar{3}]+[33|\bar{3}\bar{3}]-[3\bar{3}|\bar{3}3]
+\end{bmatrix}
+\]
+Using equations \eqref{c2e103}, \eqref{c2e106} and \eqref{c2e107},
+\[
+H = \begin{bmatrix}
+2(1|h|1) + (11|11) & (12|12) \\
+(21|21) & 2(2|h|2) + (22|22)
+\end{bmatrix}
+\]
 \end{enumerate}
