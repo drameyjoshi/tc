@@ -1401,3 +1401,67 @@ Doing the same for the second equation gives
 [\psi_i\bar{\psi}_j|\bar{\psi}_k\psi_l]=[\bar{\psi}_i\psi_j|\bar{\psi}_k\psi_l]=
 [\psi_i\bar{\psi}_j|\psi_k\bar{\psi}_l]=[\bar{\psi}_i\psi_j|\psi_k\bar{\psi}_l]=0.
 \end{equation}
+
+The analogue of H$_2$ molecule's ground state is the \emph{closed shell,
+restricted} Hartree-Fock wave function for a sytems with an even number of
+electrons.
+\begin{equation}\label{c2e108}
+\ket{\Psi_0} = \ket{\chi_1\ldots\chi_N} = \ket{\psi_1\bar{\psi}_1\ldots\psi_{N/2}
+\bar{\psi}_{N/2}}.
+\end{equation}
+Here closed shell means that each spin orbital is filled with two electrons
+of anti-parallel spins and restricted means the spatial part of the filled spin
+orbitals is identical. They differ only in the spin components. Thus,
+\begin{equation}\label{c2e109}
+\begin{aligned}
+\chi_{2k-1}(\vec{x}) &= \psi_k(\vec{x}) = \psi_k(\vec{r})\alpha(\omega) \\
+\chi_{2k}(\vec{x}) &= \bar{\psi}_k(\vec{x}) = \psi_k(\vec{r})\beta(\omega) 
+\end{aligned}
+\end{equation}
+for $k = 1, \ldots, N/2$. The ground state energy of such a system is
+\begin{equation}\label{c2e110}
+E_0 = \sum_{a=1}^N[a|h|a] + \frac{1}{2}\sum_{a=1}^N\sum_{b=1}^N\left(
+[aa|bb] - [ab|ba]\right).
+\end{equation}
+Now,
+\begin{equation}\label{c2e111}
+\begin{aligned}
+\sum_{a=1}^N[a|h|a] &= \sum_{a=1}^N[\chi_a|h(a)|\chi_a] \\
+ &= \sum_{a=1}^{N/2}[\psi_a|h(a)|\psi_a] + \sum_{a=1}^{N/2}[\bar{\psi}_a|h(a)|
+ \bar{\psi}_a] \\
+&= \sum_{a=1}^{N/2}(\psi_a|h(a)|\psi_a) + \sum_{a=1}^{N/2}(\psi_a|h(a)|\psi_a)\\
+&= 2\sum_{a=1}^{N/2}(\psi_a|h(a)|\psi_a) 
+\end{aligned}
+\end{equation}
+where we used \eqref{c2e103} in the penultimate step. We note once again that
+for $N$ electrons, we have to carry our numerical computation only for $N/2$
+one-electron integrals. The simplification of the double sums is a little tricky.
+We first find
+\begin{equation}\label{c1e112}
+\begin{aligned}
+\sum_{a=1}^N\sum_{b=1}^N\chi_a\chi_b &=\sum_{a=1}^N\chi_a\sum_{b=1}^N\chi_b\\
+ &=\sum_{a=1}^{N/2}(\psi_a+\bar{\psi}_a)\sum_{b=1}^{N/2}(\psi_b+\bar{\psi}_b)\\
+ &=\sum_{a=1}^{N/2}\sum_{b=1}^{N/2}(\psi_a\psi_b + \psi_a\bar{\psi}_b +
+ \bar{\psi}_a\psi_b + \bar{\psi}_a\bar{\psi}_b).
+\end{aligned}
+\end{equation}
+Applying it to the sums of 2-electron integrals,
+\begin{equation}\label{c2e113}
+\begin{aligned}
+\sum_{a,b=1}^N([aa|bb]-[ab|ba]) &= \sum_{a,b=1}^{N/2}([aa|bb]-[ab|ba]) + 
+ \quad\sum_{a,b=1}^{N/2}([aa|\bar{b}\bar{b}]-[ab|\bar{b}\bar{a}]) + \\
+ &\quad\sum_{a,b=1}^{N/2}([\bar{a}\bar{a}|bb]-[ab|\bar{b}\bar{a}]) + 
+ \quad\sum_{a,b=1}^{N/2}([\bar{a}\bar{a}|\bar{b}\bar{b}]-
+ [\bar{a}\bar{b}|\bar{b}\bar{a}])
+\end{aligned}
+\end{equation}
+Using \eqref{c2e106}, the four sums are all equal and
+\begin{equation}\label{c1e114}
+\sum_{a,b=1}^N([aa|bb] - [ab|ba]) = 4\sum_{a,b=1}^{N/2}
+\left((\psi_a\psi_a|\psi_b\psi_b) - (\psi_a\psi_b|\psi_b\psi_a)\right).
+\end{equation}
+Substituting \eqref{c2e111} and \eqref{c2e113} in \eqref{c2e110} we get
+\begin{equation}\label{c2e115}
+E_0 = 2\left\{\sum_{a=1}^{N/2}(\psi_a|h|\psi_a) + \sum_{a,b=1}^{N/2}
+\left((\psi_a\psi_a|\psi_b\psi_b) - (\psi_a\psi_b|\psi_b\psi_a)\right)\right\}
+\end{equation}

@@ -384,4 +384,86 @@ H = \begin{bmatrix}
 (21|21) & 2(2|h|2) + (22|22)
 \end{bmatrix}
 \]
+
+\item\label{c2p18} Perturbation correction to Hartee-Fock ground state energy.
+Given that
+\[
+E_0^{(2)} = \frac{1}{4}\sum_{abrs}\frac{|\braket{ab||rs}|^2}{\varepsilon_a +
+\varepsilon_b - \varepsilon_r - \varepsilon_s}.
+\]
+Now,
+\[
+\begin{aligned}
+|\braket{ab||rs}|^2 &= |\braket{ab|rs} - \braket{ab|sr}|^2 \\
+&= (\braket{ab|rs} - \braket{ab|sr})(\braket{ab|rs} - \braket{ab|sr})^\ast \\
+&= (\braket{ab|rs} - \braket{ab|sr})(\braket{rs|ab} - \braket{sr|ab}) \\
+&= \braket{ab|rs}\braket{rs|ab} - \braket{ab|rs}\braket{sr|ab} - 
+   \braket{ab|sr}\braket{rs|ab} + \braket{ab|sr}\braket{sr|ab}
+\end{aligned}
+\]
+By swapping the variables of integration, we have $\braket{ij|kl}=\braket{ji|lk}$
+so that
+\[
+\begin{aligned}
+|\braket{ab||rs}|^2 &= \braket{ab|rs}\braket{rs|ab} - 
+\braket{ab|rs}\braket{rs|ba} - \braket{ab|sr}\braket{rs|ab} + 
+\braket{ab|sr}\braket{rs|ba} \\
+ &= \braket{rs|ab}\braket{ab|rs} + \braket{rs|ba}\braket{ab|sr} -
+ \braket{rs|ab}\braket{ab|sr} - \braket{rs|ba}\braket{ab|rs}
+\end{aligned}
+\]
+The indices $a, b, r, s$ are all dummies. In the second term, relabel them as
+$r \mapsto a, s \mapsto b, a \mapsto s, b \mapsto r$ so that 
+$\braket{rs|ba}\braket{ab|sr} \mapsto \braket{ab|rs}\braket{sr|ba}$. Finally,
+since $\braket{ij|kl} = \braket{ji|lk}$ (by equation \eqref{c2e86}), the second
+bra(c)ket can be written as $\braket{rs|ab}$. Therefore, the second term is
+$\braket{ab|rs}\braket{rs|ab}$, which is same as the first one.
+
+Write the fourth term as $\braket{ab|rs}\braket{rs|ba}$. Transform the third
+term using \eqref{c2e86} as $\braket{rs|ab}\braket{ba|rs} = \braket{ba|rs}
+\braket{rs|ab}$. Interchange $a$ and $b$ so that it becomes $\braket{ab|rs}
+\braket{rs|ba}$ which is the same as the fourth sum.
+
+Therefore,
+\[
+\sum_{a,b,r,s}|\braket{ab||rs}|^2 = 2\sum_{a,b,r,s}\braket{ab|rs}\braket{rs|ab} 
+ - 2\sum_{a,b,r,s}\braket{ab|rs}\braket{rs|ba} 
+\]
+The sums are over the spin-orbitals. In the final result, since the limits of
+the sum are indicated in the physicists' notation, the sums are to be interpreted
+over spatial orbitals. A term like $\braket{ab|rs}$ will survive only is the
+spins of $\chi_a$ and $\chi_r$ match and those of $\chi_b$ and $\chi_s$. In an
+abuse of notation we write $\braket{ab|rs} = \braket{ab|rs}\delta_{ar}\delta{bs}$,
+where it is understood that on the lhs we have spin orbitals and on the rhs we 
+have spatial orbitals. Thus,
+\[
+\braket{ab|rs}\braket{rs|ab} = \braket{ab|rs}\braket{rs|ab} \delta_{ar}\delta{bs}
+\delta_{ra}\delta_{sb} = \braket{ab|rs}\braket{rs|ab} \delta_{ar}\delta{bs}.
+\]
+Likewise, the second term
+\[
+\braket{ab|rs}\braket{rs|ba} = \braket{ab|rs}\braket{rs|ba}\delta_{ar}\delta_{bs}
+\delta_{rb}\delta_{sa}.
+\]
+The spin takes two values, which we call $0$ and $1$ for this purpose. When we
+do the sum, $a, b, s, r$ all run over $0$ and $1$. The first term survives
+when $(a=0, r=0, b=0, s=0), (a=1, r=1, b=0, s=0), (a=0, r=0, b=1, s=1), (a=1,
+r=1, b=1, s=1)$, four possibilities in all. The second term survives only when
+all spin orbitals are $0$ or all of them are $1$, two possibilities in all. 
+Therefore, when we sum over the spins, 
+\[
+\begin{aligned}
+\sum_{a,b,r,s}|\braket{ab||rs}|^2 =& 2\sum_{a,b=1}^{N/1}\sum_{r,s=N/2+1}^K(4
+\braket{ab|rs}\braket{rs|ab}) \\
+& - 2\sum_{a,b=1}^{N/1}\sum_{r,s=N/2+1}^K(2 \braket{ab|rs}\braket{rs|ba})\\
+&= 4\sum_{a,b=1}^{N/2}\sum_{r,s=N/2+1}^K(2\braket{ab|rs}\braket{rs|ab} -
+\braket{ab|rs}\braket{rs|ba})
+\end{aligned}
+\]
+Therefore,
+\[
+E_0^{(2)} = \sum_{a,b=1}^{N/2}\sum_{r,s=N/2+1}^K
+\frac{2\braket{ab|rs}\braket{rs|ab} - \braket{ab|rs}\braket{rs|ba}}
+{\varepsilon_a + \varepsilon_b - \varepsilon_r - \varepsilon_s}.
+\]
 \end{enumerate}
