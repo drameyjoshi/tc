@@ -466,4 +466,50 @@ E_0^{(2)} = \sum_{a,b=1}^{N/2}\sum_{r,s=N/2+1}^K
 \frac{2\braket{ab|rs}\braket{rs|ab} - \braket{ab|rs}\braket{rs|ba}}
 {\varepsilon_a + \varepsilon_b - \varepsilon_r - \varepsilon_s}.
 \]
+
+\item\label{c2p19} Solutions are a part of the notes.
+
+\item\label{c2p20} Follows immediately from the definition of the integrals.
+
+\item\label{c2p21} We showed in exercise \ref{c2p17} that
+\[
+H = \begin{bmatrix}
+2(1|h|1) + (11|11) & (12|12) \\
+(21|21) & 2(2|h|2) + (22|22)
+\end{bmatrix} = \begin{bmatrix} 2h_{11} + J_{11} & K_{12} \\
+K_{12} & 2h_22 + J_{22}
+\end{bmatrix}
+\]
+
+\item\label{c2p22} Energy of Hartree products.
+If $\Psi_{ap}=\psi_1(\vec{r}_1)\alpha(\omega_1)\psi_2(\vec{r}_2)\beta(\omega_2)$
+then
+\[
+\begin{aligned}
+\iint d\vec{x}_1d\vec{x}_2\Psi_{ap}^\ast H \Psi_{ap} &=
+\iint d\vec{r}_1d\vec{r}_2\iint d\vec{\omega}_1d\vec{\omega}_2
+\psi_1^\ast(\vec{r}_1)\alpha^\ast(\omega_1)\psi_2^\ast(\vec{r}_2)
+\beta^\ast(\omega_2)H \\
+ &\quad\quad\quad
+ \psi_1(\vec{r}_1)\alpha(\omega_1)\psi_2(\vec{r}_2)\beta(\omega_2) \\
+ &=\iint d\vec{r}_1d\vec{r}_2\psi_1^\ast(\vec{r}_1)\psi_2^\ast(\vec{r}_2)(h_1 +
+ h_2 + r_{12}^{-1})\psi_1(\vec{r}_1)\psi_2(\vec{r}_2) \\
+ &= h_{11} + h_{12} + (\psi_1\psi_1|\psi_2\psi_2)
+\end{aligned}
+\]
+If $\Psi_{p}=\psi_1(\vec{r}_1)\beta(\omega_1)\psi_2(\vec{r}_2)\beta(\omega_2)$
+then
+\[
+\begin{aligned}
+\iint d\vec{x}_1d\vec{x}_2\Psi_{p}^\ast H \Psi_{p} &=
+\iint d\vec{r}_1d\vec{r}_2\iint d\vec{\omega}_1d\vec{\omega}_2
+\psi_1^\ast(\vec{r}_1)\beta^\ast(\omega_1)\psi_2^\ast(\vec{r}_2)
+\beta^\ast(\omega_2)H \\
+ &\quad\quad\quad
+ \psi_1(\vec{r}_1)\beta(\omega_1)\psi_2(\vec{r}_2)\beta(\omega_2) \\
+ &=\iint d\vec{r}_1d\vec{r}_2\psi_1^\ast(\vec{r}_1)\psi_2^\ast(\vec{r}_2)(h_1 +
+ h_2 + r_{12}^{-1})\psi_1(\vec{r}_1)\psi_2(\vec{r}_2) \\
+ &= h_{11} + h_{12} + (\psi_1\psi_1|\psi_2\psi_2)
+\end{aligned}
+\]
 \end{enumerate}
