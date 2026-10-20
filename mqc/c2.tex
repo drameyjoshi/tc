@@ -1512,3 +1512,111 @@ term $J_{aa}$ is like the self-energy of an electron. It is an ill-defined
 concept in classical mechanics. Thankfully, it is equal to $K_{aa}$ and because
 the two terms often come as the expression $J_{ab} - K_{ab}$, the `self' terms
 become irrelevant.
+
+\section{Second quantisation}
+Before proceeding, we recall that the symbol $\ket{\chi_k\ldots\chi_l}$ 
+represents a Slater determinant with $\chi_k, \ldots, \chi_l$ along the main
+diagonal. We define a creation operator $a_i^\dagger$ as
+\begin{equation}\label{c2e121}
+a_i^\dagger\ket{\chi_k\ldots\chi_l} = \ket{\chi_i\chi_k\ldots\chi_l}.
+\end{equation}
+Thus, the operator $a_i^\dagger$ creates an $N+1$ electron state from an $N$
+electron state. It does so by creating an electron in the spin orbital $\chi_i$.
+Using this definition, we have
+\begin{eqnarray*}
+a_j^\dagger a_i^\dagger\ket{\chi_k\ldots\chi_l} &=& \ket{\chi_j\chi_i\chi_k
+ \ldots\chi_l} \\
+a_i^\dagger a_j^\dagger\ket{\chi_k\ldots\chi_l} &=& \ket{\chi_i\chi_j\chi_k
+ \ldots\chi_l} \\
+ &=& -\ket{\chi_j\chi_i\chi_k\ldots\chi_l}
+\end{eqnarray*}
+so that
+\[
+(a_j^\dagger a_i^\dagger + a_i^\dagger a_j^\dagger)\ket{\chi_k\ldots\chi_l}=0
+\]
+for any $\ket{\chi_k\ldots\chi_l}$. Therefore, we must have
+\begin{equation}\label{c2e122}
+\{a_i^\dagger, a_j^\dagger\} = a_i^\dagger a_j^\dagger + a_j^\dagger a_i^\dagger
+= 0.
+\end{equation}
+From this equation it follows that $a_i^\dagger a_j^\dagger = a_j^\dagger 
+a_i^\dagger$, or if $i=j$, $a_i^\dagger a_i^\dagger = -a_i^\dagger a_i^\dagger$
+or that
+\begin{equation}\label{c2e123}
+a_i^\dagger a_i^\dagger = 0.
+\end{equation}
+Thus, it is impossible to create two electrons in the same spin orbital. The
+anti-commutator relation of the creation operator automatically enforces the 
+Pauli exclusion principle. We can understand this property in the language of
+determinants as well. $a_i^\dagger a_i^\dagger \ket{\chi_k\ldots\chi_l} = 
+\ket{\chi_i\chi_i\chi_k\ldots\chi_l}$ creates a determinant in which there is
+at least one pair of identical rows and therefore it vanishes.
+
+The annihilation operator $a_i$ is defined by
+\begin{equation}\label{c2e124}
+a_i\ket{\chi_i\chi_k\ldots\chi_l} = \ket{\chi_k\ldots\chi_l}
+\end{equation}
+Thus, the operator $a_i$ destroys the electon occupying the spin orbital 
+$\chi_i$ and therefore earns its name. Taking the adjoint of \eqref{c2e122},
+\begin{equation}\label{c2e125}
+\{a_i, a_j\} = a_ia_j + a_ja_i = 0.
+\end{equation}
+Analogous to \eqref{c2e123}, we have
+\begin{equation}\label{c2e126}
+a_ia_i = 0,
+\end{equation}
+that is, we cannot annihilate the same electron twice.
+
+Since
+\[
+\begin{aligned}
+{a_i,a_i^\dagger}\ket{\chi_k\ldots\chi_l}&=a_i\ket{\chi_i\chi_k\ldots\chi_l}+0\\
+ &=\ket{\chi_k\ldots\chi_l}
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+{a_i^\dagger, a_i}\ket{\chi_k\ldots\chi_l}&=0+a_i\ket{\chi_i\chi_k\ldots\chi_l}\\
+ &=\ket{\chi_k\ldots\chi_l}
+\end{aligned}
+\]
+it follows that
+\begin{equation}\label{c2e127}
+\{a_i, a_i^\dagger\} = 1.
+\end{equation}
+
+However,
+Since
+\[
+\begin{aligned}
+{a_i,a_j^\dagger}\ket{\chi_k\ldots\chi_l}&=a_i\ket{\chi_j\chi_k\ldots\chi_l}+0\\
+ &=0
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+{a_i^\dagger, a_j}\ket{\chi_k\ldots\chi_l}&=0+a_j\ket{\chi_i\chi_k\ldots\chi_l}\\
+ &=0
+\end{aligned}
+\]
+it follows that
+\begin{equation}\label{c2e128}
+\{a_i, a_j^\dagger\} = 0 = \{a_i^\dagger, a_j\}.
+\end{equation}
+Equations \eqref{c2e127} and \eqref{c2e128} can be combined together as
+\begin{equation}\label{c2e129}
+\{a_i, a_j^\dagger\} = \delta_{ij}.
+\end{equation}
+
+The \emph{vacuum state} is the one with no electrons in it. It is denoted by
+$\ket{}$ and we assume that $\braket{|} = 1$. It has the property that 
+\begin{equation}\label{c2e130}
+a_i\ket{} = 0
+\end{equation}
+and
+\begin{equation}\label{c2e131}
+a_i^\dagger\ket{} = \ket{\chi_i}.
+\end{equation}
+

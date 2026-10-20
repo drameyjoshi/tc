@@ -106,9 +106,9 @@ so that
  \chi_i^\ast(1)\chi_l(1)\chi_j^\ast(2)\chi_k(2) - \right. \\
  & & \left. \chi_j^\ast(1)\chi_k(1)\chi_i^\ast(2)\chi_l(2) + 
  \chi_j^\ast(1)\chi_l(1)\chi_i^\ast(2)\chi_k(2)\right] \\
- &=& \delta_{ij}\delta_{jl} - \delta_{il}\delta{jk} - \delta_{jk}\delta_{il}
- + \delta_{jl}\delta{ij} \\
-\braket{K|L} &=& \delta_{ij}\delta_{jl} - \delta_{il}\delta{jk}
+ &=& \delta_{ij}\delta_{jl} - \delta_{il}\delta_{jk} - \delta_{jk}\delta_{il}
+ + \delta_{jl}\delta_{ij} \\
+\braket{K|L} &=& \delta_{ij}\delta_{jl} - \delta_{il}\delta_{jk}
 \end{eqnarray*}
 
 \item\label{c2p6} Orthonormality of molecular orbitals.
@@ -512,4 +512,30 @@ then
  &= h_{11} + h_{12} + (\psi_1\psi_1|\psi_2\psi_2)
 \end{aligned}
 \]
+
+\item\label{c2p23} This one can be verified easily from the energy level 
+diagrams.
+
+\item\label{c2p24} Anti-commutator relations.
+${a_1^\dagger, a_2^\dagger}\ket{\chi_1\chi_2} = \ket{\chi_1\chi_2\chi_1\chi_2}
++ \ket{\chi_2\chi_1\chi_1\chi_2} = 0 + 0$ because each determinant has at least
+one pair of identical rows.
+
+${a_1^\dagger, a_2^\dagger}\ket{\chi_1\chi_3} = \ket{\chi_1\chi_2\chi_1\chi_3}
++ \ket{\chi_2\chi_1\chi_1\chi_3} = 0 + 0$.
+
+${a_1^\dagger, a_2^\dagger}\ket{\chi_1\chi_4} = \ket{\chi_1\chi_2\chi_1\chi_4}
++ \ket{\chi_2\chi_1\chi_1\chi_4} = 0 + 0$.
+
+${a_1^\dagger, a_2^\dagger}\ket{\chi_2\chi_3} = \ket{\chi_1\chi_2\chi_2\chi_3}
++ \ket{\chi_2\chi_1\chi_2\chi_3} = 0 + 0$.
+
+${a_1^\dagger, a_2^\dagger}\ket{\chi_2\chi_4} = \ket{\chi_1\chi_2\chi_2\chi_4}
++ \ket{\chi_2\chi_1\chi_2\chi_4} = 0 + 0$.
+
+${a_1^\dagger, a_2^\dagger}\ket{\chi_3\chi_4} = \ket{\chi_1\chi_2\chi_3\chi_4}
++ \ket{\chi_2\chi_1\chi_3\chi_4} = \ket{\chi_1\chi_2\chi_3\chi_4} - 
+\ket{\chi_1\chi_2\chi_3\chi_4} = 0$.
+
+\item\label{c2p25} The solution is quite similar to the previous problem.
 \end{enumerate}
