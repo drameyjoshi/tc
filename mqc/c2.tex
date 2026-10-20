@@ -1449,19 +1449,44 @@ Applying it to the sums of 2-electron integrals,
 \begin{equation}\label{c2e113}
 \begin{aligned}
 \sum_{a,b=1}^N([aa|bb]-[ab|ba]) &= \sum_{a,b=1}^{N/2}([aa|bb]-[ab|ba]) + 
- \quad\sum_{a,b=1}^{N/2}([aa|\bar{b}\bar{b}]-[ab|\bar{b}\bar{a}]) + \\
- &\quad\sum_{a,b=1}^{N/2}([\bar{a}\bar{a}|bb]-[ab|\bar{b}\bar{a}]) + 
+ \quad\sum_{a,b=1}^{N/2}([aa|\bar{b}\bar{b}]-[a\bar{b}|\bar{b}a]) + \\
+ &\quad\sum_{a,b=1}^{N/2}([\bar{a}\bar{a}|bb]-[\bar{a}b|b\bar{a}]) + 
  \quad\sum_{a,b=1}^{N/2}([\bar{a}\bar{a}|\bar{b}\bar{b}]-
  [\bar{a}\bar{b}|\bar{b}\bar{a}])
 \end{aligned}
 \end{equation}
 Using \eqref{c2e106}, the four sums are all equal and
 \begin{equation}\label{c1e114}
-\sum_{a,b=1}^N([aa|bb] - [ab|ba]) = 4\sum_{a,b=1}^{N/2}
-\left((\psi_a\psi_a|\psi_b\psi_b) - (\psi_a\psi_b|\psi_b\psi_a)\right).
+\sum_{a,b=1}^N([aa|bb] - [ab|ba]) = \sum_{a,b=1}^{N/2}
+\left(4(\psi_a\psi_a|\psi_b\psi_b) -2 (\psi_a\psi_b|\psi_b\psi_a)\right).
 \end{equation}
 Substituting \eqref{c2e111} and \eqref{c2e113} in \eqref{c2e110} we get
 \begin{equation}\label{c2e115}
 E_0 = 2\left\{\sum_{a=1}^{N/2}(\psi_a|h|\psi_a) + \sum_{a,b=1}^{N/2}
-\left((\psi_a\psi_a|\psi_b\psi_b) - (\psi_a\psi_b|\psi_b\psi_a)\right)\right\}
+\left(2(\psi_a\psi_a|\psi_b\psi_b) - (\psi_a\psi_b|\psi_b\psi_a)\right)\right\}
 \end{equation}
+
+\subsection{Coulomb and exchange integrals}
+The ground state energy of \eqref{c2e115} is made up of three contributions:
+\begin{enumerate}
+\item Terms of the type $(\psi_a|h|\psi_a)$, each of which is the average of
+kinetic energy of an electron plus its potential energy in the field of all
+nuclei.
+\item Terms of the type,
+\[
+\begin{aligned}
+(\psi_a\psi_a|\psi_b\psi_b) &= \iint d\vec{r}_1 d\vec{r}_2\psi_a^\ast(\vec{r}_1)
+\psi_a(\vec{r}_1)r_{12}^{-1}\psi_b^\ast(\vec{r}_2)\psi_b(\vec{r}_2) \\
+&= \iint d\vec{r}_1 d\vec{r}_2 \frac{\rho_a(\vec{r}_1)\rho_b(\vec{r}_2)}{|\vec{r}_1
+- \vec{r}_2|}
+\end{aligned}
+\]
+Each of these represents the Coulomb repulsion between the electrons.
+\item Terms of the type
+\[
+(\psi_a\psi_b|\psi_b\psi_a) = \iint d\vec{r}_1 d\vec{r}_2\psi_a^\ast(\vec{r}_1)
+\psi_b(\vec{r}_1r_{12}^{-1}\psi_b^\ast(\vec{r}_2)\psi_a(\vec{r}_2).
+\]
+This term cannot be interpreted in classical physics. It is called the 
+exchange interaction.
+\end{enumerate}
