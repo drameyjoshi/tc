@@ -1570,14 +1570,14 @@ that is, we cannot annihilate the same electron twice.
 Since
 \[
 \begin{aligned}
-{a_i,a_i^\dagger}\ket{\chi_k\ldots\chi_l}&=a_i\ket{\chi_i\chi_k\ldots\chi_l}+0\\
+\{a_i,a_i^\dagger\}\ket{\chi_k\ldots\chi_l}&=a_i\ket{\chi_i\chi_k\ldots\chi_l}+0\\
  &=\ket{\chi_k\ldots\chi_l}
 \end{aligned}
 \]
 and
 \[
 \begin{aligned}
-{a_i^\dagger, a_i}\ket{\chi_k\ldots\chi_l}&=0+a_i\ket{\chi_i\chi_k\ldots\chi_l}\\
+\{a_i^\dagger, a_i\}\ket{\chi_k\ldots\chi_l}&=0+a_i\ket{\chi_i\chi_k\ldots\chi_l}\\
  &=\ket{\chi_k\ldots\chi_l}
 \end{aligned}
 \]
@@ -1590,14 +1590,14 @@ However,
 Since
 \[
 \begin{aligned}
-{a_i,a_j^\dagger}\ket{\chi_k\ldots\chi_l}&=a_i\ket{\chi_j\chi_k\ldots\chi_l}+0\\
+\{a_i,a_j^\dagger\}\ket{\chi_k\ldots\chi_l}&=a_i\ket{\chi_j\chi_k\ldots\chi_l}+0\\
  &=0
 \end{aligned}
 \]
 and
 \[
 \begin{aligned}
-{a_i^\dagger, a_j}\ket{\chi_k\ldots\chi_l}&=0+a_j\ket{\chi_i\chi_k\ldots\chi_l}\\
+\{a_i^\dagger, a_j\}\ket{\chi_k\ldots\chi_l}&=0+a_j\ket{\chi_i\chi_k\ldots\chi_l}\\
  &=0
 \end{aligned}
 \]
@@ -1611,12 +1611,26 @@ Equations \eqref{c2e127} and \eqref{c2e128} can be combined together as
 \end{equation}
 
 The \emph{vacuum state} is the one with no electrons in it. It is denoted by
-$\ket{}$ and we assume that $\braket{|} = 1$. It has the property that 
+$\ket{\;}$ and we assume that $\braket{\;|\;} = 1$. It has the property that 
 \begin{equation}\label{c2e130}
-a_i\ket{} = 0
+a_i\ket{\;} = 0
 \end{equation}
 and
 \begin{equation}\label{c2e131}
-a_i^\dagger\ket{} = \ket{\chi_i}.
+a_i^\dagger\ket{\;} = \ket{\chi_i}.
 \end{equation}
+The equation
+\begin{equation}\label{c2e132}
+a_i^\dagger a_k^\dagger \ldots a_l^\dagger\ket{\;} = 
+\ket{\chi_i\chi_k\ldots\chi_l}
+\end{equation}
+is the representation of a Slater determinant in term of creation operators of
+second quantisation.
 
+The one- and two-electron operators are represented in terms of the one- and
+two-electron integrals as
+\begin{eqnarray}
+O_1 &=& \sum_{ij}\braket{i|h|j}a_i^\dagger a_j \label{c2e133} \\
+O_2 &=& \frac{1}{2}\sum_{ijkl}\braket{ij|kl}a_i^\dagger a_j^\dagger a_ka_l
+\label{c2e134}
+\end{eqnarray}

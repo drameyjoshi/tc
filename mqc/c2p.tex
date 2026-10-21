@@ -521,21 +521,100 @@ ${a_1^\dagger, a_2^\dagger}\ket{\chi_1\chi_2} = \ket{\chi_1\chi_2\chi_1\chi_2}
 + \ket{\chi_2\chi_1\chi_1\chi_2} = 0 + 0$ because each determinant has at least
 one pair of identical rows.
 
-${a_1^\dagger, a_2^\dagger}\ket{\chi_1\chi_3} = \ket{\chi_1\chi_2\chi_1\chi_3}
+$\{a_1^\dagger, a_2^\dagger\}\ket{\chi_1\chi_3} = \ket{\chi_1\chi_2\chi_1\chi_3}
 + \ket{\chi_2\chi_1\chi_1\chi_3} = 0 + 0$.
 
-${a_1^\dagger, a_2^\dagger}\ket{\chi_1\chi_4} = \ket{\chi_1\chi_2\chi_1\chi_4}
+$\{a_1^\dagger, a_2^\dagger\}\ket{\chi_1\chi_4} = \ket{\chi_1\chi_2\chi_1\chi_4}
 + \ket{\chi_2\chi_1\chi_1\chi_4} = 0 + 0$.
 
-${a_1^\dagger, a_2^\dagger}\ket{\chi_2\chi_3} = \ket{\chi_1\chi_2\chi_2\chi_3}
+$\{a_1^\dagger, a_2^\dagger\}\ket{\chi_2\chi_3} = \ket{\chi_1\chi_2\chi_2\chi_3}
 + \ket{\chi_2\chi_1\chi_2\chi_3} = 0 + 0$.
 
-${a_1^\dagger, a_2^\dagger}\ket{\chi_2\chi_4} = \ket{\chi_1\chi_2\chi_2\chi_4}
+$\{a_1^\dagger, a_2^\dagger\}\ket{\chi_2\chi_4} = \ket{\chi_1\chi_2\chi_2\chi_4}
 + \ket{\chi_2\chi_1\chi_2\chi_4} = 0 + 0$.
 
-${a_1^\dagger, a_2^\dagger}\ket{\chi_3\chi_4} = \ket{\chi_1\chi_2\chi_3\chi_4}
-+ \ket{\chi_2\chi_1\chi_3\chi_4} = \ket{\chi_1\chi_2\chi_3\chi_4} - 
-\ket{\chi_1\chi_2\chi_3\chi_4} = 0$.
+\[
+\begin{aligned}
+\{a_1^\dagger, a_2^\dagger\}\ket{\chi_3\chi_4} &= \ket{\chi_1\chi_2\chi_3\chi_4}
++ \ket{\chi_2\chi_1\chi_3\chi_4} \\
+& = \ket{\chi_1\chi_2\chi_3\chi_4} - \ket{\chi_1\chi_2\chi_3\chi_4} 
+&= 0.
+\end{aligned}
+\]
 
 \item\label{c2p25} The solution is quite similar to the previous problem.
+
+\item\label{c2p26} Orthonormality using second-quantisation.
+Since $\ket{\chi_i} = a_i^\dagger\ket{\;}, \ket{\chi_j} = a_j^\dagger\ket{\;}$,
+$\braket{\chi_i|\chi_j} = \braket{\;|a_ia_j^\dagger\;} = \braket{\;|a_i|a_j}$
+If $i = j$, we have $\braket{\;|\;} = 1$. Otherwise, we have $\braket{\;|0} = 0$.
+
+\item\label{c2p27} Computation of $\braket{K|a_i^\dagger a_j|K}$.
+Given that $\ket{K} = \ket{\chi_1\ldots\chi_N}$. If $j \notin \{1, \ldots, N\}$,
+$a_j\ket{K} = 0$. If $i \notin \{1, \ldots, N\}$, $\bra{K}a_i^\dagger = 0$. If
+$i, j \in \{1, \ldots, N\}$, $a_i^\dagger a_j\ket{K} = a_i^\dagger\ket{\chi_1
+\ldots\chi_{j-1}\chi_{j+1}\ldots\chi_N} = 0$. If $i = j$,
+\[
+\braket{K|a_i^\dagger a_i|K} = \braket{K|K} = 1.
+\]
+
+\item\label{c2p28} Review the labelling convention on page 54 of the book.
+
+Given that $\ket{\Psi_0} = \ket{\chi_1\ldots\chi_a\chi_b\ldots\chi_N}$.
+\begin{enumerate}
+\item As $r$ denotes an unoccupied spin orbital, $a_r\ket{\Psi_0} = 0$.
+\item Since $\chi_a$ is already occupied, $a_a^\dagger\ket{\Psi_0} = 0$.
+\item $a_r^\dagger a_0\ket{\Psi_0} = a_r^\dagger\ket{\chi_1\ldots\chi_b\ldots
+\chi_N} = \ket{\chi_1\ldots\chi_b\ldots\chi_N\chi_r} = \ket{\Psi_a^r}$. This 
+operation represents the process of an electron in state $\chi_a$ being excited
+to the state $\chi_r$.
+\item This is just the adjoint of the previous equation.
+\item Analogous to item 4. It represents excitation of electrons in states 
+$\chi_a$ and $\chi_b$ to $\chi_r$ and $\chi_s$ respectively.
+\item Adjoint of the previous equation.
+\end{enumerate}
+
+\item\label{c2p29} Given that $\ket{\Psi_0} = \ket{\chi_1\chi_2} = a_1^\dagger
+a_2^\dagger\ket{\;}$,
+\[
+\braket{\Psi_0|O_1|\Psi_0} = \sum_{ij}\braket{i|h|j}\braket{\Psi_0|a_i^\dagger
+  a_j|\Psi_0} 
+\]
+From \eqref{c2e129}, $a_j a_i^\dagger + a_i^\dagger a_j = \delta_{ij}$ so that
+\[
+\begin{aligned}
+\braket{\Psi_0|O_1|\Psi_0} &= \sum_{ij}\braket{i|h|j}\braket{\Psi_0|\delta_{ij}
+ - a_i^\dagger a_j|\Psi_0} \\
+ &= \braket{1|h|1}\braket{\Psi_0|1 + a_1 a_1^\dagger|\Psi_0} +
+    \braket{1|h|2}\braket{\Psi_0|0 + a_1 a_2^\dagger|\Psi_0} + \\
+ &\quad\braket{2|h|1}\braket{\Psi_0|0 + a_2 a_1^\dagger|\Psi_0} +
+    \braket{2|h|2}\braket{\Psi_0|1 + a_2 a_2^\dagger|\Psi_0} + \\
+ &= \braket{1|h|1} + \braket{2|h|2}
+\end{aligned}
+\]
+
+\item\label{c2p30} Computation of a matrix element.
+Since $a_r^\dagger a_a\ket{\Psi_0} = \ket{\Psi_a^r}$,
+\[
+\braket{\Psi_a^r|O_1|\Psi_0} = \sum_{ij}\braket{i|h|j}\braket{\Psi_0|a_a^\dagger
+a_ra_i^\dagger a_j|\Psi_0}
+\]
+From $\{a_a^\dagger, a_r\} = \delta_{ar}$, $a_a^\dagger a_r + a_r a_a^\dagger 
+= \delta_{ar}$ or 
+$a_a^\dagger a_r = \delta_{ar} - a_r a_a^\dagger$. Therefore, $a_a^\dagger 
+a_r a_i^\dagger a_j = \delta_{ar}a_i^\dagger a_j - a_r a_a^\dagger a_i^\dagger
+a_j = \delta_{ar}a_i^\dagger a_j + a_r a_i^\dagger a_a^\dagger a_j$, where
+we used $\{a_i^\dagger, a_a^\dagger\} = 0$. Using $\{a_a^\dagger, a_r\} = 
+\delta_{ar}$ once more,
+\[
+a_a^\dagger a_r a_i^\dagger a_j = \delta_{ar}a_i^\dagger a_j + a_r a_i^\dagger(
+\delta_{ar} + a_r a_a^\dagger) = \delta_{ar}(a_i^\dagger a_j + a_r a_i^\dagger)
++ a_r a_i^\dagger a_r a_a^\dagger.
+\]
+By convention, $\chi_a$ is an occupied orbital. Therefore, $a_a^\dagger
+\ket{\Psi_0} = 0$ and hence,
+\[
+(a_a^\dagger a_r a_i^\dagger a_j)\ket{\Psi_0} = 
+\delta_{ar}(a_i^\dagger a_j + a_r a_i^\dagger)\ket{\Psi_0}
+\]
 \end{enumerate}
