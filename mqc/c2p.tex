@@ -593,28 +593,80 @@ From \eqref{c2e129}, $a_j a_i^\dagger + a_i^\dagger a_j = \delta_{ij}$ so that
 \end{aligned}
 \]
 
-\item\label{c2p30} Computation of a matrix element.
-Since $a_r^\dagger a_a\ket{\Psi_0} = \ket{\Psi_a^r}$,
+\item\label{c2p30} Computation of the matrix element
+$\braket{\Psi_a^r|O_1|\Psi_0}$.
+
+Firstly, note that $\ket{\Psi_a^r} = a_r^\dagger a_a\ket{\Psi_0}$ so that we
+are computing $\braket{\Psi_0|a_a^\dagger a_r O_1|\Psi_0}$, that is
 \[
 \braket{\Psi_a^r|O_1|\Psi_0} = \sum_{ij}\braket{i|h|j}\braket{\Psi_0|a_a^\dagger
-a_ra_i^\dagger a_j|\Psi_0}
+a_r a_i^\dagger a_j|\Psi_0}
 \]
-From $\{a_a^\dagger, a_r\} = \delta_{ar}$, $a_a^\dagger a_r + a_r a_a^\dagger 
-= \delta_{ar}$ or 
-$a_a^\dagger a_r = \delta_{ar} - a_r a_a^\dagger$. Therefore, $a_a^\dagger 
-a_r a_i^\dagger a_j = \delta_{ar}a_i^\dagger a_j - a_r a_a^\dagger a_i^\dagger
-a_j = \delta_{ar}a_i^\dagger a_j + a_r a_i^\dagger a_a^\dagger a_j$, where
-we used $\{a_i^\dagger, a_a^\dagger\} = 0$. Using $\{a_a^\dagger, a_r\} = 
-\delta_{ar}$ once more,
+The term $a_j\ket{\Psi_0}$ will vanish unless $j$ is the index of one of the 
+occupied spin orbitals. Therefore,
 \[
-a_a^\dagger a_r a_i^\dagger a_j = \delta_{ar}a_i^\dagger a_j + a_r a_i^\dagger(
-\delta_{ar} + a_r a_a^\dagger) = \delta_{ar}(a_i^\dagger a_j + a_r a_i^\dagger)
-+ a_r a_i^\dagger a_r a_a^\dagger.
+\braket{\Psi_a^r|O_1|\Psi_0} = \sum_{ib}\braket{i|h|b}\braket{\Psi_0|a_a^\dagger
+a_r a_i^\dagger a_b|\Psi_0}.
 \]
-By convention, $\chi_a$ is an occupied orbital. Therefore, $a_a^\dagger
-\ket{\Psi_0} = 0$ and hence,
+Now consider,
 \[
-(a_a^\dagger a_r a_i^\dagger a_j)\ket{\Psi_0} = 
-\delta_{ar}(a_i^\dagger a_j + a_r a_i^\dagger)\ket{\Psi_0}
+\begin{aligned}
+a_a^\dagger a_r a_i^\dagger a_b&=a_a^\dagger(\delta_{ir} - a_i^\dagger a_r)a_b \\
+&= \delta_{ir}a_a^\dagger a_b - a_a^\dagger a_i^\dagger a_r a_b \\
+&= \delta_{ir}\delta_{ab} - \delta_{ir}a_b a_a^\dagger - a_a^\dagger 
+   a_i^\dagger a_r a_b
+\end{aligned}
+\]
+so that
+\[
+a_a^\dagger a_r a_i^\dagger a_b\ket{\Psi_0} = \delta_{ir}\delta_{ab}\ket{\Psi_0}
+\]
+because $a_a^\dagger\ket{\Psi_0} = 0$ as $a$ an index of an occupied state and
+$a_ra_b\ket{\Psi_0} = 0$ because $r$ is an unoccupied state. Therefore,
+\[
+\braket{\Psi_a^r|O_1|\Psi_0} = \sum_{ib}\braket{i|h|b}\delta_{ir}\delta_{ab}
+\braket{\Psi_0|\Psi_0} = \braket{r|h|a}.
+\]
+
+\item\label{c2p31} Computation of $\braket{\Psi_a^r|O_2|\Psi_0}$.
+Recall that
+\[
+O_2 = \frac{1}{2}\sum_{ijkl}\braket{ij|kl}a_i^\dagger a_j^\dagger a_l a_k
+\]
+and $\ket{\Psi_a^r} = a_r^\dagger a_a\ket{\Psi_0}$ or that $\bra{\Psi_a^r} = 
+\bra{\Psi_0}a_a^\dagger a_r$ so that
+\[
+\braket{\Psi_a^r|O_2|\Psi_0} = \frac{1}{2}\sum_{ijkl}\braket{ij|kl}
+\braket{\Psi_0|a_a^\dagger a_r a_i^\dagger a_j^\dagger a_l a_k|\Psi_0}
+\]
+If $a_la_k\ket{\Psi_0}$ has to survive then $l, k$ must be indices of occupied
+states. Therefore, we must have
+\[
+\braket{\Psi_a^r|O_2|\Psi_0} = \frac{1}{2}\sum_{ijkl}\braket{ij|cd}
+\braket{\Psi_0|a_a^\dagger a_r a_i^\dagger a_j^\dagger a_d a_c|\Psi_0}
+\]
+We now use the anti-commutator of \eqref{c2e129} to shift $a_r, a_a^a\dagger$ as
+rightward as possible. Thus,
+\[
+\begin{aligned}
+a_a^\dagger a_r a_i^\dagger a_j^\dagger a_d a_c &=
+a_a^\dagger(\delta_{ir} - a_i^\dagger a_r)a_j^\dagger a_d a_c \\
+&= \delta_{ir}a_a^\dagger a_j^\dagger a_d a_c - a_a^\dagger a_i^\dagger a_r 
+   a_j^\dagger a_d a_c \\
+&= \delta_{ir}a_j^\dagger a_a^\dagger a_d a_c - a_i^\dagger a_a^\dagger a_r 
+   a_j^\dagger a_d a_c \\
+&= \delta_{ir}a_j^\dagger(\delta_{ad} - a_d a_a^\dagger)a_c - a_i^\dagger(
+\delta_{ar} - a_ra_a^\dagger)a_j^\dagger a_da_c \\
+&= \delta_{ir}\delta_{ad}a_j^\dagger a_c - \delta_{ir}a_j^\dagger a_da_a^\dagger
+a_c - \delta_{ar}a_i^\dagger a_j^\dagger a_da_c + a_i^\dagger a_ra_a^\dagger
+ a_j^\dagger a_da_c \\
+&= \delta_{ir}\delta_{ad}a_j^\dagger a_c - \delta_{ir}a_j^\dagger a_d(\delta_{ac}
+ - a_ca_a^\dagger) - \delta_{ar}a_i^\dagger a_j^\dagger a_da_c \\
+&\quad\; + a_i^\dagger a_ra_j^\dagger a_a^\dagger a_da_c \\
+&= \delta_{ir}\delta_{ad}a_j^\dagger a_c - \delta_{ir}\delta_{ac}a_j^\dagger a_d
+ + \delta_{ir}a_j^\dagger a_d a_c a_a^\dagger - \delta_{ar}a_i^\dagger a_j^\dagger
+ a_da_c \\
+&\quad\;+ a_i^\dagger a_ra_j^\dagger a_a^\dagger a_da_c 
+\end{aligned}
 \]
 \end{enumerate}

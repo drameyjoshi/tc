@@ -1631,6 +1631,92 @@ The one- and two-electron operators are represented in terms of the one- and
 two-electron integrals as
 \begin{eqnarray}
 O_1 &=& \sum_{ij}\braket{i|h|j}a_i^\dagger a_j \label{c2e133} \\
-O_2 &=& \frac{1}{2}\sum_{ijkl}\braket{ij|kl}a_i^\dagger a_j^\dagger a_ka_l
+O_2 &=& \frac{1}{2}\sum_{ijkl}\braket{ij|kl}a_i^\dagger a_j^\dagger a_la_k.
 \label{c2e134}
 \end{eqnarray}
+Note the order of the indices in the second expression.
+
+We will illustrate the computation of expectation values of these operators in
+Hartree-Fock ground state. For the one-electron operator,
+\[
+\begin{aligned}
+\braket{\Psi_0|O_1|\Psi_0} &= 
+    \braket{\Psi_0|\sum_{ij}\braket{i|h|j}a_i^\dagger a_j|\Psi_0} \\
+ &= \sum_{ij}\braket{i|h|j} \braket{\Psi_0|a_i^\dagger a_j|\Psi_0} 
+ \end{aligned}
+\]
+Since $a_j$ and $a_i^\dagger$ destroy the state $j$ and $i$ on the right and
+left respectively, the indices $i, j$ must be among $1, \ldots, N$, for the
+N-electron state $\ket{\Psi_0}$. Therefore,
+\[
+\braket{\Psi_0|O_1|\Psi_0} = 
+\sum_{ab}\braket{a|h|b}\braket{\Psi_0|a_a^\dagger a_b|\Psi_0}.
+\]
+The standard method of solving this expression is by shifting the creation
+operator to the rightmost position using
+\[
+\{a_a^\dagger, a_b\} = \delta_{ab} \Rightarrow a_a^\dagger a_b = \delta_{ab} -
+a_b a_a^\dagger,
+\]
+so that
+\[
+\begin{aligned}
+\braket{\Psi_0|O_1|\Psi_0} &= 
+\sum_{ab}\braket{a|h|b}\braket{\Psi_0|\delta_{ab} - a_ba_a^\dagger|\Psi_0}\\
+ &= \sum_a\braket{a|h|a}\braket{\Psi_0|\Psi_0} - \sum_{ab}\braket{a|h|b}
+    \braket{\Psi_0|a_b a_a^\dagger|\Psi_0} \\
+ &= \sum_a\braket{a|h|a}
+\end{aligned}
+\]
+because $\ket{\Psi_0}$ is normalised and $a_a^\dagger\ket{\Psi_0} = 0$ because
+$a$ is index of one of the occupied states.
+
+We will now illustrate the computation for a two-electron operator.
+\[
+\begin{aligned}
+\braket{\Psi_0|O_2|\Psi_0} &= 
+\frac{1}{2}\braket{\Psi_0|\sum_{ijkl}\braket{ij|kl}a_i^\dagger a_j^\dagger 
+a_la_k|\Psi_0} \\
+&=
+\frac{1}{2}\sum_{ijkl}\braket{ij|kl}\braket{\Psi_0|a_i^\dagger a_j^\dagger 
+a_la_k|\Psi_0} 
+ \end{aligned}
+\]
+Since $a_i^\dagger, a_j^\dagger$ destroy the electrons in states $i$ and $j$ 
+from $\bra{\Psi_0}$ and $a_l, a_k$ do the same from $\ket{\Psi_0}$, the indices
+$i, j, k, l$ must be among the occupied states. Therefore,
+\[
+\braket{\Psi_0|O_2|\Psi_0} = \frac{1}{2}
+\sum_{abcd}\braket{ab|cd}\braket{\Psi_0|a_a^\dagger a_b^\dagger a_da_c|\Psi_0} 
+\]
+We will use the anti-commutator relation \eqref{c2e129} to shift the creation
+operators to the right end. Thus,
+\[
+\begin{aligned}
+a_a^\dagger a_b^\dagger a_da_c &= a_a^\dagger(\delta_{bd} - a_da_b^\dagger)a_c \\
+ &= \delta_{bd}a_a^\dagger a_c - a_a^\dagger a_d a_b^\dagger a_c \\
+ &= \delta_{bd}(\delta_{ac} - a_ca_a^\dagger) - a_a^\dagger a_d(\delta_{bc} - 
+ a_c a_b^\dagger) \\
+ &= \delta_{bd}\delta_{ac} - \delta_{bd} a_ca_a^\dagger - \delta_{bc}a_a^\dagger
+    a_d + a_a^\dagger a_d a_ca_b^\dagger \\
+ &= \delta_{bd}\delta_{ac} - \delta_{bd} a_ca_a^\dagger - \delta_{bc}(\delta_{ad}
+  - a_d a_a^\dagger)  + a_a^\dagger a_d a_ca_b^\dagger \\
+ &= \delta_{bd}\delta_{ac} - \delta_{bc}\delta_{ad} - \delta_{bd} a_ca_a^\dagger
+ + \delta_{bc}a_da_a^\dagger + a_a^\dagger a_d a_ca_b^\dagger 
+\end{aligned}
+\]
+so that
+\[
+a_a^\dagger a_b^\dagger a_da_c\ket{\Psi_0} = (\delta_{bd}\delta_{ac} - 
+\delta_{bc}\delta_{ad})\ket{\Psi_0}.
+\]
+Since $a$ and $b$ are indices of occupied states $a_a^\dagger\ket{\Psi_0} = 0$
+and $a_b^\dagger\ket{\Psi_0} = 0$. Therefore,
+\[
+\begin{aligned}
+\braket{\Psi_0|O_2|\Psi_0} &= \frac{1}{2}\sum_{abcd}\braket{ab|cd}(
+ \delta_{bd}\delta_{ac} - \delta_{bc}\delta_{ad})\braket{\Psi_0|\Psi_0} \\
+ &= \frac{1}{2}\sum_{ab}\left(\braket{ab|ab} - \braket{ab|ba}\right) \\
+ &= \frac{1}{2}\sum_{ab}\braket{ab||ab}
+\end{aligned}
+\]
