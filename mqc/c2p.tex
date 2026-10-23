@@ -639,34 +639,83 @@ and $\ket{\Psi_a^r} = a_r^\dagger a_a\ket{\Psi_0}$ or that $\bra{\Psi_a^r} =
 \braket{\Psi_a^r|O_2|\Psi_0} = \frac{1}{2}\sum_{ijkl}\braket{ij|kl}
 \braket{\Psi_0|a_a^\dagger a_r a_i^\dagger a_j^\dagger a_l a_k|\Psi_0}
 \]
-If $a_la_k\ket{\Psi_0}$ has to survive then $l, k$ must be indices of occupied
-states. Therefore, we must have
-\[
-\braket{\Psi_a^r|O_2|\Psi_0} = \frac{1}{2}\sum_{ijkl}\braket{ij|cd}
-\braket{\Psi_0|a_a^\dagger a_r a_i^\dagger a_j^\dagger a_d a_c|\Psi_0}
-\]
 We now use the anti-commutator of \eqref{c2e129} to shift $a_r, a_a^a\dagger$ as
-rightward as possible. Thus,
+rightward as possible. We also use the relations $\{a_i, a_j\} = 0$ so that
+$a_ia_j = -a_ja_i$ and the analogous relationship between the creation operators.
+Thus,
 \[
 \begin{aligned}
-a_a^\dagger a_r a_i^\dagger a_j^\dagger a_d a_c &=
-a_a^\dagger(\delta_{ir} - a_i^\dagger a_r)a_j^\dagger a_d a_c \\
-&= \delta_{ir}a_a^\dagger a_j^\dagger a_d a_c - a_a^\dagger a_i^\dagger a_r 
-   a_j^\dagger a_d a_c \\
-&= \delta_{ir}a_j^\dagger a_a^\dagger a_d a_c - a_i^\dagger a_a^\dagger a_r 
-   a_j^\dagger a_d a_c \\
-&= \delta_{ir}a_j^\dagger(\delta_{ad} - a_d a_a^\dagger)a_c - a_i^\dagger(
-\delta_{ar} - a_ra_a^\dagger)a_j^\dagger a_da_c \\
-&= \delta_{ir}\delta_{ad}a_j^\dagger a_c - \delta_{ir}a_j^\dagger a_da_a^\dagger
-a_c - \delta_{ar}a_i^\dagger a_j^\dagger a_da_c + a_i^\dagger a_ra_a^\dagger
- a_j^\dagger a_da_c \\
-&= \delta_{ir}\delta_{ad}a_j^\dagger a_c - \delta_{ir}a_j^\dagger a_d(\delta_{ac}
- - a_ca_a^\dagger) - \delta_{ar}a_i^\dagger a_j^\dagger a_da_c \\
-&\quad\; + a_i^\dagger a_ra_j^\dagger a_a^\dagger a_da_c \\
-&= \delta_{ir}\delta_{ad}a_j^\dagger a_c - \delta_{ir}\delta_{ac}a_j^\dagger a_d
- + \delta_{ir}a_j^\dagger a_d a_c a_a^\dagger - \delta_{ar}a_i^\dagger a_j^\dagger
- a_da_c \\
-&\quad\;+ a_i^\dagger a_ra_j^\dagger a_a^\dagger a_da_c 
+a_a^\dagger a_r a_i^\dagger a_j^\dagger a_l a_k &=
+a_a^\dagger(\delta_{ri} - a_i^\dagger a_r)a_j^\dagger a_l a_k \\ 
+&= \delta_{ri}a_a^\dagger a_j^\dagger a_l a_k - a_a^\dagger a_i^\dagger a_r
+   a_j^\dagger a_l a_k \\
+&= -\delta_{ri}a_j^\dagger a_a^\dagger a_l a_k - a_a^\dagger a_i^\dagger(
+   \delta_{rj} - a_j^\dagger a_r)a_la_k \\
+&= -\delta_{ri}a_j^\dagger(\delta_{al} - a_la_a^\dagger)a_k - \delta_{rj}
+   a_a^\dagger a_i^\dagger a_l a_k \\
+&\quad + a_a^\dagger a_i^\dagger a_j^\dagger a_ra_la_k \\
+&= -\delta_{ri}\delta_{al}a_j^\dagger a_k + \delta_{ri}a_j^\dagger a_l 
+   a_a^\dagger a_k + \delta_{rj}a_i^\dagger a_a^\dagger a_la_k \\
+&\quad + a_a^\dagger a_i^\dagger a_j^\dagger a_la_ka_r \\
+&= -\delta_{ri}\delta_{al}a_j^\dagger a_k + \delta_{ri}a_j^\dagger a_l(\delta_{ak}
+   - a_ka_a^\dagger) \\
+&\quad + \delta_{rj}a_i^\dagger(\delta_{al} - a_la_a^\dagger)a_k \\
+&\quad + a_a^\dagger a_i^\dagger a_j^\dagger a_la_ka_r \\
+&=  -\delta_{ri}\delta_{al}a_j^\dagger a_k + \delta_{ri}\delta_{ak}a_j^\dagger
+ a_l - \delta_{ri}a_j^\dagger a_la_k a_a^\dagger \\
+&\quad + \delta_{rj}\delta_{al}a_i^\dagger a_k - \delta_{rj}a_i^\dagger a_l
+a_a^\dagger a_k + a_a^\dagger a_i^\dagger a_j^\dagger a_la_ka_r \\
+&=  -\delta_{ri}\delta_{al}a_j^\dagger a_k + \delta_{ri}\delta_{ak}a_j^\dagger
+ a_l - \delta_{ri}a_j^\dagger a_la_k a_a^\dagger \\
+&\quad + \delta_{rj}\delta_{al}a_i^\dagger a_k - \delta_{rj}a_i^\dagger a_l(
+\delta_{ak} - a_ka_a^\dagger)+ a_a^\dagger a_i^\dagger a_j^\dagger a_la_ka_r \\
+&= -\delta_{ri}\delta_{al}a_j^\dagger a_k + \delta_{ri}\delta_{ak}a_j^\dagger a_l
++ \delta_{rj}\delta_{al}a_i^\dagger a_k - \delta_{rj}\delta_{ak}a_i^\dagger a_l\\
+&\quad + \delta_{rj}a_i^\dagger a_l a_l a_a^\dagger - \delta_{ri}a_j^\dagger 
+a_la_k a_a^\dagger + a_a^\dagger a_i^\dagger a_j^\dagger a_la_ka_r \\
+\end{aligned}
+\]
+so that
+\[
+\begin{aligned}
+a_a^\dagger a_r a_i^\dagger a_j^\dagger a_l a_k\ket{\Psi_0} &= \left( 
+-\delta_{ri}\delta_{al}a_j^\dagger a_k + \delta_{ri}\delta_{ak}a_j^\dagger a_l
+\right. \\
+&\quad\left. + \delta_{rj}\delta_{al}a_i^\dagger a_k - \delta_{rj}\delta_{ak}
+a_i^\dagger a_l\right)\ket{\Psi_0}
+\end{aligned}
+\]
+The remaining terms do not contribute because $a_a^\dagger\ket{\Psi_0} = 0$
+for an occupied state $\chi_a$ and $a_r\ket{\Psi_0} = 0$ for an unoccupied
+state $\chi_r$. Therefore,
+\[
+\begin{aligned}
+\braket{\Psi_0|a_a^\dagger a_r a_i^\dagger a_j^\dagger a_l a_k|\Psi_0} &= 
+\delta_{rj}\delta_{al}\braket{\Psi_0|a_i^\dagger a_k|\Psi_0} - 
+\delta_{rj}\delta_{ak}\braket{\Psi_0|a_i^\dagger a_l|\Psi_0} + \\
+&\quad\; \delta_{ri}\delta_{ak}\braket{\Psi_0|a_j^\dagger a_l|\Psi_0} -
+\delta_{ri}\delta_{al}\braket{\Psi_0|a_j^\dagger a_k|\Psi_0} \\
+&= \delta_{rj}\delta_{al}\delta_{ik} - \delta_{rj}\delta_{ak}\delta_{il} +
+\delta_{ri}\delta_{ak}\delta_{lj} - \delta_{ri}\delta_{al}\delta_{jk}
+\end{aligned}
+\]
+so that we finally have
+\[
+\begin{aligned}
+\braket{\Psi_a^r|O_2|\Psi_0} &= \frac{1}{2}\sum_{ijkl}\braket{ij|kl}(
+\delta_{rj}\delta_{al}\delta_{ik} - \delta_{rj}\delta_{ak}\delta_{il} +
+\delta_{ri}\delta_{ak}\delta_{jl} - \delta_{ri}\delta_{al}\delta_{jk}) \\
+&= \frac{1}{2}(\sum_i\braket{ir|ia} - \sum_i\braket{ir|ai} + 
+   \sum_j\braket{rj|aj} - \sum_j\braket{rj|ja})
+\end{aligned}
+\]
+Calling the dumming index as $b$ throughout,
+\[
+\begin{aligned}
+\braket{\Psi_a^r|O_2|\Psi_0} &= \frac{1}{2}\sum_b\left(\braket{br|ba} - 
+\braket{br|ab} + \braket{rb|ab} - \braket{rb|ba}\right) \\
+ &= \sum_b(\braket{rb|ab} - {rb|ba}) \\
+ &= \sum_b\braket{rb||ab}
 \end{aligned}
 \]
 \end{enumerate}
