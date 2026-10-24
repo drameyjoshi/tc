@@ -1858,4 +1858,133 @@ Depending on whether $N$ is even or odd, $m_s$ takes either integer or
 half-integer values. Thus we conclude the quantisation of $m_s$ and $\lambda$ 
 solely from the commutation relations of \eqref{c2e137}.
 
+\section{Spin of $N$-electron systems}
+The total spin is
+\begin{equation}\label{c2e148}
+\vec{S} = \sum_{i=1}^N\vec{s}(i).
+\end{equation}
+The $N$-electron ladder operators are defined as 
+\begin{equation}\label{c2e149}
+S_\pm = \sum_{i=1}^Ns_\pm(i).
+\end{equation}
+and the square magnitude of the total spin is
+\begin{equation}\label{c2e150}
+S^2 = \sum_{i=1}^N \sum_{i=1}^N \vec{s}(i)\cdot \vec{s}(j)
+\end{equation}
+The diagonal term can be easily evaluated. The cross terms need a bit of work.
+Consider
+\[
+\begin{aligned}
+s_+(i)s_-(j) + s_-(i)s_+(j) &= [s_x(i) + is_y(i)][s_x(j) - is_y(j)] + \\
+ &\quad\;  [s_x(i) - is_y(i)][s_x(j) + is_y(j)] \\
+ &= s_x(i)s_x(j) - is_x(i)s_y(j) + is_y(i)s_x(j) + s_y(i)s_y(j) + \\
+ &\quad\; s_x(i)s_x(j) + is_x(i)s_y(j) - is_y(i)s_x(j) + s_y(i)s_y(j) \\ 
+ &= 2(s_x(i)s_x(j) + s_y(i)s_y(j)) \\
+ &= 2(\vec{s}(i)\cdot\vec{s}(j) - s_z(i)s_z(j))
+\end{aligned}
+\]
+that is
+\begin{equation}\label{c2e151}
+\vec{s}(i)\cdot\vec{s}(j) = 
+\frac{1}{2}(s_+(i)s_-(j) + s_-(i)s_+(j)) + s_z(i)s_z(j)
+\end{equation}
+From \eqref{c2e149},
+\[
+\begin{aligned}
+S_+S_- &= \sum_{i=1}^Ns_+(i)\sum_{j=1}^Ns_-(j) \\
+ &= \sum_{i=1}^N s_+(i)s_-(i) + \sum_{i=1}^N\sum_{j=1,j\ne i}^N s_+(i)s_-(j) \\
+ &= \sum_{i=1}^N(s^2(i) - s_z^2(i) + s_z(i)) + 
+    \sum_{i=1}^N\sum_{j=1,j\ne i}^N s_+(i)s_-(j) \\
+ &= \sum_{i=1}^Ns^2(i) - \sum_{i=1}^N s_z^2(i) + S_z + 
+    \frac{1}{2}\sum_{i=1}^N\sum_{j=1,j\ne i}^N[s_+(i)s_-(j) + s_+(j)s_-(i)]
+\end{aligned}
+\]
+so that
+\begin{equation}\label{c2e152}
+\frac{1}{2}\sum_{i=1}^N\sum_{j=1,j\ne i}^N[s_+(i)s_-(j) + s_+(j)s_-(i)] = 
+S_+S_- - \sum_{i=1}^Ns^2(i) + \sum_{i=1}^N s_z^2(i) - S_z.
+\end{equation}
+Similarly, we have
+\begin{equation}\label{c2e153}
+\frac{1}{2}\sum_{i=1}^N\sum_{j=1,j\ne i}^N[s_+(i)s_-(j) + s_+(j)s_-(i)] = 
+S_-S_+ - \sum_{i=1}^Ns^2(i) + \sum_{i=1}^N s_z^2(i) + S_z.
+\end{equation}
+
+From equations \eqref{c2e150}
+\[
+S^2 = \sum_{i=1}^Ns^2(i) + \sum_{i=1}^N\sum_{j=1,j\ne i}^N \vec{s}(i)\cdot
+      \vec{s}(j).
+\] 
+From \eqref{c2e151},
+\begin{equation}\label{c2e154}
+S^2 = \sum_{i=1}^Ns^2(i) + 
+\sum_{i=1}^N\sum_{j=1,j\ne i}^N \frac{1}{2}[s_+(i)s_-(j) + s_-(i)s_+(j)] 
++ \sum_{i=1}^N\sum_{j=1,j\ne i}^Ns_z(i)s_z(j)
+\end{equation}
+Substituting \eqref{c2e152} in \eqref{c2e154}, we get
+\begin{equation}\label{c2e155}
+\begin{aligned}
+S^2 &= S_+S_- + \sum_{i=1}^Ns_z^2(i) - S_z + 
+       \sum_{i=1}^N\sum_{j=1,j\ne i}^Ns_z(i)s_z(j) \\
+ &= S_+S_- + S_z^2 - S_z.
+\end{aligned}
+\end{equation}
+Similarly, putting \eqref{c2e153} in \eqref{c2e154} gives
+\begin{equation}\label{c2e156}
+\begin{aligned}
+S^2 &= S_-S_+ + \sum_{i=1}^Ns_z^2(i) + S_z + 
+       \sum_{i=1}^N\sum_{j=1,j\ne i}^Ns_z(i)s_z(j) \\
+ &= S_+S_- + S_z^2 + S_z.
+\end{aligned}
+\end{equation}
+
+We next examine the commutators for the components of $\vec{S}$.
+\[
+\begin{aligned}
+[S_x, S_y] &= S_xS_y - S_yS_x \\
+ &= \sum_{i=1}^N(s_x(i)s_y(i) - s_y(i)s_x(i)) + \sum_{i=1}^N\sum_{j=1,j\ne i}^N
+    s_x(i)s_y(j) - \sum_{i=1}^N\sum_{j=1,j\ne i}^Ns_y(i)s_x(j) \\
+ &= i\sum_{i=1}^Ns_z(i) + \sum_{i=1}^N\sum_{j=1,j\ne i}^N
+    s_x(i)s_y(j) - \sum_{i=1}^N\sum_{j=1,j\ne i}^Ns_y(j)s_x(i) 
+\end{aligned}
+\]
+where in the last term we merely interchanged the indices because they are 
+symmetric. The components of different electrons commute with each other. As
+a result, we get
+\begin{equation}\label{c2e157}
+[S_x, S_y] = iS_z.
+\end{equation}
+We can prove $[S_y, S_z] = iS_x, [S_z, S_x] = iS_y$ similarly. Thus, $\vec{S}$
+is indeed an angular momentum operator and therefore, we will have eigenvalue
+equations like
+\begin{eqnarray}
+S^2\ket{S, M_s} &=& S(S + 1)\ket{S, M_s} \label{c2e158} \\
+S_z\ket{S, M_s} &=& M_s\ket{S, M_s} \label{c2e159}
+\end{eqnarray}
+with $M_s = -S, -S + 1, \ldots, S$. A state with eigenvalue $S$ will have
+$2S + 1$ values for $M_s$, which we call its \emph{multiplicity}. State with
+$S = 0$ is called a singlet, that with $S=1/2$ is called a doublet, that
+with $S = 1$ is called a triplet and so on.
+
+If the Hamiltonian is independent of spin then $H$ commutes with $S^2$ and $S_z$
+and $\ket{S, M_s}$ is an energy eigenstate as well.
+
+A Slater determinant $\ket{\chi_1\ldots\chi_N}$ is always an eigenstate of $S_z$
+because,
+\[
+S_z\ket{\chi_1\ldots\chi_N} = \sum_{i=1}^Ns_z(i)\ket{\chi_1\ldots\chi_N} =
+\frac{1}{2}\sum_{i=1}^N(\delta_{\sigma\alpha} - \delta_{\sigma\beta})
+\ket{\chi_1\ldots\chi_N}
+\]
+where $\sigma$ denotes the spin state. If $N^\alpha$ spin orbitals are in
+spin state $\alpha$ and $N^\beta$ in spin state $\beta$ then
+\begin{equation}\label{c2e160}
+S_z\ket{\chi_1\ldots\chi_N} = \frac{1}{2}\sum_{i=1}^N(N^\alpha - N^\beta)
+\ket{\chi_1\ldots\chi_N}.
+\end{equation}
+However, in general, a Slater determinant is not an eigenstate of $S^2$.
+
+\section{Spin-adapted configurations}
+A \emph{restricted Slater determinant} is the one in which the spin-orbitals
+are of the form $\{\chi_i\} = \{\psi_i\alpha, \psi_i\beta\}$.
 

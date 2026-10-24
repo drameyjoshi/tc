@@ -718,4 +718,53 @@ Calling the dumming index as $b$ throughout,
  &= \sum_b\braket{rb||ab}
 \end{aligned}
 \]
+
+\item\label{c2p32} A straightforward application of the formulae.
+
+\item\label{c2p33} Matrix representation of single electron spin operators.
+\[
+s_z = \begin{bmatrix} \braket{\alpha|s_z|\alpha} & \braket{\alpha|s_z|\beta} \\
+\braket{\beta|s_z|\alpha} & \braket{\beta|s_z|\beta} \end{bmatrix}
+= \frac{1}{2}\begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix}
+\]
+Likewise,
+\[
+s^2 = \frac{3}{4}\begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix},
+\]
+\[
+s_x = \frac{1}{2}\begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}
+\]
+and
+\[
+s_y = \frac{1}{2}\begin{bmatrix}0 & -i \\ i & 0\end{bmatrix}
+\]
+so that
+\[
+\begin{aligned}
+s_+ &= \frac{1}{2}\begin{bmatrix}0 & 1 - i \\ 1 + i & 0 \end{bmatrix} \\
+s_- &= \frac{1}{2}\begin{bmatrix}0 & 1 + i \\ 1 - i & 0 \end{bmatrix} = 
+       s_+^\dagger 
+\end{aligned}
+\]
+
+\item\label{c2p34} Proved as \eqref{c2e138}.
+
+\item\label{c2p35} Given that $[A, H] = 0$ and $H\ket{\Phi} = E\ket{\Phi}$.
+Then $HA\ket{\Phi} = AH\ket{\Phi} = E(A\ket{\Phi})$ so that $A\ket{\Phi}$ is
+also an eigenstate of $H$.
+
+\item\label{c2p36} Suppose $A\ket{\Psi_1} = a_1\ket{\Psi_1}, A\ket{\Psi_2} = 
+a_2\ket{\Psi_2}$ and $[A, H] = 0$. Then $AH\ket{\Psi_i} = HA\ket{\Psi_i} = 
+a_iH\ket{\Psi_i}$. Therefore,
+\[
+\braket{\Psi_j|AH|\Psi_i} = a_i\braket{\Psi_j|H|\Psi_i} \Rightarrow
+a_j\braket{\Psi_j|H|\Psi_i} = a_i\braket{\Psi_j|H|\Psi_i}
+\]
+or 
+\[
+(a_i - a_j)\braket{\Psi_j|H|\Psi_i} = 0.
+\]
+If $a_i \ne a_j$ then $\braket{\Psi_j|H|\Psi_i} = 0$.
+
+\item\label{c2p37} Proved as \eqref{c2e160}.
 \end{enumerate}
