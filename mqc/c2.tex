@@ -1659,7 +1659,7 @@ operator to the rightmost position using
 a_b a_a^\dagger,
 \]
 so that
-\[
+\begin{equation}\label{c2e135}
 \begin{aligned}
 \braket{\Psi_0|O_1|\Psi_0} &= 
 \sum_{ab}\braket{a|h|b}\braket{\Psi_0|\delta_{ab} - a_ba_a^\dagger|\Psi_0}\\
@@ -1667,7 +1667,7 @@ so that
     \braket{\Psi_0|a_b a_a^\dagger|\Psi_0} \\
  &= \sum_a\braket{a|h|a}
 \end{aligned}
-\]
+\end{equation}
 because $\ket{\Psi_0}$ is normalised and $a_a^\dagger\ket{\Psi_0} = 0$ because
 $a$ is index of one of the occupied states.
 
@@ -1712,11 +1712,150 @@ a_a^\dagger a_b^\dagger a_da_c\ket{\Psi_0} = (\delta_{bd}\delta_{ac} -
 \]
 Since $a$ and $b$ are indices of occupied states $a_a^\dagger\ket{\Psi_0} = 0$
 and $a_b^\dagger\ket{\Psi_0} = 0$. Therefore,
-\[
+\begin{equation}\label{c2e136}
 \begin{aligned}
 \braket{\Psi_0|O_2|\Psi_0} &= \frac{1}{2}\sum_{abcd}\braket{ab|cd}(
  \delta_{bd}\delta_{ac} - \delta_{bc}\delta_{ad})\braket{\Psi_0|\Psi_0} \\
  &= \frac{1}{2}\sum_{ab}\left(\braket{ab|ab} - \braket{ab|ba}\right) \\
  &= \frac{1}{2}\sum_{ab}\braket{ab||ab}
 \end{aligned}
+\end{equation}
+
+\section{An overview of spin}
+The components of spin angular momentum of a particle obey the commutation 
+relations
+\begin{equation}\label{c2e137}
+[s_i, s_j] = \epsilon_{ijk}s_k, 
+\end{equation}
+where $\epsilon_{ijk}$ is the Levi-Civita tensor. (Remember that we are using
+atomic units in which $\hbar = 1$. Otherwise the equation appears incorrect 
+owing to mismatch of dimensions.) Thus, one cannot have a simultaneous 
+eigenstate of the three components of spin. If $s^2$ is the magnitude of the 
+spin then
+\begin{equation}\label{c2e138}
+\begin{aligned}
+[s^2, s_z] =& s^2 s_z - s_z s^2 \\
+=& s_x^2s_z + s_y^2s_z - s_zs_x^2 - s_zs_y^2 \\
+=& s_x(s_zs_x - is_y) + s_y(is_x + s_zs_y) - s_zs_x^2 - s_zs_y^2 \\
+=& s_xs_zs_x - s_zs_x^2 - is_xs_y + is_ys_x + s_ys_zs_y - s_zs_y^2 \\
+=& (s_xs_z - s_zs_x)s_x - is_xs_y + is_ys_x + (s_ys_z - s_zs_y)s_y \\
+=& -is_ys_x -is_xs_y + is_ys_x + is_xs_y \\
+=& 0
+\end{aligned}
+\end{equation}
+We can similarly show that $[s^2, s_x] = 0$ and $[s^2, s_y] = 0$. Thus, $s^2$
+can have simultaneous eigenstates with each component of $\vec{s}$. By 
+convention, we consider the simultaneous eigenstates of $s^2$ and $s_z$. 
+Therefore,
+\begin{equation}\label{c2e139}
+\begin{aligned}
+s^2\ket{\lambda, m_s} =& \lambda\ket{\lambda, m_s} \\
+s_z\ket{\lambda, m_s} =& m_s\ket{\lambda, m_s}
+\end{aligned}
+\end{equation}
+Define the ladder operators
+\begin{equation}\label{c2e140}
+\begin{aligned}
+s_+ &= s_x + is_y \\
+s_- &= s_x - is_y.
+\end{aligned}
+\end{equation}
+It is clear that $s_+^\dagger = s_-$ and $s_- = s_+^\dagger$. Consider
+\[
+\begin{aligned}
+[s^2, s_+] &= s^2(s_x + is_y) - (s_x + is_y)s^2 \\
+&= s^2s_x + is^2s_y - s_xs^2 - is_ys^2 \\
+&= s_y^2s_x + s_z^2s_x - s_xs_y^2 - s_xs_z^2 +i(s_x^2s_y - s_ys_x^2 + s_z^2s_y
+   - s_ys_z^2) \\
+&= s_ys_xs_y - is_ys_z - s_ys_xs_y - is_zs_y + s_zs_xs_z + is_zs_y - s_zs_xs_z
+-is_ys_z \\
+&\quad+i(s_xs_ys_x + is_xs_z - s_xs_ys_x + is_zs_x + s_zs_ys_z - is_zs_x
+- s_zs_ys_z - is_xs_z) \\
+&= 0
+\end{aligned}
 \]
+We can similarly show that $[s^2, s_-] = 0$. Thus, we have
+\begin{equation}\label{s2e141}
+[s^2, s_\pm] = 0.
+\end{equation}
+
+Now consider
+\[
+\begin{aligned}
+[s_z, s_+] &= s_zs_+ - s_+s_z \\
+&= s_z(s_x + is_y) - (s_x + is_y)s_z \\
+&= is_y -i(is_x) \\
+&= s_x + is_y \\
+&= s_+
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+[s_z, s_-] &= s_zs_- - s_+s_z \\
+&= s_z(s_x - is_y) - (s_x - is_y)s_z \\
+&= is_y + i(is_x) \\
+&= -(s_x - is_y) \\
+&= -s_-
+\end{aligned}
+\]
+that is,
+\begin{equation}\label{c2e142}
+[s_z, s_\pm] = \pm s_\pm.
+\end{equation}
+
+We will now show why $s_\pm$ are called ladder operators. Consider
+\begin{equation}\label{c2e143}
+\begin{aligned}
+s_zs_\pm\ket{\lambda, m_s} &= (s_\pm s_z \pm s_\pm)\ket{\lambda, m_s} \\
+&= s_\pm m_s\ket{\lambda, m_s} \pm s_\pm\ket{\lambda, m_s} \\
+&= (m_s \pm 1)s_\pm\ket{\lambda, m_s},
+\end{aligned}
+\end{equation}
+that is, $s_\pm\ket{\lambda, m_s}$ is also an eigenstate of $s_z$ but with
+eigenvalue $m_s \pm 1$.
+
+Since $s^2 = s_x^2 + s_y^s + s_z^2$, $s^2 - s_z^2 = s_x^2 + s_y^2$. All
+components of spin are hermitian so that their eigenvalues are real and the
+square of their eigenvalues are non-negative. Thus, 
+\begin{equation}\label{c2e144}
+\begin{aligned}
+\braket{\lambda, m_s|s_x^2 + s_y^2|\lambda, m_s} \ge 0 &\Rightarrow \\
+\braket{\lambda, m_s|s^2 - s_z^2|\lambda, m_s} \ge 0 &\Rightarrow \\
+\braket{\lambda, m_s|s^2|\lambda, m_s} \ge \braket{\lambda, m-s|s_z^2|\lambda, m_s}
+&\Rightarrow \\
+\lambda \ge m_s^2
+\end{aligned}
+\end{equation}
+Since $m_s^2$ is bounded, $m_s$ itself is bounded from above and below. Therefore
+the application of $s_\pm$ cannot increase or decrease the eigenvalue of $s_z$ 
+indefinitely. Let $m$ and $M$ be the least and most values of $m_s$. Therefore,
+\begin{equation}\label{c2e145}
+s_+\ket{\lambda, M} = 0\;\quad s_-\ket{\lambda, m} = 0.
+\end{equation}
+Therefore,
+\begin{equation}\label{c2e146}
+s_-s_+\ket{\lambda, M} = 0\;\quad s_+s_-\ket{\lambda, m} = 0.
+\end{equation}
+or
+\begin{equation}\label{c2e147}
+(s^2 - s_z^2 - s_z)\ket{\lambda, M} = 0 \;\quad(s^2 - s_z^2 + s_z)\ket{\lambda,
+m_s} = 0.
+\end{equation}
+We thus get $\lambda^2 - M^2 - M = 0$ and $\lambda^2 - m^2 + m = 0$ or that
+$\lambda = M(M+1)$ and $\lambda = m(m-1)$. Equating the two possibilities for
+$\lambda$, we get $M^2 + M = m^2 - m \rightarrow (M-m)(M+m) + (M+m) = 0 
+\Rightarrow (M+m)(M-m+1) = 0$. By definition $M \ge m$. Therefore, $M - m + 1
+\ne 0$ and the only possibility is $m = -M$.
+
+Let $s = M$, then $\lambda = s(s + 1)$. Since $-s$ is the lowest eigenvalue of
+$s_z$, applying $s_+$ succesively $2s + 1$ times raises it to $+s$. Since $2s+1$
+is a positive integer,
+\[
+s = \frac{N - 1}{2}.
+\]
+Depending on whether $N$ is even or odd, $m_s$ takes either integer or 
+half-integer values. Thus we conclude the quantisation of $m_s$ and $\lambda$ 
+solely from the commutation relations of \eqref{c2e137}.
+
+
