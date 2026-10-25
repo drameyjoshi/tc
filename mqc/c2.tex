@@ -1934,7 +1934,7 @@ Similarly, putting \eqref{c2e153} in \eqref{c2e154} gives
 \begin{aligned}
 S^2 &= S_-S_+ + \sum_{i=1}^Ns_z^2(i) + S_z + 
        \sum_{i=1}^N\sum_{j=1,j\ne i}^Ns_z(i)s_z(j) \\
- &= S_+S_- + S_z^2 + S_z.
+ &= S_-S_+ + S_z^2 + S_z.
 \end{aligned}
 \end{equation}
 
@@ -1986,5 +1986,96 @@ However, in general, a Slater determinant is not an eigenstate of $S^2$.
 
 \section{Spin-adapted configurations}
 A \emph{restricted Slater determinant} is the one in which the spin-orbitals
-are of the form $\{\chi_i\} = \{\psi_i\alpha, \psi_i\beta\}$.
+are of the form
+\begin{equation}\label{c2e161}
+\begin{aligned}
+\chi_{2i-1}(\vec{x}) &= \psi_i(\vec{r})\alpha(\omega) \\
+\chi_{2i}(\vec{x}) &= \psi_i(\vec{r})\beta(\omega).
+\end{aligned}
+\end{equation}
+$\chi_i$ are called restricted spin orbitals. A determinant in which all spatial
+orbitals are doubly occupied is called a \emph{closed-shell} determinant. 
+Otherwise, it is an \emph{open-shell} determinant.
 
+As an example, consider the Hartree-Fock ground state of H$_2$ molecule,
+\[
+\ket{\Psi_0} = \frac{1}{\sqrt{2!}}\begin{vmatrix}
+\psi_1(1)\alpha(1) & \psi_1(2)\alpha(2) \\
+\psi_1(1)\beta(1) & \psi_1(2)\beta(2)
+\end{vmatrix}
+= \frac{\psi_1(1)\psi_2(1)}{\sqrt{2}}[\alpha(1)\beta(2) - \alpha(2)\beta(1)]
+\]
+We will show that it is a singlet state. That is, $S^2\ket{\Psi_0} = 0$. Since 
+$S^2 = S_-S_+ + S_z^2 + S_z$, we will compute each of these terms separately.
+\[
+\begin{aligned}
+S_+\ket{\Psi_0} &= s_+(1)\ket{\Psi_0} + s_+(2)\ket{\Psi_0} \\
+ &= \frac{\psi_1(1)\psi_1(2)}{\sqrt{2}}(
+    s_+(1)[\alpha(1)\beta(2) - \alpha(2)\beta(1)] + 
+    s_+(2)[\alpha(1)\beta(2) - \alpha(2)\beta(1)]) \\
+ &= \frac{\psi_1(1)\psi_1(2)}{\sqrt{2}}([0\cdot\beta(2) - \alpha(2)\alpha(1)]
+    + [\alpha(1)\alpha(2) - 0\cdot\beta(2)]) \\
+ &= 0,
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+S_z\ket{\Psi_0} &= s_z(1)\ket{\Psi_0} + s_z(2)\ket{\Psi_0} \\
+ &= \frac{\psi_1(1)\psi_1(2)}{\sqrt{2}}(
+    s_z(1)[\alpha(1)\beta(2) - \alpha(2)\beta(1)] + 
+    s_z(2)[\alpha(1)\beta(2) - \alpha(2)\beta(1)]) \\
+ &= \frac{\psi_1(1)\psi_1(2)}{\sqrt{2}}(
+    \frac{1}{2}[\alpha(1)\beta(2) + \alpha(2)\beta(1)] + 
+    \frac{1}{2}[-\alpha(1)\beta(2) - \alpha(2)\beta(1)]) \\
+ &= 0
+\end{aligned}
+\]
+Since $S_z^2\ket{\Psi_0} = S_z(S_z\ket{\Psi_0})$, in this case, we also have
+$S_z^2\ket{\Psi_0} = 0$. Therefore,
+\begin{equation}\label{c2e162}
+S^2\ket{\Psi_0} = 0.
+\end{equation}
+
+This is true for any closed shell determinant
+\[
+\ket{\Psi} = \ket{\psi_1\bar{\psi}_1\ldots\psi_N\bar{\psi}_N}
+\]
+Since the number of electrons in the $\alpha$ and $\beta$ spins states is the 
+same, by \eqref{c2e160}, $S_z\ket{\Psi} = 0$. Therefore, $S_z^2\ket{\Psi} = 
+S_z(S_z\ket{\Psi}) = 0$. We will now show that $S_+\ket{\Psi}$ is also zero. Now,
+\[
+\ket{\Psi} = \frac{1}{\sqrt{N!}}\sum_{k=1}^{N!}(-1)^{|\sigma_p|}\sigma_p(\chi_1
+\ldots\chi_{2N}).
+\]
+The permutation $\sigma_p$ permutes states $\chi_1, \ldots, \chi_N$ so that 
+each one of them is in one of the $N$ bins $\vec{x}_1, \ldots, \vec{x}_N$. In
+a closed shell determinant, $N$ is even, so that $N/2$ is a positive integer.
+Now consider the application of $S_+$ on such a state.
+\[
+\begin{aligned}
+S_+\ket{\Psi} &= \frac{1}{\sqrt{N!}}\sum_{k=1}^{N!}(-1)^{|\sigma_p|}S_+
+     \sigma_p(\psi_1\alpha\psi_1\beta\ldots\psi_{N/2}\alpha\psi_{N/2}\beta) \\
+ &= \frac{1}{\sqrt{N!}}\sum_{k=1}^{N!}(-1)^{|\sigma_p|}\sum_{i=1}^N s_+(i)
+     \sigma_p(\psi_1\alpha\psi_1\beta\ldots\psi_{N/2}\alpha\psi_{N/2}\beta)
+\end{aligned}
+\]
+The operation $s_+(i)$ on $\sigma_p(\psi_1\alpha\psi_1\beta\ldots\psi_{N/2}
+\alpha\psi_{N/2}\beta)$ will produce $0$ if the $\vec{x}_i = \vec{r}_i\alpha$.
+It will change it to $\vec{r}_i\alpha$ if it was $\vec{r}_i\beta$. When we
+expand the determinant, it will have terms
+\[
+\pm\ket{\ldots\chi_l(\vec{r}_i)\alpha\chi_m(\vec{r}_i\beta\ldots}
+\mp\ket{\ldots\chi_m(\vec{r}_i)\alpha\chi_l(\vec{r}_i\beta\ldots}
+\]
+The operator $s_+(i)$ will change them to
+\[
+\pm\ket{\ldots\chi_l(\vec{r}_i)\beta\chi_m(\vec{r}_i\beta\ldots}
+\mp\ket{\ldots\chi_m(\vec{r}_i)\beta\chi_l(\vec{r}_i\beta\ldots}
+\]
+cancelling each other. Thus $s_+$ either produces a term that is zero or a pair
+of terms that cancel each other. Therefore, $S_+\ket{\Psi} = 0$. Since $S_z$ and
+$S_z^2$ also produce zeros when they operate on $\ket{\Psi}$, 
+\begin{equation}\label{c2e163}
+S_+\ket{\Psi} = 0.
+\end{equation}
