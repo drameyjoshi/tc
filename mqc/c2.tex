@@ -2077,5 +2077,156 @@ cancelling each other. Thus $s_+$ either produces a term that is zero or a pair
 of terms that cancel each other. Therefore, $S_+\ket{\Psi} = 0$. Since $S_z$ and
 $S_z^2$ also produce zeros when they operate on $\ket{\Psi}$, 
 \begin{equation}\label{c2e163}
-S_+\ket{\Psi} = 0.
+S^2\ket{\Psi} = 0.
 \end{equation}
+As expected, a closed-shell determinant is a singlet state.
+
+We now consider examples of open-shell restricted determinants. The simplest
+ones are:
+\begin{eqnarray}
+\ket{\Psi_1^{\bar{2}}} &=& \ket{\bar{2}\bar{1}} = -\frac{1}{\sqrt{2}}
+  [\psi_1(1)\psi_2(2) - \psi_1(2)\psi_2(1)]\beta(1)\beta(2) \label{c2e164}\\
+\ket{\Psi_{\bar{1}}^2} &=& \ket{12} = \frac{1}{\sqrt{2}}
+  [\psi_1(1)\psi_2(2) - \psi_1(2)\psi_2(1)]\alpha(1)\alpha(2) \label{c2e165}
+\end{eqnarray}
+We will check their multiplicity.
+\[
+S_z\beta(1)\beta(2) = (s_z(1) + s_z(2))\beta(1)\beta(2) =
+-\frac{1}{2}\beta(1)\beta(2) -\frac{1}{2}\beta(1)\beta(2) = -\beta(1)\beta(2),
+\]
+\[
+S_z^2\beta(1)\beta(2) = S_z(-\beta(1)\beta(2)) = \beta(1)\beta(2),
+\]
+\[
+\begin{aligned}
+S_+\beta(1)\beta(2) &= s_+(1)\beta(1)\beta(2) + s_+(2)\beta(1)\beta(2) \\
+ &= \alpha(1)\beta(2) + \beta(1)\alpha(2)
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+S_-S_+\beta(1)\beta(2) &= S_-( \alpha(1)\beta(2) + \beta(1)\alpha(2)) \\
+ &= \beta(1)\beta(2) + \beta(1)\beta(2) \\
+ &= 2\beta(1)\beta(2).
+\end{aligned}
+\]
+Therefore, $S^2\beta(1)\beta(2) = 2\beta(1)\beta(2)$. That is $S = 1$, making
+$\ket{\bar{1}\bar{2}}$ a triplet state. Moving to $\alpha(1)\alpha(2)$,
+\[
+S_z\alpha(1)\alpha(2) = (s_z(1) + s_z(2))\alpha(1)\alpha(2) =
+\frac{1}{2}\alpha(1)\alpha(2) + \frac{1}{2}\alpha(1)\alpha(2) = \alpha(1)\alpha(2),
+\]
+\[
+S_z^2\alpha(1)\alpha(2) = S_z(\alpha(1)\alpha(2)) = \alpha(1)\alpha(2),
+\]
+\[
+\begin{aligned}
+S_+\alpha(1)\alpha(2) &= s_+(1)\alpha(1)\alpha(2) + s_+(2)\alpha(1)\alpha(2) \\
+ &= 0\cdot\beta(2) + \beta(1)\cdot 0 \\
+ &= 0
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+S_-S_+\alpha(1)\alpha(2) &= 0 
+\end{aligned}
+\]
+Therefore, $S^2\alpha(1)\alpha(2) = 2$, once again a triplet state.
+
+On the other hand, $\ket{\Psi_1^2}$ and $\ket{\Psi_{\bar{1}}^{\bar{2}}}$ are not
+even spin states. Now,
+\[
+\begin{aligned}
+\ket{\Psi_1^2} &= \ket{2\bar{1}} = \frac{1}{\sqrt{2!}}\begin{vmatrix}
+\psi_2(1)\alpha(1) & \psi_2(2)\alpha(2) \\
+\psi_1(1)\beta(1) & \psi_1(2)\beta(2)\end{vmatrix} \\
+ &= \frac{1}{\sqrt{2}}[\psi_2(1)\psi_1(2)\alpha(1)\beta(2) -
+ \psi_1(1)\psi_2(2)\beta(1)\alpha(2)] 
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+\ket{\Psi_{\bar{1}}^{\bar{2}}} &= \ket{1\bar{2}} =
+\frac{1}{\sqrt{2!}}\begin{vmatrix} \psi_1(1)\alpha(1) & \psi_1(2)\alpha(2) \\
+\psi_2(1)\beta(1) & \psi_2(2)\beta(2)\end{vmatrix} \\
+ &= \frac{1}{\sqrt{2}}[\psi_1(1)\psi_2(2)\alpha(1)\beta(2) -
+ \psi_2(1)\psi_1(2)\beta(1)\alpha(2)]
+\end{aligned}
+\]
+We will check the effect of $S^2$ on each of them.
+\[
+\begin{aligned}
+S_z(\beta(1)\alpha(2)) &= (s_z(1) + s_z(2))\beta(1)\alpha(2) =
+-\frac{1}{2}\beta(1)\alpha(2) + \frac{1}{2}\beta(1)\alpha(2) = 0 \\
+S_z(\alpha(1)\beta(2)) &= (s_z(1) + s_z(2))\alpha(1)\beta(2) = 
++\frac{1}{2}(\alpha(1)\beta(2) - \alpha(1)\beta(2)) = 0.
+\end{aligned}
+\]
+Therefore, $S_z^2\beta(1)\alpha(2) = 0$ and $S_z^2\alpha(1)\beta(2) = 0$.
+\[
+\begin{aligned}
+S_+\beta(1)\alpha(2) &= s_+(1)\beta(1)\alpha(2) + s_+(2)\beta(1)\alpha(2) = 
+\alpha(1)\alpha(2) + \beta(1)\cdot 0 = \alpha(1)\alpha(2) \\
+S_+\alpha(1)\beta(2) &= s_+(1)\alpha(1)\beta(2) + s_+(2)\alpha(1)\beta(2) =
+0\cdot\beta(1) + \alpha(1)\alpha(2) \\
+\end{aligned}
+\]
+so that 
+\begin{equation}\label{c2e166}
+\begin{aligned}
+S_+\beta(1)\alpha(2) &= \alpha(1)\alpha(2) \\
+S_+\alpha(1)\beta(2) &= \alpha(1)\alpha(2)
+\end{aligned}
+\end{equation}
+and 
+\begin{equation}\label{c2e167}
+\begin{aligned}
+S_-S_+\beta(1)\alpha(2) &= \beta(1)\alpha(2) + \alpha(1)\beta(2)\\
+S_-S_+\alpha(1)\beta(2) &= \beta(1)\alpha(2) + \alpha(1)\beta(2)
+\end{aligned}
+\end{equation}
+and hence, since $S_z$ and $S_z^2$ annihilate these states
+\begin{equation}\label{c2e168}
+\begin{aligned}
+S^2\ket{2\bar{1}} &=
+\frac{1}{\sqrt{2}}[\psi_2(1)\psi_1(2)-\psi_1(1)\psi_2(2)](\beta(1)\alpha(2) +
+\alpha(1)\beta(2)) \\
+S^2\ket{1\bar{2}} &=
+\frac{1}{\sqrt{2}}[\psi_1(1)\psi_2(2) - \psi_2(1)\psi_1(2)](\beta(1)\alpha(2) +
+\alpha(1)\beta(2)) 
+\end{aligned}
+\end{equation}
+Thus, $\ket{\Psi_{\bar{1}}^2}$ and $\ket{\Psi^1_{\bar{2}}}$ are not eigenstates
+of $S^2$. 
+However, they can be combined as
+\begin{eqnarray}
+\ket{^1\Psi_1^2} &=& \frac{1}{\sqrt{2}}(\ket{1\bar{2}} + \ket{2\bar{1}})
+\nonumber \\
+ &=& \frac{\psi_1(1)\psi_2(2)-\psi_2(1)\psi_1(2)}{2}(\alpha(1)\beta(2) -
+\beta(1)\alpha(2)) \label{c2e169} \\
+\ket{^3\Psi_1^2} &=& \frac{1}{\sqrt{2}}(\ket{1\bar{2}} - \ket{2\bar{1}})
+\nonumber \\
+ &=& \frac{\psi_1(1)\psi_2(2)-\psi_2(1)\psi_1(2)}{2}(\alpha(1)\beta(2) +
+\beta(1)\alpha(2)) \label{c2e170} 
+\end{eqnarray}
+and these linear combinations are spin states. It is easier to use equations
+\eqref{c2e168} to demonstrate this fact.
+\begin{equation}\label{c2e171}
+S^2\ket{^1\Psi_1^2} = \frac{1}{\sqrt{2}}(S^2\ket{1\bar{2}} + S^2\ket{2\bar{1}})
+= 0
+\end{equation}
+and
+\begin{equation}\label{c2e172}
+\begin{aligned}
+S^2\ket{^3\Psi_1^2}&= \frac{1}{\sqrt{2}}(S^2\ket{1\bar{2}} - S^2\ket{2\bar{1}})
+\\
+&= (\psi_1(1)\psi_2(2) - \psi_2(1)\psi_1(2))(\beta(1)\alpha(2) +
+\alpha(1)\beta(2)) \\
+&= \sqrt{2}\ket{^3\Psi_1^2} = \sqrt{1(1 + 1)}\ket{^3\Psi_1^2}
+\end{aligned}
+\end{equation}
+proving that $\ket{^1\Psi_1^2}$ is a singlet but $\ket{^3\Psi_1^2}$ is a
+triplet.
