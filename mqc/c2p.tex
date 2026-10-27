@@ -787,5 +787,136 @@ where
 \psi_1(1)\psi_2(2)\beta(1)\alpha(2)) 
 \end{aligned}
 \]
+We need several intermediate terms.
+\[
+\begin{aligned}
+\braket{1\bar{2}|H|1\bar{2}} &= 
+\frac{1}{2}\braket{\psi_1(1)\psi_2(2)|H|\psi_1(1)\psi_2(2)}
+           \braket{\alpha(1)\beta(2)|\alpha(1)\beta(2)} + \\
+&\quad\;\frac{1}{2}\braket{\psi_2(1)\psi_1(2)|H|\psi_2(1)\psi_1(2)}
+           \braket{\beta(1)\alpha(2)|\beta(1)\alpha(2)} - \\
+&\quad\;\frac{1}{2}\braket{\psi_1(1)\psi_2(2)|H|\psi_2(1)\psi_1(2)}
+           \braket{\alpha(1)\beta(2)|\beta(1)\alpha(2)} - \\
+&\quad\;\frac{1}{2}\braket{\psi_2(1)\psi_1(2)|H|\psi_1(1)\psi_2(2)}
+           \braket{\beta(1)\alpha(2)|\alpha(1)\beta(2)} 
+\end{aligned}
+\]
+In the last two terms the spin terms vanish. As a result, we have
+\[
+\begin{aligned}
+\braket{1\bar{2}|H|1\bar{2}} &= 
+\frac{1}{2}\braket{\psi_1(1)\psi_2(2)|h(1)+h(2)+r_{12}^{-1}|\psi_1(1)\psi_2(2)}
+ + \\
+&\quad\;\frac{1}{2}\braket{\psi_2(1)\psi_1(2)|h(1)+h(2)+r_{12}^{-1}|
+\psi_2(1)\psi_1(2)} \\
+&=\frac{1}{2}\left[\braket{\psi_1(1)|h(1)|\psi_1(1)}\braket{\psi_2(2)|\psi_2(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_1(1)|\psi_1(1)}\braket{\psi_2(2)|h(2)|\psi_2(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_1(1)\psi_2(2)|r_{12}^{-1}|\psi_1(1)\psi_2(2)}
+\right] + \\
+&\quad\frac{1}{2}\left[\braket{\psi_2(1)|h(1)|\psi_2(1)}\braket{\psi_1(2)|\psi_1(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_2(1)|\psi_2(1)}\braket{\psi_1(2)|h(2)|\psi_1(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_2(1)\psi_1(2)|r_{12}^{-1}|\psi_2(1)\psi_1(2)}
+\right] \\
+&= \frac{1}{2}(h_{11} + h_{22} + J_{12}) + \frac{1}{2}(h_{11} + h_{22} + J_{12}) \\
+&= h_{11} + h_{22} + J_{12}
+\end{aligned}
+\]
+We next evaluate
+\[
+\begin{aligned}
+\braket{2\bar{1}|H|2\bar{1}} &= 
+\frac{1}{2}\braket{\psi_2(1)\psi_1(2)|H|\psi_2(1)\psi_1(2)}
+           \braket{\beta(1)\alpha(2)|\beta(1)\alpha(2)} + \\
+&\quad\;\frac{1}{2}\braket{\psi_1(1)\psi_2(2)|H|\psi_1(1)\psi_2(2)}
+           \braket{\beta(1)\alpha(2)|\beta(1)\alpha(2)} - \\
+&\quad\;\frac{1}{2}\braket{\psi_2(1)\psi_1(2)|H|\psi_1(1)\psi_2(2)}
+           \braket{\alpha(1)\beta(2)|\beta(1)\alpha(2)} - \\
+&\quad\;\frac{1}{2}\braket{\psi_1(1)\psi_2(2)|H|\psi_2(1)\psi_1(2)}
+           \braket{\beta(1)\alpha(2)|\alpha(1)\beta(2)} 
+\end{aligned}
+\]
+Once again, in the last two terms the spin terms vanish. As a result, we have
+\[
+\begin{aligned}
+\braket{2\bar{1}|H|2\bar{1}} &= 
+\frac{1}{2}\braket{\psi_2(1)\psi_1(2)|h(1)+h(2)+r_{12}^{-1}|\psi_2(1)\psi_1(2)}
+ + \\
+&\quad\;\frac{1}{2}\braket{\psi_1(1)\psi_2(2)|h(1)+h(2)+r_{12}^{-1}|
+\psi_1(1)\psi_2(2)} \\
+&=\frac{1}{2}\left[\braket{\psi_2(1)|h(1)|\psi_2(1)}\braket{\psi_1(2)|\psi_1(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_2(1)|\psi_2(1)}\braket{\psi_1(2)|h(2)|\psi_1(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_2(1)\psi_1(2)|r_{12}^{-1}|\psi_2(1)\psi_1(2)}
+\right] + \\
+&\quad\frac{1}{2}\left[\braket{\psi_1(1)|h(1)|\psi_1(1)}\braket{\psi_2(2)|\psi_2(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_1(1)|\psi_1(1)}\braket{\psi_2(2)|h(2)|\psi_2(2)}
++ \right. \\
+&\quad\quad\left.\braket{\psi_1(1)\psi_2(2)|r_{12}^{-1}|\psi_1(1)\psi_2(2)}
+\right] \\
+&= \frac{1}{2}(h_{11} + h_{22} + J_{12}) + \frac{1}{2}(h_{11} + h_{22} + J_{12}) \\
+&= h_{11} + h_{22} + J_{12}
+\end{aligned}
+\]
+
+We now evaluate the cross term,
+\[
+\begin{aligned}
+\braket{1\bar{2}|H|2\bar{1}} &= \frac{1}{2}\braket{\psi_1(1)\psi_2(2)|H|\psi_2(1)
+\psi_1(2)}\braket{\alpha(1)\beta(2)|\alpha(1)\beta(2)} + \\
+&\quad\;\frac{1}{2}\braket{\psi_2(1)\psi_1(2)|H|\psi_1(1)\psi_2(2)}
+\braket{\beta(1)\alpha(2)|\beta(1)\alpha(2)}
+\end{aligned}
+\]
+The other two terms vanish because of orthogonality of the spin terms. Therefore,
+\[
+\begin{aligned}
+\braket{1\bar{2}|H|2\bar{1}} &= \frac{1}{2}\left[\braket{\psi_1(1)\psi_2(2)|
+h(1) + h(2) + r_{12}^{-1}|\psi_2(1)\psi_1(2)}\right] + \\
+&\;\quad\frac{1}{2}\left[\braket{\psi_2(1)\psi_1(2)|h(1) + h(2) + r_{12}^{-1}|
+  \psi_1(1)\psi_2(2)}\right] \\
+&= \frac{1}{2}\left[
+\braket{\psi_1(1)|h(1)|\psi_2(1)}\braket{\psi_2(2)|\psi_1(2)} \right. + \\
+&\quad\quad\;\left.
+\braket{\psi_1(1)|\psi_2(1)}\braket{\psi_2(2)|h(2)|\psi_1(2)} + \right. \\
+&\quad\quad\;\left.
+\braket{\psi_1(1)\psi_2(2)|r_{12}^{-1}|\psi_2(1)\psi_1(2)}\right] + \\
+&\quad\frac{1}{2}\left[
+\braket{\psi_2(1)|h(1)|\psi_1(1)}\braket{\psi_1(2)|\psi_2(2)} \right. + \\
+&\quad\quad\;\left.
+\braket{\psi_2(1)|\psi_1(1)}\braket{\psi_1(2)|h(2)|\psi_2(2)} + \right. \\
+&\quad\quad\;\left.
+\braket{\psi_2(1)\psi_1(2)|r_{12}^{-1}|\psi_1(1)\psi_2(2)}\right] + \\
+&= \frac{1}{2}\left[\braket{1|h|2}\cdot 0 + 0\cdot\braket{2|h|1}+K_{12}+\right.\\
+&\quad\quad\;\left.\braket{2|h|1}\cdot 0 + 0\cdot\braket{1|h|2} + K_{12}\right] \\
+&= K_{12}
+\end{aligned}
+\]
+
+We are now in a position to calculate the expectation values of the energy in
+singlet and triplet states.
+\[
+\begin{aligned}
+\braket{^1\Psi_1^2|H|^1\Psi_1^2} &= \frac{1}{2}\left[\braket{1\bar{2}|H|1\bar{2}}
++ \braket{2\bar{1}|H|2\bar{1}} + \braket{1\bar{2}|H|2\bar{1}} +
+\braket{2\bar{1}|H|1\bar{2}}\right] \\
+&= h_{11} + h_{22} + J_{12} + K_{12}
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+\braket{^3\Psi_1^2|H|^1\Psi_1^2} &= \frac{1}{2}\left[\braket{1\bar{2}|H|1\bar{2}}
+- \braket{2\bar{1}|H|2\bar{1}} - \braket{1\bar{2}|H|2\bar{1}} +
+\braket{2\bar{1}|H|1\bar{2}}\right] \\
+&= h_{11} + h_{22} + J_{12} - K_{12}
+\end{aligned}
+\]
 
 \end{enumerate}
+
