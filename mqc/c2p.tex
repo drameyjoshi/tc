@@ -918,5 +918,108 @@ and
 \end{aligned}
 \]
 
+\item\label{c2p41} Unrestricted Hartree-Fock orbitals.
+Given that $\ket{K} = \ket{\psi_1^a\bar{\psi}_1^b}$, that is,
+\[
+\begin{aligned}
+\ket{K} &= \frac{1}{\sqrt{2!}}\begin{vmatrix}
+\chi_1(\vec{x}_1) & \chi_2(\vec{x_1}) \\
+\chi_1(\vec{x}_2) & \chi_2(\vec{x_2})
+\end{vmatrix} \\
+&=\frac{1}{\sqrt{2!}}\begin{vmatrix}
+\psi_1^a(\vec{r}_1)\alpha(\omega_1) & \psi_1^b(\vec{r}_1)\beta(\omega_1) \\
+\psi_1^a(\vec{r}_2)\alpha(\omega_2) & \psi_1^b(\vec{r}_2)\beta(\omega_2)
+\end{vmatrix} \\
+&= \frac{1}{\sqrt{2}}[\psi_1^a(\vec{r}_1)\alpha(\omega_1)\psi_1^b(\vec{r}_2)
+\beta(\omega_2) - \psi_1^b(\vec{r}_1)\beta(\omega_1)\psi_1^a(\vec{r}_2)
+\alpha(\omega_2)]
+\end{aligned}
+\]
+We will now compute $S^2\ket{K} = (S_-S_+ + S_z + S_z^2)\ket{K}$.
+\[
+\begin{aligned}
+S_z\ket{K} &= s_z(1)\ket{K} + s_z(2)\ket{K} \\
+ &= \frac{1}{\sqrt{2}}[\frac{1}{2}\psi_1^a(\vec{r}_1)\alpha(\omega_1)
+ \psi_1^b(\vec{r}_2)\beta(\omega_2) + \frac{1}{2}\psi_1^b(\vec{r}_1)
+ \beta(\omega_1)\psi_1^a(\vec{r}_2)\beta(\omega_2) \\
+ &\quad\quad-\frac{1}{2}\psi_1^a(\vec{r}_1)\alpha(\omega_1)\psi_1^b(\vec{r}_2)
+ \beta(\omega_2) - \frac{1}{2}\psi_1^b(\vec{r}_1)\beta(\omega_1)
+ \psi_1^a(\vec{r}_2)\alpha(\omega_2)] \\
+ &= 0
+\end{aligned}
+\]
+so that $S_z^2\ket{K} = 0$. We next evaluate
+\[
+\begin{aligned}
+S_+\ket{K} &= s_+(1)\ket{K} + s_+(2)\ket{K} \\
+&= \frac{1}{\sqrt{2}}[0 - \psi_1^b(\vec{r}_1)\alpha(\omega_1)\psi_1^a(\vec{r}_2)
+\alpha(\omega_2) + 
+   \psi_1^a(\vec{r}_1)\alpha(\omega_1)\psi_1^b(\vec{r}_2)\alpha(\omega_2) - 0] \\
+&= \frac{1}{\sqrt{2}}(\psi_1^a(\vec{r}_1)\psi_1^b(\vec{r}_2) - \psi_1^b(\vec{r}_1)
+\psi_1^a(\vec{r}_2))\alpha(\omega_1)\alpha(\omega_2)
+\end{aligned}
+\]
+and then
+\[
+\begin{aligned}
+S_-S_+\ket{K} 
+&= \frac{1}{\sqrt{2}}(\psi_1^a(\vec{r}_1)\psi_1^b(\vec{r}_2) - \psi_1^b(\vec{r}_1)
+\psi_1^a(\vec{r}_2))S_-(\alpha(\omega_1)\alpha(\omega_2)) \\
+&= \frac{1}{\sqrt{2}}(\psi_1^a(\vec{r}_1)\psi_1^b(\vec{r}_2) - \psi_1^b(\vec{r}_1)
+\psi_1^a(\vec{r}_2)) \\
+&\quad [s_-(1)(\alpha(\omega_1)\alpha(\omega_2) + s_-(2)(\alpha(\omega_1)
+       \alpha(\omega_2))] \\
+&= \frac{1}{\sqrt{2}}(\psi_1^a(\vec{r}_1)\psi_1^b(\vec{r}_2) - \psi_1^b(\vec{r}_1)
+\psi_1^a(\vec{r}_2)) \\
+&\quad [(\beta(\omega_1)\alpha(\omega_2) + (\alpha(\omega_1)\beta(\omega_2))]
+\end{aligned}
+\]
+so that
+\[
+\begin{aligned}
+S^2\ket{K} &= 
+\frac{1}{\sqrt{2}}(\psi_1^a(\vec{r}_1)\psi_1^b(\vec{r}_2) - \psi_1^b(\vec{r}_1)
+\psi_1^a(\vec{r}_2))
+[(\beta(\omega_1)\alpha(\omega_2) + (\alpha(\omega_1)\beta(\omega_2))] \\
+&= \frac{1}{\sqrt{2}}\left[
+  \psi_1^a(\vec{r}_1)\psi_1^b(\vec{r}_2)\beta(\omega_1)\alpha(\omega_2) +
+  \psi_1^a(\vec{r}_1)\psi_1^b(\vec{r}_2)\alpha(\omega_1)\beta(\omega_2)\right.-\\
+&\quad\quad\quad
+  \left.\psi_1^b(\vec{r}_1)\psi_1^a(\vec{r}_2)\beta(\omega_1)\alpha(\omega_2) -
+  \psi_1^b(\vec{r}_1)\psi_1^a(\vec{r}_2)\alpha(\omega_1)\beta(\omega_2)\right]
+\end{aligned}
+\]
+With
+\[
+\ket{K} = \frac{1}{\sqrt{2}}[\psi_1^a(\vec{r}_1)\alpha(\omega_1)\psi_1^b(\vec{r}_2)
+\beta(\omega_2) - \psi_1^b(\vec{r}_1)\beta(\omega_1)\psi_1^a(\vec{r}_2)
+\alpha(\omega_2)]
+\]
+we evaluate
+\[
+\begin{aligned}
+\braket{K|S^2|K} &= \frac{1}{2}\left(
+\braket{\psi_1^a|\psi_1^a}\braket{\alpha|\beta}
+\braket{\psi_1^b|\psi_1^b}\braket{\alpha|\beta} + \right.\\ 
+&\quad\quad\;\left.\braket{\psi_1^a|\psi_1^a}\braket{\alpha|\alpha}
+\braket{\psi_1^b|\psi_1^b}\braket{\beta|\beta} - \right. \\
+&\quad\quad\;\left.\braket{\psi_1^a|\psi_1^b}\braket{\alpha|\beta}
+\braket{\psi_1^b|\psi_1^a}\braket{\beta|\alpha} - \right. \\
+&\quad\quad\;\left.\braket{\psi_1^a|\psi_1^b}\braket{\alpha|\alpha}
+\braket{\psi_1^b|\psi_1^a}\braket{\beta|\beta} - \right. \\
+&\quad\quad\;\left.\braket{\psi_1^b|\psi_1^a}\braket{\beta|\beta}
+\braket{\psi_1^a|\psi_1^b}\braket{\alpha|\alpha} - \right. \\
+&\quad\quad\;\left.\braket{\psi_1^b|\psi_1^a}\braket{\beta|\alpha}
+\braket{\psi_1^a|\psi_1^b}\braket{\alpha|\beta} + \right. \\
+&\quad\quad\;\left.\braket{\psi_1^b|\psi_1^b}\braket{\beta|\beta}
+\braket{\psi_1^a|\psi_1^a}\braket{\alpha|\alpha} + \right. \\
+&\quad\quad\;\left.\braket{\psi_1^b|\psi_1^b}\braket{\beta|\alpha}
+\braket{\psi_1^a|\psi_1^a}\braket{\alpha|\beta}\right) \\
+&= \frac{1}{2}[0 + 1 + 0 - |S_{11}^{ab}|^2 - |S_{11}^{ab}|^2 - 0 + 1 + 0] \\
+&= 1 - |S_{11}^{ab}|^2
+\end{aligned}
+\]
+If $S_{11}^{ab} = 0$, $\braket{K|S^2|K} = 1$, making $\ket{K}$ a spin state.
+Likewise, if $\braket{K|S^2|K} = 0$ then $S_{11}^{ab} = 0$.
 \end{enumerate}
 
