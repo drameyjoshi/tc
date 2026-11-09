@@ -1,2 +1,35 @@
 \chapter{The Hartree-Fock Approximation}\label{c3}
-\section{The exchange operator}\label{c3s1}
+\section{An overview}\label{c3s1}
+The Hartree-Fock method is an algorithm to estimate the best variational 
+solution to the hamiltonian $H$ of a system of $N$-electrons, under the 
+Born-Oppenheimer approximaton. The ground state of such a system is described 
+by the Slater determinant
+\begin{equation}\label{c3e1}
+\ket{\Psi_0} = \ket{\chi_1\ldots\chi_a\ldots\chi_N}.
+\end{equation}
+The algorithm minimises $\braket{\Psi_0|H|\Psi_0}$ subject to the constraint
+\begin{equation}\label{c3e2}
+\braket{\chi_a|\chi_b} = \delta_{ab}.
+\end{equation}
+From equation \eqref{c2e102},
+\begin{equation}\label{c3e3}
+\braket{\Psi_0|H|\Psi_0} = \sum_{a=1}^N[a|h|a] + \frac{1}{2}\sum_{a=1}^N
+\sum_{b=1}^N\left([aa|bb] - [ab|ba]\right).
+\end{equation}
+Thus, we minimise \eqref{c3e3} subject to the constraint \eqref{c3e2}. The
+spin orbitals of the minimal energy state satisfy the equation
+\begin{equation}\label{c3e4}
+\begin{aligned}
+h(\vec{x}_1)\chi_a(\vec{x}_1) + 
+\sum_{b\ne a}\left[\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)\chi_b(\vec{x}_2)
+r_{12}^{-1}\right]\chi_a(\vec{x}_1)& \\
+ - \sum_{b\ne a}\left[\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)\chi_a(\vec{x}_2)
+r_{12}^{-1}\right]\chi_b(\vec{x}_1) 
+& = \varepsilon_a\chi_a(\vec{x}_1),
+\end{aligned}
+\end{equation}
+where
+\begin{equation}\label{c3e5}
+h(\vec{x}_1) = -\frac{1}{2}\nabla_1^2 - \sum_A\frac{Z_A}{r_{1A}},
+\end{equation}
+is the hamiltonian of electron 1 in the field of all nuclei.
