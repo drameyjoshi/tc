@@ -1,0 +1,52 @@
+\chapter{Solution to exercises in chapter 3}
+\begin{enumerate}
+\item Matrix element of Fock operator.
+
+The Fock operator is
+\[
+\begin{aligned}
+f(1) &= h(1) + \sum_b\left(\int d\vec{x}_2|\chi_b(\vec{x}_2)|^2 r_{12}^{-1} -
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)r_{12}^{-1}P_{12}\chi_b(\vec{x}_2)\right) \\
+ &= h(1) + \sum_b\left(
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)r_{12}^{-1}\chi_b(\vec{x}_2) -
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)r_{12}^{-1}P_{12}\chi_b(\vec{x}_2)\right) 
+\end{aligned}
+\]
+so that
+\[
+\begin{aligned}
+f\ket{j} &= h(\vec{x}_1)\chi_j(\vec{x}_1) + \\
+ & \sum_{b \ne j}\left(\int d\vec{x}_2
+ \chi_b^\ast(\vec{x}_2)r_{12}^{-1}\chi_b(\vec{x}_2)\chi_j(\vec{x}_1) -
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)r_{12}^{-1}P_{12}\chi_b(\vec{x}_2)
+\chi_i(\vec{x}_1) \right) 
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+\braket{i|f|j} &= \braket{i|h|j} + \\
+ & \sum_{b \ne j}\left(\iint d\vec{x}_1 d\vec{x}_2 \chi_i^\ast(\vec{x}_1)
+ \chi_b^\ast(\vec{x}_2)r_{12}^{-1}\chi_b(\vec{x}_2)\chi_j(\vec{x}_1)\right. - \\
+ & \left.
+ \iint d\vec{x}_1 d\vec{x}_2
+ \chi_i^\ast(\vec{x}_1)\chi_b^\ast(\vec{x}_2)r_{12}^{-1}P_{12}\chi_b(\vec{x}_2)
+ \chi_j(\vec{x}_1) \right) \\
+ &= \braket{i|h|j} + \\
+ & \sum_{b \ne j}\left(\iint d\vec{x}_1 d\vec{x}_2 \chi_i^\ast(\vec{x}_1)
+\chi_j(\vec{x}_1) r_{12}^{-1}\chi_b(\vec{x}_2)\chi_b^\ast(\vec{x}_2)\right. - \\
+ & \left.
+ \iint d\vec{x}_1 d\vec{x}_2
+ \chi_i^\ast(\vec{x}_1)\chi_b^\ast(\vec{x}_2)r_{12}^{-1}\chi_b(\vec{x}_1)
+ \chi_j(\vec{x}_2) \right) \\
+ &= \braket{i|h|j} + \\
+ & \sum_{b \ne j}\left(\iint d\vec{x}_1 d\vec{x}_2 \chi_i^\ast(\vec{x}_1)
+\chi_j(\vec{x}_1) r_{12}^{-1}\chi_b(\vec{x}_2)\chi_b^\ast(\vec{x}_2)\right. - \\
+ & \left.
+ \iint d\vec{x}_1 d\vec{x}_2
+ \chi_i^\ast(\vec{x}_1)\chi_b(\vec{x}_1)r_{12}^{-1}\chi_b^\ast(\vec{x}_2)
+ \chi_j(\vec{x}_2) \right) \\
+ &= \braket{i|h|j} + \sum_b\left([ij|bb] - [ib|bj]\right)
+\end{aligned}
+\]
+\end{enumerate}
