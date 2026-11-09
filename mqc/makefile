@@ -1,5 +1,5 @@
 MAIN = asnotes
-SOURCES = $(MAIN).tex c1.tex c2.tex c2p.tex c3p.tex $(MAIN).bib
+SOURCES = $(wildcard *.tex) $(wildcard *.bib)
 
 all: $(MAIN).pdf
 
