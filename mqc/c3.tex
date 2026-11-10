@@ -32,4 +32,81 @@ where
 \begin{equation}\label{c3e5}
 h(\vec{x}_1) = -\frac{1}{2}\nabla_1^2 - \sum_A\frac{Z_A}{r_{1A}},
 \end{equation}
-is the hamiltonian of electron 1 in the field of all nuclei.
+is the hamiltonian of electron 1 in the field of all nuclei. The term
+\[
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)\chi_b(\vec{x}_2)r_{12}^{-1} =
+\int d\vec{x}_2\frac{\rho_b(\vec{x}_2)}{r_{12}}
+\]
+is the Coulomb potential due to the $b$th electron at $\vec{x}_1$. When it is
+summed over all $b \ne a$, it is the electrostatic potential due to the $N-1$
+electrons at the position $\vec{x}_1 = (\vec{r}_1, \omega_1)$ of electron 1.
+(Remember that in atomic units, $e = 1$.) Therefore,
+\[
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)\chi_b(\vec{x}_2)r_{12}^{-1}
+\chi_a(\vec{x}_1)
+\]
+is the electrostatic, repulsive potential energy of electron 1 in the field of
+the remaining $N-1$ electrons. The third term in \eqref{c2e4} is a bit tricky.
+We introduce an operator $K_b$ as
+\begin{equation}\label{c3e6}
+K_b\chi_a(\vec{x}_1) = \int d\vec{x}_2 \chi_b^\ast(\vec{x}_2)\chi_a(\vec{x}_2)
+r_{12}^{-1}\chi_b(\vec{x}_1).
+\end{equation}
+This equation is very similar to the Coulomb term except that the electrons
+1 and 2 are swapped. The Coulomb term had electron 1 in spin orbital $\vec{x}_1$
+and electron 2 in $\vec{x}_2$. In equation \eqref{c2e6} it is the other way 
+round. If we introduce the electron swapping operator
+\begin{equation}\label{c3e7}
+P_{12}\chi_a(\vec{x}_1)\chi_b(\vec{x}_2) = \chi_a(\vec{x}_2)\chi_b(\vec{x}_2)
+\end{equation}
+then we can write \eqref{c3e6} as
+\begin{equation}\label{c3e8}
+\begin{aligned}
+K_b\chi_a(\vec{x}_1) &= \int d\vec{x}_2 \chi_b^\ast(\vec{x}_2)
+r_{12}^{-1}P_{12}\chi_a(\vec{x}_1)\chi_b(\vec{x}_2) \\
+ &= \int d\vec{x}_2\chi_b^\ast(\vec{x}_2) r_{12}^{-1}P_{12}\chi_b(\vec{x}_2)
+ \chi_a(\vec{x}_1).
+\end{aligned}
+\end{equation}
+The operator $K_b$ is itself a function of $\vec{x}_1$. We can define it as
+\begin{equation}\label{c3e9}
+K_b(\vec{x}_1) = 
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)r_{12}^{-1}P_{12}\chi_b(\vec{x}_2).
+\end{equation}
+It is called the \emph{exchange operator}. The analogous operator
+\begin{equation}\label{c3e10}
+J_b(\vec{x}_1) = 
+\int d\vec{x}_2\chi_b^\ast(\vec{x}_2)r_{12}^{-1}\chi_b(\vec{x}_2)
+\end{equation}
+is called the \emph{Coulomb operator}. The terms $K_b(\vec{x}_1)\chi_a(\vec{x}_1)$
+and $J_b(\vec{x}_1)\chi_a(\vec{x}_1)$ are called the \emph{exchange energy} and
+\emph{Coulomb energy}. In terms of these, equation \eqref{c3e4} is
+\begin{equation}\label{c3e11}
+h(\vec{x}_1)\chi_a(\vec{x}_1) + \sum_{b \ne a}\left[J_b(\vec{x}_1) - 
+K_b(\vec{x}_1)\right]\chi_a(\vec{x}_1) = \varepsilon_a\chi_a(\vec{x}_1).
+\end{equation}
+We can simplify it further by defining the Fock operator
+\begin{equation}\label{c3e12}
+f(1) = h(1) + \sum_{b \ne a}(J_b(1) - K_b(1))
+\end{equation}
+so that we have
+\begin{equation}\label{c3e13}
+f(\vec{x}_1)\chi_a(\vec{x}_1) = \varepsilon_a\chi_a(\vec{x}_1).
+\end{equation}
+In spite of its appearance, \eqref{c3e13} is not a linear eigenvalue equation.
+This is because the operator $f(\vec{x}_1)$ depends on $\chi_a(\vec{x}_1)$
+through the Coulomb and exchange terms.
+
+From \eqref{c3e6} it is evident that the term $K_b(\vec{x}_1)\chi_a(\vec{x}_1)$
+depends on values of $\chi_a$ at all points, not just $\vec{x}_1$. It is,
+therefore, a non-local operator. 
+
+The expectation values of these operators are
+\begin{align}
+\braket{\chi_a|J_b|\chi_a} &= \iint d\vec{x}_1d\vec{x}_2\chi_a^\ast(\vec{x}_1)
+\chi_a(\vec{x}_1)r_{12}^{-1}\chi_b^\ast(\vec{x}_2)\chi_b(\vec{x}_2) = [aa|bb] 
+\label{c3e14} \\
+\braket{\chi_a|K_b|\chi_a} &= \iint d\vec{x}_1d\vec{x}_2\chi_a^\ast(\vec{x}_1)
+\chi_b(\vec{x}_1)r_{12}^{-1}\chi_b^\ast(\vec{x}_2)\chi_a(\vec{x}_2) = [ab|ba] 
+\label{c3e15}
+\end{align}
