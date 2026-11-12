@@ -110,3 +110,126 @@ The expectation values of these operators are
 \chi_b(\vec{x}_1)r_{12}^{-1}\chi_b^\ast(\vec{x}_2)\chi_a(\vec{x}_2) = [ab|ba] 
 \label{c3e15}
 \end{align}
+
+\section{Derivation of Hartree-Fock equation}\label{c3s2}
+We will derive equation \eqref{c3e4} by minimising \eqref{c3e3} subject to the
+constraint that the spin-orbitals are orthonormal. Consider the determinant
+\[
+\ket{\Psi_0} = \ket{\chi_1\ldots\chi_a\ldots\chi_N}
+\]
+such that
+\begin{equation}\label{c3e16}
+\braket{\chi_a|\chi_b} = [a|b| = \delta_{ab} \Rightarrow [a|b] - \delta_{ab}=0.
+\end{equation}
+Minimisation of $\braket{\Psi_0|H|\Psi_0}$ subject to the constraint 
+\eqref{c3e16} involves finding the extrema of
+\begin{equation}\label{c3e17}
+\mathscr{L}[\{\chi_a\}] = \braket{\Psi_0|H|\Psi_0} - \sum_{ab}\varepsilon_{ab}(
+[a|b] - \delta_{ab}),
+\end{equation}
+where the $N^2$ constants $\varepsilon_{ab}$ are Lagrange's undetermined 
+multipliers. From equation \eqref{c2e102},
+\begin{equation}\label{c3e18}
+\mathscr{L}[\{\chi_a\}] = \sum_{a=1}^N[a|h|a] + \frac{1}{2}\sum_{a=1}^N
+\sum_{b=1}^N([aa|bb] - [ab|ba]) - \sum_{ab}\varepsilon_{ab}([a|b]-\delta_{ab}).
+\end{equation}
+The first variation of $\mathscr{L}$ is
+\begin{equation}\label{c3e19}
+\begin{aligned}
+\delta\mathscr{L} &= \sum_{a=1}^N[\delta a|h|a] + \sum_{a=1}^N[a|h|\delta a] +\\
+ &\quad\frac{1}{2}\sum_{a,b=1}^N\left([\delta aa|bb] + [a\delta a|bb] + 
+ [aa|\delta bb] + [aa|b\delta b]\right) - \\
+ &\quad\frac{1}{2}\sum_{a,b=1}^N\left([\delta ab|ba] + [a\delta b|ba] + 
+ [ab|\delta ba] + [ba|b\delta a]\right) - \\
+ &\quad\sum_{a,b=1}^N\varepsilon_{ab}([\delta a|b] + [a|\delta b]).
+\end{aligned}
+\end{equation}
+Now,
+\[
+[a|h|b] = \braket{a|h|b} = \int d\vec{x}\chi_a^\ast(\vec{x})h(\vec{r})\chi_b(
+\vec{x})
+\]
+so that
+\begin{equation}\label{c3e20}
+[\delta a|h|a] = [a|h|\delta a]^\ast,
+\end{equation}
+because $h$ is real. Therefore,
+\begin{equation}\label{c3e21}
+\sum_{a=1}^N[\delta a|h|a] + \sum_{a=1}^N[a|h|\delta a] =
+\sum_{a=1}^N[\delta a|h|a] + \text{c.c.},
+\end{equation}
+where c.c. stands for complex conjugate.
+Since
+\[
+[ad|cd] = \iint d\vec{x}_1d\vec{x}_2 \chi_a^\ast(\vec{x}_1)\chi_b(\vec{x}_1)
+r_{12}^{-1}\chi_c^\ast(\vec{x}_2)\chi_d(\vec{x}_2),
+\]
+we have $[(\delta a)a|bb] = [a(\delta a)|bb]^\ast, [aa|(\delta b)b] = 
+[aa|b(\delta b)]^\ast$. We can always interchange the variables of integration, 
+so that $[(\delta a)a|bb] = [bb|(\delta a)a] = [aa|(\delta b)b]$. Therefore
+\begin{equation}\label{c3e22}
+\frac{1}{2}\sum_{a,b=1}^N\left([(\delta a)a|bb] + [a(\delta a)|bb] + 
+ [aa|(\delta b)b] + [aa|b(\delta b)]\right) = \sum_{a,b=1}^N[(\delta a)a|bb] +
+ \text{c.c.}
+\end{equation}
+Similarly
+\begin{equation}\label{c3e23}
+\frac{1}{2}\sum_{a,b=1}^N\left([(\delta a)b|ba] + [a(\delta b)|ba] + 
+ [ab|(\delta b)a] + [ba|b(\delta a)]\right) =
+\sum_{a,b=1}^n[(\delta a)b|ba] + \text{c.c.}
+\end{equation}
+Lastly,
+\[
+\begin{aligned}
+\sum_{a,b=1}^N\varepsilon_{ab}([\delta a|b] + [a|\delta b]) &=
+\sum_{a,b=1}^N\varepsilon_{ab}[\delta a|b] + \sum_{a,b=1}^N\varepsilon_{ab}
+[\delta b|a]^\ast \\
+ &= \sum_{a,b=1}^N\varepsilon_{ab}[\delta a|b] + \sum_{a,b=1}^N\varepsilon_{ba}
+[\delta a|b]^\ast
+\end{aligned}
+\]
+Since $\mathscr{L}$ is real, $\varepsilon_{ab} = \varepsilon_{ba}^\ast$ and 
+hence
+\begin{equation}\label{c3e24}
+\sum_{a,b=1}^N\varepsilon_{ab}([\delta a|b] + [a|\delta b]) =
+\sum_{a,b=1}^N\varepsilon_{ab}[\delta a|b] + \text{c.c.}
+\end{equation}
+Substituting \eqref{c3e21} to \eqref{c3e24} into \eqref{c3e19}, we get
+\begin{equation}\label{c3e25}
+\delta\mathscr{L} = \sum_{a=1}^N[\delta a|h|a] + \sum_{a,b=1}^N\left([(\delta a)
+a|bb] - [(\delta a)b|ba]\right) - \sum_{a,b=1}^N\varepsilon_{ab}[(\delta a)|b]
++ \text{c.c.}
+\end{equation}
+Writing the terms as integrals and setting the first variation to zero gives,
+\[
+\begin{aligned}
+\delta\mathscr{L} &=
+\sum_{a=1}^N\int d\vec{x}_1\delta\chi_a^\ast(\vec{x}_1)\left[h(\vec{x}_1)
+\chi_a(\vec{x}_1) + \sum_{b=1}^N\int d\vec{x}_2\chi_a(1)r_{12}^{-1}
+\chi_b^\ast(2)\chi_b(2) - \right. \\
+&\quad\left.\sum_{b=1}^N\int d\vec{x}_2 \chi_b(1)r_{12}^{-1} \chi_b^\ast(2)\chi_a(2)
+- \sum_{b=1}^N \varepsilon_{ab}\chi_b(1) \right] + \text{c.c.}\\
+&= \sum_{a=1}^N\int d\vec{x}_1\delta\chi_a^\ast(\vec{x}_1)\left[h(\vec{x}_1)
+\chi_a(\vec{x}_1) + \sum_{b=1}^N\int d\vec{x}_2\chi_a(1)r_{12}^{-1}
+\chi_b^\ast(2)\chi_b(2) - \right. \\
+&\quad\left.\sum_{b=1}^N\int d\vec{x}_2 \chi_b^\ast(2)r_{12}^{-1} \chi_b(1)\chi_a(2)
+- \sum_{b=1}^N\varepsilon_{ab}\chi_b(1) \right]+ \text{c.c.} \\
+&= \sum_{a=1}^N\int d\vec{x}_1\delta\chi_a^\ast(\vec{x}_1)\left[h(\vec{x}_1)
+\chi_a(\vec{x}_1) + \sum_{b=1}^N\int d\vec{x}_2\chi_b^\ast(2)r_{12}^{-1}
+\chi_b(2)\chi_a(1) - \right. \\
+&\quad\left.\sum_{b=1}^N\int d\vec{x}_2 \chi_b^\ast(2)r_{12}^{-1}P_{12} 
+\chi_b(2)\chi_a(1) - 
+\sum_{b=1}^N\varepsilon_{ab}\chi_b(1) \right] + \text{c.c.}\\
+&= \sum_{a=1}^N\int d\vec{x}_1\delta\chi_a^\ast(1)\left[\left(h(1) + \sum_{b=1}^N(
+J_b(1) - K_b(1))\right)\chi_a(1) - \right. \\
+&\quad\left.\sum_{b=1}^N\varepsilon_{ab}\chi_b(1) \right] 
++ \text{c.c.}
+\end{aligned}
+\]
+The variations $\delta\chi_a^\ast$ (and $\delta\chi_a$) are arbitrary so that
+$\delta\mathscr{L} = 0$ implies
+\begin{equation}\label{c3e26}
+\left(h(1) + \sum_{b=1}^N( J_b(1) - K_b(1))\right)\chi_a(1) = \sum_{b=1}^N
+\varepsilon_{ab}\chi_b(1)
+\end{equation}
+and its complex conjugate.
