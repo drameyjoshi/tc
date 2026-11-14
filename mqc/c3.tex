@@ -232,4 +232,102 @@ $\delta\mathscr{L} = 0$ implies
 \left(h(1) + \sum_{b=1}^N( J_b(1) - K_b(1))\right)\chi_a(1) = \sum_{b=1}^N
 \varepsilon_{ab}\chi_b(1)
 \end{equation}
-and its complex conjugate.
+and its complex conjugate. The term
+\begin{equation}\label{c3e27}
+v^{HF} = \sum_{b=1}^N( J_b(1) - K_b(1))
+\end{equation}
+is the effective potential felt by an electron due to the other $N-1$ electrons.
+It is called the \emph{Hartree-Fock} potential.
+
+Let $U$ be a unitary transformation that takes the spin orbitals $\{\chi_a\}$
+to $\{\chi_a^\op\}$. Thus,
+\begin{equation}\label{c3e28}
+\chi_a^\op = \sum_{b}U_{ab}\chi_b
+\end{equation}
+and
+\begin{equation}\label{c3e29}
+\chi_a^{\op\ast} = \sum_b U_{ab}^\ast \chi_b^\ast.
+\end{equation}
+Since $U$ is unitary, $UU^\dagger = U^\dagger U =  I$, that is
+\begin{equation}\label{c3e30}
+\begin{aligned}
+\sum_b U_{ab}U^\dagger_{bc} &= \sum_b U_{ab}U_{cb}^\ast = \delta_{ac} \\
+\sum_b U^\dagger_{ab}U_{bc} &= \sum_b U_{ba}^\ast U_{bc} = \delta_{ac}.
+\end{aligned}
+\end{equation}
+If $J_b^\op(1)$ and $K_b^\op(1)$ are the Coulomb and the
+exchange operators in the primed basis then,
+\begin{equation}\label{c3e31}
+\begin{aligned}
+\sum_b J_b^\op(1) &= 
+\sum_b \int d\vec{x}_2\chi_b^{\op\ast}(2)r_{12}^{-1}\chi_b^\op(2) \\
+ &=\sum_b 
+ \int d\vec{x}_2\sum_{c,d}U_{bc}^\ast\chi_c^\ast(2)r_{12}^{-1}U_{bd}\chi_d(2) \\
+ &=\sum_{c,d} 
+ \int d\vec{x}_2\sum_bU_{bc}^\ast U_{bd}\chi_c^\ast(2)r_{12}^{-1}\chi_d(2) \\
+ &= \sum_{c,d} \int d\vec{x}_2\delta_{cd}\chi_c^\ast(2)r_{12}^{-1}\chi_d(2) \\
+ &= \sum_c \int d\vec{x}_2 \chi_c^\ast(2)r_{12}^{-1}\chi_c(2) \\
+ &= \sum_c J_c(1) = \sum_b J_b(1)
+\end{aligned}
+\end{equation}
+and
+\begin{equation}\label{c3e32}
+\begin{aligned}
+\sum_b K_b^\op(1) &= 
+\sum_b \int d\vec{x}_2\chi_b^{\op\ast}(2)r_{12}^{-1}P_{12}\chi_b^\op(2) \\
+ &=\sum_b \int d\vec{x}_2\sum_{c,d}U_{cb}^\ast\chi_c^\ast(2)r_{12}^{-1}
+   P_{12}U_{bd}\chi_d(2) \\
+ &=\sum_{c,d} \int d\vec{x}_2\sum_bU_{cb}^\ast U_{bd}\chi_c^\ast(2)r_{12}^{-1}
+   P_{12}\chi_d(2) \\
+ &= \sum_{c,d} 
+    \int d\vec{x}_2\delta_{cd}\chi_c^\ast(2)r_{12}^{-1}P_{12}\chi_d(2) \\
+ &= \sum_c \int d\vec{x}_2 \chi_c^\ast(2)r_{12}^{-1}P_{12}\chi_c(2) \\
+ &= \sum_c K_c(1) = \sum_b K_b(1)
+\end{aligned}
+\end{equation}
+Thus, the Coulomb and exchange operators are invariant under a unitary 
+transformation. The term $h(1)$ is independent of spin orbitals and is unaffected
+by a unitary transformation of the spin orbitals. Therefore, if
+\begin{equation}\label{c3e33}
+f(1) = h(1) + \sum_{b=1}^N( J_b(1) - K_b(1)
+\end{equation}
+is the \emph{Fock operator} then $f(1) = f^\op(1)$. In terms of the Fock 
+operator, equation \eqref{c3e26} is
+\begin{equation}\label{c3e34}
+f(1)\chi_a(1) = \sum_{b=1}^N \varepsilon_{ab}\chi_b(1).
+\end{equation}
+so that
+\[
+\braket{\chi_c|f|\chi_a} = \sum_{b=1}^N\varepsilon_{ab}\braket{\chi_c|\chi_b}.
+\]
+Using the orthornormality constraint of \eqref{c3e19}, we get
+\begin{equation}\label{c3e35}
+\varepsilon_{ca} = \braket{\chi_c|f|\chi_a}.
+\end{equation}
+Under a unitary transformation it becomes,
+\begin{equation}\label{c3e36}
+\begin{aligned}
+\varepsilon_{ca}^\op &= \braket{\chi_c^\op|f^\op|\chi_a^\op} \\
+ &= \int d\vec{x}_1 \chi_c^{\op\ast}(1) f(1) \chi_a^\op(1) \\
+ &= \sum_{d,e} \int d\vec{x}_1 U^\ast_{cd}\chi_d^\ast(1)f(1) U_{ae}\chi_e(1) \\
+ &= \sum_{d, e} U^\ast_{cd} \int d\vec{x}_1\chi_d^\ast(1)f(1)\chi_e(1)U_{ae} \\
+ &= \sum_{d, e} U^\ast_{cd} \varepsilon_{de}U_{ae} \\
+ &= \sum_{d, e} U^\dagger_{dc} \varepsilon_{de} U_{ae}
+\end{aligned}
+\end{equation}
+Thus, the Lagrange multipliers vary as
+\begin{equation}\label{c3e37}
+\varepsilon^\op = U^\dagger\varepsilon U.
+\end{equation}
+
+Equation \eqref{c3e34} can be written in matrix form as 
+\[
+f(1)\ket{\chi_a} = \sum_{b}\varepsilon_{ab}\ket{\chi_b},
+\]
+so that under a unitary transformation that diagonalises the matrix 
+$\varepsilon$, it becomes
+\begin{equation}\label{c3e38}
+f^\op(1)\ket{\chi_a^\op} = \varepsilon_a\ket{\chi_a^\op},
+\end{equation}
+where $\varepsilon_a$ is the diagonal element $\varepsilon_{aa}$. This is the 
+Hartree-Fock equation in its canonical form.
