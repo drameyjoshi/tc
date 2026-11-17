@@ -1,6 +1,6 @@
 \chapter{Solution to exercises in chapter 3}
 \begin{enumerate}
-\item Matrix element of Fock operator.
+\item\label{c3p1} Matrix element of Fock operator.
 
 The Fock operator is
 \[
@@ -49,4 +49,19 @@ and
  &= \braket{i|h|j} + \sum_b\left([ij|bb] - [ib|bj]\right)
 \end{aligned}
 \]
+
+\item\label{c3p2} Lagrange multipliers are real.
+Equation \eqref{c3e17} is
+\[
+\mathscr{L}[\{\chi_a\}] = \braket{\Psi_0|H|\Psi_0} - \sum_{ab}\varepsilon_{ab}(
+[a|b] - \delta_{ab})
+\]
+Since $H$ is hermitian, $\braket{\Psi_0|H|\Psi_0}$ is real. Because of 
+orthonormality, $[a|b] = \braket{\chi_a|\chi_b}$ is real. $\delta_{ab}$ is also
+a real number. The functional $\mathscr{L}$ seeks to minimise energy, a real
+quantity. Therefore, it has to be real. As a result, $\varepsilon_{ab}$ too
+must be real.
+
+\item\label{c3p3} Calculation of $\delta E_0$.
+Done in the notes to arrive at equation \eqref{c3e25}.
 \end{enumerate}
