@@ -64,4 +64,46 @@ must be real.
 
 \item\label{c3p3} Calculation of $\delta E_0$.
 Done in the notes to arrive at equation \eqref{c3e25}.
+
+\item Hermiticity of the Fock operator.
+We showed in problem \ref{c3p1} that
+\[
+\braket{i|f|j} = \braket{i|h|j} + \sum_b\left([ij|bb] - [ib|bj]\right)
+\]
+so that
+\[
+\begin{aligned}
+\braket{j|f|i} &= \braket{j|h|i} + \sum_b\left([ji|bb] - [jb|bi]\right) \\
+ &= \braket{i|h|j}^\ast + \sum_b\left([ij|bb]^\ast - [jb|bi]\right)
+\end{aligned}
+\]
+The first term changed its form because of hermiticity of the one-electron
+hamiltonian in the field of nuclei. The term $[jb|bi]$ needs a bit of care. 
+From equation \eqref{c2e90}
+\[
+[ij|kl] = \iint d\vec{x}_1d\vec{x}_2\chi_i^\ast(\vec{x}_1)\chi_j(\vec{x}_1)
+r_{12}^{-1}\chi_k^\ast(\vec{x}_2)\chi_l(\vec{x}_2).
+\]
+so that
+\[
+\begin{aligned}
+[jb|bi] &= \iint d\vec{x}_1d\vec{x}_2\chi_j^\ast(\vec{x}_1)\chi_b(\vec{x}_1)
+r_{12}^{-1}\chi_b^\ast(\vec{x}_2)\chi_i(\vec{x}_2) \\
+&= \left[\iint d\vec{x}_1d\vec{x}_2\chi_j(\vec{x}_1)\chi_b^\ast(\vec{x}_1)
+r_{12}^{-1}\chi_b(\vec{x}_2)\chi_i^\ast(\vec{x}_2) \right]^\ast \\
+&= \left[\iint d\vec{x}_1d\vec{x}_2\chi_i^\ast(\vec{x}_2)\chi_b(\vec{x}_2)
+r_{12}^{-1}\chi_b^\ast(\vec{x}_1)\chi_j(\vec{x}_1) \right]^\ast \\
+&= \left[\iint d\vec{x}_1d\vec{x}_2\chi_i^\ast(\vec{x}_1)\chi_b(\vec{x}_1)
+r_{12}^{-1}\chi_b^\ast(\vec{x}_2)\chi_j(\vec{x}_2) \right]^\ast \\
+&= [ib|bj]^\ast
+\end{aligned}
+\]
+so that
+\[
+\begin{aligned}
+\braket{j|f|i}&=\braket{i|h|j}^\ast+\sum_b\left([ij|bb] - [jb|bi]\right)^\ast\\
+&= \braket{i|f|j}^\ast
+\end{aligned}
+\]
+making $f$ a hermitial operator.
 \end{enumerate}
