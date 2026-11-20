@@ -331,3 +331,55 @@ f^\op(1)\ket{\chi_a^\op} = \varepsilon_a\ket{\chi_a^\op},
 \end{equation}
 where $\varepsilon_a$ is the diagonal element $\varepsilon_{aa}$. This is the 
 Hartree-Fock equation in its canonical form.
+
+\section{Koopmans' theorem}\label{c3s3}
+We show in the solution to problem \ref{c3p4} that the Fock operator is
+hermitian. We also started with the constraint that the spin orbitals are
+orthonormal. Therefore, the expectation value of the Fock operator in state
+$\ket{\chi_i}$ is the eigenvalue of the operator. From equation \eqref{c3e12},
+\[
+f = h + \sum_b(J_b - K_b)
+\]
+so that
+\begin{equation}\label{c3e39}
+\begin{aligned}
+\varepsilon_i &= \braket{i|f|i} \\
+ &= \braket{i|h|i} + \sum_b(\braket{i|J_b|i} - \braket{i|K_b|i}) \\
+ &= \braket{i|h|i} + \sum_b([ii|bb] - [ib|bi]) \\
+ &= \braket{i|h|i} + \sum_b(\braket{ib|ib} - \braket{ib|bi} (\text{ ref. } 
+ \eqref{c2e91}) \\
+ &= \braket{i|h|i} + \sum_b\braket{ib||ib} (\text{ ref. }\eqref{c2e88}
+\end{aligned}
+\end{equation}
+This equation gives interesting results for occupied and virtual orbitals. Since
+$\braket{aa||aa} = 0$, we effectively have
+\begin{equation}\label{c3e40}
+\varepsilon_a = \braket{a|h|a} + \sum_{b \ne a}\braket{ab||ab},
+\end{equation}
+while
+\begin{equation}\label{c3e41}
+\varepsilon_r = \braket{r|h|r} + \sum_b\braket{rb||br}
+\end{equation}
+The energy of the virtual orbital is as if there is an $N + 1$st electron in
+that orbital while that of an occupied orbital is due to all other charged
+particles in the molecule.
+
+It is also interesting to note that
+\begin{equation}\label{c3e42}
+\sum_a\varepsilon_a \ne E_0,
+\end{equation}
+where the expression for $E_0$ in \eqref{c2e110} can be written in the
+physicists' notation as
+\begin{equation}\label{c2e43}
+E_0 = \sum_{a=1}^N\braket{a|h|a} + \frac{1}{2}\sum_{a,b=1}^N(\braket{ab|ab} -
+\braket{ab|ba}) = \sum_{a=1}^N\braket{a|h|a} +
+\frac{1}{2}\sum_{a,b=1}^N\braket{ab||ba}.
+\end{equation}
+The two expression differ in the presence of a factor of $1/2$ in \eqref{c2e43}.
+This is not surprising because the total energy avoids double counting the
+Coulomb and exchange energies of a pair of electrons. However, this just means
+that total energy of a system of $N$ electrons is not the sum of energies of the
+individual electrons. Energy is not additive in these systems and they may show
+the same interesting features that self-gravitating systems show.
+(\textbf{Explore the virial theorem for a molecule and check if it has a
+negative specific heat.})
