@@ -370,7 +370,7 @@ It is also interesting to note that
 \end{equation}
 where the expression for $E_0$ in \eqref{c2e110} can be written in the
 physicists' notation as
-\begin{equation}\label{c2e43}
+\begin{equation}\label{c3e43}
 E_0 = \sum_{a=1}^N\braket{a|h|a} + \frac{1}{2}\sum_{a,b=1}^N(\braket{ab|ab} -
 \braket{ab|ba}) = \sum_{a=1}^N\braket{a|h|a} +
 \frac{1}{2}\sum_{a,b=1}^N\braket{ab||ba}.
@@ -383,3 +383,44 @@ individual electrons. Energy is not additive in these systems and they may show
 the same interesting features that self-gravitating systems show.
 (\textbf{Explore the virial theorem for a molecule and check if it has a
 negative specific heat.})
+
+Now consider the application of the annihilation operator $a_c$ on an
+$N$-electron system that destroys an electron in spin orbital $\chi_c$. Thus,
+\begin{equation}\label{c3e44}
+\ket{^{N-1}\Psi_c} = a_c\ket{^N\Psi_0}.
+\end{equation}
+The ionisation potential of $\chi_c$ is defined as
+\begin{equation}\label{c3e45}
+IP = ^{N-1}E_c - ^{N}E_0,
+\end{equation}
+where $^{N-1}E_c$ is the energy of $N-1$-electron system in which the electron
+in spin orbital $\chi_c$ is removed and the rest of the electrons remain in the
+same spin orbitals as they were in the $N$-electron system. Strictly speaking,
+this is an approximation. The minimal energy states of the $N-1$-electon systems
+are not going to be identical to those of the $N$-electron system. Assuming them
+to be the same is called the \emph{frozen orbitals} approximation. Using
+equation \eqref{c3e43},
+\[
+\begin{aligned}
+^NE_0 &= \sum_{a=1}^N\braket{a|h|a} + \frac{1}{2}\sum_{a,b=1}^N\braket{ab||ba} \\
+^{N-1}E_c &= \sum_{a=1}^N\braket{a|h|a} +
+\frac{1}{2}\sum_{a\ne c}\sum_{b \ne c}\braket{ab||ba}
+\end{aligned}
+\]
+so that
+\[
+IP = -\braket{c|h|c} - \frac{1}{2}\sum_a\braket{ac||ca} - \frac{1}{2}\sum_b
+\braket{cb||bc}
+\]
+From equations \eqref{c2e86} and \eqref{c2e88},
+\[
+IP = -\braket{c|h|c} - \frac{1}{2}\sum_a\braket{ac||ca} - \frac{1}{2}\sum_b
+\braket{bc||cb} = -\braket{c|h|c} - \sum_a\braket{ac||ca},
+\]
+which, from \eqref{c3e40} (or \eqref{c3e41}), is
+\begin{equation}\label{c3e46}
+IP = -\varepsilon_c
+\end{equation}
+If $c$ is the highest occupied molecular orbital, HOMO, then $IP$ is indeed a
+good first approximation to the molecule's first ionisation energy. This result
+is called \emph{Koopmans' theorem}.
