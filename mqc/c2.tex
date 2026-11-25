@@ -961,7 +961,7 @@ integral.
 
 \subsection{Rules for manipulating integrals}
 \begin{enumerate}
-\item If $\ket{K} = \ket{\chi_m(1)\chi_n(2)\ldots}$, where each spin orbital is
+\item\label{c2r1} If $\ket{K} = \ket{\chi_m(1)\chi_n(2)\ldots}$, where each spin orbital is
 normalised then $\braket{K|K} = 0$. If $\ket{L} = \ket{\chi_m^\op(1)\chi_n^\op(2)
 \ldots}$ and if at least one of these spin orbitals is different from the ones 
 in $\ket{K}$ then $\braket{K|L} = 0$.
@@ -1012,7 +1012,7 @@ We also make a rule that in computing all integrals we will permute the spin
 orbitals to get maximum matching while noting that every transposition of spin
 orbitals results in flipping the sign of the determinant.
 
-\item While evaluating terms like $\braket{K|O_1|L}$, where $O_1 = h(1) + 
+\item\label{c2r2} While evaluating terms like $\braket{K|O_1|L}$, where $O_1 = h(1) + 
 \cdots + h(N)$, we have
 \begin{equation}\label{c2e94}
 \braket{K|O_1|L} = \sum_{n=1}^N\braket{K|h(n)|L} = N\braket{K|h(1)|L}
@@ -1057,7 +1057,7 @@ As $\vec{x}_1$ and $\vec{x}_2$ are dummy variables, here shortened as $1$ and
 $2$ respectively as arguments of the spin orbitals, we can interchange them in 
 the second equation to see that it is identical with the first one.
 
-\item We will show that
+\item\label{c2r3} We will show that
 \begin{equation}\label{c2e95}
 \braket{K|O_1|K} = \sum_{m=1}^N\braket{m|h|m}.
 \end{equation}
@@ -1094,7 +1094,7 @@ The $\vec{x}_1$ itself can appear in any of the $N$ positions. That is, electron
 \chi_{i_n}} = \sum_{m=1}^N\braket{m|h|m}.
 \]
 
-\item If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
+\item\label{c2r4} If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
 $\ket{L}=\ket{\chi_{j_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ then
 \[
 \braket{K|O_1|L} = \braket{i_1|h|j_1}.
@@ -1120,7 +1120,7 @@ result, we do not get the factor of $N$ we previously got an
 \braket{K|O_1|L} = \braket{\chi_{i_1}|h(1)|\chi_{j_1}} = \braket{i_1|h(1)|j_1}
 \end{equation}A
 
-\item If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
+\item\label{c2r5} If $\ket{K}=\ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)}$ and
 $\ket{L}=\ket{\chi_{j_1}(1)\chi_{j_2}(2)\ldots\chi_{i_N}(N)}$ then
 \[
 \braket{K|O_1|L} = 0.
@@ -1132,7 +1132,7 @@ an orthonormal set, every permutation vanishes.
 
 The same is true if the two kets differ by three or more spin-orbitals.
 
-\item We now turn our attention to operators that depend on coordinates of
+\item\label{c2r6}  We now turn our attention to operators that depend on coordinates of
 two electrons. The most common example is $r_{ij}^{-1} = |\vec{r}_i - \vec{r}_j|$
 so that, 
 \[
@@ -1147,7 +1147,7 @@ to $\braket{K|o_{12}|L}$. Therefore, analogous to \eqref{c2e94}, we have
 \braket{K|O_{12}|L} = \frac{N(N-1)}{2}\braket{K|o_{12}|L}.
 \end{equation}
 
-\item We show that
+\item\label{c2r7}  We show that
 \begin{equation}\label{c2e98}
 \braket{K|O_2|K} = \frac{1}{2}\sum_{m=1}^N\sum_{n=1}^N\braket{mn||nm}
 \end{equation}
@@ -1198,7 +1198,7 @@ In chemists' notation, we can write the above equation as
 [i_1i_2|i_2i_1])
 \]
 
-\item We next show that if 
+\item\label{c2r8}  We next show that if 
 \[
 \begin{aligned}
 \ket{K} &= \ket{\chi_{i_1}(1)\chi_{i_2}(2)\ldots\chi_{i_N}(N)} \\
@@ -1265,7 +1265,7 @@ d\vec{x}_2\left[\chi_{i_1}^\ast(\vec{x}_1)\chi_{i_2}^\ast(\vec{x}_2)
 \end{aligned}
 \]
 
-\item Lastly we show that if
+\item\label{s2r9} Lastly we show that if
 \[
 \begin{aligned}
 \ket{K} &= \ket{\ldots\chi_{i_1}(1)\chi_{i_2}(2)\ldots} \\

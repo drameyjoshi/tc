@@ -443,3 +443,31 @@ so that
 \begin{equation}\label{c3e48}
 \text{EA} = -\braket{r|h|r} - \sum_{a=1}^N\braket{ar||ra}.
 \end{equation}
+
+\section{Brillouin's theorem}\label{c3s4}
+The Hartree-Fock procedure gives a set of orthonormal spin orbitals
+$\{\chi_i\}$. If there are $N$ electrons in the system, we choose the spin
+orbitals corresponding to the lowest $N$ energy levels to build the ground
+state determinant $\ket{\Psi_0}$. In a single determinant approximation, this
+is the true Hatree-Fock ground state of the system. In a multi-determinant
+approximation, we write
+\begin{equation}\label{c3e49}
+\ket{\Phi_0} = \ket{\Psi_0} + \sum_{a, r}c_a^r\ket{\Psi_a^r} + \cdots,
+\end{equation}
+where the next higher order terms could be a linear combination of the doubly
+excited determinants expresses as the sum
+\[
+\sum_{a,b,r,s}c_{ab}^{rs}\ket{\Psi_{ab}^{rs}}.
+\]
+Since the Hartree-Fock hamiltonian $H_0$ is a sum of the Fock hamiltonians,
+that is,
+\[
+H_0 = \sum_{i=1}^N f(i)
+\]
+and the Hartree-Fock procedure adheres to the constraint
+$\braket{\chi_i|\chi_j} = \delta_{ij}$, rule \ref{c2r5} of the previous section
+assures us that
+\begin{equation}\label{c3e50}
+\braket{\Psi_0|H|\Psi_a^r} = 0.
+\end{equation}
+This is \emph{Brillouin's theorem}.
