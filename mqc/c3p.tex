@@ -106,4 +106,33 @@ so that
 \end{aligned}
 \]
 making $f$ a hermitial operator.
+
+\item\label{c3p5} Energy needed to eject two electrons.
+\[
+\begin{aligned}
+^NE_0 &= \sum_{a=1}^N\braket{a|h|a} + \frac{1}{2}\sum_{a,b=1}^N\braket{ab||ba} \\
+^{N-2}E_{cd} &= \sum_{a=1, a\ne c,d}^N\braket{a|h|a} +
+\frac{1}{2}\sum_{a\ne c,d}\sum_{b \ne c,d}\braket{ab||ba}
+\end{aligned}
+\]
+so that
+\[
+\begin{aligned}
+^{N-2}E_{c,d} - ^NE_0 &= -\braket{c|h|c} - \braket{d|h|d} - \\
+ &\quad \frac{1}{2}\sum_{b=1}^N\braket{cb||bc} - 
+   \frac{1}{2}\sum_{b=1}^N\braket{db||bd} - \\
+ &\quad \frac{1}{2}\sum_{a=1}^N\braket{ac||ca} - 
+  \frac{1}{2}\sum_{a=1}^N\braket{ad||da}.
+\end{aligned}
+\]
+Using \eqref{c2e86} and \eqref{c2e88},
+\[
+\begin{aligned}
+^{N-2}E_{c,d} - ^NE_0 &= -\braket{c|h|c} - \braket{d|h|d} -
+\sum_{b=1}^N\braket{cb||bc} - \sum_{b=1}^N\braket{db||bd} \\
+ &= -\varepsilon_c - \varepsilon_d
+\end{aligned}
+\]
+
+\item\label{c3p6} Electron affinity. Calculated as \eqref{c3e48}.
 \end{enumerate}
