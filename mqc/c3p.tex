@@ -65,7 +65,7 @@ must be real.
 \item\label{c3p3} Calculation of $\delta E_0$.
 Done in the notes to arrive at equation \eqref{c3e25}.
 
-\item Hermiticity of the Fock operator.
+\item\label{c3p4} Hermiticity of the Fock operator.
 We showed in problem \ref{c3p1} that
 \[
 \braket{i|f|j} = \braket{i|h|j} + \sum_b\left([ij|bb] - [ib|bj]\right)
@@ -186,8 +186,8 @@ P_{12}f(1)\Psi(\vec{x}_1, \ldots, \vec{x}_N) &= h(2)\Psi(\vec{x}_2, \vec{x}_1,
 \end{aligned}
 \]
 Thus, $P_{12}f(1) = f(2)P_{12}$. From this, we also get $P_{12}^2 f(1) =
-P_{12}f(2)P_{12} \Rightrrow f(1) = P_{12}f(2)P_{12} \Rightarrow f(1)P_{12} =
-P_{12}f(2)P_{12}^2 \Rightrrow f(1)P_{12} = P_{12}f(2)$.
+P_{12}f(2)P_{12} \Rightarrow f(1) = P_{12}f(2)P_{12} \Rightarrow f(1)P_{12} =
+P_{12}f(2)P_{12}^2 \Rightarrow f(1)P_{12} = P_{12}f(2)$.
 
 Therefore,
 \[
@@ -197,5 +197,28 @@ f(3)P_{12} + \cdots f(N)P_{12} \\
 &= (f(1) + \cdots f(N))P_{12}.
 \end{aligned}
 \]
-Thus, $P_{12}$ commutes with the Hartree-Fock hamiltonian.
+Thus, $P_{12}$ commutes with the Hartree-Fock hamiltonian. In general, $P_{ij}$
+commutes with the Hartree-Fock hamiltonian.
+
+The ground state is defined as
+\[
+\ket{\Psi_0} = \frac{1}{\sqrt{N!}}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sigma_n
+\ket{\chi_1\ldots\chi_N}
+\]
+so that
+\[
+\begin{aligned}
+H\ket{\Psi_0} &=
+\frac{1}{\sqrt{N!}}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sum_{k=1}^N f(k)\sigma_n
+\ket{\chi_1\ldots\chi_N} \\
+&= \frac{1}{\sqrt{N!}}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sum_{k=1}^N\sigma_n f(k)
+\ket{\chi_1\ldots\chi_N} \\
+&= \frac{1}{\sqrt{N!}}\sum_{n=1}^{N!}(-1)^{|\sigma_n|}\sum_{k=1}^N\sigma_n
+\varepsilon_k \ket{\chi_1\ldots\chi_N} \\
+&= \left(\sum_k\varepsilon_k\right)\frac{1}{\sqrt{N!}}\sum_{n=1}^{N!}
+(-1)^{|\sigma_n|}\ket{\chi_1\ldots\chi_N} \\
+&= \left(\sum_k\varepsilon_k\right)\ket{\Psi_0}
+\end{aligned}
+\]
+
 \end{enumerate}
