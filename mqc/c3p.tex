@@ -135,4 +135,67 @@ Using \eqref{c2e86} and \eqref{c2e88},
 \]
 
 \item\label{c3p6} Electron affinity. Calculated as \eqref{c3e48}.
+
+\item\label{c3p7} Commutator of Hartree-Fock hamiltonian and the permutation
+operator.
+
+Consider the general permutation operator $P_{ij}$ which swaps electrons $i$
+and $j$. It is an $N$-electron operator that acts on $N$-electron
+wavefunctions. On the other hand, $f(1)$ is a one electron operator. Therefore,
+it does not make sense to check if they commute. We are asked to investigate
+$[P_{ij}, H]$, where $H$ is the Hartree-Fock hamiltonian which is the sum of
+the Fock operators for all electrons. We want to show that
+\[
+\left[P_{ij}, \sum_k f(k)\right] = 0.
+\]
+Without loss of generality, we will choose $i = 1, j = 2$. Then,
+\[
+P_{12}\Psi(\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_N) = \Psi(\vec{x}_2,
+\vec{x}_1, \ldots, \vec{x}_N).
+\]
+For $k \ge 3$,
+\[
+P_{12}f(k)\Psi(\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_N) = f(k)\Psi(\vec{x}_2,
+\vec{x}_1, \ldots, \vec{x}_N) = f(k)P_{12}\Psi(\vec{x}_1, \vec{x}_2, \ldots,
+\vec{x}_N),
+\]
+that is $[P_{12}, f(k)] = 0$ for $k \ge 3$.
+
+Now consider
+\[
+\begin{aligned}
+f(1)\Psi(\vec{x}_1, \ldots, \vec{x}_N) &= h(1)\Psi(\vec{x}_1, \ldots,
+\vec{x}_N) + \\
+ &= \sum_b\int \frac{d\vec{x}^\op}{|\vec{r}_1 - \vec{r}^\op|}\chi_b^\ast(\vec{x}^\op)
+ (\chi_b(\vec{x}^\op) - \chi_b(\vec{x}_1))\Psi(\vec{x}_1, \ldots, \vec{x}_N).
+\end{aligned}
+\]
+so that
+\[
+\begin{aligned}
+P_{12}f(1)\Psi(\vec{x}_1, \ldots, \vec{x}_N) &= h(2)\Psi(\vec{x}_2, \vec{x}_1,
+\ldots, \vec{x}_N) + \\
+ & \sum_b\int\frac{d\vec{x}^\op}{|\vec{r}_2 -
+ \vec{r}^\op|}\chi_b^\ast(\vec{x}^\op)(\chi_b(\vec{x}^\op) - \chi_b(\vec{x}_2))
+ \Psi(\vec{x}_2, \vec{x}_1, \ldots, \vec{x}_N) \\
+ &= h(2)P_{12}\Psi(\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_N) + \\
+ & \sum_b\int\frac{d\vec{x}^\op}{|\vec{r}_2 -
+ \vec{r}^\op|}\chi_b^\ast(\vec{x}^\op)(\chi_b(\vec{x}^\op) - \chi_b(\vec{x}_2))
+ P_{12}\Psi(\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_N) \\
+ &= f(2)P_{12}\Psi(\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_N) 
+\end{aligned}
+\]
+Thus, $P_{12}f(1) = f(2)P_{12}$. From this, we also get $P_{12}^2 f(1) =
+P_{12}f(2)P_{12} \Rightrrow f(1) = P_{12}f(2)P_{12} \Rightarrow f(1)P_{12} =
+P_{12}f(2)P_{12}^2 \Rightrrow f(1)P_{12} = P_{12}f(2)$.
+
+Therefore,
+\[
+\begin{aligned}
+P_{12}(f(1) + f(2) + f(3) + \cdots + f(N)) &= f(2)P_{12} + f(1)P_{12} +
+f(3)P_{12} + \cdots f(N)P_{12} \\
+&= (f(1) + \cdots f(N))P_{12}.
+\end{aligned}
+\]
+Thus, $P_{12}$ commutes with the Hartree-Fock hamiltonian.
 \end{enumerate}
